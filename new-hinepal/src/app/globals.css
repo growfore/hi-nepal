@@ -1,0 +1,19 @@
+.overview-content h1 {
+  font-size: 25px !important;
+}
+.overview-content h2 {
+  font-size: 20px !important;
+  margin-bottom: auto;
+  line-height: normal;
+}
+@media screen and (min-width: 600px) {
+  .sub-menu {
+    left: 100% !important;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}

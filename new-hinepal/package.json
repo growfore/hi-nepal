@@ -1,0 +1,41 @@
+{
+  "name": "new-hinepal",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p 4007",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@microsoft/clarity": "^1.0.0",
+    "@radix-ui/react-collapsible": "^1.1.0",
+    "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-menubar": "^1.1.1",
+    "@radix-ui/react-navigation-menu": "^1.2.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "embla-carousel-autoplay": "^8.1.6",
+    "embla-carousel-react": "^8.1.6",
+    "jquery": "^3.7.1",
+    "lucide-react": "^0.408.0",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hot-toast": "^2.5.1",
+    "react-slick": "^0.30.2",
+    "sitemap": "^8.0.0",
+    "slick-carousel": "^1.8.1",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.32",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-slick": "^0.23.13",
+    "typescript": "^5"
+  }
+}

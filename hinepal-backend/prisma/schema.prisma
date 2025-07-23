@@ -1,0 +1,386 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model SiteInformation {
+  id          Int           @id @default(autoincrement())
+  name        String?
+  logo        String?
+  icon        String?
+  description String?       @db.MediumText
+  url         String?
+  address     String?
+  location    String?
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @default(now()) @map("updated_at")
+  phone1      String?       @map("phone_1")
+  phone2      String?       @map("phone_2")
+  email1      String?       @map("email_1")
+  email2      String?       @map("email_2")
+  facebook    String?       @map("facebook")
+  twitter     String?       @map("twitter")
+  instagram   String?       @map("instagram")
+  linkedin    String?       @map("linkedin")
+  youtube     String?       @map("youtube")
+  whatsapp    String?       @map("whatsapp")
+  openingTime String?       @map("opening_time")
+  bgImage     String?       @map("bg_image")
+  footerAbout String?       @map("footer_about")
+  rewardImg1  String?       @map("reward_img")
+  rewardImg2  String?       @map("reward_img_2")
+  footerImg   String?       @map("footer_img")
+  about       AboutSection?
+
+  @@map("site_information")
+}
+
+model Review {
+  id          Int      @id @default(autoincrement())
+  image       String?
+  description String?  @db.MediumText
+  name        String?
+  travelBy    String?  @map("travel_by")
+  link        String?
+  title       String?
+  rating      Int?
+  packageId   Int?
+  package     Package? @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  reviewDate  DateTime @default(now()) @map("review_date")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("review")
+}
+
+model User {
+  id         Int       @id @default(autoincrement())
+  name       String?
+  email      String    @unique
+  role       String    @default("user")
+  image      String?
+  username   String?
+  country    String?
+  phone      String?
+  address    String?
+  isVerified Boolean?
+  password   String?
+  createdAt  DateTime  @default(now()) @map("created_at")
+  updatedAt  DateTime  @default(now()) @map("updated_at")
+  Booking    Booking[]
+
+  @@map("user")
+}
+
+model Carousel {
+  id          Int      @id @default(autoincrement())
+  title       String?
+  description String?  @db.MediumText
+  subtitle    String?
+  link        String?
+  image       String?
+  page        String?
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @default(now()) @map("updated_at")
+
+  @@map("carousel")
+}
+
+model Blog {
+  id          Int       @id @default(autoincrement())
+  title       String?
+  description String?   @db.MediumText
+  content     String?   @db.LongText
+  image       String?
+  slug        String    @unique
+  subtitle    String?
+  link        String?
+  page        String?
+  seo         Seo?      @relation(fields: [seoId], references: [id])
+  seoId       Int?      @unique @map("seo_id")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @default(now()) @map("updated_at")
+  Author      Author?   @relation(fields: [authorId], references: [id])
+  authorId    Int?
+  Comment     Comment[]
+
+  @@map("blog")
+}
+
+model Seo {
+  id              Int          @id @default(autoincrement())
+  metaTitle       String?      @map("meta_title")
+  metaDescription String?      @map("meta_description") @db.MediumText
+  metaKeywords    String?      @map("meta_keyword") @db.MediumText
+  metaImage       String?      @map("meta_image")
+  metaRobots      String?      @map("meta_robots")
+  metaAuthor      String?      @map("meta_author")
+  metaCanonical   String?      @map("meta_canonical")
+  metaRating      String?      @map("meta_rating")
+  metaCopyright   String?      @map("meta_copyright")
+  metaRevisit     String?      @map("meta_revisit")
+  twitterCard     String?      @map("twitter_card")
+  twitterSite     String?      @map("twitter_site")
+  schema          String?      @db.MediumText
+  createdAt       DateTime     @default(now()) @map("created_at")
+  updatedAt       DateTime     @default(now()) @map("updated_at")
+  Blog            Blog?
+  Package         Package?
+  Activity        Activity?
+  Destination     Destination?
+
+  @@map("seo")
+}
+
+model Activity {
+  id           Int           @id @default(autoincrement())
+  name         String?
+  description  String?
+  slug         String?       @unique
+  createdAt    DateTime      @default(now()) @map("created_at")
+  destinations Destination[]
+  seo          Seo?          @relation(fields: [seoId], references: [id])
+  image        String?
+  seoId        Int?          @unique @map("seo_id")
+
+  @@map("activity")
+}
+
+model Destination {
+  id          Int       @id @default(autoincrement())
+  name        String?
+  slug        String?   @unique
+  description String?
+  activity    Activity  @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  activityId  Int       @map("category_id")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  packages    Package[]
+  seo         Seo?      @relation(fields: [seoId], references: [id])
+
+  image String?
+  seoId Int?    @unique @map("seo_id")
+
+  @@map("destination")
+}
+
+model Package {
+  id            Int         @id @default(autoincrement())
+  title         String?
+  description   String?     @db.LongText
+  content       String?     @db.LongText
+  banner        String?
+  thumbnail     String?
+  slug          String      @unique
+  subtitle      String?
+  introduction  String?     @db.LongText
+  goodtoknow    String?     @db.LongText
+  price         String?
+  discount      String?
+  duration      String?
+  link          String?
+  bestSeason    String?     @map("best_season")
+  videoLink     String?     @map("video_link")
+  rating        String?
+  altitude      String?
+  startFrom     String?     @map("start_from")
+  endAt         String?     @map("end_at")
+  culture       String?
+  attractions   String?
+  accommodation String?
+  groupSize     String?     @map("group_size")
+  groupAge      String?     @map("group_age")
+  map           String?
+  
+  // extra fields added by Growfore
+  transportation String?
+  permits        String?
+  tripGrade     String?     @map("trip_grade")
+  overview      String?    @db.LongText
+  highlights    String?    @db.LongText
+  altitudeInfo   String?    @map("altitude_info") @db.LongText
+  itenary       String?     @db.LongText
+  packing      String?     @db.LongText 
+  bestSeasonInfo String? @map("best_season_info") @db.LongText
+  routeOverview String? @map("route_overview") @db.LongText
+  includes      String?     @db.LongText
+  excludes      String?     @db.LongText
+  sicknessAndSaftey String? @map("sickness_and_safety") @db.LongText
+  insuranceAndEmergency String? @map("insurance_and_emergency") @db.LongText
+  permitsAndRegulations String? @map("permits_and_regulations") @db.LongText
+  shortTrekInfo String? @map("short_trek_info") @db.LongText
+  whyChooseThisPackage String? @map("why_choose_this_package") @db.LongText
+  priceBreakDown String? @map("price_breakdown") @db.LongText
+  bookingInfo String? @map("booking_information") @db.LongText
+  //extra fields added ends
+
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @default(now()) @map("updated_at")
+  Booking       Booking[]
+  faqs          Faq[]
+  reviews       Review[]
+  seo           Seo?        @relation(fields: [seoId], references: [id])
+  seoId         Int?        @unique
+  media         Media[]
+  destination   Destination @relation(fields: [destinationId], references: [id], onDelete: Cascade)
+  destinationId Int         @map("destination_id")
+  Author        Author?     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId      Int?
+  Comment       Comment[]
+
+  @@map("package")
+}
+
+model Faq {
+  id        Int      @id @default(autoincrement())
+  question  String?
+  answer    String?
+  packageId Int
+  package   Package  @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+}
+
+model Booking {
+  id            Int            @id @default(autoincrement())
+  packageId     Int
+  userId        Int?
+  createdAt     DateTime       @default(now()) @map("created_at")
+  updatedAt     DateTime       @default(now()) @map("updated_at")
+  package       Package        @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  user          User?          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookingDetail BookingDetail? // This side doesn't need a field for `bookingDetailId`
+  payment       Payment?
+
+  @@map("booking")
+}
+
+model BookingDetail {
+  id        Int       @id @default(autoincrement())
+  name      String?
+  email     String
+  duration  String?
+  date      DateTime?
+  phone     String?
+  address   String?
+  country   String?
+  message   String?   @db.MediumText
+  subject   String?   @db.MediumText
+  bookingId Int       @unique // Foreign key to Booking
+  booking   Booking   @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @default(now()) @map("updated_at")
+}
+
+model Payment {
+  id             String   @id @default(cuid())
+  bookingId      Int      @unique
+  booking        Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  status         String
+  paymentMethod  String
+  amount         Int
+  currency       String?
+  transactionId  String?
+  discountAmount Int?
+  discountType   String?
+  couponCode     String?
+  paymentDate    DateTime @default(now()) @map("payment_date")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @default(now()) @map("updated_at")
+
+  @@map("payment")
+}
+
+model Team {
+  id        Int      @id @default(autoincrement())
+  name      String?
+  image     String?
+  position  String?
+  facebook  String?
+  twitter   String?
+  linkedin  String?
+  createdAt DateTime @default(now()) @map("created_at")
+}
+
+model AboutSection {
+  id                Int              @id @default(autoincrement())
+  title             String?
+  description       String?          @db.LongText
+  image1            String?
+  image2            String?
+  image3            String?
+  image4            String?
+  image5            String?
+  createdAt         DateTime         @default(now()) @map("created_at")
+  siteInformationId Int?             @unique
+  SiteInformation   SiteInformation? @relation(fields: [siteInformationId], references: [id], onDelete: SetNull)
+
+  @@map("about_section")
+}
+
+model Mail {
+  id        Int      @id @default(autoincrement())
+  name      String?
+  phone     String?
+  email     String
+  message   String?  @db.MediumText
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+}
+
+model Media {
+  id        Int      @id @default(autoincrement())
+  alt       String?
+  name      String?
+  url       String
+  packageId Int?
+  package   Package? @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+
+  @@map("media")
+}
+
+model Author {
+  id             Int   @id @default(autoincrement())
+  name           String
+  username       String
+  email          String   @unique
+  bio            String?
+  profilePicture String?
+  socialLinks    Json?
+  website        String?
+  role           String   @default("author")
+  status         String   @default("active")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  blogs    Blog[]
+  comments Comment[]
+  packages Package[]
+
+  @@unique([username, email])
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  name      String?
+  email     String
+  message   String?  @db.MediumText
+  packageId Int?
+  package   Package? @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  blogId    Int?
+  blog      Blog?    @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  Author    Author?  @relation(fields: [authorId], references: [id])
+  authorId  Int?
+}

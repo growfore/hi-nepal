@@ -1,0 +1,15 @@
+-- AlterTable
+ALTER TABLE `package` ADD COLUMN `altitude_info` VARCHAR(191) NULL,
+    ADD COLUMN `best_season_info` VARCHAR(191) NULL,
+    ADD COLUMN `booking_information` VARCHAR(191) NULL,
+    ADD COLUMN `excludes` LONGTEXT NULL,
+    ADD COLUMN `highlights` LONGTEXT NULL,
+    ADD COLUMN `insurance_and_emergency` VARCHAR(191) NULL,
+    ADD COLUMN `overview` LONGTEXT NULL,
+    ADD COLUMN `packing` LONGTEXT NULL,
+    ADD COLUMN `permits_and_regulations` VARCHAR(191) NULL,
+    ADD COLUMN `price_breakdown` VARCHAR(191) NULL,
+    ADD COLUMN `route_overview` VARCHAR(191) NULL,
+    ADD COLUMN `short_trek_info` VARCHAR(191) NULL,
+    ADD COLUMN `sickness_and_safety` VARCHAR(191) NULL,
+    ADD COLUMN `why_choose_this_package` VARCHAR(191) NULL;

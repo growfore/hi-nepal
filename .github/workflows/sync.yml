@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: hinepal_gh_actions
 
     steps:
       - name: Checkout code

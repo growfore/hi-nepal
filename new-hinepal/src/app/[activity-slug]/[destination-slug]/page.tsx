@@ -3,9 +3,9 @@ import Activities from '../../_components/activities';
 import { TDestinationSingle, TPackages } from '@/types/types';
 import { get } from '@/utils/request-hander';
 import endpoints from '@/constant/endpoints';
-import Image from 'next/image';
 import PackageCard from '@/components/package-card';
 import { notFound } from 'next/navigation';
+import Head from 'next/head';
 
 const Packages = async ({
   params,
@@ -28,6 +28,10 @@ const Packages = async ({
   });
 
   return (
+    <>
+    <Head>
+    <title>{params['destination-slug']}</title> 
+    </Head>
     <main id='content' className='site-main'>
       {/* Inner Banner html start*/}
       <section className='inner-banner-wrap'>
@@ -63,6 +67,7 @@ const Packages = async ({
       <Activities />
       {/* activity html end */}
     </main>
+</>
   );
 };
 

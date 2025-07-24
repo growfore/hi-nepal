@@ -18,10 +18,6 @@ export const metadata: Metadata = {
   robots: 'noindex',
   title: 'Admin Panel Hinepal Treks and travel',
   description: 'Admin Panel Hinepal Treks and travel',
-
-  authors: [
-    { name: 'Shishir Adhikari', url: 'https://adhikarishishir.com.np' },
-  ],
 };
 
 export default function RootLayout({

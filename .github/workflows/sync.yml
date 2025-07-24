@@ -28,16 +28,16 @@ jobs:
             npm ci
             npm run build
             npx prisma migrate deploy
-            pm2 restart api.hinepaltreks
+            pm2 restart backend 
 
             # Admin Panel
             cd ../hinepal-adminpanel
             npm ci
             npm run build
-            pm2 restart admin.hinepaltreks
+            pm2 restart admin
 
             # Frontend
             cd ../new-hinepal
             npm ci
             npm run build
-            pm2 restart hinepaltreks
+            pm2 restart frontend 

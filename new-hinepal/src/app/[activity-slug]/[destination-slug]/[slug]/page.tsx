@@ -145,10 +145,6 @@ const activites = ({ params }: { params: Params }) => {
                 </aside> */}
 
                 <section className='main-content-area'>
-                    <div className='overview'>
-                        <h2 className='page-header'>Overview of {details.title}</h2>
-                        <p className='overview content' dangerouslySetInnerHTML={{ __html: details.overview! }}></p>
-                    </div>
                     <div className="data">
                         <DataIcon icon={MountainSnow} k='Destination' v={details.title} />
                         <DataIcon icon={Clock} k='Duration' v={details.duration + " Days"} />
@@ -167,6 +163,12 @@ const activites = ({ params }: { params: Params }) => {
                                 <p className='data-item-value'>{details.permits ?? "Manaslu Restricted Area Permit (MRAP), Annapurna Conservation Area Permit (ACAP), Manaslu Conservation Area Permit (MCAP)"}</p>
                             </div>
                         </div>
+                    </div>
+
+                    {/* Overview Section */}
+                    <div className='overview'>
+                        <h2 className='page-header'>Overview of {details.title}</h2>
+                        <p className='overview content' dangerouslySetInnerHTML={{ __html: details.overview! }}></p>
                     </div>
 
                     {/* Highlights Section  */}
@@ -445,7 +447,6 @@ const activites = ({ params }: { params: Params }) => {
                                 className='thumbnail'
                             />
                             <p className='title'><strong>{details.title}</strong></p>
-                            <p style={{ color: "green", marginTop: "-10px", fontWeight: "900", fontSize: "1rem" }}>${details.price}/person</p>
                             <Button link="/book-now">Book Now</Button>
                         </div>
 

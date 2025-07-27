@@ -7,22 +7,16 @@ import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import Image from 'next/image';
 import React, { lazy, useEffect, useState } from 'react';
 import GallerySlider from './_components/gallery-slider';
-import Introduction from './_components/introduction';
-import Itenary from './_components/itenary';
-import Includes from './_components/includes';
-import GoodToKnow from './_components/good-to-know';
 import { notFound } from 'next/navigation';
 import "./package.css";
 import { Button } from '@/components/Button';
 import Link from 'next/dist/client/link';
-import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, House, MountainSnow, Smile, UsersRound, Star, PlaneTakeoffIcon, BookMarked, ArrowBigDown, ChevronDown, ChevronUp, Backpack, Route, Cross, Check, X, FileQuestion, Bookmark, IterationCcw, HeartPulse, TicketCheck, SignpostBig, Coins } from "lucide-react";
+import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, House, MountainSnow, Smile, UsersRound, Star, PlaneTakeoffIcon, BookMarked, ArrowBigDown, ChevronDown, ChevronUp, Backpack, Route, Cross, Check, X, FileQuestion, Bookmark, IterationCcw, HeartPulse, TicketCheck, SignpostBig, Coins, MessageCircleQuestionIcon } from "lucide-react";
 import { DataIcon } from '@/components/DataIcon';
 import "@/app/package-content.css";
 import "./table-style.css"
 
 const activites = ({ params }: { params: Params }) => {
-    // let details: TPackageDetails = {} as TPackageDetails;
-    // let relatedProducts: TPackageDetails[] = [] as TPackageDetails[];
     const [details, setDetails] = React.useState<TPackageDetails>({} as TPackageDetails);
     const [relatedProducts, setRelatedProducts] = React.useState<TPackageDetails[]>([]);
     const [h2Headings, setH2Headings] = React.useState<{ id: string, text: string }[]>([]);
@@ -30,21 +24,12 @@ const activites = ({ params }: { params: Params }) => {
     const [chevrons, setChevrons] = useState<{ [key: string]: boolean }>({});
     const navigations = [
         { id: 'overview', label: 'Overview' },
-        { id: 'highlights', label: 'Highlights' },
-        { id: 'altitude', label: 'Altitude' },
-        { id: 'itenary', label: 'Itenary Overview' },
+        { id: 'itenary', label: 'Itinerary' },
         { id: 'packing', label: 'Packing Essentials' },
         { id: 'best-season', label: 'Best Seasons' },
-        { id: 'route-overview', label: 'Route Overview' },
         { id: 'includes', label: 'Includes' },
         { id: 'excludes', label: 'Excludes' },
-        // { id: 'sicknessAndSafety', label: 'Sickness and Safety Tips' },
-        // { id: 'insuranceAndEmergency', label: 'Insurance and Emergency Regulations' },
-        // { id: 'permitsAndRegulations', label: 'Permits and Regulations' },
-        { id: 'shortTrekInfo', label: 'Short Trek Info' },
-        { id: 'whyChooseThisPackage', label: 'Why?' },
-        { id: 'priceBreakdown', label: 'Cost Breakdown' },
-        { id: 'bookingInfo', label: 'Booking Info' }
+        { id: 'faqs', label: 'FAQs' }
     ]
 
     const toggleChevron = (key: string) => {
@@ -177,8 +162,10 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='highlights' className="section">
                             <div className="section-head">
                                 <div className='section-title'>
-                                    <DataIcon icon={Star} size={32} />
-                                    <p>Highlights of {details.title}</p>
+                                    <div className='section-icon'>
+                                    <DataIcon icon={Star} />
+                                    </div>
+                                    {/* <p>Highlights of {details.title}</p>  */}
                                 </div>
                             </div>
                             {
@@ -195,8 +182,7 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='altitude' className="section">
                             <div className="section-head">
                                 <div className='section-title'>
-                                    <DataIcon icon={MountainSnow} size={32} />
-                                    <p>{details.title} Altitude and Elevation</p>
+                                    <DataIcon icon={MountainSnow}  />
                                 </div>
                             </div>
                             {
@@ -211,8 +197,7 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='itenary' className="section itenary">
                             <div className="section-head">
                                 <div className='section-title'>
-                                    <DataIcon icon={IterationCcw} size={32} />
-                                    <p>{details.title} Itinerary Overview</p>
+                                    <DataIcon icon={IterationCcw}  />
                                 </div>
                             </div>
                             {
@@ -229,8 +214,7 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='packing' className="section">
                             <div className="section-head" >
                                 <div className='section-title'>
-                                    <DataIcon icon={Backpack} size={32} />
-                                    <p>{details.title} Packing Essentials for {details.title} </p>
+                                    <DataIcon icon={Backpack}  />
                                 </div>
                             </div>
                             {
@@ -247,8 +231,7 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='best-season' className="section">
                             <div className="section-head" >
                                 <div className='section-title'>
-                                    <DataIcon icon={CloudSunRain} size={32} />
-                                    <p>Best time to do the {details.title}</p>
+                                    <DataIcon icon={CloudSunRain}  />
                                 </div>
                             </div>
                             {
@@ -264,8 +247,7 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='route-overview' className="section">
                             <div className="section-head">
                                 <div className='section-title'>
-                                    <DataIcon icon={Route} size={32} />
-                                    <p>{details.title}: Route Overview and Key Maps</p>
+                                    <DataIcon icon={Route}  />
                                 </div>
                             </div>
                             {
@@ -281,7 +263,7 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='includes' className="section">
                             <div className="section-head">
                                 <div className='section-title'>
-                                    <DataIcon icon={Check} size={32} />
+                                    <DataIcon icon={Check}  />
                                     <p>Includes</p>
                                 </div>
                             </div>
@@ -297,7 +279,7 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='excludes' className="section">
                             <div className="section-head">
                                 <div className='section-title'>
-                                    <DataIcon icon={X} size={32} />
+                                    <DataIcon icon={X}  />
                                     <p>Excludes</p>
                                 </div>
                             </div>
@@ -314,8 +296,7 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='sicknessAndSafety' className="section">
                             <div className="section-head" >
                                 <div className='section-title'>
-                                    <DataIcon icon={Cross} size={32} />
-                                    <p>Sickness and Safety Tips</p>
+                                    <DataIcon icon={Cross}  />
                                 </div>
                             </div>
                             {
@@ -331,8 +312,7 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='insuranceAndEmergency' className="section">
                             <div className="section-head" >
                                 <div className='section-title'>
-                                    <DataIcon icon={HeartPulse} size={32} />
-                                    <p>Travel Insurance and Emergency Regulations</p>
+                                    <DataIcon icon={HeartPulse}  />
                                 </div>
                             </div>
                             {
@@ -348,8 +328,7 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='permitsAndRegulations' className="section">
                             <div className="section-head" >
                                 <div className='section-title'>
-                                    <DataIcon icon={TicketCheck} size={32} />
-                                    <p>Permits and Regulations for {details.title} </p>
+                                    <DataIcon icon={TicketCheck}  />
                                 </div>
                             </div>
                             {
@@ -366,8 +345,7 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='shortTrekInfo' className="section">
                             <div className="section-head" >
                                 <div className='section-title'>
-                                    <DataIcon icon={SignpostBig} size={32} />
-                                    <p>Short {details.title} :Explore the {details.title} Short trek Option</p>
+                                    <DataIcon icon={SignpostBig}  />
                                 </div>
                             </div>
                             {
@@ -383,8 +361,8 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='whyChooseThisPackage' className="section">
                             <div className="section-head">
                                 <div className='section-title'>
-                                    <DataIcon icon={FileQuestion} size={32} />
-                                    <p>Why Choose {details.title}?</p>
+                                    <DataIcon icon={FileQuestion}  />
+                                    <p>Why Choose {details.title} with us?</p>
                                 </div>
                             </div>
                             {
@@ -400,8 +378,7 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='priceBreakdown' className="section">
                             <div className="section-head" >
                                 <div className='section-title'>
-                                    <DataIcon icon={Coins} size={32} />
-                                    <p>{details.title} Cost: Complete Cost Breakdown </p>
+                                    <DataIcon icon={Coins}  />
                                 </div>
                             </div>
 
@@ -417,8 +394,7 @@ const activites = ({ params }: { params: Params }) => {
                         <div id='bookingInfo' className="section">
                             <div className="section-head">
                                 <div className='section-title'>
-                                    <DataIcon icon={Bookmark} size={32} />
-                                    <p>How can the {details.title} be booked?</p>
+                                    <DataIcon icon={Bookmark}  />
                                 </div>
                             </div>
                             {
@@ -426,6 +402,24 @@ const activites = ({ params }: { params: Params }) => {
                                 </div>
                             }
                             <Button link='tel: +977 ' >Ask for the Cost</Button>
+                        </div>
+                    }
+                    {/* Faqs */}
+                    {
+                        details.goodtoknow &&
+                        <div id='faqs' className="section">
+                            <div className="section-head">
+                                <div className='section-title'>
+                                    <div className='section-icon'>
+                                    <DataIcon icon={MessageCircleQuestionIcon}  />
+                                    </div>
+                                    <p>Frequently Asked Questions</p>
+                                </div>
+                            </div>
+                            {
+                                <div dangerouslySetInnerHTML={{ __html: details.goodtoknow}} className="content route-overview-content">
+                                </div>
+                            }
                         </div>
                     }
                     <div className="gallery">
@@ -442,8 +436,8 @@ const activites = ({ params }: { params: Params }) => {
                             <Image
                                 src={details.thumbnail}
                                 alt={details.title}
-                                width={300}
-                                height={200}
+                                width={250}
+                                height={150}
                                 className='thumbnail'
                             />
                             <p className='title'><strong>{details.title}</strong></p>

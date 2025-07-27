@@ -392,10 +392,11 @@ export function PostEditorComponent({
                   <Button type='button' onClick={() => setWhichWriting("sicknessAndSaftey")}> Sickness and Safety</Button>
                   <Button type='button' onClick={() => setWhichWriting("insuranceAndEmergency")}> Insurance & Emergency</Button>
                   <Button type='button' onClick={() => setWhichWriting("permitsAndRegulations")}> Permits & Regulations</Button>
-                  <Button type='button' onClick={() => setWhichWriting("shortTrekInfo")}> Itinerary Summary</Button>
+                  <Button type='button' onClick={() => setWhichWriting("shortTrekInfo")}> Short Itinerary </Button>
                   <Button type='button' onClick={() => setWhichWriting("whyChooseThisPackage")}> Why this Package </Button>
                   <Button type='button' onClick={() => setWhichWriting("priceBreakdown")}> Price Breakdown</Button>
-                  <Button type='button' onClick={() => setWhichWriting("bookingInfo")}> Booking Info</Button>
+                  <Button type='button' onClick={() => setWhichWriting("bookingInfo")}> Info & Final Thoughts</Button>
+                  <Button type='button' onClick={() => setWhichWriting("goodtoknow")}> FAQs</Button>
                 </div>
 
 
@@ -651,7 +652,7 @@ export function PostEditorComponent({
                 {/* Why Choose This Package */}
                 {whichWriting === "whyChooseThisPackage" && (
                   <div className='space-y-2'>
-                    <Label className='font-bold text-xl' htmlFor='whyChooseThisPackage'>Why Choose This Package</Label>
+                    <Label className='font-bold text-xl' htmlFor='whyChooseThisPackage'>Why this pacakge </Label>
                     <div className='border rounded-md'>
                       {
                         <CustomCKEditor
@@ -690,7 +691,7 @@ export function PostEditorComponent({
                 {/* Booking Info */}
                 {whichWriting === "bookingInfo" && (
                   <div className='space-y-2'>
-                    <Label className='font-bold text-xl' htmlFor='bookingInfo'>Booking Info</Label>
+                    <Label className='font-bold text-xl' htmlFor='bookingInfo'>Booking Info and Final Thoughts</Label>
                     <div className='border rounded-md'>
                       {
                         <CustomCKEditor
@@ -719,6 +720,26 @@ export function PostEditorComponent({
                             setFormData((prev) => ({
                               ...prev,
                               introduction: value,
+                            }))
+                          }
+                        />
+                      }
+                    </div>
+                  </div>
+                )}
+
+
+                {whichWriting === 'goodtoknow' && (
+                  <div className='space-y-2'>
+                    <Label className='font-bold text-3xl' htmlFor='introduction'>FAQs</Label>
+                    <div className='border rounded-md'>
+                      {
+                        <CustomCKEditor
+                          content={formData.goodtoknow}
+                          onChange={(value: string) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              goodtoknow: value,
                             }))
                           }
                         />

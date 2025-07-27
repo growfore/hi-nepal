@@ -70,7 +70,7 @@ h2{
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    min-width: 320px;
+    min-width: 250px;
 }
 .thumbnail{
     height: 200px;;
@@ -113,17 +113,11 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 4rem;
-    height: 4rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     background-color: green;
     color: white;
-}
-@media (max-width: 720px){
-    .icon-wrapper{
-        width: 3rem;
-        height: 3rem;
-    }
 }
 .data-item-key{
     font-weight: 700;
@@ -162,7 +156,11 @@ h2{
 }
 
 .content{
-    margin-top: 1rem;
+    margin-top: -3rem;
+}
+.content > h2{
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .overview h2{
@@ -176,21 +174,24 @@ h2{
     padding: 1rem;
     border-radius: 0.5rem;
     background-color: #F8F9FA;
+    position: relative;
 }
 .section-head{
     display: flex;
-    justify-content: space-between;
-    align-items: start;
+    justify-content: flex-start;
     cursor: pointer;
+    margin-bottom: -1.5rem !important;
 }
 .section-title{
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 1rem;
     color: green;
     font-weight: 550;
     font-size: 1.2em;
+}
+.section-title > p{
+    font-size: 1.5rem;
 }
 .chevron-icon{
     width: 1.5rem;

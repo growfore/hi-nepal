@@ -170,7 +170,7 @@ const NavBar = async () => {
                                       return (
                                         <li key={'packages' + index}>
                                           <Link
-                                            href={`/${item.slug}/${destination.slug}/${packageItem.slug}`}>
+                                            href={`/${item.slug}/${packageItem.slug}`}>
                                             {packageItem.title}
                                           </Link>
                                         </li>

@@ -5,7 +5,7 @@ import { TPackageDetails } from '@/types/types';
 import { get } from '@/utils/request-hander';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import Image from 'next/image';
-import React, { lazy, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import GallerySlider from './_components/gallery-slider';
 import { notFound } from 'next/navigation';
 import "./package.css";
@@ -153,7 +153,6 @@ const activites = ({ params }: { params: Params }) => {
                     <div className='overview'>
                         <p className='overview content' dangerouslySetInnerHTML={{ __html: details.overview! }}></p>
                     </div>
-
                     {/* Highlights Section  */}
                     {
                         details.highlights &&
@@ -163,7 +162,6 @@ const activites = ({ params }: { params: Params }) => {
                                     <div className='section-icon'>
                                     <DataIcon icon={Star} />
                                     </div>
-                                    {/* <p>Highlights of {details.title}</p>  */}
                                 </div>
                             </div>
                             {
@@ -360,7 +358,6 @@ const activites = ({ params }: { params: Params }) => {
                             <div className="section-head">
                                 <div className='section-title'>
                                     <DataIcon icon={FileQuestion}  />
-                                    <p>Why Choose {details.title} with us?</p>
                                 </div>
                             </div>
                             {

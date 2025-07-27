@@ -256,4 +256,5 @@ h2{
   opacity: 1;
   pointer-events: auto;
   transition: opacity 0.3s;
+  z-index: 99;
 }

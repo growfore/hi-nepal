@@ -160,8 +160,12 @@ const NavBar = async () => {
                                 key={'destinations' + index}
                                 className='menu-item-has-children'
                                 style={{}}>
-                                <Link
+                                {/* <Link
                                   href={`/${item.slug}/${destination.slug}`}>
+                                  {destination.name}
+                                </Link> */}
+                                <Link
+                                  href={`#`}>
                                   {destination.name}
                                 </Link>
                                 <ul className='sub-menu'>

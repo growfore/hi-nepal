@@ -56,7 +56,7 @@ const Activity = async ({
                           <img
                             src={destinations[0].image}
                             style={{
-                              height: '600px',
+                              height: '400px',
                             }}
                             alt=''
                           />
@@ -73,11 +73,6 @@ const Activity = async ({
                               {destinations[0].name}
                             </a>
                           </h3>
-                          <div
-                            className='rating-start'
-                            title='Rated 5 out of 4'>
-                            <span style={{ width: '53%' }} />
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -89,7 +84,7 @@ const Activity = async ({
                           <img
                             src={destinations[1].image}
                             style={{
-                              height: '600px',
+                              height: '400px',
                             }}
                             alt=''
                           />
@@ -106,11 +101,6 @@ const Activity = async ({
                               {destinations[1].name}
                             </a>
                           </h3>
-                          <div
-                            className='rating-start'
-                            title='Rated 5 out of 5'>
-                            <span style={{ width: '100%' }} />
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -143,11 +133,6 @@ const Activity = async ({
                               {destinations[2].name}
                             </a>
                           </h3>
-                          <div
-                            className='rating-start'
-                            title='Rated 5 out of 5'>
-                            <span style={{ width: '100%' }} />
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -176,11 +161,6 @@ const Activity = async ({
                               {destinations[3].name}
                             </a>
                           </h3>
-                          <div
-                            className='rating-start'
-                            title='Rated 5 out of 4'>
-                            <span style={{ width: '60%' }} />
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -201,7 +181,7 @@ const Activity = async ({
             <div className='col-lg-7'>
               <div className='section-heading section-heading-white'>
                 <h5 className='dash-style'>HOLIDAY PACKAGE OFFER</h5>
-                <h2>HOLIDAY SPECIAL 25% OFF !</h2>
+                <h2>HOLIDAY SPECIAL 25% OFF!</h2>
                 <h4>
                   Sign up now to recieve hot special offers and information
                   about the best tour packages, updates and discounts !!
@@ -220,12 +200,6 @@ const Activity = async ({
                     />
                   </form>
                 </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                  elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
-                  leo. Eaque adipiscing, luctus eleifend temporibus occaecat
-                  luctus eleifend tempo ribus.
-                </p>
               </div>
             </div>
           </div>

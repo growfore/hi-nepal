@@ -47,9 +47,9 @@ const ExploreTop = async () => {
                         <Image
                           src={topDestinations[0].image}
                           width={600}
-                          height={600}
+                          height={400}
                           style={{
-                            height: '600px',
+                            height: '400px',
                             objectFit: 'cover',
                           }}
                           alt=''
@@ -66,9 +66,6 @@ const ExploreTop = async () => {
                             {topDestinations[0].name}
                           </a>
                         </h3>
-                        <div className='rating-start' title='Rated 5 out of 4'>
-                          <span style={{ width: '53%' }} />
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -80,9 +77,9 @@ const ExploreTop = async () => {
                         <Image
                           src={topDestinations[1].image}
                           width={600}
-                          height={600}
+                          height={400}
                           style={{
-                            height: '600px',
+                            height: '400px',
                             objectFit: 'cover',
                           }}
                           alt=''
@@ -99,9 +96,6 @@ const ExploreTop = async () => {
                             {topDestinations[1].name}
                           </a>
                         </h3>
-                        <div className='rating-start' title='Rated 5 out of 5'>
-                          <span style={{ width: '100%' }} />
-                        </div>
                       </div>
                     </div>
                   </div>

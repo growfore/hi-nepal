@@ -136,7 +136,6 @@ const activites = ({ params }: { params: Params }) => {
                         <DataIcon icon={CircleGauge} k='Trip Grade' v={details.tripGrade ?? "-"} />
                         <DataIcon icon={Calendar} k='Start/End' v={details.startFrom + "/" + details.endAt} />
                         <DataIcon icon={CloudSunRain} k='Best Seasons' v={details.bestSeason ?? "All Year"} />
-                        <DataIcon icon={UsersRound} k='Max People' v={details.groupSize ?? "1"} />
                         <DataIcon icon={CarFront} k='Transport' v={details.transportation ?? "-"} />
                         <DataIcon icon={House} k='Accommodation' v={details.accommodation ?? "-"} />
                         <div className="permits">
@@ -152,7 +151,6 @@ const activites = ({ params }: { params: Params }) => {
 
                     {/* Overview Section */}
                     <div className='overview'>
-                        <h2 className='page-header'>Overview of {details.title}</h2>
                         <p className='overview content' dangerouslySetInnerHTML={{ __html: details.overview! }}></p>
                     </div>
 

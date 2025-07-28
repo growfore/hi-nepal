@@ -1,11 +1,9 @@
-"use client";
-
 import endpoints from '@/constant/endpoints';
 import { TPackageDetails } from '@/types/types';
 import { get } from '@/utils/request-hander';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import GallerySlider from './_components/gallery-slider';
 import { notFound } from 'next/navigation';
 import "./package.css";
@@ -15,60 +13,84 @@ import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, House, Mo
 import { DataIcon } from '@/components/DataIcon';
 import "@/app/package-content.css";
 import "./table-style.css"
+import { SectionNav } from '@/components/SectionNav';
+import { Metadata } from 'next';
+import { fetchData } from '@/helper/fetch-data';
 
-const activites = ({ params }: { params : Params}) => {
-    const [details, setDetails] = React.useState<TPackageDetails>({} as TPackageDetails);
-    const [relatedProducts, setRelatedProducts] = React.useState<TPackageDetails[]>([]);
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Params;
+}): Promise<Metadata> {
+    const slug = await params.slug;
+    const destination = await fetchData(`packages/${slug}`);
+    return {
+        title: destination?.seo?.metaTitle || destination?.title,
+        description: destination?.seo?.metaDescription || destination?.description,
+        keywords: destination?.keywords,
+        robots: {
+            index: true,
+            follow: true,
+            nocache: true,
+            googleBot: {
+                index: true,
+                follow: true,
+                noimageindex: true,
+                'max-video-preview': -1,
+                'max-image-preview': 'large',
+                'max-snippet': -1,
+            },
+        },
+        referrer: 'origin-when-cross-origin',
+        openGraph: {
+            title: destination?.seo?.metaTitle || destination?.title,
+            description: destination?.seo?.metaDescription || destination?.description,
+            images: [
+                {
+                    url: destination?.seo?.metaImage || destination?.image,
+                    width: 800,
+                    height: 600,
+                    alt: destination?.title,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: destination?.title,
+            description: destination?.description,
+            images: destination?.image,
+        },
+    };
+}
+
+const activites = async ({ params }: { params: Params }) => {
+    let details: TPackageDetails = {} as TPackageDetails;
+    let relatedProducts: TPackageDetails[] = [] as TPackageDetails[];
+
+    await get({
+        endPoint: endpoints.PACKAGES + '/' + params.slug,
+        token: '',
+        success: (_, res) => {
+            details = res.data.package;
+            relatedProducts = res.data.relatedProducts;
+        },
+        failure: (message) => {
+            notFound();
+        },
+    });
     const navigations = [
         { id: 'overview', label: 'Overview' },
         { id: 'itenary', label: 'Itinerary' },
-        { id: 'packing', label: 'Packing Essentials' },
+        { id: 'packing', label: 'Packing' },
         { id: 'best-season', label: 'Best Seasons' },
         { id: 'includes', label: 'Includes' },
         { id: 'excludes', label: 'Excludes' },
         { id: 'faqs', label: 'FAQs' },
     ]
 
-    useEffect(() => {
-        const fetchData = async () => {
-            await get({
-                endPoint: endpoints.PACKAGES + '/' + params.slug,
-                token: '',
-                success: (_, res) => {
-                    setDetails(res.data.package);
-                    setRelatedProducts(res.data.relatedProducts);
-                },
-                failure: (message) => {
-                    notFound();
-                },
-            });
-        };
-
-        fetchData();
-    }, [params.slug]);
-
-    const [showSectionNav, setShowSectionNav] = useState(false);
-    const sectionNavRef = React.useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (sectionNavRef.current) {
-                const rect = sectionNavRef.current.getBoundingClientRect();
-                if (rect.top <= 100) {
-                    setShowSectionNav(true);
-                } else {
-                    setShowSectionNav(false);
-                }
-            }
-        };
-        window.addEventListener('scroll', handleScroll);
-        handleScroll();
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
     return (
         <div>
-
             <div
                 className='inner-baner-container'
                 style={{ backgroundImage: 'url(' + details.banner + ')' }}>
@@ -79,15 +101,8 @@ const activites = ({ params }: { params : Params}) => {
                 </div>
             </div>
             <div className='inner-shape' />
-            <div ref={sectionNavRef} className={`section-nav sticky${showSectionNav ? ' visible' : ' hidden'}`}>
-                {navigations.map(nav => (
-                    <div className='nav-item' key={nav.id}>
-                        <Button key={nav.id} link={`#${nav.id}`}>{nav.label}</Button>
-                    </div>
-                ))}
-            </div>
+            <SectionNav navigations={navigations} />
             <main className='package-page'>
-
                 <section className='main-content-area'>
                     <div className="data">
                         <DataIcon icon={MountainSnow} k='Destination' v={details.title} />
@@ -109,7 +124,7 @@ const activites = ({ params }: { params : Params}) => {
                     </div>
 
                     {/* Overview Section */}
-                    <div className='overview'>
+                    <div id='overview' className='overview'>
                         <p className='overview content' dangerouslySetInnerHTML={{ __html: details.overview! }}></p>
                     </div>
                     {/* Highlights Section  */}

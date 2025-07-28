@@ -1,287 +1,263 @@
-import React from 'react'
+"use client"
 
-const Booking = () => {
+import CustomLayout from "@/components/custom-layout"
+import ScriptLoader from "@/components/script-loader"
+import { LucideMail, LucideMapPin, LucidePhone, LucideSend } from "lucide-react"
+import type React from "react"
+import { useState } from "react"
+
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    destination: "",
+    groupSize: "",
+    experienceLevel: "",
+    email: "",
+    phone: "",
+    message: "",
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    console.log("Form submitted:", formData)
+  }
+
   return (
- <main id="content" className="site-main">
-  {/* Inner Banner html start*/}
-  <section className="inner-banner-wrap">
-    <div className="inner-baner-container" style={{backgroundImage: 'url(assets/images/inner-banner.jpg)'}}>
-      <div className="container">
-        <div className="inner-banner-content">
-          <h1 className="inner-title">Booking</h1>
-        </div>
-      </div>
-    </div>
-    <div className="inner-shape" />
-  </section>
-  {/* Inner Banner html end*/}
-  <div className="step-section booking-section">
-    <div className="container">
-      <div className="step-link-wrap">
-        <div className="step-item active">
-          Your cart
-          <a href="#" className="step-icon" />
-        </div>
-        <div className="step-item active">
-          Your Details
-          <a href="#" className="step-icon" />
-        </div>
-        <div className="step-item">
-          Finish
-          <a href="#" className="step-icon" />
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-lg-8 right-sidebar">
-          {/* step one form html start */}
-          <div className="booking-form-wrap">
-            <div className="booking-content">
-              <div className="form-title">
-                <span>1</span>
-                <h3>Your Details</h3>
-              </div>
-              <div className="row">
-                <div className="col-sm-6">
-                  <div className="form-group">
-                    <label>First name*</label>
-                    <input type="text" className="form-control" name="firstname_booking" />
-                  </div>
-                </div>
-                <div className="col-sm-6">
-                  <div className="form-group">
-                    <label>Last name*</label>
-                    <input type="text" className="form-control" name="lastname_booking" />
-                  </div>
-                </div>
-                <div className="col-sm-6">
-                  <div className="form-group">
-                    <label>Email*</label>
-                    <input type="email" className="form-control" name="email_booking" />
-                  </div>
-                </div>
-                <div className="col-sm-6">
-                  <div className="form-group">
-                    <label>Confirm Email*</label>
-                    <input type="email" className="form-control" name="email_booking" />
-                  </div>
-                </div>
-                <div className="col-sm-6">
-                  <div className="form-group">
-                    <label>Phone*</label>
-                    <input type="text" className="form-control" name="lastname_booking" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="booking-content">
-              <div className="form-title">
-                <span>2</span>
-                <h3>Payment Information</h3>
-              </div>
-              <div className="row">
-                <div className="col-12">
-                  <div className="form-group">
-                    <label>Name on card*</label>
-                    <input type="text" className="form-control" name="firstname_booking" />
-                  </div>
-                </div>
-                <div className="col-12">
-                  <div className="row align-items-center">
-                    <div className="col-sm-6">
-                      <div className="form-group">
-                        <label>Card number*</label>
-                        <input type="text" id="card_number" name="card_number" className="form-control" />
-                      </div>
-                    </div>
-                    <div className="col-sm-6">
-                      <img src="assets/images/cards.png" alt="Cards" />
-                    </div>
-                  </div>
-                </div>
-                <div className="col-12">
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Expiration date*</label>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <div className="form-group">
-                            <input type="text" id="expire_month" name="expire_month" className="form-control" placeholder="MM" />
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="form-group">
-                            <input type="text" id="expire_year" name="expire_year" className="form-control" placeholder="Year" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <label>Security code*</label>
-                        <div className="row">
-                          <div className="col-4">
-                            <div className="form-group">
-                              <input type="text" id="ccv" name="ccv" className="form-control" placeholder="CCV" />
-                            </div>
-                          </div>
-                          <div className="col-8">
-                            <img src="assets/images/icon_ccv.gif" alt="ccv" /><small>Last 3 digits</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="info-content">
-                <h4>Or checkout with Paypal</h4>
-                <p>Lorem ipsum dolor sit amet, vim id accusata sensibus, id ridens quaeque qui. Ne qui vocent ornatus molestie, reque fierent dissentiunt mel ea.</p>
-                <a href="#">
-                  <img src="assets/images/paypal_bt.png" alt='' />
-                </a>
-              </div>
-            </div>
-            <div className="booking-content">
-              <div className="form-title">
-                <span>3</span>
-                <h3>Billing Address</h3>
-              </div>
-              <div className="row">
-                <div className="col-sm-12">
-                  <div className="form-group">
-                    <label>Country*</label>
-                    <select className="form-control" name="country" id="country">
-                      <option value='' disabled selected>Select your country</option>
-                      <option value="Europe">Europe</option>
-                      <option value="United states">United states</option>
-                      <option value="Asia">Asia</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-sm-6">
-                  <div className="form-group">
-                    <label>Street line 1*</label>
-                    <input type="text" name="street_1" />
-                  </div>
-                </div>
-                <div className="col-sm-6">
-                  <div className="form-group">
-                    <label>Street line 2</label>
-                    <input type="text" name="street_2" />
-                  </div>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-md-6 col-sm-12">
-                  <div className="form-group">
-                    <label>City*</label>
-                    <input type="text" name="city_booking" />
-                  </div>
-                </div>
-                <div className="col-md-3 col-sm-6">
-                  <div className="form-group">
-                    <label>State*</label>
-                    <input type="text" name="state_booking" />
-                  </div>
-                </div>
-                <div className="col-md-3 col-sm-6">
-                  <div className="form-group">
-                    <label>Postal code*</label>
-                    <input type="text" name="postal_code" />
-                  </div>
-                </div>
-                <div className="col-md-12 col-sm-12">
-                  <div className="form-group">
-                    <label>Additional Information</label>
-                    <textarea rows={6} placeholder="Notes about your order, e.g. special notes for delivery" defaultValue={""} />
-                  </div>
-                </div>
-              </div>
-              {/*End row */}
-            </div>
-            <div className="form-policy">
-              <h3>Cancellation policy</h3>
-              <div className="form-group">
-                <label className="checkbox-list">
-                  <input type="checkbox" name="s" />
-                  <span className="custom-checkbox" />
-                  I accept terms and conditions and general policy.
-                </label>
-              </div>
-              <a href="#" className="button-primary">Book Now</a>
+    <>
+     <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+      />
+      <main>
+        <section className="bg-success bg-gradient position-relative py-5 text-white">
+          <div className="position-absolute top-0 start-0 end-0 bottom-0 opacity-25 bg-dark"></div>
+          <div className="container position-relative z-1">
+            <div className="text-center">
+              <h1 className="display-3 fw-bold mb-4">Plan Your Adventure</h1>
+              <p className="lead fs-4">
+                Ready to explore? Let us help you plan your perfect trekking and travel experience!
+              </p>
             </div>
           </div>
-          {/* step one form html end */}
-        </div>
-        <div className="col-lg-4">
-          <aside className="sidebar">
-            <div className="widget-bg widget-table-summary">
-              <h4 className="bg-title">Summary</h4>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>Packages cost </strong>
-                    </td>
-                    <td className="text-right">
-                      $300
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Dedicated tour guide</strong>
-                    </td>
-                    <td className="text-right">
-                      $34
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Insurance</strong>
-                    </td>
-                    <td className="text-right">
-                      $34
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>tax</strong>
-                    </td>
-                    <td className="text-right">
-                      13%
-                    </td>
-                  </tr>
-                  <tr className="total">
-                    <td>
-                      <strong>Total cost</strong>
-                    </td>
-                    <td className="text-right">
-                      <strong>$368</strong>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="widget-bg widget-support-wrap">
-              <div className="icon">
-                <i className="fas fa-phone-volume" />
-              </div>
-              <div className="support-content">
-                <h5>HELP AND SUPPORT</h5>
-                <a href="telto:12345678" className="phone">+11 234 889 00</a>
-                <small>Monday to Friday 9.00am - 7.30pm</small>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
+        </section>
 
+        <section className="bg-light bg-gradient py-5">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 mb-5">
+                <div className="card border-0 rounded-4 shadow-lg">
+                  <div className="card-header bg-white text-center py-4">
+                    <h2 className="h3 fw-bold text-dark mb-2">Start Your Journey</h2>
+                    <p className="text-muted fs-5 mb-0">
+                      Tell us about your dream adventure and we'll create the perfect trekking experience for you.
+                    </p>
+                  </div>
+                  <div className="card-body p-5">
+                    <form onSubmit={handleSubmit}>
+                      <div className="mb-4">
+                        <label htmlFor="fullName" className="form-label fw-semibold">
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control form-control-lg"
+                          id="fullName"
+                          name="fullName"
+                          value={formData.fullName}
+                          onChange={handleChange}
+                          required
+                        />
+                      </div>
+
+                      <div className="mb-4">
+                        <label htmlFor="destination" className="form-label fw-semibold">
+                          Desired Destination *
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control form-control-lg"
+                          id="destination"
+                          name="destination"
+                          value={formData.destination}
+                          onChange={handleChange}
+                          placeholder="e.g., Everest Base Camp, Annapurna Circuit"
+                          required
+                        />
+                      </div>
+
+                      <div className="row">
+                        <div className="col-md-6 mb-4">
+                          <label htmlFor="groupSize" className="form-label fw-semibold">
+                            Group Size *
+                          </label>
+                          <select
+                            className="form-select form-select-lg"
+                            id="groupSize"
+                            name="groupSize"
+                            value={formData.groupSize}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="">Select group size</option>
+                            <option value="1">Solo (1 person)</option>
+                            <option value="2">Couple (2 people)</option>
+                            <option value="3-5">Small group (3-5 people)</option>
+                            <option value="6-10">Medium group (6-10 people)</option>
+                            <option value="10+">Large group (10+ people)</option>
+                          </select>
+                        </div>
+                        <div className="col-md-6 mb-4">
+                          <label htmlFor="experienceLevel" className="form-label fw-semibold">
+                            Experience Level
+                          </label>
+                          <select
+                            className="form-select form-select-lg"
+                            id="experienceLevel"
+                            name="experienceLevel"
+                            value={formData.experienceLevel}
+                            onChange={handleChange}
+                          >
+                            <option value="">Select experience level</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                            <option value="expert">Expert</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div className="row">
+                        <div className="col-md-6 mb-4">
+                          <label htmlFor="email" className="form-label fw-semibold">
+                            Email Address *
+                          </label>
+                          <input
+                            type="email"
+                            className="form-control form-control-lg"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                        <div className="col-md-6 mb-4">
+                          <label htmlFor="phone" className="form-label fw-semibold">
+                            Phone Number
+                          </label>
+                          <input
+                            type="tel"
+                            className="form-control form-control-lg"
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="mb-4">
+                        <label htmlFor="message" className="form-label fw-semibold">
+                          Additional Details *
+                        </label>
+                        <textarea
+                          className="form-control"
+                          id="message"
+                          name="message"
+                          rows={6}
+                          value={formData.message}
+                          onChange={handleChange}
+                          placeholder="Tell us more about your ideal trekking or travel experience, preferred dates, special requirements, etc."
+                          required
+                        ></textarea>
+                      </div>
+
+                      <div className="d-grid">
+                        <button type="submit" className="btn btn-success btn-lg shadow  fw-bold">
+                          <LucideSend/>
+                          Send Inquiry
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-4">
+                <div className="row">
+                  <div className="col-12 mb-4">
+                    <div className="card text-white bg-success bg-gradient rounded-4">
+                      <div className="card-body p-4">
+                        <div className="d-flex flex-column align-items-center mb-3">
+                          <div className="bg-white bg-opacity-25 rounded-circle d-flex justify-content-center align-items-center" style={{ width: '4rem', height: '4rem' }}>
+                            <LucidePhone color="white"/>
+                          </div>
+                        </div>
+                        <h5 className="fw-bold mb-3">ADVENTURE PLANNING</h5>
+                        <a href="tel:061-457510" className="text-white text-decoration-none fs-5 fw-bold d-block">
+                          061-457510
+                        </a>
+                        <a href="tel:+9779856035091" className="text-white text-decoration-none fs-5 fw-bold d-block mb-2">
+                          +977 985-6035091
+                        </a>
+                        <small className="opacity-75">Monday to Friday 9.00am - 7.30pm</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-12 mb-4">
+                    <div className="card border-0 rounded-4 shadow-sm">
+                      <div className="card-body p-4">
+                        <h5 className="fw-bold mb-4">Other Ways to Reach Us</h5>
+                        <div className="d-flex align-items-center mb-3">
+                          <div className="bg-success bg-opacity-10 p-2 rounded-circle me-3">
+                            <LucideMail color="green"/>
+                          </div>
+                          <div>
+                            <p className="fw-semibold mb-1">Email</p>
+                            <p className="text-muted mb-0">hinepaltreks@gmail.com</p>
+                          </div>
+                        </div>
+                        <div className="d-flex align-items-center">
+                          <div className="bg-success bg-opacity-10 p-2 rounded-circle me-3">
+                            <LucideMapPin color="green"/>
+                          </div>
+                          <div>
+                            <p className="fw-semibold mb-1">Address</p>
+                            <p className="text-muted mb-0">
+                              Street No. 13, Pokhara<br />Nepal
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-12 mb-4">
+                    <div className="card bg-success bg-opacity-10 border-0 rounded-4">
+                      <div className="card-body p-4">
+                        <h5 className="fw-bold text-success mb-3">Quick Response</h5>
+                        <p className="text-success mb-0">
+                          We typically respond to all inquiries within 24 hours during business days to help you plan your trip.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
   )
 }
 
-export default Booking
+export default ContactForm

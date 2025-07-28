@@ -19,9 +19,6 @@ import "./table-style.css"
 const activites = ({ params }: { params: Params }) => {
     const [details, setDetails] = React.useState<TPackageDetails>({} as TPackageDetails);
     const [relatedProducts, setRelatedProducts] = React.useState<TPackageDetails[]>([]);
-    const [h2Headings, setH2Headings] = React.useState<{ id: string, text: string }[]>([]);
-    const [itenaryHtml, setItenaryHtml] = React.useState<string>("");
-    const [chevrons, setChevrons] = useState<{ [key: string]: boolean }>({});
     const navigations = [
         { id: 'overview', label: 'Overview' },
         { id: 'itenary', label: 'Itinerary' },
@@ -51,28 +48,6 @@ const activites = ({ params }: { params: Params }) => {
         fetchData();
     }, [params.slug]);
 
-    // Parse itenary HTML and assign ids to h2s, also extract headings for TOC
-    useEffect(() => {
-        if (!details.itenary) {
-            setItenaryHtml("");
-            setH2Headings([]);
-            return;
-        }
-        const parser = typeof window !== 'undefined' ? new window.DOMParser() : null;
-        if (!parser) return;
-        const doc = parser.parseFromString(details.itenary, 'text/html');
-        const h2s = Array.from(doc.querySelectorAll('h2'));
-        const headings: { id: string, text: string }[] = [];
-        h2s.forEach((h2) => {
-            const text = h2.textContent?.trim() || '';
-            const id = text.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '');
-            h2.id = id;
-            headings.push({ id, text });
-        });
-        setH2Headings(headings);
-        setItenaryHtml(doc.body.innerHTML);
-    }, [details.itenary]);
-
     const [showSectionNav, setShowSectionNav] = useState(false);
     const sectionNavRef = React.useRef<HTMLDivElement>(null);
 
@@ -88,7 +63,7 @@ const activites = ({ params }: { params: Params }) => {
             }
         };
         window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Run once on mount
+        handleScroll(); 
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -113,15 +88,6 @@ const activites = ({ params }: { params: Params }) => {
                         ))}
                     </div>
             <main className='package-page'>
-                {/* <aside className='toc'>
-                    <div className='sticky'>
-                        <ul className='toc-list' style={{listStyleType: 'none', width: "100%", marginLeft: "0", paddingLeft: "1rem" }}>
-                            {h2Headings.map((h) => (
-                                <li style={{color: "green", marginBottom: '0.5rem', textWrap:"wrap", maxWidth:"320px" }} key={h.id}><a style={{color:"green"}} href={`#${h.id}`}>{h.text.replace(/-/g, ' ')}</a></li>
-                            ))}
-                        </ul>
-                    </div>
-                </aside> */}
 
                 <section className='main-content-area'>
                     <div className="data">

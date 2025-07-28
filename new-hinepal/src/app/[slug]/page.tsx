@@ -15,8 +15,6 @@ import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, House, Mo
 import { DataIcon } from '@/components/DataIcon';
 import "@/app/package-content.css";
 import "./table-style.css"
-import { Metadata } from 'next';
-import { fetchData } from '@/helper/fetch-data';
 
 const activites = ({ params }: { params : Params}) => {
     const [details, setDetails] = React.useState<TPackageDetails>({} as TPackageDetails);

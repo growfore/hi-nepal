@@ -23,3 +23,6 @@
 #carousel-btn {
   z-index: 9999;
 }
+.bottom-header, .mobile-menu-container, .top-header{
+  background-color: #4a5759 !important;
+}

@@ -52,6 +52,7 @@ const CustomLayout = ({
             backgroundColor: '#fff',
           }}>
           <div id='loader'>
+
             {/* <Image
               unoptimized
               priority={true}

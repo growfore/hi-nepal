@@ -149,44 +149,46 @@ const NavBar = async () => {
                 <ul>
                   {navBar.map((item, index) => {
                     return (
-                      <li
-                        key={'activities' + index}
-                        className='menu-item-has-children'>
-                        <Link href={`/${item.slug}`}>{item.name}</Link>
-                        <ul>
-                          {item.destinations.map((destination, index) => {
-                            return (
-                              <li
-                                key={'destinations' + index}
-                                className='menu-item-has-children'
-                                style={{}}>
-                                {/* <Link
+                      <>
+                        <li
+                          key={'activities' + index}
+                          className='menu-item-has-children'>
+                          <Link href={`/${item.slug}`}>{item.name}</Link>
+                          <ul>
+                            {item.destinations.map((destination, index) => {
+                              return (
+                                <li
+                                  key={'destinations' + index}
+                                  className='menu-item-has-children'
+                                  style={{}}>
+                                  {/* <Link
                                   href={`/${item.slug}/${destination.slug}`}>
                                   {destination.name}
                                 </Link> */}
-                                <Link
-                                  href={`#`}>
-                                  {destination.name}
-                                </Link>
-                                <ul className='sub-menu'>
-                                  {destination.packages.map(
-                                    (packageItem, index) => {
-                                      return (
-                                        <li key={'packages' + index}>
-                                          <Link
-                                            href={`/${item.slug}/${packageItem.slug}`}>
-                                            {packageItem.title}
-                                          </Link>
-                                        </li>
-                                      );
-                                    }
-                                  )}
-                                </ul>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </li>
+                                  <Link
+                                    href={`#`}>
+                                    {destination.name}
+                                  </Link>
+                                  <ul className='sub-menu'>
+                                    {destination.packages.map(
+                                      (packageItem, index) => {
+                                        return (
+                                          <li key={'packages' + index}>
+                                            <Link
+                                              href={`/${item.slug}/${packageItem.slug}`}>
+                                              {packageItem.title}
+                                            </Link>
+                                          </li>
+                                        );
+                                      }
+                                    )}
+                                  </ul>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </li>
+                      </>
                     );
                   })}
                   <li className='menu-item-has-children'>

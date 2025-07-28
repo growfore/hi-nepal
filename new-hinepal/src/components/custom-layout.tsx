@@ -52,7 +52,7 @@ const CustomLayout = ({
             backgroundColor: '#fff',
           }}>
           <div id='loader'>
-            <Image
+            {/* <Image
               unoptimized
               priority={true}
               src='/loader1.gif'
@@ -68,7 +68,7 @@ const CustomLayout = ({
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
               }}
-            />
+            /> */}
           </div>
         </div>
       )}

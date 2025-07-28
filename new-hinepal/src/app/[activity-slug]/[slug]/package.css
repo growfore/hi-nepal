@@ -62,7 +62,10 @@ h2{
 
 .section-nav{
     display: flex;;
+    justify-content: flex-start;
     overflow-x: scroll;
+    width: 100vw;
+    background-color: #F58220;
 }
 
 .booking-details{
@@ -253,4 +256,8 @@ h2{
   pointer-events: auto;
   transition: opacity 0.3s;
   z-index: 99;
+}
+.nav-item{
+    padding: 0;
+    max-width: 200px;
 }

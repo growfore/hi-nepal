@@ -29,15 +29,9 @@ const activites = ({ params }: { params: Params }) => {
         { id: 'best-season', label: 'Best Seasons' },
         { id: 'includes', label: 'Includes' },
         { id: 'excludes', label: 'Excludes' },
-        { id: 'faqs', label: 'FAQs' }
+        { id: 'faqs', label: 'FAQs' },
     ]
 
-    const toggleChevron = (key: string) => {
-        setChevrons(prev => ({
-            ...prev,
-            [key]: !prev[key]
-        }));
-    };
 
     useEffect(() => {
         const fetchData = async () => {

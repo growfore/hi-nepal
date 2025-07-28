@@ -1591,7 +1591,7 @@ input[type='submit']:focus {
 .site-identity a:hover img,
 .site-identity a:focus img,
 .site-identity a:active img {
-  opacity: 0.5;
+  opacity: 1;
 }
 @media screen and (max-width: 575px) {
   .site-identity img {

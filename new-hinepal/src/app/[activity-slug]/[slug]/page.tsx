@@ -5,7 +5,7 @@ import { TPackageDetails } from '@/types/types';
 import { get } from '@/utils/request-hander';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import Image from 'next/image';
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import GallerySlider from './_components/gallery-slider';
 import { notFound } from 'next/navigation';
 import "./package.css";
@@ -18,7 +18,7 @@ import "./table-style.css"
 import { Metadata } from 'next';
 import { fetchData } from '@/helper/fetch-data';
 
-const activites = ({ params }: { params: Params }) => {
+const activites = ({ params }: { params : Params}) => {
     const [details, setDetails] = React.useState<TPackageDetails>({} as TPackageDetails);
     const [relatedProducts, setRelatedProducts] = React.useState<TPackageDetails[]>([]);
     const navigations = [
@@ -30,16 +30,6 @@ const activites = ({ params }: { params: Params }) => {
         { id: 'excludes', label: 'Excludes' },
         { id: 'faqs', label: 'FAQs' },
     ]
-
-    async function generateMetadata({params}:{params: Params}): Promise<Metadata>{
-        const slug = params.slug;
-        const activity = await fetchData(`${endpoints.PACKAGES}/${slug}`);
-
-        return {
-            title: activity?.seo?.metaTitle || activity?.title
-        }
-    }
-
 
     useEffect(() => {
         const fetchData = async () => {
@@ -74,7 +64,7 @@ const activites = ({ params }: { params: Params }) => {
             }
         };
         window.addEventListener('scroll', handleScroll);
-        handleScroll(); 
+        handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -91,13 +81,13 @@ const activites = ({ params }: { params: Params }) => {
                 </div>
             </div>
             <div className='inner-shape' />
-                    <div ref={sectionNavRef} className={`section-nav sticky${showSectionNav ? ' visible' : ' hidden'}`}>
-                        {navigations.map(nav => (
-                            <div className='nav-item' key={nav.id}>
-                                <Button key={nav.id} link={`#${nav.id}`}>{nav.label}</Button>
-                            </div>
-                        ))}
+            <div ref={sectionNavRef} className={`section-nav sticky${showSectionNav ? ' visible' : ' hidden'}`}>
+                {navigations.map(nav => (
+                    <div className='nav-item' key={nav.id}>
+                        <Button key={nav.id} link={`#${nav.id}`}>{nav.label}</Button>
                     </div>
+                ))}
+            </div>
             <main className='package-page'>
 
                 <section className='main-content-area'>
@@ -131,13 +121,13 @@ const activites = ({ params }: { params: Params }) => {
                             <div className="section-head">
                                 <div className='section-title'>
                                     <div className='section-icon'>
-                                    {/* <DataIcon icon={Star} /> */}
+                                        {/* <DataIcon icon={Star} /> */}
                                     </div>
                                 </div>
                             </div>
                             {
-                                 <div dangerouslySetInnerHTML={{ __html: details.highlights }} className="content highlights-content">
-                                </div> 
+                                <div dangerouslySetInnerHTML={{ __html: details.highlights }} className="content highlights-content">
+                                </div>
                             }
                         </div>
                     }
@@ -153,8 +143,8 @@ const activites = ({ params }: { params: Params }) => {
                                 </div>
                             </div>
                             {
-                                 <div dangerouslySetInnerHTML={{ __html: details.altitudeInfo }} className="content altitude-content">
-                                </div> 
+                                <div dangerouslySetInnerHTML={{ __html: details.altitudeInfo }} className="content altitude-content">
+                                </div>
                             }
                         </div>
                     }
@@ -185,8 +175,8 @@ const activites = ({ params }: { params: Params }) => {
                                 </div>
                             </div>
                             {
-                                 <div dangerouslySetInnerHTML={{ __html: details.packing }} className="content packing-content">
-                                </div> 
+                                <div dangerouslySetInnerHTML={{ __html: details.packing }} className="content packing-content">
+                                </div>
                             }
                         </div>
                     }
@@ -202,8 +192,8 @@ const activites = ({ params }: { params: Params }) => {
                                 </div>
                             </div>
                             {
-                                 <div dangerouslySetInnerHTML={{ __html: details.bestSeasonInfo }} className="content best-season-content">
-                                </div> 
+                                <div dangerouslySetInnerHTML={{ __html: details.bestSeasonInfo }} className="content best-season-content">
+                                </div>
                             }
                         </div>
                     }
@@ -267,8 +257,8 @@ const activites = ({ params }: { params: Params }) => {
                                 </div>
                             </div>
                             {
-                                 <div dangerouslySetInnerHTML={{ __html: details.sicknessAndSaftey }} className="content route-overview-content">
-                                </div> 
+                                <div dangerouslySetInnerHTML={{ __html: details.sicknessAndSaftey }} className="content route-overview-content">
+                                </div>
                             }
                         </div>
                     }
@@ -283,8 +273,8 @@ const activites = ({ params }: { params: Params }) => {
                                 </div>
                             </div>
                             {
-                                 <div dangerouslySetInnerHTML={{ __html: details.insuranceAndEmergency }} className="content route-overview-content">
-                                </div> 
+                                <div dangerouslySetInnerHTML={{ __html: details.insuranceAndEmergency }} className="content route-overview-content">
+                                </div>
                             }
                         </div>
                     }
@@ -299,8 +289,8 @@ const activites = ({ params }: { params: Params }) => {
                                 </div>
                             </div>
                             {
-                                 <div dangerouslySetInnerHTML={{ __html: details.permitsAndRegulations }} className="content route-overview-content">
-                                </div> 
+                                <div dangerouslySetInnerHTML={{ __html: details.permitsAndRegulations }} className="content route-overview-content">
+                                </div>
                             }
                         </div>
                     }
@@ -350,7 +340,7 @@ const activites = ({ params }: { params: Params }) => {
 
                             {
                                 <div dangerouslySetInnerHTML={{ __html: details.priceBreakDown }} className="content pricebreakdown-content">
-                                </div> 
+                                </div>
                             }
                         </div>
                     }
@@ -377,13 +367,13 @@ const activites = ({ params }: { params: Params }) => {
                             <div className="section-head">
                                 <div className='section-title'>
                                     <div className='section-icon'>
-                                    {/* <DataIcon icon={MessageCircleQuestionIcon}  /> */}
+                                        {/* <DataIcon icon={MessageCircleQuestionIcon}  /> */}
                                     </div>
                                     {/* <p>Frequently Asked Questions</p> */}
                                 </div>
                             </div>
                             {
-                                <div dangerouslySetInnerHTML={{ __html: details.goodtoknow}} className="content route-overview-content">
+                                <div dangerouslySetInnerHTML={{ __html: details.goodtoknow }} className="content route-overview-content">
                                 </div>
                             }
                         </div>

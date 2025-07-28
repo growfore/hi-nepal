@@ -66,6 +66,7 @@ h2{
     overflow-x: scroll;
     width: 100vw;
     background-color: #F58220;
+    z-index: -1;
 }
 
 .booking-details{
@@ -255,9 +256,15 @@ h2{
   opacity: 1;
   pointer-events: auto;
   transition: opacity 0.3s;
-  z-index: 99;
+  z-index: 9;
 }
 .nav-item{
     padding: 0;
     max-width: 200px;
+}
+#navigation{
+    z-index: 9999;
+}
+.menu-item-has-children{
+    z-index: 999 !important;
 }

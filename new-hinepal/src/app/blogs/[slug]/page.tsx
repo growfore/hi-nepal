@@ -64,7 +64,7 @@ const BlogSingle = async ({ params }: { params: Params }) => {
     image: blog?.image || '',
     author: {
       '@type': 'Person',
-      name: 'Sailesh Giri',
+      name: 'Hi Nepal Treks and Expenditions',
     },
     datePublished: blog?.createdAt || '',
     dateModified: blog?.updatedAt || '',

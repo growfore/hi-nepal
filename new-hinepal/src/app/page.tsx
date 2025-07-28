@@ -231,7 +231,7 @@ export default async function Home() {
             <div className='col-lg-7'>
               <div className='section-heading section-heading-white'>
                 <h5 className='dash-style'>HOLIDAY PACKAGE OFFER</h5>
-                <h2>HOLIDAY SPECIAL 10% OFF !</h2>
+                <h2>HOLIDAY SPECIAL 10% OFF!</h2>
                 <h4>
                   Sign up now to recieve hot special offers and information
                   about the best tour packages, updates and discounts !!

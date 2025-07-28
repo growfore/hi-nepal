@@ -10,6 +10,7 @@ import { Patners } from './_components/patners';
 import Activities from './_components/activities';
 import Teams from './_components/teams';
 import BlogHome from './_components/blogs';
+import { Headset , LucideUsers } from 'lucide-react';
 
 export default async function Home() {
   let siteInformation: TSiteInformation = {} as TSiteInformation;
@@ -52,58 +53,8 @@ export default async function Home() {
 
   return (
     <main id='content' className='site-main'>
-      {/* Home slider html start */}
-
       <HeroSection carousels={carousels} />
-      {/* slider html start */}
       {/* Home search field html start */}
-      <div className='trip-search-section shape-search-section'>
-        <div className='slider-shape' />
-        <div className='container'>
-          {/* <div className='trip-search-inner white-bg d-flex'>
-            <div className='input-group'>
-              <label> Search Destination* </label>
-              <input type='text' name='s' placeholder='Enter Destination' />
-            </div>
-            <div className='input-group'>
-              <label> Pax Number* </label>
-              <input type='text' name='s' placeholder='No.of People' />
-            </div>
-            <div className='input-group width-col-3'>
-              <label> Checkin Date* </label>
-              <i className='far fa-calendar' />
-              <input
-                className='input-date-picker'
-                type='text'
-                name='s'
-                placeholder='MM / DD / YY'
-                autoComplete='off'
-                readOnly={true}
-              />
-            </div>
-            <div className='input-group width-col-3'>
-              <label> Checkout Date* </label>
-              <i className='far fa-calendar' />
-              <input
-                className='input-date-picker'
-                type='text'
-                name='s'
-                placeholder='MM / DD / YY'
-                autoComplete='off'
-                readOnly={true}
-              />
-            </div>
-            <div className='input-group width-col-3'>
-              <label className='screen-reader-text'> Search </label>
-              <input
-                type='submit'
-                name='travel-search'
-                defaultValue='INQUIRE NOW'
-              />
-            </div>
-          </div> */}
-        </div>
-      </div>
       {/* search search field html end */}
       <ExploreTop />
       {/* Home packages section html start */}
@@ -140,15 +91,13 @@ export default async function Home() {
                   <h5 className='dash-style'>CALLBACK FOR MORE</h5>
                   <h2>GO TRAVEL. DISCOVER. REMEMBER US!!</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
-                    leo. Eaque adipiscing, luctus eleifend.
+                    Discover Nepal with Ni Nepal Travels and Treks Pvt. Ltd.—where every journey blends adventure, culture, and comfort. Explore more, worry less, travel smart.
                   </p>
                 </div>
                 <div className='callback-counter-wrap'>
                   <div className='counter-item'>
                     <div className='counter-icon'>
-                      <img src='assets/images/icon1.png' alt='' />
+                      <LucideUsers color='white' size={40}/>
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
@@ -159,7 +108,7 @@ export default async function Home() {
                   </div>
                   <div className='counter-item'>
                     <div className='counter-icon'>
-                      <img src='assets/images/icon2.png' alt='' />
+                      <LucideUsers color='white' size={40}/>
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
@@ -170,7 +119,7 @@ export default async function Home() {
                   </div>
                   <div className='counter-item'>
                     <div className='counter-icon'>
-                      <img src='assets/images/icon3.png' alt='' />
+                      <LucideUsers color='white' size={40}/>
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
@@ -181,7 +130,7 @@ export default async function Home() {
                   </div>
                   <div className='counter-item'>
                     <div className='counter-icon'>
-                      <img src='assets/images/icon4.png' alt='' />
+                      <LucideUsers color='white' size={40}/>
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
@@ -193,7 +142,7 @@ export default async function Home() {
                 </div>
                 <div className='support-area'>
                   <div className='support-icon'>
-                    <img src='assets/images/icon5.png' alt='' />
+                    <Headset color='green' size={40}/>
                   </div>
                   <div className='support-content'>
                     <h4>Our 24/7 Emergency Phone Services</h4>

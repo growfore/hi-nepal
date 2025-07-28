@@ -1,8 +1,10 @@
 import endpoints from '@/constant/endpoints';
 import { TActivity, TDestination } from '@/types/types';
 import { get } from '@/utils/request-hander';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
+import Image from 'next/image';
 
 const Activity = async ({
   params,
@@ -10,6 +12,7 @@ const Activity = async ({
   params: { 'activity-slug': string };
 }) => {
   const destinations: TDestination[] = [] as TDestination[];
+  
   let activity: TActivity = {} as TActivity;
   if (!params['activity-slug']) {
     notFound();
@@ -20,6 +23,8 @@ const Activity = async ({
     success: (_, res) => {
       destinations.push(...res.data.destinations);
       activity = res.data;
+      console.log("Destinations:", destinations)
+      console.log("Activiites: ", activity)
     },
     failure: () => {
       notFound();
@@ -47,131 +52,40 @@ const Activity = async ({
         <div className='container'>
           <div className='destination-inner destination-three-column'>
             <div className='row'>
-              <div className='col-lg-7'>
-                <div className='row'>
-                  {destinations.length > 0 && (
-                    <div className='col-sm-6'>
-                      <div className='desti-item overlay-desti-item'>
-                        <figure className='desti-image'>
-                          <img
-                            src={destinations[0].image}
-                            style={{
-                              height: '400px',
-                            }}
-                            alt=''
-                          />
-                        </figure>
-                        <div className='meta-cat bg-meta-cat'>
-                          <a href={destinations[0].activity?.slug}>
-                            {activity?.name}
-                          </a>
-                        </div>
-                        <div className='desti-content'>
-                          <h3>
-                            <a
-                              href={activity.slug + '/' + destinations[0].slug}>
-                              {destinations[0].name}
-                            </a>
-                          </h3>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                  {destinations.length > 1 && (
-                    <div className='col-sm-6'>
-                      <div className='desti-item overlay-desti-item'>
-                        <figure className='desti-image'>
-                          <img
-                            src={destinations[1].image}
-                            style={{
-                              height: '400px',
-                            }}
-                            alt=''
-                          />
-                        </figure>
-                        <div className='meta-cat bg-meta-cat'>
-                          <a href={destinations[1].activity?.slug}>
-                            {activity?.name}
-                          </a>
-                        </div>
-                        <div className='desti-content'>
-                          <h3>
-                            <a
-                              href={activity.slug + '/' + destinations[1].slug}>
-                              {destinations[1].name}
-                            </a>
-                          </h3>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div className='col-lg-5'>
-                <div className='row'>
-                  {destinations.length > 2 && (
-                    <div className='col-md-6 col-xl-12'>
-                      <div className='desti-item overlay-desti-item'>
-                        <figure className='desti-image'>
-                          <img
-                            src={destinations[2].image}
-                            style={{
-                              height: '300px',
-                            }}
-                            alt=''
-                          />
-                        </figure>
-                        <div className='meta-cat bg-meta-cat'>
-                          <a href={destinations[2].activity?.slug}>
-                            {activity?.name}
-                          </a>
-                        </div>
-                        <div className='desti-content'>
-                          <h3>
-                            <a
-                              href={activity.slug + '/' + destinations[2].slug}>
-                              {destinations[2].name}
-                            </a>
-                          </h3>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                  {destinations.length > 3 && (
-                    <div className='col-md-6 col-xl-12'>
-                      <div className='desti-item overlay-desti-item'>
-                        <figure className='desti-image'>
-                          <img
-                            src={destinations[3].image}
-                            style={{
-                              height: '300px',
-                            }}
-                            alt=''
-                          />
-                        </figure>
-                        <div className='meta-cat bg-meta-cat'>
-                          <a href={destinations[3].activity?.slug}>
-                            {activity?.name}
-                          </a>
-                        </div>
-                        <div className='desti-content'>
-                          <h3>
-                            <a
-                              href={activity.slug + '/' + destinations[3].slug}>
-                              {destinations[3].name}
-                            </a>
-                          </h3>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
+              {
+                destinations && destinations.length > 0 && (
+                  destinations.map((dest, idx) => {
+                    return (
+                      <Link key={idx} href={`${dest.activity?.slug}/${dest.slug}`} className='col-sm-6'>
+                          <div className='desti-item overlay-desti-item'>
+                            <figure className='desti-image'>
+                              <Image
+                              priority={false}
+                              width={600}
+                              height={400}
+                                src={dest.image}
+                                alt={dest.name}
+                              />
+                            </figure>
+                            <div className='meta-cat bg-meta-cat'>
+                                {activity?.name}
+                            </div>
+                            <div className='desti-content'>
+                              <h3>
+                                  {dest.name}
+                              </h3>
+                            </div>
+                          </div>
+                      </Link>
+                    )
+                  })
+                )
+              }
             </div>
           </div>
         </div>
       </section>
-      {/* destination section html start */}
+
       {/* subscribe section html start */}
       <section
         className='subscribe-section'

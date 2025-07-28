@@ -260,7 +260,7 @@ const activites = ({ params }: { params: Params }) => {
                             <div className="section-head">
                                 <div className='section-title'>
                                     <DataIcon icon={Check}  />
-                                    <p>Includes</p>
+                                    {/* <p>Includes</p> */}
                                 </div>
                             </div>
                             {
@@ -276,7 +276,7 @@ const activites = ({ params }: { params: Params }) => {
                             <div className="section-head">
                                 <div className='section-title'>
                                     <DataIcon icon={X}  />
-                                    <p>Excludes</p>
+                                    {/* <p>Excludes</p> */}
                                 </div>
                             </div>
                             {
@@ -408,7 +408,7 @@ const activites = ({ params }: { params: Params }) => {
                                     <div className='section-icon'>
                                     <DataIcon icon={MessageCircleQuestionIcon}  />
                                     </div>
-                                    <p>Frequently Asked Questions</p>
+                                    {/* <p>Frequently Asked Questions</p> */}
                                 </div>
                             </div>
                             {

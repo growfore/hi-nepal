@@ -2727,6 +2727,7 @@ input[type='submit']:focus {
 >>> Home travel destination section  
 ----------------------------------------------------------------*/
 .destination-section {
+  padding-top: 100px;
   padding-bottom: 100px;
 }
 @media screen and (min-width: 992px) {
@@ -2799,7 +2800,10 @@ input[type='submit']:focus {
   top: 10px;
   right: 14px;
 }
-.desti-item .meta-cat a {
+.desti-item .meta-cat {
+  background-color: green;
+  color: white;;
+  padding: 5px 10px;
   display: inline-block;
   font-family: 'Raleway', Sans-serif;
   font-weight: 700;

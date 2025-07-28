@@ -54,6 +54,7 @@ const CustomLayout = ({
           <div id='loader'>
             <Image
               unoptimized
+              priority={true}
               src='/loader1.gif'
               alt='Loading'
               width={60}

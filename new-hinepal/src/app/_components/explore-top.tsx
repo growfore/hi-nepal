@@ -111,10 +111,10 @@ const ExploreTop = async () => {
                         <Image
                           priority={false}
                           width={600}
-                          height={600}
+                          height={400}
                           src={topDestinations[2].image}
                           style={{
-                            height: '300px',
+                            height: '400px',
                             objectFit: 'cover',
                           }}
                           alt=''
@@ -131,9 +131,6 @@ const ExploreTop = async () => {
                             {topDestinations[2].name}
                           </a>
                         </h3>
-                        <div className='rating-start' title='Rated 5 out of 5'>
-                          <span style={{ width: '100%' }} />
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -144,10 +141,10 @@ const ExploreTop = async () => {
                       <figure className='desti-image'>
                         <Image
                           width={600}
-                          height={300}
+                          height={400}
                           src={topDestinations[3].image}
                           style={{
-                            height: '300px',
+                            height: '400px',
                             objectFit: 'cover',
                           }}
                           alt=''
@@ -164,9 +161,6 @@ const ExploreTop = async () => {
                             {topDestinations[3].name}
                           </a>
                         </h3>
-                        <div className='rating-start' title='Rated 5 out of 4'>
-                          <span style={{ width: '60%' }} />
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -176,7 +170,7 @@ const ExploreTop = async () => {
           </div>
           <div className='btn-wrap text-center'>
             <a href='/trekking' className='button-primary'>
-              MORE Trekking Destination
+              More Trekking Destination
             </a>
           </div>
         </div>

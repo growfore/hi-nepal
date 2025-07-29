@@ -58,6 +58,7 @@ export function SectionNav({ navigations }: Props) {
         const Icon = Icons[nav.icon];
         return (
           <div
+          // @ts-ignore
             ref={(el) => (itemRefs.current[nav.id] = el)}
             className={`nav-item ${activeId === nav.id ? "active" : ""}`}
             key={nav.id}

@@ -29,7 +29,7 @@ export default async function ActivitySingle({ params }: { params: Promise<{ act
                 {/* @ts-ignore */}
                 {data && data?.length > 0 && data.map((d, idx) => {
                     return (
-                        <Link href={`${activity}/${d.slug}`}>
+                        <Link key={idx} href={`${activity}/${d.slug}`}>
                             <TrekkingCard slug={d.slug} title={d.name} image={d.image} />
                         </Link>
                     )

@@ -9,7 +9,7 @@ import { notFound } from 'next/navigation';
 import "./package.css";
 import { Button } from '@/components/Button';
 import Link from 'next/dist/client/link';
-import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, House, MountainSnow, Smile, UsersRound, Star, PlaneTakeoffIcon, BookMarked, ArrowBigDown, ChevronDown, ChevronUp, Backpack, Route, Cross, Check, X, FileQuestion, Bookmark, IterationCcw, HeartPulse, TicketCheck, SignpostBig, Coins, MessageCircleQuestionIcon } from "lucide-react";
+import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, House, MountainSnow, Smile, UsersRound, Star, PlaneTakeoffIcon, BookMarked, ArrowBigDown, ChevronDown, ChevronUp, Backpack, Route, Cross, Check, X, FileQuestion, Bookmark, IterationCcw, HeartPulse, TicketCheck, SignpostBig, Coins, MessageCircleQuestionIcon, LucideCircle, LucideHeart } from "lucide-react";
 import { DataIcon } from '@/components/DataIcon';
 import "@/app/package-content.css";
 import "./table-style.css"
@@ -98,6 +98,14 @@ const activites = async ({ params }: { params: Params }) => {
                 <div className='container'>
                     <div className='inner-banner-content'>
                         <h1 className='inner-title'>{details.title} </h1>
+                        <div className='ratings'>{Array.from([0, 1, 2, 3, 4]).map((item, idx) => {
+                            return (
+                                <LucideCircle className='lucide-circle' fill='green' color='white' />
+                            )
+                        })}
+                            <Link className='review-link' href={"https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"}>111 Reviews in Tripadvisor</Link>
+                            <p className='recommended-by'><div className='heart-wrapper'><LucideHeart fill='red' color='red' /> </div> Recommended by 100% of travelers</p>
+                        </div>
                     </div>
                 </div>
             </div>

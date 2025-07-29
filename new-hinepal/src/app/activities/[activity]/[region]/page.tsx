@@ -28,7 +28,7 @@ export default async function RegionPage({ params }: { params: Promise<{ activit
                 {/* @ts-ignore */}
                 {data && data?.length > 0 && data?.map((d, idx) => {
                     return (
-                        <Link href={`/${d.slug}`}>
+                        <Link key={idx} href={`/${d.slug}`}>
                             <TrekkingCard slug={d.slug} title={d.title.split(":")[0]} image={d.thumbnail} />
                         </Link>
                     )

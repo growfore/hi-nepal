@@ -30,11 +30,6 @@ const PackageCard = (props: TProps) => {
             />
           </Link>
         </figure>
-        <div className='package-price'>
-          <h6>
-            <span>${item.price} </span> / per person
-          </h6>
-        </div>
         <div className='package-content-wrap'>
           <div className='package-meta text-center'>
             <ul>

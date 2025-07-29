@@ -153,7 +153,7 @@ const NavBar = async () => {
                         <li
                           key={'activities' + index}
                           className='menu-item-has-children'>
-                          <Link href={`/${item.slug}`}>{item.name}</Link>
+                          <Link href={`/activities/${item.slug}`}>{item.name}</Link>
                           <ul>
                             {item.destinations.map((destination, index) => {
                               return (
@@ -161,14 +161,10 @@ const NavBar = async () => {
                                   key={'destinations' + index}
                                   className='menu-item-has-children'
                                   style={{}}>
-                                  {/* <Link
-                                  href={`/${item.slug}/${destination.slug}`}>
-                                  {destination.name}
-                                </Link> */}
                                   <Link
-                                    href={`#`}>
-                                    {destination.name}
-                                  </Link>
+                                  href={`/activities/${item.slug}/${destination.slug}`}>
+                                  {destination.name}
+                                </Link>
                                   <ul className='sub-menu'>
                                     {destination.packages.map(
                                       (packageItem, index) => {

@@ -72,7 +72,7 @@ export function HeroSection({
                     <h2 className='banner-title'>{carousel.title}</h2>
                     <p>{carousel.description}</p>
                     <Link id='carousel-btn' href={carousel.link} className='button-primary'>
-                      CONTINUE READING
+                     CONTINUE READING 
                     </Link>
                   </div>
                 </div>

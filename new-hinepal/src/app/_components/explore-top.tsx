@@ -22,8 +22,8 @@ const ExploreTop = async () => {
         <div className='section-heading'>
           <div className='row align-items-end'>
             <div className='col-lg-7'>
-              <h5 className='dash-style'>POPULAR DESTINATION</h5>
-              <h2>TOP DESTINATION</h2>
+              <h5 className='dash-style'>POPULAR DESTINATIONS</h5>
+              <h2>Top Destinations</h2>
             </div>
             <div className='col-lg-5'>
               <div className='section-disc'>

@@ -103,7 +103,7 @@ const activites = async ({ params }: { params: Params }) => {
                                 <LucideCircle className='lucide-circle' fill='green' color='white' />
                             )
                         })}
-                            <Link className='review-link' href={"https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"}>111 Reviews in Tripadvisor</Link>
+                            <Link className='review-link' href={"https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"} target='_blank'>111 Reviews in Tripadvisor</Link>
                             <p className='recommended-by'><div className='heart-wrapper'><LucideHeart fill='red' color='red' /> </div> Recommended by 100% of travelers</p>
                         </div>
                     </div>

@@ -1,3 +1,5 @@
+"use server";
+
 import endpoints from '@/constant/endpoints';
 import { TPackageDetails } from '@/types/types';
 import { get } from '@/utils/request-hander';
@@ -9,7 +11,7 @@ import { notFound } from 'next/navigation';
 import "./package.css";
 import { Button } from '@/components/Button';
 import Link from 'next/dist/client/link';
-import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, House, MountainSnow, Smile, UsersRound, Star, PlaneTakeoffIcon, BookMarked, ArrowBigDown, ChevronDown, ChevronUp, Backpack, Route, Cross, Check, X, FileQuestion, Bookmark, IterationCcw, HeartPulse, TicketCheck, SignpostBig, Coins, MessageCircleQuestionIcon, LucideCircle, LucideHeart } from "lucide-react";
+import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, House, MountainSnow, LucideCircle, LucideHeart, LucideEye, LucideList, LucideBackpack, LucideCloudSunRain, LucideCheck, LucideX, LucideMessageCircleQuestion } from "lucide-react";
 import { DataIcon } from '@/components/DataIcon';
 import "@/app/package-content.css";
 import "./table-style.css"
@@ -81,13 +83,13 @@ const activites = async ({ params }: { params: Params }) => {
         },
     });
     const navigations = [
-        { id: 'overview', label: 'Overview' },
-        { id: 'itenary', label: 'Itinerary' },
-        { id: 'packing', label: 'Packing' },
-        { id: 'best-season', label: 'Best Seasons' },
-        { id: 'includes', label: 'Includes' },
-        { id: 'excludes', label: 'Excludes' },
-        { id: 'faqs', label: 'FAQs' },
+        { id: 'overview', label: 'Overview', icon: "LucideEye" },
+        { id: 'itenary', label: 'Itinerary', icon: "LucideList" },
+        { id: 'packing', label: 'Packing', icon: "LucideBackpack" },
+        { id: 'best-season', label: 'Best Seasons', icon: "LucideCloudSunRain" },
+        { id: 'includes', label: 'Includes', icon: "LucideCheck" },
+        { id: 'excludes', label: 'Excludes', icon: "LucideX" },
+        { id: 'faqs', label: 'FAQs', icon: "LucideMessageCircleQuestion" },
     ]
 
     return (
@@ -110,6 +112,7 @@ const activites = async ({ params }: { params: Params }) => {
                 </div>
             </div>
             <div className='inner-shape' />
+            {/* @ts-ignore */}
             <SectionNav navigations={navigations} />
             <main className='package-page'>
                 <section className='main-content-area'>

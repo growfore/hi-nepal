@@ -22,6 +22,140 @@ const nextConfig = {
       }
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/trekking/everest-region/gokyo-valley-trek',
+        destination: '/gokyo-valley-trek',
+        permanent: true,
+      },
+      {
+        source: '/trekking/mansalu-region/mansalu-circuit-trek',
+        destination: '/mansalu-circuit-trek',
+        permanent: true,
+      },
+      {
+        source: '/heli-tour/annapurna-heli-tour/tilicho-lake-helicopter-tour',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/blogs/tours-in-nepal-kathmandu-pokhara-chitwan',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/tour/day-hike/day-hike-in-santi-stupa',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/trekking/hello-hello',
+        destination: '/trekking',
+        permanent: true,
+      },
+      {
+        source: '/adventure-activity/zip-flyler',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/wildlife-safari/bardiya-national-park',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/tour/multi-day-tour',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/trekking/dolpa-region',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/adventure-activity/rafting',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/wildlife-safari',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/heli-tour/annapurna-heli-tour',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/tour/day-tour',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/adventure-activity/hot-air-balloon',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/heli-tour',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/adventure-activity/atv-ride',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/blogs/upper-mustang-trek-blog',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/trekking/annapurna-region',
+        destination: '/region/annapurna',
+        permanent: true,
+      },
+      {
+        source: '/tour',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/tour/day-hike',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/adventure-activity/ultra-light-flying',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/trekking/mustang-region',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/adventure-activity',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/adventure-activity/paragliding',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/adventure-activity/bungee',
+        destination: '/',
+        permanent: true,
+      }
+    ];
+  },
 };
 
 export default nextConfig;

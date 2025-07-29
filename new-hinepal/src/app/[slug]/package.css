@@ -2,9 +2,31 @@
     display: flex;
     min-height: 100vh;
     max-width: 100vw;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 2rem;
     padding: 1rem;
-    margin: 0 auto;
+    margin: 0 0 0 7.5rem;
+}
+
+@media screen and (max-width: 720px) {
+    .package-page {
+        margin: 0 0 0 0;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem;
+        max-width: 100vw;
+    }
+
+    .main-content-area {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 468px) {
+    .package-page {
+        margin: 0;
+        padding: 0.4rem;
+    }
 }
 
 .page-header {
@@ -13,22 +35,8 @@
     margin-bottom: 1rem;
 }
 
-.toc {
-    width: 320px;
-    padding: 1rem 1rem 1rem 0;
-    display: flex;
-    flex-direction: column;
-    background-color: #ced4da;
-    border-radius: 1rem;
-}
-
-h2 {
-    color: green;
-}
-
 .main-content-area {
     padding: 0 8rem;
-    max-width: 100vw;
     display: flex;
     gap: 1rem;
     flex-direction: column;
@@ -37,26 +45,7 @@ h2 {
 
 .main-content-area,
 .right-sidebar {
-    padding: 1rem;
-}
-
-.thumbnail {
-    border-radius: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.toc-list {
-    overflow-y: scroll;
-    height: 100vh;
-}
-
-.toc-list li a {
-    color: green;
-    text-decoration: none;
-}
-
-.toc-list li a:hover {
-    text-decoration: underline;
+    padding: 0.5rem;
 }
 
 .sticky {
@@ -94,19 +83,21 @@ h2 {
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    min-width: 250px;
+    min-width: 320px;
+    z-index: -99 !important;
 }
 
 .thumbnail {
+    width: 100%;
     height: 200px;
-    ;
     object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .suggested-posts {
     margin-top: 2rem;
 }
-
 
 /* DATA CARD */
 .data {
@@ -119,6 +110,12 @@ h2 {
     ;
 }
 
+.data-item-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @media (max-width: 720px) {
     .data {
         display: grid;
@@ -126,10 +123,12 @@ h2 {
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 468px) {
     .data {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        /* grid-template-columns: repeat(2, 1fr); */
     }
 }
 
@@ -138,7 +137,23 @@ h2 {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 0.5rem;
+    gap: 0.2rem;
+}
+
+@media (max-width: 468px) {
+    .data-item {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .data-item-details {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        text-align: start;
+    }
 }
 
 .icon-wrapper,
@@ -151,6 +166,14 @@ h2 {
     border-radius: 50%;
     background-color: green;
     color: white;
+}
+@media (max-width: 468px){
+    .icon-wrapper, .permit-icon-wrapper{
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+    }
 }
 
 .data-item-key {
@@ -271,19 +294,6 @@ h2 {
 
 /* media queries */
 @media screen and (max-width: 768px) {
-    .package-page {
-        flex-direction: column;
-        align-items: center;
-        padding: 0.5rem;
-        max-width: 100vw;
-    }
-
-    /* .main-content-area, .right-sidebar{
-    } */
-    .toc {
-        width: 100%;
-        margin-bottom: 1rem;
-    }
 
     .sticky {
         top: 100px;
@@ -338,7 +348,12 @@ h2 {
     background-color: green;
     color: white;
 }
-
-.booking-details {
-    z-index: -99 !important;
+.cta{
+    padding: 1rem;
+    background: #F8F9FA;
+    border-radius: 1rem;
+}
+.cta > h2{
+    font-size: 2rem;
+    font-weight: normal;
 }

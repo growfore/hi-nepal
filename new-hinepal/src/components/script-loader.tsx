@@ -8,9 +8,9 @@ const ScriptLoader = ({ onAllScriptsLoaded }:{onAllScriptsLoaded: () => void}) =
 
   useEffect(() => {
     const additionalStyles = [
-      '/assets/vendors/bootstrap/css/bootstrap.min.css',
       '/assets/vendors/fontawesome/css/all.min.css',
       '/assets/vendors/jquery-ui/jquery-ui.min.css',
+      '/assets/vendors/bootstrap/css/bootstrap.min.css',
       '/assets/vendors/modal-video/modal-video.min.css',
       '/assets/vendors/lightbox/dist/css/lightbox.min.css',
       '/assets/vendors/slick/slick.css',
@@ -34,18 +34,18 @@ const ScriptLoader = ({ onAllScriptsLoaded }:{onAllScriptsLoaded: () => void}) =
   }, [scriptsLoaded, onAllScriptsLoaded]);
 
   const vendorScripts = [
-    '/assets/js/jquery.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js',
+    // '/assets/js/jquery.js',
+    // 'https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js',
     '/assets/vendors/bootstrap/js/bootstrap.min.js',
     '/assets/vendors/jquery-ui/jquery-ui.min.js',
-    '/assets/vendors/countdown-date-loop-counter/loopcounter.js',
-    '/assets/js/jquery.counterup.js',
-    '/assets/vendors/modal-video/jquery-modal-video.min.js',
-    '/assets/vendors/masonry/masonry.pkgd.min.js',
-    '/assets/vendors/lightbox/dist/js/lightbox.min.js',
-    '/assets/vendors/slick/slick.min.js',
-    '/assets/js/jquery.slicknav.js',
-    '/assets/js/custom.min.js',
+    // '/assets/vendors/countdown-date-loop-counter/loopcounter.js',
+    // '/assets/js/jquery.counterup.js',
+    // '/assets/vendors/modal-video/jquery-modal-video.min.js',
+    // '/assets/vendors/masonry/masonry.pkgd.min.js',
+    // '/assets/vendors/lightbox/dist/js/lightbox.min.js',
+    // '/assets/vendors/slick/slick.min.js',
+    // '/assets/js/jquery.slicknav.js',
+    // '/assets/js/custom.min.js',
   ];
 
   const handleScriptLoad = () => {

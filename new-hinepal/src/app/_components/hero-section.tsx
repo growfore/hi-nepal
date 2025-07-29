@@ -27,7 +27,6 @@ export function HeroSection({
     slidesToScroll: 1,
   };
 
-  console.log('Hero Carousels: ', carousels);
   return (
    carousels.length > 0 && <div
       style={{

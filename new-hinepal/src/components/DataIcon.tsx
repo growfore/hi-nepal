@@ -14,8 +14,10 @@ export function DataIcon({ icon: Icon, k, v, size, color}: TDataIconProps) {
             <div className='icon-wrapper' style={{backgroundColor:color}}>
                 <Icon size={size}/>
             </div>
+            <div className="data-item-details">
             <h5 className="data-item-key">{k}</h5>
             <p className="data-item-value">{v}</p>
+            </div>
         </div>
     );
 }

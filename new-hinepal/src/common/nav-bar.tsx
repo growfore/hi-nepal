@@ -176,7 +176,7 @@ const NavBar = async () => {
                                           <li key={'packages' + index}>
                                             <Link
                                               href={`/${packageItem.slug}`}>
-                                              {packageItem.title}
+                                              {packageItem.title.includes(":") ? packageItem.title.split(":")[0].trim() : packageItem.title.trim()}
                                             </Link>
                                           </li>
                                         );

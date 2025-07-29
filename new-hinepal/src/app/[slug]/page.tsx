@@ -16,6 +16,7 @@ import "./table-style.css"
 import { SectionNav } from '@/components/SectionNav';
 import { Metadata } from 'next';
 import { fetchData } from '@/helper/fetch-data';
+import { formatSlug } from '@/helper/formatSlug';
 
 
 export async function generateMetadata({
@@ -26,7 +27,7 @@ export async function generateMetadata({
     const slug = await params.slug;
     const destination = await fetchData(`packages/${slug}`);
     return {
-        title: destination?.seo?.metaTitle || destination?.title,
+        title: destination?.seo?.metaTitle || destination?.title || formatSlug(slug),
         description: destination?.seo?.metaDescription || destination?.description,
         keywords: destination?.keywords,
         robots: {
@@ -105,14 +106,14 @@ const activites = async ({ params }: { params: Params }) => {
             <main className='package-page'>
                 <section className='main-content-area'>
                     <div className="data">
-                        <DataIcon icon={MountainSnow} k='Destination' v={details.title} />
-                        <DataIcon icon={Clock} k='Duration' v={details.duration + " Days"} />
-                        <DataIcon icon={CircleGauge} k='Trip Grade' v={details.tripGrade ?? "-"} />
-                        <DataIcon icon={Calendar} k='Start/End' v={details.startFrom + "/" + details.endAt} />
-                        <DataIcon icon={CloudSunRain} k='Best Seasons' v={details.bestSeason ?? "All Year"} />
-                        <DataIcon icon={CarFront} k='Transport' v={details.transportation ?? "-"} />
-                        <DataIcon icon={House} k='Accommodation' v={details.accommodation ?? "-"} />
-                        <div className="permits">
+                        {details?.title && <DataIcon icon={MountainSnow} k='Destination' v={details.title} />}
+                        {details?.duration && <DataIcon icon={Clock} k='Duration' v={details.duration + " Days"} />}
+                        {details?.tripGrade && <DataIcon icon={CircleGauge} k='Trip Grade' v={details.tripGrade ?? "-"} />}
+                        {details?.endAt && <DataIcon icon={Calendar} k='Start/End' v={details.startFrom + "/" + details.endAt} />}
+                        {details?.bestSeason && <DataIcon icon={CloudSunRain} k='Best Seasons' v={details.bestSeason ?? "All Year"} />}
+                        {details?.transportation && <DataIcon icon={CarFront} k='Transport' v={details.transportation ?? "-"} />}
+                        {details?.accommodation && <DataIcon icon={House} k='Accommodation' v={details.accommodation ?? "-"} />}
+                        {details?.permits && <div className="permits">
                             <div className='permit-icon-wrapper'>
                                 <Ticket />
                             </div>
@@ -121,6 +122,7 @@ const activites = async ({ params }: { params: Params }) => {
                                 <p className='data-item-value'>{details.permits ?? "Manaslu Restricted Area Permit (MRAP), Annapurna Conservation Area Permit (ACAP), Manaslu Conservation Area Permit (MCAP)"}</p>
                             </div>
                         </div>
+                        }
                     </div>
 
                     {/* Overview Section */}
@@ -370,9 +372,15 @@ const activites = async ({ params }: { params: Params }) => {
                                 <div dangerouslySetInnerHTML={{ __html: details.bookingInfo }} className="content route-overview-content">
                                 </div>
                             }
-                            <Button link='tel: +977 ' >Ask for the Cost</Button>
                         </div>
                     }
+                    {/* <div className='cta'>
+                        <h2>Interested in this package?</h2>
+                        <Link href={"tel:+977 9856035091"} id="ask-for-cost-btn" className='btn btn-primary'>
+                            Ask for the Cost Now
+                        </Link>
+                    </div> */}
+
                     {/* Faqs */}
                     {
                         details.goodtoknow &&
@@ -391,10 +399,11 @@ const activites = async ({ params }: { params: Params }) => {
                             }
                         </div>
                     }
-                    <div className="gallery">
-                        <GallerySlider details={details} />
-                    </div>
-
+                    {details?.media && details?.media.length > 1 &&
+                        <div className="gallery">
+                            <GallerySlider details={details} />
+                        </div>
+                    }
                 </section>
 
 
@@ -414,9 +423,10 @@ const activites = async ({ params }: { params: Params }) => {
                         </div>
 
                         <div className="suggested-posts">
-                            <h3>Related Packages</h3>
+                            {relatedProducts &&
+                                <h3>Related Packages</h3>}
                             <ul>
-                                {!relatedProducts || relatedProducts?.length === 0 &&
+                                {!relatedProducts || relatedProducts?.length < 2 &&
                                     (
                                         <li>No related packages found.</li>
                                     )}

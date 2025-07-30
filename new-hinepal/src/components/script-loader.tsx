@@ -34,18 +34,18 @@ const ScriptLoader = ({ onAllScriptsLoaded }:{onAllScriptsLoaded: () => void}) =
   }, [scriptsLoaded, onAllScriptsLoaded]);
 
   const vendorScripts = [
-    // '/assets/js/jquery.js',
-    // 'https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js',
+    '/assets/js/jquery.js',
+    '/assets/js/jquery.slicknav.js',
+    '/assets/js/custom.js',
     '/assets/vendors/bootstrap/js/bootstrap.min.js',
     '/assets/vendors/jquery-ui/jquery-ui.min.js',
-    // '/assets/vendors/countdown-date-loop-counter/loopcounter.js',
-    // '/assets/js/jquery.counterup.js',
-    // '/assets/vendors/modal-video/jquery-modal-video.min.js',
-    // '/assets/vendors/masonry/masonry.pkgd.min.js',
-    // '/assets/vendors/lightbox/dist/js/lightbox.min.js',
-    // '/assets/vendors/slick/slick.min.js',
-    // '/assets/js/jquery.slicknav.js',
-    // '/assets/js/custom.min.js',
+    '/assets/vendors/countdown-date-loop-counter/loopcounter.js',
+    '/assets/js/jquery.counterup.js',
+    '/assets/vendors/modal-video/jquery-modal-video.min.js',
+    '/assets/vendors/masonry/masonry.pkgd.min.js',
+    '/assets/vendors/lightbox/dist/js/lightbox.min.js',
+    '/assets/vendors/slick/slick.min.js',
+    '/assets/js/custom.min.js',
   ];
 
   const handleScriptLoad = () => {

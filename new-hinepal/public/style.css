@@ -9396,6 +9396,7 @@ product checkout css
 
 .widget .widget-title {
   margin-bottom: 30px;
+  margin-left:-10px !important;
 }
 
 .widget ul {

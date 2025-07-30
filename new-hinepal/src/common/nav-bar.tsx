@@ -4,10 +4,8 @@ import { TNavBar, TSiteInformation } from '@/types/types';
 import Link from 'next/link';
 import { get } from '@/utils/request-hander';
 import endpoints from '@/constant/endpoints';
-import Head from 'next/head';
 import Image from 'next/image';
 import { fetchData } from '@/helper/fetch-data';
-import { LucideCircle, LucideHeart } from 'lucide-react';
 
 const NavBar = async () => {
   let siteInformation: TSiteInformation | undefined = undefined;
@@ -34,9 +32,6 @@ const NavBar = async () => {
           top: '-50px',
           position: 'sticky',
         }}>
-        {/* <Head>
-          <link rel='preload' href='/hinepal/hinepal-logo.webp' as='image' />
-        </Head> */}
         {/* header html start */}
         <div className='top-header'>
           <div className='container'>
@@ -44,15 +39,6 @@ const NavBar = async () => {
               <div className='col-lg-8 d-none d-lg-block'>
                 <div className='header-contact-info'>
                   <ul>
-                    {/* <li className='nav-ratings'>
-                      <div className=''>{Array.from([0, 1, 2, 3, 4]).map((item, idx) => {
-                        return (
-                          <LucideCircle className='lucide-circle' fill='green' color='white' />
-                        )
-                      })}
-                      </div>
-                      <Link className='review-link' href={"https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"} target='_blank'>111 Reviews in Tripadvisor</Link>
-                    </li> */}
                     <li>
                       <Link href={`tel:${siteInformation?.phone1}`}>
                         <i className='fas fa-phone-alt' />{' '}

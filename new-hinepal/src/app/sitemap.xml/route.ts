@@ -17,19 +17,19 @@ export async function GET() {
         navItems = res.data;
         navItems.forEach((item) => {
           links.push({
-            url: `/${item.slug}`,
+            url: `/activities/${item.slug}`,
             changefreq: 'monthly',
             priority: 0.7,
           });
           item.destinations.map((destination) => {
             links.push({
-              url: `/${item.slug}/${destination.slug}`,
+              url: `/activities/${item.slug}/${destination.slug}`,
               changefreq: 'weekly',
               priority: 0.8,
             });
             destination.packages.map((packageItem) => {
               links.push({
-                url: `/${item.slug}/${destination.slug}/${packageItem.slug}`,
+                url: `${baseUrl}/${packageItem.slug}`,
                 changefreq: 'daily',
                 priority: 1.0,
               });

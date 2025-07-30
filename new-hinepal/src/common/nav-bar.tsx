@@ -187,7 +187,7 @@ const NavBar = async () => {
                       </>
                     );
                   })}
-                  <li className='menu-item-has-children'>
+                  {/* <li className='menu-item-has-children'>
                     <Link href='/blogs'>Blogs</Link>
                     <ul>
                       {data?.blogs?.map((blog: any, index: number) => (
@@ -196,7 +196,7 @@ const NavBar = async () => {
                         </li>
                       ))}
                     </ul>
-                  </li>
+                  </li> */}
                 </ul>
               </nav>
             </div>

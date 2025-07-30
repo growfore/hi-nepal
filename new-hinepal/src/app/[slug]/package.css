@@ -86,6 +86,11 @@
     min-width: 320px;
     z-index: -99 !important;
 }
+@media (max-width: 468px) {
+   .booking-details{
+    width: 95vw;
+   } 
+}
 
 .thumbnail {
     width: 100%;

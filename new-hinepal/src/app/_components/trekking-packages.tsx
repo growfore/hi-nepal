@@ -50,12 +50,12 @@ const TrekkingPackages = async () => {
                   />
                 )
             )}
-           
+
           </div>
           <div className='btn-wrap text-center'>
-            <a href='/trekking' className='button-primary'>
+            <Link href='/activities/trekking' className='button-primary'>
               VIEW ALL PACKAGES
-            </a>
+            </Link>
           </div>
         </div>
       </div>

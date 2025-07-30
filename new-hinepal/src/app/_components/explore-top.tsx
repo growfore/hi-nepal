@@ -46,13 +46,14 @@ const ExploreTop = async () => {
                       <figure className='desti-image'>
                         <Image
                           src={topDestinations[0].image}
+                          loading='lazy'
                           width={600}
                           height={400}
                           style={{
                             height: '400px',
                             objectFit: 'cover',
                           }}
-                          alt=''
+                          alt={topDestinations[0].name}
                         />
                       </figure>
                       <div className='meta-cat bg-meta-cat'>
@@ -78,11 +79,12 @@ const ExploreTop = async () => {
                           src={topDestinations[1].image}
                           width={600}
                           height={400}
+                          loading='lazy'
                           style={{
                             height: '400px',
                             objectFit: 'cover',
                           }}
-                          alt=''
+                          alt={topDestinations[1].name}
                         />
                       </figure>
                       <div className='meta-cat bg-meta-cat'>
@@ -111,13 +113,14 @@ const ExploreTop = async () => {
                         <Image
                           priority={false}
                           width={600}
+                          loading='lazy'
                           height={400}
                           src={topDestinations[2].image}
                           style={{
                             height: '400px',
                             objectFit: 'cover',
                           }}
-                          alt=''
+                          alt={topDestinations[2].name}
                         />
                       </figure>
                       <div className='meta-cat bg-meta-cat'>
@@ -127,7 +130,7 @@ const ExploreTop = async () => {
                       </div>
                       <div className='desti-content'>
                         <h3>
-                          <a href={'/trekking/' + topDestinations[2].slug}>
+                          <a href={'/activities/trekking/' + topDestinations[2].slug}>
                             {topDestinations[2].name}
                           </a>
                         </h3>
@@ -147,7 +150,8 @@ const ExploreTop = async () => {
                             height: '400px',
                             objectFit: 'cover',
                           }}
-                          alt=''
+                          loading='lazy'
+                          alt={topDestinations[3].name}
                         />
                       </figure>
                       <div className='meta-cat bg-meta-cat'>
@@ -157,7 +161,7 @@ const ExploreTop = async () => {
                       </div>
                       <div className='desti-content'>
                         <h3>
-                          <a href={'/trekking/' + topDestinations[3].slug}>
+                          <a href={'/activities/trekking/' + topDestinations[3].slug}>
                             {topDestinations[3].name}
                           </a>
                         </h3>
@@ -169,7 +173,7 @@ const ExploreTop = async () => {
             </div>
           </div>
           <div className='btn-wrap text-center'>
-            <a href='/trekking' className='button-primary'>
+            <a href='/activities/trekking' className='button-primary'>
               More Trekking Destination
             </a>
           </div>

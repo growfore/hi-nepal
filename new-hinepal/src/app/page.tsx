@@ -10,7 +10,8 @@ import { Patners } from './_components/patners';
 import Activities from './_components/activities';
 import Teams from './_components/teams';
 import BlogHome from './_components/blogs';
-import { Headset , LucideUsers } from 'lucide-react';
+import { Headset, LucideMail, LucideMap, LucidePhone, LucideUsers } from 'lucide-react';
+import Image from "next/image";
 
 export default async function Home() {
   let siteInformation: TSiteInformation = {} as TSiteInformation;
@@ -37,7 +38,7 @@ export default async function Home() {
       console.log("carousel response:", carousels)
     },
     failure: (message) => {
-      console.log("Carousel Error:",message);
+      console.log("Carousel Error:", message);
     },
   });
   await get({
@@ -77,6 +78,7 @@ export default async function Home() {
                       minHeight: '500px',
                       border: 'none',
                     }}
+                    loading='lazy'
                     src='https://www.youtube.com/embed/1Wfki2o-adM?si=Noc1MXhDPOW7bDHk'
                     title='YouTube video player'
                     allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
@@ -97,7 +99,7 @@ export default async function Home() {
                 <div className='callback-counter-wrap'>
                   <div className='counter-item'>
                     <div className='counter-icon'>
-                      <LucideUsers color='white' size={40}/>
+                      <LucideUsers color='white' size={40} />
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
@@ -108,7 +110,7 @@ export default async function Home() {
                   </div>
                   <div className='counter-item'>
                     <div className='counter-icon'>
-                      <LucideUsers color='white' size={40}/>
+                      <LucideUsers color='white' size={40} />
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
@@ -119,7 +121,7 @@ export default async function Home() {
                   </div>
                   <div className='counter-item'>
                     <div className='counter-icon'>
-                      <LucideUsers color='white' size={40}/>
+                      <LucideUsers color='white' size={40} />
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
@@ -130,7 +132,7 @@ export default async function Home() {
                   </div>
                   <div className='counter-item'>
                     <div className='counter-icon'>
-                      <LucideUsers color='white' size={40}/>
+                      <LucideUsers color='white' size={40} />
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
@@ -142,7 +144,7 @@ export default async function Home() {
                 </div>
                 <div className='support-area'>
                   <div className='support-icon'>
-                    <Headset color='green' size={40}/>
+                    <Headset color='green' size={40} />
                   </div>
                   <div className='support-content'>
                     <h4>Our 24/7 Emergency Phone Services</h4>
@@ -172,7 +174,9 @@ export default async function Home() {
                 <p>{siteInformation?.about?.description || ''}</p>
               </div>
               <figure className='gallery-img h-100'>
-                <img
+                <Image
+                  height={400}
+                  width={400}
                   src={siteInformation?.about?.image1 || '/img6.jpg'}
                   alt='home page gallery image'
                 />
@@ -182,7 +186,9 @@ export default async function Home() {
               <div className='row'>
                 <div className='col-sm-6'>
                   <figure className='gallery-img w-100 '>
-                    <img
+                    <Image
+                      height={400}
+                      width={400}
                       className='h-100 w-100'
                       src={siteInformation?.about?.image2 || '/img6.jpg'}
                       alt='home page gallery image'
@@ -191,7 +197,9 @@ export default async function Home() {
                 </div>
                 <div className='col-sm-6'>
                   <figure className='gallery-img'>
-                    <img
+                    <Image
+                      height={400}
+                      width={400}
                       src={siteInformation?.about?.image3 || '/img6.jpg'}
                       alt='home page gallery image'
                     />
@@ -201,7 +209,9 @@ export default async function Home() {
               <div className='row'>
                 <div className='col-12'>
                   <figure className='gallery-img'>
-                    <img
+                    <Image
+                      height={400}
+                      width={400}
                       style={{
                         maxHeight: '400px',
                         width: '100%',
@@ -263,7 +273,7 @@ export default async function Home() {
           <div className='section-heading text-center'>
             <div className='row'>
               <div className='col-lg-8 offset-lg-2'>
-                <h5 className='dash-style'> OUR TEAM</h5>
+                <h5 className='dash-style'>OUR TEAM</h5>
                 <h2>Available Guides </h2>
                 <p>
                   We are a team of experienced tour guides who are passionate
@@ -305,8 +315,8 @@ export default async function Home() {
                   overflow: 'hidden',
                   padding: '20px',
                 }}>
-                  <img src={siteInformation?.footerImg} alt='Footer Image' />
-                </div>
+                <Image height={200} width={200} src={siteInformation?.footerImg} alt='Footer Image' />
+              </div>
             </div>
             <div className='col-lg-8'>
               <div className='contact-details-wrap'>
@@ -314,7 +324,7 @@ export default async function Home() {
                   <div className='col-sm-4'>
                     <div className='contact-details'>
                       <div className='contact-icon'>
-                        <img src='/icons/icon12.png' alt='' />
+                        <LucideMail color='white' size={42} />
                       </div>
                       <ul>
                         <li>
@@ -333,7 +343,7 @@ export default async function Home() {
                   <div className='col-sm-4'>
                     <div className='contact-details'>
                       <div className='contact-icon'>
-                        <img src='/icons/icon13.png' alt='' />
+                        <LucidePhone color='white' size={42} />
                       </div>
                       <ul>
                         <li>
@@ -352,7 +362,7 @@ export default async function Home() {
                   <div className='col-sm-4'>
                     <div className='contact-details'>
                       <div className='contact-icon'>
-                        <img src='/icons/icon14.png' alt='' />
+                        <LucideMap color={"white"} size={42} />
                       </div>
                       <ul>
                         <li>{siteInformation?.location}</li>

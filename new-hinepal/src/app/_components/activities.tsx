@@ -2,6 +2,8 @@ import endpoints from '@/constant/endpoints';
 import { TActivity } from '@/types/types';
 import { get } from '@/utils/request-hander';
 import React from 'react';
+import Image from "next/image";
+import Link from 'next/link';
 
 const Activities = async () => {
   let activities: TActivity[] = [];
@@ -32,24 +34,24 @@ const Activities = async () => {
           </div>
         </div>
         <div className='activity-inner row'
-        style={{
-          width: 'fit-content',
-          margin: '0 auto',
-          display: 'flex',
-           
-          gap: '20px'
-        }}>
+          style={{
+            width: 'fit-content',
+            margin: '0 auto',
+            display: 'flex',
+
+            gap: '20px'
+          }}>
           {activities.map((activity, index) => (
             <div className=''>
               <div className='activity-item'>
                 <div className='activity-icon'>
-                  <a aria-label={activity.name} href={`/${activity.slug}`}>
-                    <img src={icons[index]?.icon || ''} alt='' />
-                  </a>
+                  <Link aria-label={activity.name} href={`/activities/${activity.slug}`}>
+                    <Image height={150} width={150} src={icons[index]?.icon || ''} alt='' />
+                  </Link>
                 </div>
                 <div className='activity-content'>
                   <h4>
-                    <a href={`/${activity.slug}`}>{activity.name}</a>
+                    <Link href={`/activities/${activity.slug}`}>{activity.name}</Link>
                   </h4>
                   <p>{activity._count.destinations} Destination</p>
                 </div>

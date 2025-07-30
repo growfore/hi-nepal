@@ -55,10 +55,11 @@ export function HeroSection({
               />
               <Image
                 src={carousel.image}
+                loading='lazy'
                 alt={carousel.title}
                 width={600}
                 height={250}
-                priority={true}
+                priority={false}
                 style={{
                   objectFit: 'cover',
                   height: '85vh',

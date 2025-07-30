@@ -430,7 +430,7 @@ const activites = async ({ params }: { params: Params }) => {
                                 className='thumbnail'
                             />
                             <p className='title'><strong>{details.title}</strong></p>
-                            <Button link="/book-now">Book Now</Button>
+                            <Button link="/booking">Book Now</Button>
                         </div>
 
                         <div className="suggested-posts">

@@ -18,6 +18,7 @@ const PackageCard = (props: TProps) => {
             aria-label={item.title}
             href={`/${destination?.activity?.slug}/${destination.slug}/${item.slug}`}>
             <Image
+              loading='lazy'
               width={300}
               height={300}
               style={{
@@ -69,7 +70,7 @@ const PackageCard = (props: TProps) => {
                 : item.description}
             </p>
             <div className='btn-wrap'>
-              <Link href='#' className='button-text width-6'>
+              <Link href='/booking' className='button-text width-6'>
                 Book Now
                 <i className='fas fa-arrow-right' />
               </Link>

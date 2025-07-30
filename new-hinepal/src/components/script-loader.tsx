@@ -67,11 +67,10 @@ const ScriptLoader = ({ onAllScriptsLoaded }:{onAllScriptsLoaded: () => void}) =
           <Script
             key={src}
             src={src}
-            strategy='afterInteractive'
+            strategy='lazyOnload'
             onLoad={handleScriptLoad}
             onError={() => {
               console.error(`Failed to load script: ${src}`);
-              // Count failed scripts as loaded to avoid blocking
               handleScriptLoad();
             }}
           />

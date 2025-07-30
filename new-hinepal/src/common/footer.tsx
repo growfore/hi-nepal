@@ -22,14 +22,14 @@ export function Footer() {
                   <div className='textwidget widget-text'>
                     {siteInformation?.footerAbout}
                   </div>
-                  <div className='award-img'>
+                  {/* <div className='award-img'>
                     <Link href='#'>
                       <img src={siteInformation?.rewardImg2} alt='reward-1' />
                     </Link>
                     <Link href='#'>
                       <img src={siteInformation?.rewardImg1} alt='reward-2' />
                     </Link>
-                  </div>
+                  </div> */}
                 </aside>
               </div>
               <div className='col-lg-3 col-md-6'>
@@ -59,9 +59,9 @@ export function Footer() {
                 </aside>
               </div>
               <div className='col-lg-3 col-md-6'>
-                <aside className='widget widget_recent_post'>
+                {/* <aside className='widget widget_recent_post'>
                   <h3 className='widget-title'>Latest Post</h3>
-                </aside>
+                </aside> */}
               </div>
               <div className='col-lg-3 col-md-6'>
                 <aside className='widget widget_newslatter'>
@@ -120,7 +120,7 @@ export function Footer() {
                     height={50}
                     width={100}
                     className='img-fluid bg-white p-2 rounded'
-                    src='/hinepal/hinepal-logo.webp'
+                    src='/hinepal/LOGO_HINEPAL.webp'
                     alt='logo'
                     loading='lazy'
                     priority={false}

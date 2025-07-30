@@ -107,33 +107,30 @@ const NavBar = async () => {
               <h1 className='site-title'>
                 <Link href='/'>
                   <Image
-                    width={128}
-                    height={75}
+                    width={100}
+                    height={50}
                     id='logo'
                     priority={true}
                     className='white-logo'
-                    src={'/hinepal/hinepal-logo.webp'}
+                    src={'/hinepal/LOGO_HINEPAL.webp'}
                     alt='logo'
                     style={{
                       backgroundColor: 'white',
-                      borderRadius: '2%',
-
-                      padding: '0.5rem',
-                      width: '100%',
+                      borderRadius: '5px',
+                      padding: '0.2rem',
                     }}
                   />
                   <Image
-                    width={128}
-                    height={75}
+                    width={100}
+                    height={50}
                     id='logo-dark'
                     priority={true}
                     className='black-logo'
-                    src={'/hinepal/hinepal-logo.webp'}
+                    src={'/hinepal/LOGO_HINEPAL.webp'}
                     alt='logo'
                     style={{
                       borderRadius: '2%',
                       padding: '0.5rem',
-                      width: '100%',
                     }}
                   />
                 </Link>

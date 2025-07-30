@@ -10,7 +10,7 @@ import { Patners } from './_components/patners';
 import Activities from './_components/activities';
 import Teams from './_components/teams';
 import BlogHome from './_components/blogs';
-import { Headset, LucideMail, LucideMap, LucidePhone, LucideUsers } from 'lucide-react';
+import { Headset, LucideCalendar, LucideMail, LucideMap, LucideMapPin, LucidePhone, LucideStar, LucideUsers } from 'lucide-react';
 import Image from "next/image";
 import Link from 'next/link';
 
@@ -104,42 +104,42 @@ export default async function Home() {
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
-                        <span className='counter'>500</span>K+
+                        <span className='counter'>2</span>K+
                       </span>
                       <span className='counter-text'>Satisfied Clients</span>
                     </div>
                   </div>
                   <div className='counter-item'>
                     <div className='counter-icon'>
-                      <LucideUsers color='white' size={40} />
+                      <LucideMapPin color='white' size={40}/>
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
-                        <span className='counter'>250</span>K+
+                        <span className='counter'>250</span>+
                       </span>
-                      <span className='counter-text'>Satisfied Clients</span>
+                      <span className='counter-text'>Destinations Covered</span>
                     </div>
                   </div>
                   <div className='counter-item'>
                     <div className='counter-icon'>
-                      <LucideUsers color='white' size={40} />
+                      <LucideCalendar color='white' size={40} />
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
-                        <span className='counter'>15</span>K+
+                        <span className='counter'>15</span>+
                       </span>
-                      <span className='counter-text'>Satisfied Clients</span>
+                      <span className='counter-text'>Years of Experience</span>
                     </div>
                   </div>
                   <div className='counter-item'>
                     <div className='counter-icon'>
-                      <LucideUsers color='white' size={40} />
+                      <LucideStar color='white' size={40}/>
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
-                        <span className='counter'>10</span>K+
+                        <span className='counter'>5</span>
                       </span>
-                      <span className='counter-text'>Satisfied Clients</span>
+                      <span className='counter-text'>Average Customer Rating</span>
                     </div>
                   </div>
                 </div>
@@ -334,11 +334,11 @@ export default async function Home() {
                             {siteInformation?.email1}
                           </a>
                         </li>
-                        <li>
+                        {/* <li>
                           <a href={`mailto:${siteInformation?.email2}`}>
                             {siteInformation?.email2}
                           </a>
-                        </li>
+                        </li> */}
                       </ul>
                     </div>
                   </div>

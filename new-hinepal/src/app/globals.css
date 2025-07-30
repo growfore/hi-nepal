@@ -8,6 +8,9 @@ h1,
 h2 {
   font-family: "DM Serif Display", sans-serif !important;
 }
+a{
+  text-decoration: none !important;
+}
 
 .overview-content h2 {
   font-size: 20px !important;

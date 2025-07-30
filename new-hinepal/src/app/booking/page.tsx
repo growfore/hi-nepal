@@ -1,7 +1,5 @@
 "use client"
 
-import CustomLayout from "@/components/custom-layout"
-import ScriptLoader from "@/components/script-loader"
 import { LucideMail, LucideMapPin, LucidePhone, LucideSend } from "lucide-react"
 import type React from "react"
 import { useState } from "react"
@@ -31,12 +29,12 @@ const ContactForm = () => {
 
   return (
     <>
-     <link
+      <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         rel="stylesheet"
       />
       <main>
-        <section className="bg-success bg-gradient position-relative py-5 text-white">
+        <section className="bg-warning bg-gradient position-relative py-5 text-white">
           <div className="position-absolute top-0 start-0 end-0 bottom-0 opacity-25 bg-dark"></div>
           <div className="container position-relative z-1">
             <div className="text-center">
@@ -181,7 +179,7 @@ const ContactForm = () => {
 
                       <div className="d-grid">
                         <button type="submit" className="btn btn-success btn-lg shadow  fw-bold">
-                          <LucideSend/>
+                          <LucideSend />
                           Send Inquiry
                         </button>
                       </div>
@@ -197,7 +195,7 @@ const ContactForm = () => {
                       <div className="card-body p-4">
                         <div className="d-flex flex-column align-items-center mb-3">
                           <div className="bg-white bg-opacity-25 rounded-circle d-flex justify-content-center align-items-center" style={{ width: '4rem', height: '4rem' }}>
-                            <LucidePhone color="white"/>
+                            <LucidePhone color="white" />
                           </div>
                         </div>
                         <h5 className="fw-bold mb-3">ADVENTURE PLANNING</h5>
@@ -218,7 +216,7 @@ const ContactForm = () => {
                         <h5 className="fw-bold mb-4">Other Ways to Reach Us</h5>
                         <div className="d-flex align-items-center mb-3">
                           <div className="bg-success bg-opacity-10 p-2 rounded-circle me-3">
-                            <LucideMail color="green"/>
+                            <LucideMail color="green" />
                           </div>
                           <div>
                             <p className="fw-semibold mb-1">Email</p>
@@ -227,12 +225,12 @@ const ContactForm = () => {
                         </div>
                         <div className="d-flex align-items-center">
                           <div className="bg-success bg-opacity-10 p-2 rounded-circle me-3">
-                            <LucideMapPin color="green"/>
+                            <LucideMapPin color="green" />
                           </div>
                           <div>
                             <p className="fw-semibold mb-1">Address</p>
                             <p className="text-muted mb-0">
-                              Street No. 13, Pokhara<br />Nepal
+                              Street No. 13,Lakeside, Pokhara<br />Nepal
                             </p>
                           </div>
                         </div>

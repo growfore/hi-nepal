@@ -7,6 +7,7 @@ import endpoints from '@/constant/endpoints';
 import Head from 'next/head';
 import Image from 'next/image';
 import { fetchData } from '@/helper/fetch-data';
+import { LucideCircle, LucideHeart } from 'lucide-react';
 
 const NavBar = async () => {
   let siteInformation: TSiteInformation | undefined = undefined;
@@ -32,11 +33,10 @@ const NavBar = async () => {
         style={{
           top: '-50px',
           position: 'sticky',
-          backgroundColor: '#000000aa',
         }}>
-        <Head>
+        {/* <Head>
           <link rel='preload' href='/hinepal/hinepal-logo.webp' as='image' />
-        </Head>
+        </Head> */}
         {/* header html start */}
         <div className='top-header'>
           <div className='container'>
@@ -44,6 +44,15 @@ const NavBar = async () => {
               <div className='col-lg-8 d-none d-lg-block'>
                 <div className='header-contact-info'>
                   <ul>
+                    {/* <li className='nav-ratings'>
+                      <div className=''>{Array.from([0, 1, 2, 3, 4]).map((item, idx) => {
+                        return (
+                          <LucideCircle className='lucide-circle' fill='green' color='white' />
+                        )
+                      })}
+                      </div>
+                      <Link className='review-link' href={"https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"} target='_blank'>111 Reviews in Tripadvisor</Link>
+                    </li> */}
                     <li>
                       <Link href={`tel:${siteInformation?.phone1}`}>
                         <i className='fas fa-phone-alt' />{' '}
@@ -87,20 +96,20 @@ const NavBar = async () => {
                         <i className='fab fa-instagram' aria-hidden='true' />
                       </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link
                         aria-label='linkedin'
                         href={siteInformation?.linkedin || ''}>
                         <i className='fab fa-linkedin' aria-hidden='true' />
                       </Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
-                <div className='header-search-icon'>
+                {/* <div className='header-search-icon'>
                   <button className='search-icon' aria-label='search'>
                     <i className='fas fa-search' aria-hidden='true' />
                   </button>
-                </div>
+                </div>*/}
               </div>
             </div>
           </div>
@@ -162,9 +171,9 @@ const NavBar = async () => {
                                   className='menu-item-has-children'
                                   style={{}}>
                                   <Link
-                                  href={`/activities/${item.slug}/${destination.slug}`}>
-                                  {destination.name}
-                                </Link>
+                                    href={`/activities/${item.slug}/${destination.slug}`}>
+                                    {destination.name}
+                                  </Link>
                                   <ul className='sub-menu'>
                                     {destination.packages.map(
                                       (packageItem, index) => {

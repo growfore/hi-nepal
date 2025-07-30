@@ -2,10 +2,12 @@ import endpoints from '@/constant/endpoints';
 import { TDestination } from '@/types/types';
 import { get } from '@/utils/request-hander';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const ExploreTop = async () => {
   const topDestinations: TDestination[] = [];
+
   await get({
     endPoint: endpoints.DESTINATIONS + '/top',
     token: '',
@@ -38,144 +40,46 @@ const ExploreTop = async () => {
         </div>
         <div className='destination-inner destination-three-column'>
           <div className='row'>
-            <div className='col-lg-7'>
+            <div className='col-lg'>
               <div className='row'>
-                {topDestinations.length > 0 && (
-                  <div className='col-sm-6'>
-                    <div className='desti-item overlay-desti-item'>
-                      <figure className='desti-image'>
-                        <Image
-                          src={topDestinations[0].image}
-                          loading='lazy'
-                          width={600}
-                          height={400}
-                          style={{
-                            height: '400px',
-                            objectFit: 'cover',
-                          }}
-                          alt={topDestinations[0].name}
-                        />
-                      </figure>
-                      <div className='meta-cat bg-meta-cat'>
-                        <a href={topDestinations[0].activity.slug}>
-                          {topDestinations[0].activity.name}
-                        </a>
+                {topDestinations.slice(0, 3).map((d, index) => {
+                  return (
+                    <Link key={index} className='col-sm-4' href={"/activities/trekking/" + d.slug}>
+                      <div className=''>
+                        <div className='desti-item overlay-desti-item'>
+                          <figure className='desti-image'>
+                            <Image
+                              src={d.image}
+                              loading='lazy'
+                              width={600}
+                              height={400}
+                              style={{
+                                height: '400px',
+                                objectFit: 'cover',
+                              }}
+                              alt={d.name}
+                            />
+                          </figure>
+                          <div className='meta-cat bg-meta-cat'>
+                            {d.activity.name}
+                          </div>
+                          <div className='desti-content'>
+                            <h3>
+                              {d.name}
+                            </h3>
+                          </div>
+                        </div>
                       </div>
-                      <div className='desti-content'>
-                        <h3>
-                          <a href={'/trekking/' + topDestinations[0].slug}>
-                            {topDestinations[0].name}
-                          </a>
-                        </h3>
-                      </div>
-                    </div>
-                  </div>
-                )}
-                {topDestinations.length > 1 && (
-                  <div className='col-sm-6'>
-                    <div className='desti-item overlay-desti-item'>
-                      <figure className='desti-image'>
-                        <Image
-                          src={topDestinations[1].image}
-                          width={600}
-                          height={400}
-                          loading='lazy'
-                          style={{
-                            height: '400px',
-                            objectFit: 'cover',
-                          }}
-                          alt={topDestinations[1].name}
-                        />
-                      </figure>
-                      <div className='meta-cat bg-meta-cat'>
-                        <a href={topDestinations[1].activity.slug}>
-                          {topDestinations[1].activity.name}
-                        </a>
-                      </div>
-                      <div className='desti-content'>
-                        <h3>
-                          <a href={'/trekking/' + topDestinations[1].slug}>
-                            {topDestinations[1].name}
-                          </a>
-                        </h3>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-            <div className='col-lg-5'>
-              <div className='row'>
-                {topDestinations.length > 2 && (
-                  <div className='col-md-6 col-xl-12'>
-                    <div className='desti-item overlay-desti-item'>
-                      <figure className='desti-image'>
-                        <Image
-                          priority={false}
-                          width={600}
-                          loading='lazy'
-                          height={400}
-                          src={topDestinations[2].image}
-                          style={{
-                            height: '400px',
-                            objectFit: 'cover',
-                          }}
-                          alt={topDestinations[2].name}
-                        />
-                      </figure>
-                      <div className='meta-cat bg-meta-cat'>
-                        <a href={topDestinations[2].activity.slug}>
-                          {topDestinations[2].activity.name}
-                        </a>
-                      </div>
-                      <div className='desti-content'>
-                        <h3>
-                          <a href={'/activities/trekking/' + topDestinations[2].slug}>
-                            {topDestinations[2].name}
-                          </a>
-                        </h3>
-                      </div>
-                    </div>
-                  </div>
-                )}
-                {topDestinations.length > 3 && (
-                  <div className='col-md-6 col-xl-12'>
-                    <div className='desti-item overlay-desti-item'>
-                      <figure className='desti-image'>
-                        <Image
-                          width={600}
-                          height={400}
-                          src={topDestinations[3].image}
-                          style={{
-                            height: '400px',
-                            objectFit: 'cover',
-                          }}
-                          loading='lazy'
-                          alt={topDestinations[3].name}
-                        />
-                      </figure>
-                      <div className='meta-cat bg-meta-cat'>
-                        <a href={topDestinations[3].activity.slug}>
-                          {topDestinations[3].activity.name}
-                        </a>
-                      </div>
-                      <div className='desti-content'>
-                        <h3>
-                          <a href={'/activities/trekking/' + topDestinations[3].slug}>
-                            {topDestinations[3].name}
-                          </a>
-                        </h3>
-                      </div>
-                    </div>
-                  </div>
-                )}
+                    </Link>
+                  )
+                })}
               </div>
             </div>
           </div>
           <div className='btn-wrap text-center'>
-            <a href='/activities/trekking' className='button-primary'>
+            <Link href='/activities/trekking' className='button-primary'>
               More Trekking Destination
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -5,26 +5,29 @@ import React from 'react';
 
 const BlogHome = async () => {
   const data = await fetchData('blogs');
+  const blogs = await data;
 
   return (
     <section className='blog-section'>
-      <div className='container'>
-        <div className='section-heading text-center'>
-          <div className='row'>
-            <div className='col-lg-8 offset-lg-2'>
-              <h5 className='dash-style'>FROM OUR BLOG</h5>
-              <h2>OUR RECENT POSTS</h2>
-              <p>Latest news and updates from our blog. Check out our blog</p>
+      {blogs && blogs?.length > 1 &&
+        <div className='container'>
+          <div className='section-heading text-center'>
+            <div className='row'>
+              <div className='col-lg-8 offset-lg-2'>
+                <h5 className='dash-style'>FROM OUR BLOG</h5>
+                <h2>OUR RECENT POSTS</h2>
+                <p>Latest news and updates from our blog. Check out our blog</p>
+              </div>
             </div>
           </div>
+          <div className='row'>
+            {blogs && blogs?.map(
+              (blog: any, index: number) =>
+                index < 3 && <HomePageBlogCard blog={blog} />
+            )}
+          </div>
         </div>
-        <div className='row'>
-          {await data?.blogs?.map(
-            (blog: any, index: number) =>
-              index < 3 && <HomePageBlogCard blog={blog} />
-          )}
-        </div>
-      </div>
+      }
     </section>
   );
 };
@@ -43,6 +46,7 @@ const HomePageBlogCard = (data: any) => {
               src={blog?.image || ''}
               alt={blog?.title || ''}
               width={300}
+              loading='lazy'
               height={300}
               priority={false}
               decoding='async'

@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+
 .overview-content h1 {
   font-size: 25px !important;
 }
 
-h1, h2{
+h1,
+h2 {
   font-family: "DM Serif Display", sans-serif !important;
 }
 
@@ -28,39 +30,48 @@ h1, h2{
 #carousel-btn {
   z-index: 9999;
 }
-.bottom-header, .mobile-menu-container, .top-header{
+
+.bottom-header,
+.mobile-menu-container,
+.top-header {
   background-color: #4a5759 !important;
 }
 
 
 
 /* CARD */
-.card{
+.card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 1rem;
 }
-.card-title{
+
+.card-title {
   font-weight: bold;
   font-size: 2rem;
 }
 
-.activity-card-group{
+.activity-card-group {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   padding: 1rem;
 }
-.activity-page, .region-page{
+
+.activity-page,
+.region-page {
   min-height: 100vh;
   padding: 4rem;
 }
-.activity-page > h2, .region-page > h2{
+
+.activity-page>h2,
+.region-page>h2 {
   padding: 1rem;
   text-align: center;
 }
-.ratings{
+
+.ratings {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,29 +82,43 @@ h1, h2{
   border-radius: 1rem;
   padding: 0.5rem 1rem;
 }
-.recommended-by{
+
+.nav-ratings {
+  display: flex !important;
+  padding: 0.5rem 1rem !important;
+}
+
+.nav-ratings>.review-link {
+  font-weight: bold;
+}
+
+.recommended-by {
   display: flex;
   align-items: center;
   justify-content: center;
   align-self: center;
   margin: 0 0 0 1rem;
 }
-.heart-wrapper{
+
+.heart-wrapper {
   margin-right: 5px;
 }
-.lucide-circle{
-  margin-right:-10px;
+
+.lucide-circle {
+  margin-right: -10px;
 }
 
-.review-link{
+.review-link {
   text-decoration: underline;
   margin-left: 1rem;
 }
-.inner-banner-content{
+
+.inner-banner-content {
   display: flex;
   flex-direction: column;
 }
-#nav-btn{
+
+#nav-btn {
   display: flex;
   justify-content: center !important;
   align-items: center !important;

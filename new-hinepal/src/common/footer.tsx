@@ -103,6 +103,7 @@ export function Footer() {
                       <input
                         type='submit'
                         name='s'
+                        disabled
                         defaultValue='SUBSCRIBE NOW'
                       />
                     </form>

@@ -12,6 +12,7 @@ import Teams from './_components/teams';
 import BlogHome from './_components/blogs';
 import { Headset, LucideMail, LucideMap, LucidePhone, LucideUsers } from 'lucide-react';
 import Image from "next/image";
+import Link from 'next/link';
 
 export default async function Home() {
   let siteInformation: TSiteInformation = {} as TSiteInformation;
@@ -256,6 +257,7 @@ export default async function Home() {
                     <input
                       type='submit'
                       name='signup'
+                      disabled
                       defaultValue='SIGN UP NOW!'
                     />
                   </form>
@@ -377,9 +379,9 @@ export default async function Home() {
               </div>
               <div className='contact-btn-wrap'>
                 <h3>LET'S JOIN US FOR MORE UPDATE !!</h3>
-                <a href='#' className='button-primary'>
+                <Link href='/about' className='button-primary' style={{border: "1px solid white"}}>
                   LEARN MORE
-                </a>
+                </Link>
               </div>
             </div>
           </div>

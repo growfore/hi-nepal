@@ -137,7 +137,7 @@ export default async function Home() {
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
-                        <span className='counter'>5</span>
+                        <span className='counter'>5/5</span>
                       </span>
                       <span className='counter-text'>Average Customer Rating</span>
                     </div>

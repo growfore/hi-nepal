@@ -205,7 +205,7 @@ const ContactForm = () => {
                         <a href="tel:+9779856035091" className="text-white text-decoration-none fs-5 fw-bold d-block mb-2">
                           +977 985-6035091
                         </a>
-                        <small className="opacity-75">Monday to Friday 9.00am - 7.30pm</small>
+                        <small className="opacity-75">We are open 7 Days a Week <br /> 07.30am - 09.30pm</small>
                       </div>
                     </div>
                   </div>

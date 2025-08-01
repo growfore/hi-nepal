@@ -104,7 +104,7 @@ export default async function Home() {
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
-                        <span className='counter'>2</span>K+
+                        <span className='counter'>25</span>K+
                       </span>
                       <span className='counter-text'>Satisfied Clients</span>
                     </div>
@@ -115,7 +115,7 @@ export default async function Home() {
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
-                        <span className='counter'>250</span>+
+                        <span className='counter'>100</span>+
                       </span>
                       <span className='counter-text'>Destinations Covered</span>
                     </div>
@@ -126,14 +126,14 @@ export default async function Home() {
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>
-                        <span className='counter'>15</span>+
+                        <span className='counter'>17</span>+
                       </span>
                       <span className='counter-text'>Years of Experience</span>
                     </div>
                   </div>
                   <div className='counter-item'>
                     <div className='counter-icon'>
-                      <LucideStar color='white' size={40}/>
+                      <LucideStar color='yellow' fill='yellow' size={40}/>
                     </div>
                     <div className='counter-content'>
                       <span className='counter-no'>

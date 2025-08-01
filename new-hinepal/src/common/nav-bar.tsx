@@ -64,6 +64,7 @@ const NavBar = async () => {
                     <li>
                       <Link
                         aria-label='facebook'
+                        target='_blank'
                         href={siteInformation?.facebook || ''}>
                         <i className='fab fa-facebook-f' aria-hidden='true' />
                       </Link>
@@ -71,6 +72,7 @@ const NavBar = async () => {
                     <li>
                       <Link
                         aria-label='twitter'
+                        target='_blank'
                         href={siteInformation?.twitter || ''}>
                         <i className='fab fa-twitter' aria-hidden='true' />
                       </Link>
@@ -78,6 +80,7 @@ const NavBar = async () => {
                     <li>
                       <Link
                         aria-label='instagram'
+                        target='_blank'
                         href={siteInformation?.instagram || ''}>
                         <i className='fab fa-instagram' aria-hidden='true' />
                       </Link>

@@ -60,9 +60,6 @@ const PackageCard = (props: TProps) => {
             </h3>
             <div className='review-area'>
               {/* <span className='review-text'>(25 reviews)</span> */}
-              <div className='rating-start' title='Rated 5 out of 5'>
-                <span style={{ width: '80%' }} />
-              </div>
             </div>
             <p className=''>
               {item.description?.length > 40
@@ -70,10 +67,6 @@ const PackageCard = (props: TProps) => {
                 : item.description}
             </p>
             <div className='btn-wrap'>
-              <Link href='/booking' className='button-text width-6'>
-                Book Now
-                <i className='fas fa-arrow-right' />
-              </Link>
               {/* <Link href='/trekking' className='button-text width-6'>
                 Wish List
                 <i className='far fa-heart' />

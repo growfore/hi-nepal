@@ -25,6 +25,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/trekking",
+        destination:"/activities/trekking",
+        permanent: true,
+      },
+      {
         source: '/trekking/everest-region/gokyo-valley-trek',
         destination: '/gokyo-valley-trek',
         permanent: true,
@@ -153,7 +158,42 @@ const nextConfig = {
         source: '/adventure-activity/bungee',
         destination: '/',
         permanent: true,
-      }
+      },
+      {
+        source: '/trekking/everest-region',
+        destination: '/activities/trekking/everest-region',
+        permanent: true,
+      },
+      {
+        source: '/region/annapurna',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/trekking/mansalu-region',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/mansalu-circuit-trek',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/blogs/:slug*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/bardiya-national-park%20-tour',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/t=um-valley-trek',
+        destination: '/',
+        permanent: true,
+      },
     ];
   },
 };

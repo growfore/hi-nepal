@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import Slider from 'react-slick';
+import OptimizedSlider from '@/components/optimized-slider';
 import Image from 'next/image';
 
 export function Patners() {
@@ -38,7 +38,7 @@ export function Patners() {
     <div className='client-section'>
       <div className='container'>
         <div className='client-wrap client-slider secondary-bg'>
-          <Slider {...settings}>
+          <OptimizedSlider settings={settings}>
             {images.map((image, index) => (
               <div className='client-item' key={index}>
                 <figure>
@@ -52,7 +52,7 @@ export function Patners() {
                 </figure>
               </div>
             ))}
-          </Slider>
+          </OptimizedSlider>
         </div>
       </div>
     </div>

@@ -50,7 +50,17 @@ export default async function RootLayout({
              })(window, document, "clarity", "script", "qlz8qjlv4c");
         `,
           }}></script>
-
+        
+        {/* Essential CSS files - only load what's needed globally */}
+        <link rel="stylesheet" href="/assets/vendors/fontawesome/css/all.min.css" />
+        <link rel="stylesheet" href="/assets/vendors/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/style.css" />
+        
+        {/* Google Fonts */}
+        <link
+          href='https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap'
+          rel='stylesheet'
+        />
       </head>
       <body className={`${poppins.className} Home`}>
         {' '}
@@ -60,6 +70,12 @@ export default async function RootLayout({
           header={<NavBar />}>
           {children}
         </CustomLayout>
+        
+        {/* Essential JavaScript files - only load what's needed globally */}
+        <script src="/assets/js/jquery.js"></script>
+        <script src="/assets/js/jquery.slicknav.js"></script>
+        <script src="/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/assets/js/custom.min.js"></script>
       </body>
     </html>
   );

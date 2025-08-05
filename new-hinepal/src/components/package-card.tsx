@@ -16,7 +16,7 @@ const PackageCard = (props: TProps) => {
         <figure className='feature-image'>
           <Link
             aria-label={item.title}
-            href={`/${destination?.activity?.slug}/${destination.slug}/${item.slug}`}>
+            href={`/${item.slug}`}>
             <Image
               loading='lazy'
               width={300}
@@ -52,7 +52,7 @@ const PackageCard = (props: TProps) => {
             <h3>
               <Link
                 title={item.title}
-                href={`/${destination?.activity?.slug}/${destination.slug}/${item.slug}`}>
+                href={`/${item.slug}`}>
                 {item.title?.length > 50
                   ? item.title.slice(0, 47) + '  ...'
                   : item.title}

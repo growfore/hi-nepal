@@ -41,7 +41,7 @@ const TrekkingPackages = async () => {
                     key={index}
                     item={item}
                     destination={{
-                      slug: item.destination.slug,
+                      slug:item.destination.slug.split("/")[2],
                       activity: {
                         name: 'Trekking',
                         slug: 'trekking',

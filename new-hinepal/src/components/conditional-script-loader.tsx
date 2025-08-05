@@ -32,7 +32,6 @@ const ConditionalScriptLoader = ({
     });
   }, []);
 
-  // Core scripts needed on all pages
   const coreScripts = [
     '/assets/js/jquery.js',
     '/assets/js/jquery.slicknav.js',
@@ -40,25 +39,21 @@ const ConditionalScriptLoader = ({
     '/assets/js/custom-optimized.js',
   ];
 
-  // Conditional scripts based on page type
   const getConditionalScripts = () => {
     const conditionalScripts = [];
     
-    // Lightbox for package pages
     if (pageType === 'package') {
-      conditionalScripts.push('/assets/vendors/lightbox/dist/js/lightbox.min.js');
+      // conditionalScripts.push('/assets/vendors/lightbox/dist/js/lightbox.min.js');
     }
     
-    // Masonry for blog pages
     if (pageType === 'blog') {
       conditionalScripts.push('/assets/vendors/masonry/masonry.pkgd.min.js');
     }
-    
     // Counter and modal video for home page
     if (pageType === 'home') {
-      conditionalScripts.push('/assets/vendors/countdown-date-loop-counter/loopcounter.js');
-      conditionalScripts.push('/assets/js/jquery.counterup.js');
-      conditionalScripts.push('/assets/vendors/modal-video/jquery-modal-video.min.js');
+      // conditionalScripts.push('/assets/vendors/countdown-date-loop-counter/loopcounter.js');
+      // conditionalScripts.push('/assets/js/jquery.counterup.js');
+      // conditionalScripts.push('/assets/vendors/modal-video/jquery-modal-video.min.js');
     }
     
     return conditionalScripts;

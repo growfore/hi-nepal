@@ -55,10 +55,11 @@ export function HeroSection({
                 src={carousel.image}
                 loading='lazy'
                 alt={carousel.title}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 366px"
                 width={600}
                 height={250}
                 priority={false}
-                className='banner-inner-wrap '
+                className='banner-inner-wrap'
               />
               <div className='banner-content-wrap ' style={{ height: '85vh' }}>
                 <div className='container'>

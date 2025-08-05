@@ -54,6 +54,7 @@ const ExploreTop = async () => {
                               width={600}
                               height={400}
                               quality={75}
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 366px"
                               alt={d.name}
                             />
                           </figure>

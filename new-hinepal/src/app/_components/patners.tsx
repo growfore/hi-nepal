@@ -20,8 +20,6 @@ export function Patners() {
   });
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
-      require('slick-carousel/slick/slick.css');
-      require('slick-carousel/slick/slick-theme.css');
       if (window.innerWidth < 900) {
         setSettings({
           ...settings,

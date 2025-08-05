@@ -119,7 +119,7 @@ const NavBar = async () => {
                     alt='logo'
                   />
                   <Image
-                    width={100}
+                    width={150}
                     height={50}
                     id='logo-dark'
                     priority={true}

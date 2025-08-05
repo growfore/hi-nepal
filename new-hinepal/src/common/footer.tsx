@@ -90,7 +90,7 @@ export function Footer() {
               <div className='footer-menu'>
                 <ul>
                   <li className='nav-ratings'>
-                    <div className=''>{Array.from([0, 1, 2, 3, 4]).map((_, idx) => {
+                    <div className='flex'>{Array.from([0, 1, 2, 3, 4]).map((_, idx) => {
                       return (
                         <LucideCircle key={idx} className='lucide-circle' fill='green' color='white' />
                       )

@@ -38,11 +38,11 @@ export default function OptimizedSlider({ settings, children, className }: Optim
       />
       
       {sliderReady ? (
-        <Slider className={className} {...settings} style={{display:'flex',gap:"1rem",justifyContent:"center"}}>
+        <Slider className={className} {...settings}>
           {children}
         </Slider>
       ) : (
-        <div className={className} style={{display:'flex',gap:"1rem",justifyContent:"center"}}>
+        <div className={className}>
           {children}
         </div>
       )}

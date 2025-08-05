@@ -38,7 +38,7 @@ export function Patners() {
     <div className='client-section'>
       <div className='container'>
         <div className='client-wrap client-slider secondary-bg'>
-          <OptimizedSlider settings={settings}>
+          <OptimizedSlider settings={settings} className='flex items-center justify-center'>
             {images.map((image, index) => (
               <div className='client-item' key={index}>
                 <figure>

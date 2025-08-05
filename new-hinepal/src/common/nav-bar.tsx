@@ -110,18 +110,13 @@ const NavBar = async () => {
               <h1 className='site-title'>
                 <Link href='/'>
                   <Image
-                    width={100}
+                    width={150}
                     height={50}
                     id='logo'
                     priority={true}
-                    className='white-logo'
+                    className='white-logo bg-white rounded-sm m-4'
                     src={'/hinepal/LOGO_HINEPAL.webp'}
                     alt='logo'
-                    style={{
-                      backgroundColor: 'white',
-                      borderRadius: '5px',
-                      padding: '0.2rem',
-                    }}
                   />
                   <Image
                     width={100}

@@ -317,7 +317,7 @@ export default async function Home() {
                   overflow: 'hidden',
                   padding: '20px',
                 }}>
-                <Image height={200} width={200} src={siteInformation?.footerImg} alt='Footer Image' />
+                <Image height={500} width={500} src={siteInformation?.footerImg} alt='Footer Image' />
               </div>
             </div>
             <div className='col-lg-8'>

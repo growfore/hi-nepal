@@ -198,6 +198,41 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: "/trekking/langtang-valley-trek",
+        destination:"/langtang-valley-trek",
+        permanent: true,
+      },
+      {
+        source: "/trekking/chola-pass-gokyo-trek",
+        destination: "/chola-pass-gokyo-trek",
+        permanent: true,
+      },
+      {
+        source: "/trekking/gokyo-valley-trek",
+        destination:"/gokyo-valley-trek",
+        permanent: true,
+      },
+      {
+        source: "/trekking/everest-base-camp-trek",
+        destination: "/everest-base-camp-trek",
+        permanent: true,
+      },
+      {
+        source: "/trekking/everest-region/everest-base-camp-trek",
+        destination: "/everest-base-camp-trek",
+        permanent: true,
+      },
+      {
+        source: "/trekking/everest-region/chola-pass-gokyo-trek",
+        destination: "/chola-pass-gokyo-trek",
+        permanent: true,
+      },
+      {
+        source: "/trekking/langtang-gosaikunda-trek",
+        destination: "/langtang-gosaikunda-trek",
+        permanent: true,  
+      }
     ];
   },
 };

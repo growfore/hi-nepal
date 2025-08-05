@@ -53,10 +53,7 @@ const ExploreTop = async () => {
                               loading='lazy'
                               width={600}
                               height={400}
-                              style={{
-                                height: '400px',
-                                objectFit: 'cover',
-                              }}
+                              quality={75}
                               alt={d.name}
                             />
                           </figure>

@@ -1,6 +1,7 @@
 'use client';
 import * as React from 'react';
 import Slider from 'react-slick';
+import Image from 'next/image';
 
 export function Patners() {
   const images = [
@@ -43,7 +44,9 @@ export function Patners() {
             {images.map((image, index) => (
               <div className='client-item' key={index}>
                 <figure>
-                  <img
+                  <Image
+                    height={200}
+                    width={200}
                     className='bg-white rounded '
                     src={'/hinepal' + image}
                     alt=''

@@ -28,14 +28,14 @@ export function HeroSection({
   };
 
   return (
-   carousels.length > 0 && <div
+    carousels.length > 0 && <div
       style={{
         height: '85vh',
       }}>
       <section className='home-slider-section '>
         <Head>
           {carousels.length > 0 && (
-            <link rel='preload'  href={carousels[0].image} as='image' />
+            <link rel='preload' href={carousels[0].image} as='image' />
           )}
         </Head>
         <Slider className='home-slider' {...settings}>
@@ -60,11 +60,6 @@ export function HeroSection({
                 width={600}
                 height={250}
                 priority={false}
-                style={{
-                  objectFit: 'cover',
-                  height: '85vh',
-                  width: '100%',
-                }}
                 className='banner-inner-wrap '
               />
               <div className='banner-content-wrap ' style={{ height: '85vh' }}>
@@ -73,7 +68,7 @@ export function HeroSection({
                     <h2 className='banner-title'>{carousel.title}</h2>
                     <p>{carousel.description}</p>
                     <Link id='carousel-btn' href={carousel.link} className='button-primary'>
-                     CONTINUE READING 
+                      CONTINUE READING
                     </Link>
                   </div>
                 </div>

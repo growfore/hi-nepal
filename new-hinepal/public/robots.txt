@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-# Sitemap: https://hineptreks.com/sitemap.xml
+Sitemap: https://hineptreks.com/sitemap.xml

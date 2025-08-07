@@ -4,6 +4,7 @@ import React from 'react';
 
 const NotFoundPage = async () => {
   const carousels: any[] | undefined = await fetchData('carousels/not-found');
+
   return (
     <main id='content' className='site-main'>
       <div

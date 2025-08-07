@@ -3,6 +3,7 @@
 import { TSiteInformation } from '@/types/types';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
+import ScriptLoader from './script-loader';
 
 const CustomLayout = ({
   children,
@@ -16,6 +17,7 @@ const CustomLayout = ({
   siteInformation: TSiteInformation;
 }) => {
   const [isMounted, setIsMounted] = useState(false);
+  const [resourcesLoaded, setResourcesLoaded] = useState(false);
 
   useEffect(() => {
     // Mark component as mounted
@@ -29,10 +31,15 @@ const CustomLayout = ({
     };
   }, []);
 
+  const handleAllScriptsLoaded = () => {
+    setResourcesLoaded(true);
+  };
+
   return (
     <>
+      <ScriptLoader onAllScriptsLoaded={handleAllScriptsLoaded} />
 
-      {!isMounted && (
+      {(!isMounted || !resourcesLoaded) && (
         <div
           className=''
           style={{
@@ -71,7 +78,7 @@ const CustomLayout = ({
         id='page'
         className='full-page'
         style={{
-          visibility: isMounted ? 'visible' : 'hidden',
+          visibility: isMounted && resourcesLoaded ? 'visible' : 'hidden',
         }}>
         {header}
         {children}

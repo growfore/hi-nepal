@@ -7,8 +7,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Button } from '@/components/ui/button';
 
@@ -48,7 +46,6 @@ export function HeroSection({
                   src={carousel.image}
                   loading='lazy'
                   alt={carousel.title}
-                  // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 366px"
                   fill
                   priority={false}
                   className='brightness-50 object-cover'
@@ -56,8 +53,8 @@ export function HeroSection({
                 <Link className='absolute bottom-[10vh] md:px-36 mx-4' href={carousel.link}>
                   <div className='flex flex-col'>
                     <h2 className='font-black text-white text-7xl text-shadow-2xs'>{carousel.title}</h2>
-                    <p className='text-white text-shadow-xs text-xl max-w-3xl'>{carousel.description}</p>
-                    <Button className='p-8 w-fit font-bold uppercase' variant={'default'}> Continue Reading </Button>
+                    <p className='text-white text-shadow-xs text-xl max-w-3xl mb-4'>{carousel.description}</p>
+                    <Button className='p-8 w-fit font-bold uppercase bg-green-700 hover:bg-green-900 hover:cursor-pointer'> Continue Reading </Button>
                   </div>
                 </Link>
               </div>

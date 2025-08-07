@@ -204,3 +204,14 @@ export type Tmedia = {
   createdAt: string;
   updatedAt: string;
 }[];
+
+export type TPackage = {
+  slug: string;
+  title: string;
+};
+
+export type TNavItem = {
+  slug: string;
+  name: string;
+  destinations: TDestination[];
+};

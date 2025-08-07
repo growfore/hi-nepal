@@ -1,161 +1,140 @@
 import { TSiteInformation } from '@/types/types';
 import siteStore from '@/zustand/store';
-import { LucideCircle } from 'lucide-react';
+import { LucideCircle, LucidePhone, LucideMail, LucideMapPin } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export function Footer() {
   let siteInformation: TSiteInformation | undefined = undefined;
   siteInformation = siteStore.getState() as TSiteInformation;
-  const marginLeft10px = { marginLeft: "-12px" };
+
+  console.log("site information: ", siteInformation)
 
   return (
     <>
       <div>
-        <footer id='colophon' className='site-footer footer-primary'>
-          <div className='top-footer'>
-            <div className='container'>
-              <div className='row'>
-                <div className='col-lg-3 col-md-6'>
-                  <aside className='widget widget_text'>
-                    <h3 className='widget-title' style={marginLeft10px}>About Travel</h3>
-                  <div className='textwidget widget-text'>
-                    {siteInformation?.footerAbout}
+        <footer id='colophon' className='bg-gray-900  text-white py-16 md:py-20 lg:py-24'>
+          <div>
+            <div className='top-footer container mx-auto px-4 md:px-6'>
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12'>
+                <aside className=''>
+                  <h3 className='text-xl font-bold mb-4'>ABOUT TRAVEL</h3>
+                  <div className=' text-base leading-relaxed'>
+                    {siteInformation?.about?.description}
                   </div>
-                  {/* <div className='award-img'>
-                    <Link href='#'>
-                      <img src={siteInformation?.rewardImg2} alt='reward-1' />
-                    </Link>
-                    <Link href='#'>
-                      <img src={siteInformation?.rewardImg1} alt='reward-2' />
-                    </Link>
-                  </div> */}
                 </aside>
-              </div>
-              <div className='col-lg-3 col-md-6'>
-                <aside className='widget widget_text'>
-                  <h3 className='widget-title' style={marginLeft10px}>CONTACT INFORMATION</h3>
-                  <div className='textwidget widget-text'>
-                    {siteInformation?.description}
-                    <ul>
-                      <li>
-                        <Link href={`tel:${siteInformation?.phone1}`}>
-                          <i className='fas fa-phone-alt' />
+
+                <aside className=''>
+                  <h3 className='text-xl font-bold mb-4'>CONTACT INFORMATION</h3>
+                  <div className=' text-base leading-relaxed'>
+                    {/* Removed siteInformation?.description as it's not in the image for this section */}
+                    <ul className='mt-4 space-y-3'>
+                      <li className='flex items-center gap-2'>
+                        <LucidePhone color='#FF8A00' size={18} /> {/* Styled to match solid orange icon */}
+                        <Link href={`tel:${siteInformation?.phone1}`} className='hover:underline'>
                           {siteInformation?.phone1}
                         </Link>
                       </li>
-                      <li>
-                        <Link href={`mailto:${siteInformation?.email1}`}>
-                          <i className='fas fa-envelope' />
+                      <li className='flex items-center gap-2'>
+                        <LucideMail color='#FF8A00' size={18} /> {/* Styled to match solid orange icon */}
+                        <Link href={`mailto:${siteInformation?.email1}`} className='hover:underline'>
                           {siteInformation?.email1}
                         </Link>
                       </li>
-                      <li>
-                        <i className='fas fa-map-marker-alt' />
-                        {siteInformation?.address}
+                      <li className='flex items-start gap-2'>
+                        <LucideMapPin color='#FF8A00' size={18} className='mt-0.5' /> {/* Styled to match solid orange icon */}
+                        <span>
+                          {siteInformation?.address}
+                        </span>
                       </li>
                     </ul>
                   </div>
                 </aside>
-              </div>
-              <div className='col-lg-3 col-md-6'>
-                {/* <aside className='widget widget_recent_post'>
-                  <h3 className='widget-title'>Latest Post</h3>
-                </aside> */}
-              </div>
-              <div className='col-lg-3 col-md-6'>
-                <aside className='widget widget_newslatter'>
-                  <h3 className='widget-title' style={marginLeft10px}>SUBSCRIBE US</h3>
-                  <div className='widget-text'>
-                    Connect with us on our newslatter
+
+                <aside>
+                  <h3 className='text-xl font-bold mb-4 '>Useful Links</h3>
+                  <ul className='flex flex-col justify-center md:justify-start gap-x-4 gap-y-2 text-sm mt-2 md:mt-0'> 
+                    <li>
+                      <Link href='#' className='hover:underline'>Privacy Policy</Link>
+                    </li>
+                    <li>
+                      <Link href='#' className='hover:underline'>Terms &amp; Condition</Link>
+                    </li>
+                    <li>
+                      <Link href='#' className='hover:underline'>FAQ</Link>
+                    </li>
+                    <li>
+                      <Link href='/sitemap' className='hover:underline'>Sitemap</Link>
+                    </li>
+                  </ul>
+                </aside>
+                {/* Subscribe Us */}
+                {/* <aside className='md:col-span-2 lg:col-span-1'>
+                  <h3 className='text-xl font-bold mb-4'>SUBSCRIBE US</h3>
+                  <div className=' text-base leading-relaxed mb-4'>
+                    Connect with us on our newsletter
                   </div>
-                  <form className='newslatter-form'>
-                    <input type='email' name='s' placeholder='Your Email..' />
+                  <form className='flex flex-col gap-3'>
+                    <input
+                      type='email'
+                      name='s'
+                      placeholder='Your Email..'
+                      className='p-3 rounded-md  text-gray-800 w-full focus:outline-none focus:ring-2 focus:ring-orange-500'
+                    />
                     <input
                       type='submit'
                       name='s'
                       disabled
-                      defaultValue='SUBSCRIBE NOW'
+                      value='SUBSCRIBE NOW'
+                      className='px-6 py-3 bg-orange-500  font-semibold rounded-md w-full cursor-not-allowed opacity-75 hover:bg-orange-600 transition-colors'
                     />
                   </form>
-                </aside>
+                </aside> */}
               </div>
             </div>
           </div>
-      </div>
-      <div className='buttom-footer'>
-        <div className='container'>
-          <div className='row align-items-center'>
-            <div className='col-md-5'>
-              <div className='footer-menu'>
-                <ul>
-                  <li className='nav-ratings'>
-                    <div className='flex'>{Array.from([0, 1, 2, 3, 4]).map((_, idx) => {
-                      return (
-                        <LucideCircle key={idx} className='lucide-circle' fill='green' color='white' />
-                      )
-                    })}
-                    </div>
-                    <Link className='review-link' href={"https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"} target='_blank'>111 Reviews in Tripadvisor</Link>
-                  </li>
-                  <li>
-                    <Link href='#'>Privacy Policy</Link>
-                  </li>
-                  <li>
-                    <Link href='#'>Term &amp; Condition</Link>
-                  </li>
-                  <li>
-                    <Link href='#'>FAQ</Link>
-                  </li>
-                  <li>
-                    <Link href='/sitemap'>Sitemap</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className='col-md-2 text-center'>
-              <div className='footer-logo'>
-                <a href='/' className=''>
-                  <Image
-                    height={50}
-                    width={100}
-                    className='img-fluid bg-white p-2 rounded'
-                    src='/hinepal/LOGO_HINEPAL.webp'
-                    alt='logo'
-                    loading='lazy'
-                    priority={false}
-                  />
-                </a>
-              </div>
-            </div>
-            <div className='col-md-5'>
-              <div className='copy-right text-right'>
-                Copyright © {new Date().getFullYear()} Hi Nepal Travels and
-                Treks.
-                {/* All rights reserveds */}
+
+          <div className='buttom-footer bg-footer-light py-6 mt-12'>
+            <div className='container mx-auto px-4 md:px-6'>
+              <div className='grid grid-cols-1 md:grid-cols-3 items-center text-center md:text-left gap-4'>
+                {/* Footer Menu / Ratings */}
+                <div className='flex flex-col md:flex-row items-center md:justify-start gap-4'>
+                  <div className='flex items-center gap-1'>
+                    {Array.from({ length: 5 }).map((_, idx) => (
+                      <LucideCircle key={idx} className='w-4 h-4' fill='green' color='green' />
+                    ))}
+                    <Link
+                      className=' text-sm hover:underline ml-2'
+                      href={"https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"}
+                      target='_blank'
+                    >
+                      111 Reviews in Tripadvisor
+                    </Link>
+                  </div>
+                </div>
+
+                <div className='flex justify-center'>
+                  <Link href='/' className=''>
+                    <Image
+                      height={50}
+                      width={100}
+                      className='p-2 rounded-md'
+                      src='/hinepal/LOGO_HINEPAL.webp'
+                      alt='logo'
+                      loading='lazy'
+                      priority={false}
+                    />
+                  </Link>
+                </div>
+
+                {/* Copyright */}
+                <div className='text-sm text-center md:text-right'>
+                  Copyright © {new Date().getFullYear()} Hi Nepal Travels and Treks.
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </footer >
-      <a id='backTotop' href='#' className='to-top-icon'>
-        <i className='fas fa-chevron-up' />
-      </a>
-  {/* custom search field html */ }
-  <div className='header-search-form'>
-    <div className='container'>
-      <div className='header-search-container'>
-        <form className='search-form' role='search' method='get'>
-          <input type='text' name='s' placeholder='Enter your text...' />
-        </form>
-        <Link href='#' className='search-close'>
-          <i className='fas fa-times' />
-        </Link>
-      </div>
-    </div>
-  </div>
-  {/* header html end */ }
+        </footer >
       </div >
     </>
   );

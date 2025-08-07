@@ -18,22 +18,25 @@ const TrekkingPackages = async () => {
       console.log(message);
     },
   });
+
   return (
-    <section className='package-section'>
-      <div className='container'>
-        <div className='section-heading text-center'>
-          <div className='row'>
-            <div className='col-lg-8 offset-lg-2'>
-              <h5 className='dash-style'>EXPLORE GREAT PLACES</h5>
-              <h2>POPULAR PACKAGES</h2>
-              <p>
-                Popular packages for trekking and adventure in Nepal
-              </p>
-            </div>
+    <section className='py-16 md:py-24 lg:py-32 bg-white'>
+      <div className='container mx-auto px-4 md:px-6'>
+        <div className='text-center mb-12 md:mb-16'>
+          <div className='max-w-4xl mx-auto'>
+            <h5 className='text-orange-500 text-sm font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
+              EXPLORE GREAT PLACES
+            </h5>
+            <h2 className='text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight mt-2'>
+              POPULAR PACKAGES
+            </h2>
+            <p className='text-gray-600 text-base md:text-lg leading-relaxed mt-4'>
+              Popular packages for trekking and adventure in Nepal
+            </p>
           </div>
         </div>
-        <div className='package-inner'>
-          <div className='row'>
+        <div className='mt-8'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
             {packages.map(
               (item: TPackages[0], index) =>
                 index < 3 && (
@@ -50,10 +53,9 @@ const TrekkingPackages = async () => {
                   />
                 )
             )}
-
           </div>
-          <div className='btn-wrap text-center'>
-            <Link href='/activities/trekking' className='button-primary'>
+          <div className='text-center mt-12'>
+            <Link href='/activities/trekking' className='inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300'>
               VIEW ALL PACKAGES
             </Link>
           </div>

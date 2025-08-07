@@ -4,6 +4,9 @@ import { TSiteInformation } from '@/types/types';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import ScriptLoader from './script-loader';
+import { NavBar } from '@/common';
+import { ChevronUp } from 'lucide-react';
+import { Button } from './ui/button';
 
 const CustomLayout = ({
   children,
@@ -21,9 +24,9 @@ const CustomLayout = ({
 
   useEffect(() => {
     // Mark component as mounted
-      setTimeout(() => {
-        setIsMounted(true);
-      }, 1000);
+    setTimeout(() => {
+      setIsMounted(true);
+    }, 1000);
 
     // Clean up function
     return () => {
@@ -38,51 +41,18 @@ const CustomLayout = ({
   return (
     <>
       <ScriptLoader onAllScriptsLoaded={handleAllScriptsLoaded} />
-
-      {(!isMounted || !resourcesLoaded) && (
-        <div
-          className=''
-          style={{
-            height: '100vh',
-            width: '100vw',
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            zIndex: 9999,
-            backgroundColor: '#fff',
-          }}>
-          <div id='loader'>
-
-            {/* <Image
-              unoptimized
-              priority={true}
-              src='/loader1.gif'
-              alt='Loading'
-              width={60}
-              height={60}
-              style={{
-                height: '60px',
-                width: '60px',
-                margin: 'auto',
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-              }}
-            /> */}
-          </div>
-        </div>
-      )}
-
       <div
         id='page'
         className='full-page'
-        style={{
-          visibility: isMounted && resourcesLoaded ? 'visible' : 'hidden',
-        }}>
+      >
         {header}
-        {children}
+        <main>
+          {children}
+        </main>
         {footer}
+        <Button title='Back to Top' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} variant={'default'} className='bg-green-700 hover:bg-green-500 hover:cursor-pointer rounded-md fixed left-2 bottom-2 p-2'>
+          <ChevronUp color='white'/>
+        </Button>
       </div>
     </>
   );

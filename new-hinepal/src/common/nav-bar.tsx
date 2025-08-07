@@ -6,11 +6,21 @@ import { get } from '@/utils/request-hander';
 import endpoints from '@/constant/endpoints';
 import Image from 'next/image';
 import { fetchData } from '@/helper/fetch-data';
+import { Button } from '@/components/ui/button';
+import { ChevronDown, ChevronRight, ChevronUp, icons, LucideHam, LucideMail, LucideMenu, LucidePhone } from 'lucide-react';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
-const NavBar = async () => {
+export const NewNav = async () => {
   let siteInformation: TSiteInformation | undefined = undefined;
   siteInformation = siteStore.getState() as TSiteInformation;
   let navBar: TNavBar = [] as TNavBar;
+
   await get({
     endPoint: endpoints.NAVBAR,
     token: '',
@@ -22,186 +32,135 @@ const NavBar = async () => {
     },
   });
   const data = await fetchData('blogs');
-
   return (
-    <>
-      <header
-        id='masthead'
-        className='site-header  header-primary'
-        style={{
-          top: '-50px',
-          position: 'sticky',
-        }}>
-        {/* header html start */}
-        <div className='top-header'>
-          <div className='container'>
-            <div className='row'>
-              <div className='col-lg-8 d-none d-lg-block'>
-                <div className='header-contact-info'>
-                  <ul>
-                    <li>
-                      <Link href={`tel:${siteInformation?.phone1}`}>
-                        <i className='fas fa-phone-alt' />{' '}
-                        {siteInformation?.phone1}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={`mailto:${siteInformation?.email1}`}>
-                        <i className='fas fa-envelope' />{' '}
-                        {siteInformation?.email1}
-                      </Link>
-                    </li>
-                    <li>
-                      <i className='fas fa-map-marker-alt' />{' '}
-                      {siteInformation?.address}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className='col-lg-4 d-flex justify-content-lg-end justify-content-between'>
-                <div className='header-social social-links'>
-                  <ul>
-                    <li>
-                      <Link
-                        aria-label='facebook'
-                        target='_blank'
-                        href={siteInformation?.facebook || ''}>
-                        <i className='fab fa-facebook-f' aria-hidden='true' />
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        aria-label='twitter'
-                        target='_blank'
-                        href={siteInformation?.twitter || ''}>
-                        <i className='fab fa-twitter' aria-hidden='true' />
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        aria-label='instagram'
-                        target='_blank'
-                        href={siteInformation?.instagram || ''}>
-                        <i className='fab fa-instagram' aria-hidden='true' />
-                      </Link>
-                    </li>
-                    {/* <li>
-                      <Link
-                        aria-label='linkedin'
-                        href={siteInformation?.linkedin || ''}>
-                        <i className='fab fa-linkedin' aria-hidden='true' />
-                      </Link>
-                    </li> */}
-                  </ul>
-                </div>
-                {/* <div className='header-search-icon'>
-                  <button className='search-icon' aria-label='search'>
-                    <i className='fas fa-search' aria-hidden='true' />
-                  </button>
-                </div>*/}
-              </div>
-            </div>
+    <div className='bg-green-600 z-[999] min-w-[100vw] '>
+      <div className='hidden md:flex container text-white justify-between  items-center py-2 md:px-20  mx-auto '>
+        <div className='flex items-center  gap-2'>
+          <div className='rounded-sm bg-white p-2'>
+            <LucideMail className='text-green-600' />
+          </div>
+          <div>
+            <p className='font-light'>Quick Questions? Email us</p>
+            <a href={`mailto:${siteInformation.email1}`} className='hover:cursor-pointer font-bold hover:underline'>{siteInformation.email1}</a>
           </div>
         </div>
+        <div className='flex items-center gap-2'>
+          <div className='rounded-sm bg-white p-2'>
+            <LucidePhone className='text-green-600' />
+          </div>
+          <div>
+            <p>
+              Talk to an Expert
+            </p>
+            <a href={`tel:${siteInformation.phone1}`} className='hover:cursor-pointer hover:underline font-bold'>{siteInformation.phone1}</a>
+          </div>
+        </div>
+      </div>
+      <nav className='container mx-auto flex justify-around items-center py-4 z-[999] bg-white  min-w-[100vw] border-b-2 border-orange-400 border-dashed'>
+        <Link href={"/"} className="">
+          <Image src={"/hinepal/LOGO_HINEPAL.webp"} height={170} width={130} alt='' />
+        </Link>
+        <div className='flex gap-4 items-center'>
+          {navBar.map((activity, index) => {
+            return (
+              <div>
+                <div className='group  hidden md:flex'><Link href={`/activities/${activity.slug}`} className='font-bold uppercase flex gap-1'>{activity.name} <ChevronDown className='group-hover:hidden' /><ChevronUp className='hidden group-hover:block' /></Link>
+                  <div className=''>
+                    <div className='bg-transparent py-24 rounded-lg hidden group-hover:grid absolute top-[60px] z-[9999]  left-0 w-[100vw] p-8'>
+                      <div className='pb-8 bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container px-36 mx-auto flex-wrap w-[100vw] rounded-md'>
+                        {activity.destinations.map((destination, index) => {
+                          return (
+                            <div>
+                              <Link className='font-semibold text-lg' key={index} href={`/activities/${activity.slug}/${destination.slug}`}>
+                                <div className='flex gap-1 items-center mb-2 text-[#F05A24] hover:text-green-700'>
+                                  <span>{destination.name}</span>
+                                  <ChevronRight className='size-4' />
+                                </div>
+                              </Link>
+                              <ul className='flex flex-col gap-2'>
+                                {destination.packages.map((packageItem, index) => {
+                                  return (
+                                    <li key={index}>
+                                      <Link href={`/${packageItem.slug}`} className='hover:border-b-2 border-dashed border-green-700 hover:text-green-700'>
+                                        {packageItem.title.includes(":") ? packageItem.title.split(":")[0].trim() : packageItem.title.trim()}
+                                      </Link>
+                                    </li>
+                                  )
+                                })}
+                              </ul>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </div>
 
-        <div className='bottom-header'>
-          <div className='container d-flex justify-content-between align-items-center'>
-            <div className='site-identity'>
-              <h1 className='site-title'>
-                <Link href='/'>
-                  <Image
-                    width={150}
-                    height={50}
-                    id='logo'
-                    priority={true}
-                    className='white-logo bg-white rounded-sm m-4'
-                    src={'/hinepal/LOGO_HINEPAL.webp'}
-                    alt='logo'
-                  />
-                  <Image
-                    width={150}
-                    height={50}
-                    id='logo-dark'
-                    priority={true}
-                    className='black-logo'
-                    src={'/hinepal/LOGO_HINEPAL.webp'}
-                    alt='logo'
-                    style={{
-                      borderRadius: '2%',
-                      padding: '0.5rem',
-                    }}
-                  />
-                </Link>
-              </h1>
-            </div>
-            <div className='main-navigation d-none d-lg-block'>
-              <nav id='navigation' className='navigation'>
-                <ul>
-                  {navBar.map((item, index) => {
-                    return (
-                      <>
-                        <li
-                          key={'activities' + index}
-                          className='menu-item-has-children'>
-                          <Link href={`/activities/${item.slug}`}>{item.name}</Link>
-                          <ul>
-                            {item.destinations.map((destination, index) => {
-                              return (
-                                <li
-                                  key={'destinations' + index}
-                                  className='menu-item-has-children'
-                                  style={{}}>
-                                  <Link
-                                    href={`/activities/${item.slug}/${destination.slug}`}>
-                                    {destination.name}
-                                  </Link>
-                                  <ul className='sub-menu'>
-                                    {destination.packages.map(
-                                      (packageItem, index) => {
+                </div>
+
+
+
+              </div>
+            )
+          })}
+        </div>
+
+        {/* mobile menu */}
+        <div className='md:hidden'>
+          <Sheet>
+            <SheetTrigger>
+              <LucideMenu />
+            </SheetTrigger>
+            <SheetContent className='flex flex-col gap-4 p-8 z-[99999]'>
+              {navBar.map((activity, index) => {
+                return (
+                  <Accordion type="single" collapsible>
+                    <AccordionItem value={`item-${index}`}>
+                      <AccordionTrigger className='font-bold uppercase flex gap-1'>
+                        {activity.name}
+                        {/* <Link href={`/activities/${activity.slug}`} className='font-bold uppercase flex gap-1'>{activity.name} <ChevronDown className='group-hover:hidden' /><ChevronUp className='hidden group-hover:block' /></Link> */}
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        {activity.destinations.map((destination, index) => {
+                          return (
+                            destination.packages.length > 0 && (
+                              <Accordion type='single' collapsible>
+                                <AccordionItem value={`item-${index}`}>
+                                  <AccordionTrigger key={index} className='font-semibold text-lg'>{destination.name}</AccordionTrigger>
+                                  <AccordionContent>
+                                    <ul className='flex flex-col gap-2'>
+                                      {destination.packages.map((packageItem, index) => {
                                         return (
-                                          <li key={'packages' + index}>
-                                            <Link
-                                              href={`/${packageItem.slug}`}>
+                                          <li key={index}>
+                                            <Link href={`/${packageItem.slug}`} className='hover:border-b-2 border-dashed border-[#EF5922] hover:text-[#EF5922] font-bold text-lg'>
                                               {packageItem.title.includes(":") ? packageItem.title.split(":")[0].trim() : packageItem.title.trim()}
                                             </Link>
                                           </li>
-                                        );
-                                      }
-                                    )}
-                                  </ul>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </li>
-                      </>
-                    );
-                  })}
-                  {/* <li className='menu-item-has-children'>
-                    <Link href='/blogs'>Blogs</Link>
-                    <ul>
-                      {data?.blogs?.map((blog: any, index: number) => (
-                        <li key={'blogs' + index}>
-                          <Link href={`/blogs/${blog.slug}`}>{blog.title}</Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </li> */}
-                </ul>
-              </nav>
-            </div>
-            <div className='header-btn'>
-              <Link href={'/booking'} className='button-primary'>
-                BOOK NOW
-              </Link>
-            </div>
-          </div>
+                                        )
+                                      })}
+                                    </ul>
+                                  </AccordionContent>
+                                </AccordionItem>
+                              </Accordion>
+                            )
+                          )
+                        })}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                )
+              })}
+
+            </SheetContent>
+          </Sheet>
         </div>
 
-        <div className='mobile-menu-container' />
-      </header>
-    </>
-  );
-};
+        <div className="book-now flex self-end hover:cursor-pointer">
+          <Link href={"/booking"}>
+            <Button size={'lg'} className='p-8'>Book Now</Button>
+          </Link>
+        </div>
+      </nav>
+    </div>
+  )
+}
 
-export default NavBar;

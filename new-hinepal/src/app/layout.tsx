@@ -7,6 +7,7 @@ import { get } from '@/utils/request-hander';
 import siteStore from '@/zustand/store';
 import { Footer, NavBar } from '@/common';
 import CustomLayout from '@/components/custom-layout';
+import { NewNav } from '@/common/nav-bar';
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
@@ -49,11 +50,11 @@ export default async function RootLayout({
         `,
           }}></script>
       </head>
-      <body className={`${poppins.className} Home`}>
+      <body className={`${poppins.className}`}>
         <CustomLayout
           siteInformation={siteInformation}
           footer={<Footer />}
-          header={<NavBar />}>
+          header={<NewNav />}>
           {children}
         </CustomLayout>
       </body>

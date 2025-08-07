@@ -10,13 +10,13 @@ type TDataIconProps ={
 export function DataIcon({ icon: Icon, k, v, size, color}: TDataIconProps) {
     return (
 
-        <div className='data-item'>
-            <div className='icon-wrapper' style={{backgroundColor:color}}>
-                <Icon size={size}/>
+        <div>
+            <div className='bg-green-900 w-fit rounded-full p-2' style={{backgroundColor:color}}>
+                <Icon size={size} color="white"/>
             </div>
-            <div className="data-item-details">
-            <h5 className="data-item-key">{k}</h5>
-            <p className="data-item-value">{v}</p>
+            <div>
+            <h5 className="font-bold">{k}</h5>
+            <p>{v}</p>
             </div>
         </div>
     );

@@ -13,6 +13,9 @@ import BlogHome from './_components/blogs';
 import { Headset, LucideCalendar, LucideMail, LucideMap, LucideMapPin, LucidePhone, LucideStar, LucideUsers } from 'lucide-react';
 import Image from "next/image";
 import Link from 'next/link';
+import Numbers from './_components/Numbers';
+import Gallery from './_components/Gallery';
+import ContactSection from './_components/ContactSection';
 
 export default async function Home() {
   let siteInformation: TSiteInformation = {} as TSiteInformation;
@@ -56,185 +59,14 @@ export default async function Home() {
   return (
     <main id='content' className='site-main'>
       <HeroSection carousels={carousels} />
-      {/* Home search field html start */}
-      {/* search search field html end */}
       <ExploreTop />
-      {/* Home packages section html start */}
       <TrekkingPackages />
-      {/* packages html end */}
-      {/* Home callback section html start */}
-      <section className='callback-section'>
-        <div className='container'>
-          <div className='row no-gutters align-items-center'>
-            <div className='col-lg-5'>
-              <div className='callback-img ' style={{}}>
-                <div className='video-button'>
-                  {/* <a id='video-container' data-video-id='IUN664s7N-c'>
-                    <i className='fas fa-play' />
-                  </a> */}
-                  <iframe
-                    style={{
-                      width: '500px',
-                      maxWidth: '100vw',
-                      minHeight: '500px',
-                      border: 'none',
-                    }}
-                    loading='lazy'
-                    src='https://www.youtube.com/embed/1Wfki2o-adM?si=Noc1MXhDPOW7bDHk'
-                    title='YouTube video player'
-                    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                    referrerPolicy='strict-origin-when-cross-origin'
-                    allowFullScreen></iframe>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-7'>
-              <div className='callback-inner'>
-                <div className='section-heading section-heading-white'>
-                  <h5 className='dash-style'>CALLBACK FOR MORE</h5>
-                  <h2>GO TRAVEL. DISCOVER. REMEMBER US!!</h2>
-                  <p>
-                    Discover Nepal with Ni Nepal Travels and Treks Pvt. Ltd.—where every journey blends adventure, culture, and comfort. Explore more, worry less, travel smart.
-                  </p>
-                </div>
-                <div className='callback-counter-wrap'>
-                  <div className='counter-item'>
-                    <div className='counter-icon'>
-                      <LucideUsers color='white' size={40} />
-                    </div>
-                    <div className='counter-content'>
-                      <span className='counter-no'>
-                        <span className='counter'>25</span>K+
-                      </span>
-                      <span className='counter-text'>Satisfied Clients</span>
-                    </div>
-                  </div>
-                  <div className='counter-item'>
-                    <div className='counter-icon'>
-                      <LucideMapPin color='white' size={40}/>
-                    </div>
-                    <div className='counter-content'>
-                      <span className='counter-no'>
-                        <span className='counter'>100</span>+
-                      </span>
-                      <span className='counter-text'>Destinations Covered</span>
-                    </div>
-                  </div>
-                  <div className='counter-item'>
-                    <div className='counter-icon'>
-                      <LucideCalendar color='white' size={40} />
-                    </div>
-                    <div className='counter-content'>
-                      <span className='counter-no'>
-                        <span className='counter'>17</span>+
-                      </span>
-                      <span className='counter-text'>Years of Experience</span>
-                    </div>
-                  </div>
-                  <div className='counter-item'>
-                    <div className='counter-icon'>
-                      <LucideStar color='yellow' fill='yellow' size={40}/>
-                    </div>
-                    <div className='counter-content'>
-                      <span className='counter-no'>
-                        <span className='counter'>5/5</span>
-                      </span>
-                      <span className='counter-text'>Average Customer Rating</span>
-                    </div>
-                  </div>
-                </div>
-                <div className='support-area'>
-                  <div className='support-icon'>
-                    <Headset color='green' size={40} />
-                  </div>
-                  <div className='support-content'>
-                    <h4>Our 24/7 Emergency Phone Services</h4>
-                    <h3>
-                      <a href='tel:+9779856035091'>Call: +977 985-6035091</a>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* callback html end */}
-      {/* Home activity section html start */}
+      <Numbers />
       <Activities />
-      {/* activity html end */}
-
-      {/* Home special section html start */}
-      <section className='best-section'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-lg-5'>
-              <div className='section-heading '>
-                <h5 className='dash-style'>OUR TOUR GALLERY</h5>
-                <h2>{siteInformation?.about?.title}</h2>
-                <p>{siteInformation?.about?.description || ''}</p>
-              </div>
-              <figure className='gallery-img h-100'>
-                <Image
-                  height={400}
-                  width={400}
-                  src={siteInformation?.about?.image1 || '/img6.jpg'}
-                  alt='home page gallery image'
-                />
-              </figure>
-            </div>
-            <div className='col-lg-7'>
-              <div className='row'>
-                <div className='col-sm-6'>
-                  <figure className='gallery-img w-100 '>
-                    <Image
-                      height={400}
-                      width={400}
-                      className='h-100 w-100'
-                      src={siteInformation?.about?.image2 || '/img6.jpg'}
-                      alt='home page gallery image'
-                    />
-                  </figure>
-                </div>
-                <div className='col-sm-6'>
-                  <figure className='gallery-img'>
-                    <Image
-                      height={400}
-                      width={400}
-                      src={siteInformation?.about?.image3 || '/img6.jpg'}
-                      alt='home page gallery image'
-                    />
-                  </figure>
-                </div>
-              </div>
-              <div className='row'>
-                <div className='col-12'>
-                  <figure className='gallery-img'>
-                    <Image
-                      height={400}
-                      width={400}
-                      style={{
-                        maxHeight: '400px',
-                        width: '100%',
-                        objectFit: 'cover',
-                      }}
-                      src={siteInformation?.about?.image4 || '/img6.jpg'}
-                      alt='home page gallery image'
-                    />
-                  </figure>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* best html end */}
-      {/* Home client section html start */}
+      <Gallery siteInformation={siteInformation} />
       <Patners />
       <BlogHome />
-      {/* client html end */}
-      {/* Home subscribe section html start */}
-      <section
+      {/* <section
         className='subscribe-section'
         style={{ backgroundImage: `url(${siteInformation?.bgImage})` }}>
         <div className='container'>
@@ -267,127 +99,10 @@ export default async function Home() {
             </div>
           </div>
         </div>
-      </section>
-      {/* subscribe html end */}
-      {/* Home Teams  section html start */}
-      <section className='blog-section'>
-        <div className='container'>
-          <div className='section-heading text-center'>
-            <div className='row'>
-              <div className='col-lg-8 offset-lg-2'>
-                <h5 className='dash-style'>OUR TEAM</h5>
-                <h2>Available Guides </h2>
-                <p>
-                  We are a team of experienced tour guides who are passionate
-                  about sharing our knowledge and expertise with you.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <Teams />
-        </div>
-      </section>
-      {/* blog html end */}
-      {/* Home testimonial section html start */}
+      </section> */}
+      <Teams />
       <ProgressSection reviews={reviews} />
-      {/* testimonial html end */}
-      {/* Home contact details section html start */}
-      <section
-        className='contact-section'
-        style={{
-          height: '100%',
-          paddingTop: '100px',
-        }}>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-lg-4'>
-              <div
-                className='contact-img'
-                style={{
-                  // backgroundImage: 'url(' + siteInformation?.footerImg + ')',
-                  maxHeight: '100px',
-                  background: 'oklch(98.5% 0 0)',
-                  borderRadius: '1rem',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  height: '100%',
-                  width: '100%',
-                  overflow: 'hidden',
-                  padding: '20px',
-                }}>
-                <Image height={500} width={500} src={siteInformation?.footerImg} alt='Footer Image' />
-              </div>
-            </div>
-            <div className='col-lg-8'>
-              <div className='contact-details-wrap'>
-                <div className='row'>
-                  <div className='col-sm-4'>
-                    <div className='contact-details'>
-                      <div className='contact-icon'>
-                        <LucideMail color='white' size={42} />
-                      </div>
-                      <ul>
-                        <li>
-                          <a href={`mailto:${siteInformation?.email1}`}>
-                            {siteInformation?.email1}
-                          </a>
-                        </li>
-                        {/* <li>
-                          <a href={`mailto:${siteInformation?.email2}`}>
-                            {siteInformation?.email2}
-                          </a>
-                        </li> */}
-                      </ul>
-                    </div>
-                  </div>
-                  <div className='col-sm-4'>
-                    <div className='contact-details'>
-                      <div className='contact-icon'>
-                        <LucidePhone color='white' size={42} />
-                      </div>
-                      <ul>
-                        <li>
-                          <a href={`tel:${siteInformation?.phone1}`}>
-                            {siteInformation?.phone1}
-                          </a>
-                        </li>
-                        <li>
-                          <a href={`tel:${siteInformation?.phone2}`}>
-                            {siteInformation?.phone2}
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className='col-sm-4'>
-                    <div className='contact-details'>
-                      <div className='contact-icon'>
-                        <LucideMap color={"white"} size={42} />
-                      </div>
-                      <ul>
-                        <li>{siteInformation?.location}</li>
-                        <li>{siteInformation?.address}</li>
-                        {/* <li>
-                      36 Street, Melbourne
-                    </li> */}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className='contact-btn-wrap'>
-                <h3>LET'S JOIN US FOR MORE UPDATE !!</h3>
-                <Link href='/about' className='button-primary' style={{border: "1px solid white"}}>
-                  LEARN MORE
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/*  contact details html end */}
+      <ContactSection siteInformation={siteInformation} />
     </main>
   );
 }

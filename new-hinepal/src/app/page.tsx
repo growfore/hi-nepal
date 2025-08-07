@@ -39,7 +39,6 @@ export default async function Home() {
     token: '',
     success: (message, res) => {
       carousels = res.data;
-      console.log("carousel response:", carousels)
     },
     failure: (message) => {
       console.log("Carousel Error:", message);

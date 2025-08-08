@@ -7,7 +7,7 @@ import Image from 'next/image';
 import React from 'react';
 import GallerySlider from '../_components/gallery-slider';
 import { notFound } from 'next/navigation';
-import { Button } from '@/components/ui/button'; // Assuming shadcn Button
+import { Button } from '@/components/ui/button'; 
 import Link from 'next/link';
 import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, HomeIcon as House, MountainSnow, LucideCircle, LucideHeart, LucideEye, LucideList, LucideBackpack, LucideCloudSunRain, LucideCheck, LucideX, LucideMessageCircleQuestion } from 'lucide-react';
 import { DataIcon } from '@/components/data-icon';

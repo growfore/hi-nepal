@@ -6,9 +6,9 @@ import { LucideMail, LucidePhone, LucideMap } from 'lucide-react';
 const dummySiteInformation = {
   footerImg: '/placeholder.svg?height=500&width=500',
   email1: 'hinepaltreks@gmail.com',
-  email2: 'info@hinepaltreks.com', // Example for a second email
+  email2: 'info@hinepaltreks.com', 
   phone1: '+977 985-6035091',
-  phone2: '+977 984-1234567', // Example for a second phone
+  phone2: '+977 984-1234567', 
   location: 'Pokhara, Nepal',
   address: 'Street No. 13, Lakeside, Pokhara, Nepal',
 };

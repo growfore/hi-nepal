@@ -4,15 +4,15 @@ import { get } from '@/utils/request-hander';
 import siteStore from '@/zustand/store';
 import { Hero } from './_components/Hero';
 import { Partners } from './_components/Partners';
-import Activities from './_components/Activities';
 import Team from './_components/Team';
-import BlogHome from './_components/Blogs';
 import Numbers from './_components/Numbers';
 import Gallery from './_components/Gallery';
 import ContactSection from './_components/ContactSection';
 import Testimonials from './_components/Testimonials';
 import PopularDestinations from './_components/PopularDestinations';
 import PopularPackages from './_components/PopularPackages';
+import BlogHome from './_components/blogs';
+import Activities from './_components/activities';
 
 export default async function Home() {
   let siteInformation: TSiteInformation = {} as TSiteInformation;

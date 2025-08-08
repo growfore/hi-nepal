@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import { Playfair } from 'next/font/google';
 import './globals.css';
 import endpoints from '@/constant/endpoints';
 import { TSiteInformation } from '@/types/types';
@@ -9,13 +9,15 @@ import { Footer } from '@/common';
 import CustomLayout from '@/components/custom-layout';
 import { Navbar } from '@/common/navbar';
 
-const poppins = Poppins({
+const playfair = Playfair({
   subsets: ['latin'],
-  weight: ['400', '600', '700'],
+  variable: '--font-playfair',
+  display: 'swap',
 });
+
 export const metadata: Metadata = {
   title: 'Hi Nepal Travels and Treks Pvt. Ltd. | Home',
-  description: 'Hi Nepal Travels and Treks Pvt. Ltd. welcome you',
+  description: 'Hi Nepal Travels and Treks Pvt. Ltd.',
   keywords:
     'Hi Nepal,Trekking,Adventure, Best trekking agency in nepal,Visit Nepal 2025,Best place to visit in Nepal',
 };
@@ -52,9 +54,8 @@ export default async function RootLayout({
         >
         </script>
       </head>
-      <body className={`${poppins.className}`}>
+      <body className={`${playfair.variable} antialiased`}>
         <CustomLayout
-          siteInformation={siteInformation}
           footer={<Footer />}
           header={<Navbar />}>
           {children}

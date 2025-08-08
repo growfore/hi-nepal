@@ -10,12 +10,12 @@ import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button'; // Assuming shadcn Button
 import Link from 'next/link';
 import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, HomeIcon as House, MountainSnow, LucideCircle, LucideHeart, LucideEye, LucideList, LucideBackpack, LucideCloudSunRain, LucideCheck, LucideX, LucideMessageCircleQuestion } from 'lucide-react';
-import { DataIcon } from '@/components/DataIcon';
+import { DataIcon } from '@/components/data-icon';
 import { SectionNav } from '@/components/SectionNav';
 import { Metadata } from 'next';
 import { fetchData } from '@/helper/fetch-data';
 import { formatSlug } from '@/helper/formatSlug';
-import TrustBadge from '../_components/TrustBadge';
+import TrustBadge from '../_components/trust-badge';
 
 export async function generateMetadata({
     params,

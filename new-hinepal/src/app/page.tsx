@@ -12,6 +12,7 @@ import PopularDestinations from './_components/popular-destinations';
 import PopularPackages from './_components/popular-packages';
 import BlogHome from './_components/blogs';
 import Activities from './_components/activities';
+import Team from './_components/team';
 
 export default async function Home() {
   let siteInformation: TSiteInformation = {} as TSiteInformation;

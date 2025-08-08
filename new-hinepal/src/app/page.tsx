@@ -4,7 +4,6 @@ import { get } from '@/utils/request-hander';
 import siteStore from '@/zustand/store';
 import { Hero } from './_components/hero';
 import { Partners } from './_components/partners';
-import Team from './_components/team';
 import Numbers from './_components/numbers';
 import Gallery from './_components/Gallery';
 import ContactSection from './_components/contact-section';

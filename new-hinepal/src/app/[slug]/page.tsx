@@ -5,7 +5,7 @@ import { get } from '@/utils/request-hander';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import Image from 'next/image';
 import React from 'react';
-import GallerySlider from './_components/gallery-slider';
+import GallerySlider from '../_components/gallery-slider';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button'; // Assuming shadcn Button
 import Link from 'next/link';
@@ -15,6 +15,7 @@ import { SectionNav } from '@/components/SectionNav';
 import { Metadata } from 'next';
 import { fetchData } from '@/helper/fetch-data';
 import { formatSlug } from '@/helper/formatSlug';
+import TrustBadge from '../_components/TrustBadge';
 
 export async function generateMetadata({
     params,
@@ -23,10 +24,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
     const slug = await params.slug;
     const destination = await fetchData(`packages/${slug}`);
+
     return {
-        title: destination?.seo?.metaTitle || destination?.title || formatSlug(slug),
-        description: destination?.seo?.metaDescription || destination?.description,
-        keywords: destination?.keywords,
+        title: destination?.package?.seo?.metaTitle || destination?.title || formatSlug(slug),
+        description: destination?.package?.seo?.metaDescription || destination?.description,
+        keywords: destination?.package?.seo?.keywords,
         robots: {
             index: true,
             follow: true,
@@ -62,6 +64,7 @@ export async function generateMetadata({
     };
 }
 
+
 const activites = async ({ params }: { params: Params }) => {
     let details: TPackageDetails = {} as TPackageDetails;
     let relatedProducts: TPackageDetails[] = [] as TPackageDetails[];
@@ -90,9 +93,8 @@ const activites = async ({ params }: { params: Params }) => {
 
     return (
         <div>
-            {/* Banner Section */}
             <div
-                className='relative h-96 bg-cover bg-center flex items-center justify-center text-white'
+                className='relative h-[80vh] bg-cover bg-center flex items-center justify-center text-white'
                 style={{ backgroundImage: `url(${details.banner || '/placeholder.svg?height=600&width=1920'})` }}
             >
                 <div className='absolute inset-0 bg-black/50'></div>
@@ -100,19 +102,8 @@ const activites = async ({ params }: { params: Params }) => {
                     <h1 className='text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg'>
                         {details.title}
                     </h1>
-                    <div className='flex items-center justify-center gap-2 mt-4'>
-                        {Array.from({ length: 5 }).map((_, idx) => (
-                            <LucideCircle key={idx} className='w-4 h-4' fill='green' color='white' />
-                        ))}
-                        <Link className='text-sm hover:underline' href={"https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"} target='_blank'>
-                            111 Reviews in Tripadvisor
-                        </Link>
-                        <p className='flex items-center gap-1 text-sm ml-4'>
-                            <div className='flex items-center'>
-                                <LucideHeart fill='red' color='red' className='w-4 h-4' />
-                            </div>
-                            Recommended by 100% of travelers
-                        </p>
+                    <div className='mt-8'>
+                    <TrustBadge />
                     </div>
                 </div>
             </div>
@@ -125,6 +116,7 @@ const activites = async ({ params }: { params: Params }) => {
                 {/* Main Content Area */}
                 <section className='lg:col-span-2'>
                     {/* Data Icons Section */}
+
                     <div className="bg-green-50 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-12 p-6 bg-light-blue-bg rounded-lg shadow-sm">
                         {details?.title && <DataIcon icon={MountainSnow} k='Destination' v={details.title} />}
                         {details?.duration && <DataIcon icon={Clock} k='Duration' v={details.duration + " Days"} />}
@@ -136,7 +128,7 @@ const activites = async ({ params }: { params: Params }) => {
                         {details?.permits &&
                             <div className="col-span-2 sm:col-span-3 lg:col-span-4 flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100">
                                 <div className='flex-shrink-0 w-16 h-16 rounded-full bg-icon-bg-green flex items-center justify-center'>
-                                    <Ticket className='w-8 h-8 text-white' />
+                                    <Ticket className='w-8 h-8 text-green-700' />
                                 </div>
                                 <div>
                                     <h5 className='text-base font-bold text-icon-bg-green mb-1'>Permits</h5>
@@ -155,7 +147,7 @@ const activites = async ({ params }: { params: Params }) => {
 
                     {/* Highlights Section */}
                     {details.highlights && (
-                        <div id='highlights' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='highlights' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
                             <div dangerouslySetInnerHTML={{ __html: details.highlights }} className="prose max-w-none"></div>
                         </div>
                     )}
@@ -169,91 +161,91 @@ const activites = async ({ params }: { params: Params }) => {
 
                     {/* Itinerary Section */}
                     {details.itenary && (
-                        <div id='itenary' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='itenary' className="mb-12 p-6 bg-white rounded-lg ">
                             <div dangerouslySetInnerHTML={{ __html: details.itenary }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Packing Details */}
                     {details.packing && (
-                        <div id='packing' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='packing' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
                             <div dangerouslySetInnerHTML={{ __html: details.packing }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Seasons */}
                     {details.bestSeasonInfo && (
-                        <div id='best-season' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='best-season' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
                             <div dangerouslySetInnerHTML={{ __html: details.bestSeasonInfo }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Route Overview */}
                     {details.routeOverview && (
-                        <div id='route-overview' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='route-overview' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
                             <div dangerouslySetInnerHTML={{ __html: details.routeOverview }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Includes */}
                     {details.includes && (
-                        <div id='includes' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='includes' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
                             <div dangerouslySetInnerHTML={{ __html: details.includes }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Excludes */}
                     {details.excludes && (
-                        <div id='excludes' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='excludes' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
                             <div dangerouslySetInnerHTML={{ __html: details.excludes }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Sickness and Safety */}
                     {details.sicknessAndSaftey && (
-                        <div id='sicknessAndSafety' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='sicknessAndSafety' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
                             <div dangerouslySetInnerHTML={{ __html: details.sicknessAndSaftey }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Travel insurance and regulations */}
                     {details.insuranceAndEmergency && (
-                        <div id='insuranceAndEmergency' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='insuranceAndEmergency' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
                             <div dangerouslySetInnerHTML={{ __html: details.insuranceAndEmergency }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Permits and regulations */}
                     {details.permitsAndRegulations && (
-                        <div id='permitsAndRegulations' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='permitsAndRegulations' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
                             <div dangerouslySetInnerHTML={{ __html: details.permitsAndRegulations }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Short itinerary */}
                     {details.shortTrekInfo && (
-                        <div id='shortTrekInfo' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='shortTrekInfo' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
                             <div dangerouslySetInnerHTML={{ __html: details.shortTrekInfo }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Why trek */}
                     {details.whyChooseThisPackage && (
-                        <div id='whyChooseThisPackage' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='whyChooseThisPackage' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
                             <div dangerouslySetInnerHTML={{ __html: details.whyChooseThisPackage }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Cost Breakdown */}
                     {details.priceBreakDown && (
-                        <div id='priceBreakdown' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='priceBreakdown' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
                             <div dangerouslySetInnerHTML={{ __html: details.priceBreakDown }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Booking Info */}
                     {details.bookingInfo && (
-                        <div id='bookingInfo' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='bookingInfo' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
                             <div dangerouslySetInnerHTML={{ __html: details.bookingInfo }} className="prose max-w-none"></div>
                         </div>
                     )}

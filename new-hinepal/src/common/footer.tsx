@@ -8,8 +8,6 @@ export function Footer() {
   let siteInformation: TSiteInformation | undefined = undefined;
   siteInformation = siteStore.getState() as TSiteInformation;
 
-  console.log("site information: ", siteInformation)
-
   return (
     <>
       <div>

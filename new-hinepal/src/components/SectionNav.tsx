@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import * as Icons from "lucide-react";
+import Link from "next/link";
 
 type NavItem = { id: string; label: string; icon: keyof typeof Icons };
 type Props = { navigations: NavItem[] };
@@ -58,19 +59,21 @@ export function SectionNav({ navigations }: Props) {
         const Icon = Icons[nav.icon];
         return (
           <div
-          // @ts-ignore
+            // @ts-ignore
             ref={(el) => (itemRefs.current[nav.id] = el)}
             className={`nav-item ${activeId === nav.id ? "active" : ""}`}
             key={nav.id}
           >
-            <Button link={`#${nav.id}`} navButton>
-              {/* @ts-ignore */}
-              {Icon && <Icon className="w-4 h-4 mr-2" />}
-              {nav.label}
-            </Button>
+            <Link href={`#${nav.id}`}>
+              <Button>
+                {/* @ts-ignore */}
+                {Icon && <Icon className="w-4 h-4 mr-2" />}
+                {nav.label}
+              </Button>
+            </Link>
           </div>
         );
       })}
-    </div>
+    </div >
   );
 }

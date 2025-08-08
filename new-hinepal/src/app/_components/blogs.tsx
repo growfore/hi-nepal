@@ -23,7 +23,7 @@ const BlogHome = async () => {
           <div className='row'>
             {blogs && blogs?.map(
               (blog: any, index: number) =>
-                index < 3 && <HomePageBlogCard blog={blog} />
+                index < 3 && <HomePageBlogCard key={blog?.id} blog={blog} />
             )}
           </div>
         </div>

@@ -1,10 +1,8 @@
-'use client';
+"use client"; 
 
 import { TSiteInformation } from '@/types/types';
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import ScriptLoader from './script-loader';
-import { NavBar } from '@/common';
 import { ChevronUp } from 'lucide-react';
 import { Button } from './ui/button';
 
@@ -23,12 +21,10 @@ const CustomLayout = ({
   const [resourcesLoaded, setResourcesLoaded] = useState(false);
 
   useEffect(() => {
-    // Mark component as mounted
     setTimeout(() => {
       setIsMounted(true);
     }, 1000);
 
-    // Clean up function
     return () => {
       setIsMounted(false);
     };
@@ -40,7 +36,7 @@ const CustomLayout = ({
 
   return (
     <>
-      <ScriptLoader onAllScriptsLoaded={handleAllScriptsLoaded} />
+      {/* <ScriptLoader onAllScriptsLoaded={handleAllScriptsLoaded} /> */}
       <div
         id='page'
         className='full-page'

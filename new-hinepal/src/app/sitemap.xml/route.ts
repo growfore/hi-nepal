@@ -1,11 +1,11 @@
 import { SitemapStream, streamToPromise } from 'sitemap';
 import { Readable } from 'stream';
 import { NextResponse } from 'next/server';
-import { TNavBar, TPackages } from '@/types/types';
+import { TNavBar } from '@/types/types';
 import { get } from '@/utils/request-hander';
 
 export async function GET() {
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL; // Change this to your domain
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
   const baseUrl = process.env.NEXT_PUBLIC_FRONTEND_BASE_URL;
   let navItems: TNavBar = [] as TNavBar;
   let links: { url: string; changefreq: string; priority: number }[] = [];

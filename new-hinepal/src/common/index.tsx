@@ -1,6 +1,6 @@
 import { Footer } from "./footer";
-import { NewNav } from "./nav-bar";
-import TopBar from "./top-bar";
+import { Navbar } from "./navbar";
+import Topbar from "./topbar";
 
 
-export { NewNav as NavBar, Footer, TopBar };
+export { Navbar, Footer, Topbar };

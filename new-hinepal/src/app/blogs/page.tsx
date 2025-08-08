@@ -42,7 +42,7 @@ const Blogs = async () => {
                 {/* blog post item html start */}
                 <div className='grid row'>
                   {data?.blogs?.map((blog: any) => (
-                    <BlogCard blog={blog} />
+                    <BlogCard key={blog?.id}  blog={blog} />
                   ))}
                 </div>
                 {/* blog post item html end */}

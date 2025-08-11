@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { get } from '@/utils/request-hander';
 import endpoints from '@/constant/endpoints';
 import Image from 'next/image';
-import { fetchData } from '@/helper/fetch-data';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, ChevronRight, ChevronUp, icons, LucideHam, LucideMail, LucideMenu, LucidePhone } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -36,9 +35,10 @@ export const Navbar = async () => {
   return (
     <div className='bg-green-600 z-[999] min-w-[100vw] '>
       <Topbar siteInformation={siteInformation} />
+
       <nav className='container mx-auto flex justify-around items-center py-4 z-[999] bg-white  min-w-[100vw] border-b-2 border-orange-400 border-dashed'>
         <Link href={"/"}>
-          <Image src={"/hinepal/LOGO_HINEPAL.webp"} priority height={170} width={130} alt='' />
+          <Image src={"/assets/hinepal-logo.webp"} priority height={170} width={130} alt='hinepal logo' />
         </Link>
         <div className='flex gap-4 items-center'>
           {navBar.map((activity, index) => {
@@ -83,6 +83,15 @@ export const Navbar = async () => {
             )
           })}
         </div>
+
+
+
+        <div className="flex justify-center items-center">
+          <Link href={"/booking"} className='hover:cursor-pointer'>
+            <Button size={'lg'} className='md:p-8'>Book Now</Button>
+          </Link>
+        </div>
+
 
         {/* mobile menu */}
         <div className='md:hidden'>
@@ -132,12 +141,6 @@ export const Navbar = async () => {
 
             </SheetContent>
           </Sheet>
-        </div>
-
-        <div className="flex self-end">
-          <Link href={"/booking"} className='hover:cursor-pointer'>
-            <Button size={'lg'} className='p-8'>Book Now</Button>
-          </Link>
         </div>
       </nav>
     </div>

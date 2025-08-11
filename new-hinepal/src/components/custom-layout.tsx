@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import BackToTop from '@/app/_components/back-to-top';
+import WhatsAppButton from './whatsapp-button';
 
 const CustomLayout = ({
   children,
@@ -22,6 +23,7 @@ const CustomLayout = ({
 
       </div>
       <BackToTop />
+      <WhatsAppButton />
     </>
   );
 };

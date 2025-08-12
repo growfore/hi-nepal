@@ -23,7 +23,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                             <Image
                                 height={500}
                                 width={400}
-                                src={siteInformation?.about?.image1 || '/placeholder.svg?height=500&width=400&query=mountain landscape'}
+                                src={siteInformation?.about?.image1 || ''} 
                                 alt='home page gallery image'
                                 className='w-full h-full object-cover'
                             />
@@ -38,7 +38,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                     height={250}
                                     width={300}
                                     className='w-full h-full object-cover'
-                                    src={siteInformation?.about?.image2 || '/placeholder.svg?height=250&width=300&query=trekking group'}
+                                    src={siteInformation?.about?.image2 || ''}
                                     alt='home page gallery image'
                                 />
                             </figure>
@@ -46,7 +46,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                 <Image
                                     height={250}
                                     width={300}
-                                    src={siteInformation?.about?.image3 || '/placeholder.svg?height=250&width=300&query=cultural festival'}
+                                    src={siteInformation?.about?.image3 || ''}
                                     alt='home page gallery image'
                                     className='w-full h-full object-cover'
                                 />
@@ -58,7 +58,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                     height={400}
                                     width={700}
                                     className='w-full h-full object-cover'
-                                    src={siteInformation?.about?.image4 || '/placeholder.svg?height=400&width=700&query=Himalayan panorama'}
+                                    src={siteInformation?.about?.image4 || ''}
                                     alt='home page gallery image'
                                 />
                             </figure>

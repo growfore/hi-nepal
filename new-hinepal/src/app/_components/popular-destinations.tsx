@@ -54,7 +54,7 @@ return (
                   <div className='relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300'>
                     <figure className='w-full h-64'>
                       <Image
-                        src={d.image || "/placeholder.svg"}
+                        src={d.image}
                         loading='lazy'
                         width={600}
                         height={400}

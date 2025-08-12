@@ -1,10 +1,7 @@
-import { fetchData } from '@/helper/fetch-data';
-import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import React from 'react';
 
 const NotFoundPage = async () => {
-  const carousels: any[] | undefined = await fetchData('carousels/not-found');
+  // const carousels: any[] | undefined = await fetchData('carousels/not-found');
   return redirect("/");
   // return (
   //   <main id='content' className='site-main'>

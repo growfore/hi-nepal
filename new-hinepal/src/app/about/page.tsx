@@ -81,7 +81,7 @@ const About = () => {
               />
             </div>
             <div className='relative mt-16 rounded-xl overflow-hidden shadow-2xl aspect-video'
-              style={{ backgroundImage: 'url(/placeholder.svg?height=700&width=1200&query=trekking video background)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+              style={{ backgroundImage: 'url()', backgroundSize: 'cover', backgroundPosition: 'center' }}>
               <div className='absolute inset-0 flex items-center justify-center'>
                 <iframe
                   className='w-full h-full'
@@ -122,15 +122,6 @@ const About = () => {
 };
 
 export default About;
-
-const clientLogos = [
-  { src: '/placeholder.svg?height=60&width=120', alt: 'Client Logo 1' },
-  { src: '/placeholder.svg?height=60&width=120', alt: 'Client Logo 2' },
-  { src: '/placeholder.svg?height=60&width=120', alt: 'Client Logo 3' },
-  { src: '/placeholder.svg?height=60&width=120', alt: 'Client Logo 4' },
-  { src: '/placeholder.svg?height=60&width=120', alt: 'Client Logo 5' },
-  { src: '/placeholder.svg?height=60&width=120', alt: 'Client Logo 6' },
-];
 
 const counterData = [
   {

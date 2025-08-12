@@ -24,7 +24,7 @@ const Team = () => {
                       width={300}
                       priority={false}
                       alt={item.name}
-                      src={item.image || '/placeholder.svg?height=300&width=300&query=team member'}
+                      src={item.image} 
                       className='w-full h-full object-cover'
                     />
                   </figure>
@@ -53,57 +53,57 @@ export default Team;
 
 const teamData = [
   {
-    name: 'YOG PRASAD POUDEL',
+    name: 'YOG PRASAD SUBEDI',
     position: 'Travel Guide',
-    image: '/hinepal/yogparsadsubedi.jpeg', // Placeholder if actual image path is not available
+    image: '/assets/yog-parsad-subedi.webp', 
     description: 'We are a team of experienced tour guides who are passionate about sharing our knowledge and expertise with you.',
   },
   {
     name: 'BHUWAN SHIVABHAKTI',
     position: 'Travel Guide',
-    image: '/hinepal/bhuwan Shivabhakti.jpeg',
+    image: '/assets/bhuwan-shivabhakti.webp',
     description: 'We are a team of experienced tour guides who are passionate about sharing our knowledge and expertise with you.',
   },
   {
     name: 'BAM BAHADUR TAMANG',
     position: 'Travel Guide',
-    image: '/hinepal/Bam Bahadur Tamang.jpeg',
+    image: '/assets/bam-bahadur-tamang.webp',
     description: 'We are a team of experienced tour guides who are passionate about sharing our knowledge and expertise with you.',
   },
   {
     name: 'KRISHNA PRASAD SUBEDI',
     position: 'Travel Guide',
-    image: '/hinepal/Krishna Prasad Subedi.jpeg',
+    image: "/assets/krishana-prasad-subedi.webp",
     description: 'We are a team of experienced tour guides who are passionate about sharing our knowledge and expertise with you.',
   },
   {
     name: 'Prem Raj Dahal',
     position: 'Travel Guide',
-    image: '/hinepal/prem raj Dahal.jpeg',
+    image: '/assets/prem-raj-dahal.webp',
     description: 'We are a team of experienced tour guides who are passionate about sharing our knowledge and expertise with you.',
   },
   {
     name: 'Shovakhar Bhugai',
     position: 'Travel Guide',
-    image: '/hinepal/Shovakhar Bhugai.jpeg',
+    image: "/assets/shovakhar-bhugai.webp",
     description: 'We are a team of experienced tour guides who are passionate about sharing our knowledge and expertise with you.',
   },
   {
     name: 'Sudip Subedi',
     position: 'Travel Guide',
-    image: '/hinepal/sudip Subedi.jpeg',
+    image: "/assets/sudip-subedi.webp",
     description: 'We are a team of experienced tour guides who are passionate about sharing our knowledge and expertise with you.',
   },
   {
     name: 'Ram Krishna Timilsina',
     position: 'Travel Guide',
-    image: '/hinepal/ramkrishnatimilsina.jpeg',
+    image: '/assets/ramkrishna-timilsina.webp',
     description: 'We are a team of experienced tour guides who are passionate about sharing our knowledge and expertise with you.',
   },
   {
     name: 'Shree Krishna Subedi',
     position: 'Travel Guide',
-    image: '/hinepal/shreekrishnasubedi.jpeg',
+    image: "/assets/shreekrishna-subedi.webp",
     description: 'We are a team of experienced tour guides who are passionate about sharing our knowledge and expertise with you.',
   },
 ];

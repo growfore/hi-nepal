@@ -112,7 +112,7 @@ const activites = async ({ params }: { params: Params }) => {
         <div>
             <div
                 className='relative h-[80vh] bg-cover bg-center flex items-center justify-center text-white'
-                style={{ backgroundImage: `url(${details.banner || '/placeholder.svg?height=600&width=1920'})` }}
+                style={{ backgroundImage: `url(${details.banner})` }}
             >
                 <div className='absolute inset-0 bg-black/50'></div>
                 <div className='container mx-auto px-4 md:px-6 relative z-10 text-center'>
@@ -298,7 +298,7 @@ const activites = async ({ params }: { params: Params }) => {
                     <div className='sticky top-42 p-6 bg-white rounded-lg shadow-md'>
                         <div className='booking-details text-center mb-8'>
                             <Image
-                                src={details.thumbnail || '/placeholder.svg?height=150&width=250&query=package thumbnail'}
+                                src={details.thumbnail}
                                 alt={details.title || 'Package thumbnail'}
                                 width={250}
                                 height={150}

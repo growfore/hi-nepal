@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { LucideMail, LucidePhone, LucideMap } from 'lucide-react';
 
 const dummySiteInformation = {
-  footerImg: '/placeholder.svg?height=500&width=500',
+  footerImg: '',
   email1: 'hinepaltreks@gmail.com',
   email2: 'info@hinepaltreks.com', 
   phone1: '+977 985-6035091',
@@ -24,7 +24,7 @@ const ContactSection = ({ siteInformation = dummySiteInformation }: { siteInform
               <Image
                 height={500}
                 width={500}
-                src={siteInformation?.footerImg || '/placeholder.svg?height=500&width=500&query=company logo'}
+                src={siteInformation?.footerImg} 
                 alt='Footer Image'
                 className='w-full h-auto object-contain'
               />

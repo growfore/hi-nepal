@@ -3,11 +3,11 @@ import Image from 'next/image';
 
 export function Partners() {
   const images = [
-    '/taan.png',
-    '/natalogo.png',
-    '/nepal-government.png',
-    '/nepal-parbatarohan-sangh.png',
-    '/nepal-tourism-board.png',
+    '/taan.webp',
+    '/nepal-association-of-tour-and-travel-agents-logo.webp',
+    '/nepal-government.webp',
+    '/nepal-mountaineering-association.webp',
+    '/nepal-tourism-board.webp',
   ];
   return (
     <div className='flex flex-col items-center'>
@@ -18,7 +18,7 @@ export function Partners() {
         {images.map((image, index) => {
           return (
             <div key={index} className='flex justify-center items-center p-4'>
-              <Image src={"/hinepal" + image} alt={image} height={200} width={200} />
+              <Image src={"/assets" + image} alt={image} height={200} width={200} />
             </div>
           )
         })}

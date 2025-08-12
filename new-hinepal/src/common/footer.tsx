@@ -117,7 +117,7 @@ export function Footer() {
                       height={50}
                       width={100}
                       className='p-2 rounded-md'
-                      src='/hinepal/LOGO_HINEPAL.webp'
+                      src='/assets/hinepal-logo.webp'
                       alt='logo'
                       loading='lazy'
                       priority={false}

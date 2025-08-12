@@ -4,7 +4,7 @@ import React from 'react';
 
 const Topbar = ({ siteInformation }: { siteInformation: TSiteInformation }) => {
   return (
-    <div className='hidden md:flex container text-white justify-between  items-center py-2 md:px-20  mx-auto '>
+    <div className='flex  container text-white justify-between  items-center py-2 px-2 md:px-20  mx-auto '>
       <div className='flex items-center  gap-2'>
         <div className='rounded-sm bg-white p-2'>
           <LucideMail className='text-green-600' />
@@ -14,7 +14,7 @@ const Topbar = ({ siteInformation }: { siteInformation: TSiteInformation }) => {
           <a href={`mailto:${siteInformation.email1}`} className='hover:cursor-pointer font-bold hover:underline'>{siteInformation.email1}</a>
         </div>
       </div>
-      <div className='flex items-center gap-2'>
+      <div className='items-center gap-2 hidden md:flex'>
         <div className='rounded-sm bg-white p-2'>
           <LucidePhone className='text-green-600' />
         </div>

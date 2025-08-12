@@ -7,7 +7,7 @@ import Image from 'next/image';
 import React from 'react';
 import GallerySlider from '../_components/gallery-slider';
 import { notFound } from 'next/navigation';
-import { Button } from '@/components/ui/button'; 
+import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, HomeIcon as House, MountainSnow, LucideCircle, LucideHeart, LucideEye, LucideList, LucideBackpack, LucideCloudSunRain, LucideCheck, LucideX, LucideMessageCircleQuestion } from 'lucide-react';
 import { DataIcon } from '@/components/data-icon';
@@ -73,12 +73,27 @@ const activites = async ({ params }: { params: Params }) => {
         token: '',
         success: (_, res) => {
             details = res.data.package;
-            relatedProducts = res.data.relatedProducts;
+            // relatedProducts = res.data.relatedProducts;
         },
         failure: (message) => {
             notFound();
         },
     });
+    const packages: TPackageDetails[] = [];
+
+    await get({
+        endPoint: endpoints.PACKAGES,
+        params: { query: params.slug.split("-")[0] },
+        token: '',
+        success: (message, res) => {
+            packages.push(...res.data.packages);
+        },
+        failure: (message) => {
+            console.log(message);
+        },
+    });
+
+    relatedProducts = packages.filter((pkg) => pkg.id !== details.id);
 
     const navigations = [
         { id: 'overview', label: 'Overview', icon: "LucideEye" },
@@ -105,7 +120,7 @@ const activites = async ({ params }: { params: Params }) => {
                         {details.title}
                     </h1>
                     <div className='mt-8'>
-                    <TrustBadge />
+                        <TrustBadge />
                     </div>
                 </div>
             </div>
@@ -309,8 +324,8 @@ const activites = async ({ params }: { params: Params }) => {
                                     )}
                                 {relatedProducts?.map((product) => (
                                     <li key={product.slug} className='mb-2'>
-                                        <Link href={`/${product.slug}`} className='text-blue-600 hover:underline text-lg'>
-                                            {product.title}
+                                        <Link href={`/${product.slug}`} className='text-green-600 hover:underline text-lg'>
+                                            {product.title.split(":")[0].trim()}
                                         </Link>
                                     </li>
                                 ))}

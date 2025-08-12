@@ -13,12 +13,14 @@ export function SectionNav({ navigations }: Props) {
   const [visible, setVisible] = useState(false);
 
   const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const ignoreScrollUpdate = useRef(false);
 
   useEffect(() => {
-    const NAVBAR_HEIGHT = 100;
+    const NAVBAR_HEIGHT = 56;
 
     const handleScroll = () => {
-      const scrollPos = window.scrollY + NAVBAR_HEIGHT + 1; // +1 to avoid edge case
+      if (ignoreScrollUpdate.current) return;
+      const scrollPos = window.scrollY + NAVBAR_HEIGHT + 1; 
 
       let currentSection = "";
       for (const nav of navigations) {
@@ -37,23 +39,6 @@ export function SectionNav({ navigations }: Props) {
 
       setVisible(window.scrollY > 200);
     };
-    // const handleScroll = () => {
-    //   const scrollY = window.scrollY || window.pageYOffset;
-    //   setVisible(scrollY > 200);
-
-    //   let currentSection = "";
-    //   for (const nav of navigations) {
-    //     const section = document.getElementById(nav.id);
-    //     if (section) {
-    //       const rect = section.getBoundingClientRect();
-    //       if (rect.top <= 240 && rect.bottom > 240) {
-    //         currentSection = nav.id;
-    //         break;
-    //       }
-    //     }
-    //   }
-    //   setActiveId(currentSection);
-    // };
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
@@ -89,20 +74,26 @@ export function SectionNav({ navigations }: Props) {
                 onClick={(e) => {
                   e.preventDefault();
                   setActiveId(nav.id);
+
+                  ignoreScrollUpdate.current = true;
+                  setTimeout(() => {
+                    ignoreScrollUpdate.current = false;
+                  }, 3000);
+
                   const section = document.getElementById(nav.id);
                   if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
+                    section.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                variant={'ghost'} className="hover:bg-green-600 hover:text-white text-white">
-                {/* @ts-ignore */}
-                {Icon && <Icon className="w-4 h-4 mr-2" />}
-                {nav.label}
-              </Button>
-            </Link>
+              variant={'ghost'} className="hover:bg-green-600 hover:text-white text-white">
+              {/* @ts-ignore */}
+              {Icon && <Icon className="w-4 h-4 mr-2" />}
+              {nav.label}
+            </Button>
+          </Link>
           </div>
-        );
-      })}
+  );
+})}
     </div >
   );
 }

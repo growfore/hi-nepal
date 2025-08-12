@@ -59,14 +59,14 @@ export function SectionNav({ navigations }: Props) {
   if (!visible) return null;
 
   return (
-    <div className="z-[999] section-nav fixed top-[30px] mt-16  md:px-24 lg:px-36 flex gap-1 bg-orange-500 py-1 w-[100vw] overflow-auto whitespace-nowrap">
+    <div className="z-[99] section-nav fixed top-[30px] mt-16  px-4 md:px-24 lg:px-36 flex gap-1 bg-orange-500 py-1 w-[100vw] overflow-auto whitespace-nowrap">
       {navigations.map((nav) => {
         const Icon = Icons[nav.icon];
         return (
           <div
             // @ts-ignore
             ref={(el) => (itemRefs.current[nav.id] = el)}
-            className={`nav-item ${activeId === nav.id ? "active" : ""}`}
+            className={`my-1 container mx-auto  nav-item ${activeId === nav.id ? "active" : ""}`}
             key={nav.id}
           >
             <Link href={`#${nav.id}`}>

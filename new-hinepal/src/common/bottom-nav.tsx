@@ -17,6 +17,13 @@ import { cn } from '@/lib/utils';
 
 export function BottomNav({ navBar }: { navBar: TNavBar }) {
     const [topValue, setTopValue] = useState(60);
+    const [disableHover, setDisableHover] = useState(false);
+
+    const handleClick = () => {
+        setDisableHover(true);
+        setTimeout(() => setDisableHover(false), 500); // re-enable after 500ms
+    };
+
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
@@ -37,9 +44,9 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                 {navBar.map((activity, index) => {
                     return (
                         <div key={index}>
-                            <div className='group  hidden md:flex'><Link href={`/activities/${activity.slug}`} className='font-bold uppercase flex gap-1 cursor-pointer'>{activity.name} <ChevronDown className='group-hover:hidden' /><ChevronUp className='hidden group-hover:block' /></Link>
+                            <div onClick={handleClick} className={cn(!disableHover && 'group', 'hidden md:flex')}><Link href={`/activities/${activity.slug}`} className='font-bold uppercase flex gap-1 cursor-pointer'>{activity.name} <ChevronDown className='group-hover:hidden' /><ChevronUp className='hidden group-hover:block' /></Link>
                                 <div className=''>
-                                    <div className='bg-transparent py-24 rounded-lg hidden group-hover:grid absolute top-[60px] z-[9999]  left-0 w-[100vw] p-8'>
+                                    <div className='rounded-lg hidden group-hover:grid absolute top-[45px] z-[999]  left-0 w-[100vw] py-8 px-0'>
                                         <div className='pb-8 bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container px-36 mx-auto flex-wrap w-[100vw] rounded-md'>
                                             {activity.destinations.map((destination, index) => {
                                                 return (
@@ -75,6 +82,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                         </div>
                     )
                 })}
+                {/* <Link href={"/adventure"} className='hover:text-green-700 font-bold uppercase flex gap-1 cursor-pointer'> Adventure</Link> */}
             </div>
 
 

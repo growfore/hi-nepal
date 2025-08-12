@@ -1,7 +1,7 @@
+
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { DollarSign, MapPin, User, PlayCircle, Users, Award, Activity, Globe } from 'lucide-react'; // Importing Lucide icons for services and counters
+import { DollarSign, MapPin, User,  Users, Award, Activity, Globe, Hotel, Plane, Ticket } from 'lucide-react';
+import { ServiceCard } from '@/components/service-card';
 
 const About = () => {
   return (
@@ -26,55 +26,63 @@ const About = () => {
               <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 items-end'>
                 <div className=''>
                   <h5 className='text-orange-500 text-sm font-semibold uppercase relative pl-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500'>
-                    OUR TOUR GALLERY
+                    ABOUT US
                   </h5>
                   <h2 className='text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight mt-2'>
-                    HELLO. OUR AGENCY HAS BEEN PRESENT BEST IN THE MARKET
+                    YOUR TRUSTED PARTNER FOR UNFORGETABLE NEPAL ADVENTURES
                   </h2>
                 </div>
                 <div className='text-gray-600 text-base md:text-lg leading-relaxed space-y-4'>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Ut elit tellus, luctus nec ullamcorper mattis, pulvinar
-                    dapibus leo.Placeat nostrud natus tempora justo.
-                    Laboriosam, eget mus nostrud natus tempora.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet, consec tetur adipiscing
-                    eliting dolor sit amet. Placeat nostrud natus tempora
-                    justo nostrud natus tempora.
+                    Hi Nepal Trek and Travels Pvt. Ltd. is a certified trekking and travel agency, known for its years of high-quality service in the tourism industry of Nepal. With over 9 years of experience, our goal is to assist you in exploring all the corners of Nepal and make your journey worthwhile, which will last in your memories forever.
+                    Our team of experienced guides and travel experts which are committed to providing you safe, responsible, and comfortable tour. We take pride in our professionalism, local knowledge, and dedication towards sustainable tourism. From the exciting trekking to the thrilling adventure sports, we lay out the best according to our demands and desires.
                   </p>
                 </div>
               </div>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-12'>
-              <div className='flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300'>
-                <div className='w-20 h-20 rounded-full bg-orange-100 flex items-center justify-center mb-4'>
-                  <DollarSign className='w-10 h-10 text-orange-500' />
-                </div>
-                <h4 className='text-xl font-bold text-dark-blue-900 mb-2'>AFFORDABLE PRICE</h4>
-                <p className='text-gray-600 text-sm leading-relaxed'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-              </div>
-              <div className='flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300'>
-                <div className='w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-4'>
-                  <MapPin className='w-10 h-10 text-green-600' />
-                </div>
-                <h4 className='text-xl font-bold text-dark-blue-900 mb-2'>BEST DESTINATION</h4>
-                <p className='text-gray-600 text-sm leading-relaxed'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-              </div>
-              <div className='flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300'>
-                <div className='w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center mb-4'>
-                  <User className='w-10 h-10 text-blue-500' />
-                </div>
-                <h4 className='text-xl font-bold text-dark-blue-900 mb-2'>PERSONAL SERVICE</h4>
-                <p className='text-gray-600 text-sm leading-relaxed'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-              </div>
+              <ServiceCard
+                title='TREK AND HILLS'
+                icon={DollarSign}
+                description='Explore the iconic and thrilling treks such as Everest Base Camp, Annapurna Base Camp Trek, Langtang Gosaikunda Trek, and more, with us. If you are booking for short hikes, then we offer you the Sarangkot Hike, Thulakot Hike, Peace Pagoda Hike, etc.'
+              />
+
+
+              <ServiceCard
+                title='ADVENTURE SPORTS'
+                icon={MapPin}
+                description='For the adventure sport enthusiasts, we provide exciting options such as paragliding, bungee, rafting, ziplining, and more. Each activity is guided by experts, ensuring your safety.'
+              />
+              <ServiceCard
+                title='CUSTOM ITINERARIES'
+                icon={User}
+                description='We understand that every traveler is unique. Our team works closely with you to design a perfect itinerary according to your time and your preferences.'
+              />
+
+              <ServiceCard
+                title='PERSONAL SERVICE'
+                icon={User}
+                description='Discover Nepal’s unique places full of historical and cultural significances. We offer planned tours like the Ghandruk Tour, Tilicho Lake Tour, Muktinath Tour, and many.'
+              />
+
+
+              <ServiceCard
+                title='HOTEL BOOKING'
+                icon={Hotel}
+                description='Hotel Booking: We look after your stay ranging from the local tea house during trek to cozy lodges to luxurious hotels, ensuring your comfort and convenience.'
+              />
+
+              <ServiceCard
+                title='AIRPORT PICKUP AND DROP'
+                description="Our team makes sure you have a hassle-free travel throughout your journey. So, we arrange your pickup and drop-off services in a comfortable vehicle."
+                icon={Plane}
+              />
+
+              <ServiceCard
+                title='PERMIT'
+                description='We handle all the necessary permits for your trek and travel to provide you a smooth experiences.'
+                icon={Ticket}
+              />
             </div>
             <div className='relative mt-16 rounded-xl overflow-hidden shadow-2xl aspect-video'
               style={{ backgroundImage: 'url(/placeholder.svg?height=700&width=1200&query=trekking video background)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -92,74 +100,23 @@ const About = () => {
           </div>
         </section>
 
-        {/* Client Section */}
+
+        {/* Mission */}
         <section className='py-16 md:py-24 lg:py-32 bg-gray-50'>
           <div className='container mx-auto px-4 md:px-6'>
             <div className='text-center mb-12 md:mb-16'>
               <div className='max-w-3xl mx-auto'>
                 <h5 className='text-orange-500 text-sm font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
-                  OUR ASSOCIATES
+                  OUR MISSION
                 </h5>
-                <h2 className='text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight mt-2'>
-                  PARTNER'S AND CLIENTS
+                <h2 className='text-xl md:text-2xl lg:text-4xl font-extrabold text-dark-blue-900 leading-tight mt-2 uppercase'>
+                  Crafting Stories of Adventure, Joy, and Growth
                 </h2>
                 <p className='text-gray-600 text-base md:text-lg leading-relaxed mt-4'>
-                  Mollit voluptatem perspiciatis convallis elementum
-                  corporis quo veritatis aliquid blandit, blandit torquent,
-                  odit placeat. Adipiscing repudiandae eius cursus? Nostrum
-                  magnis maxime curae placeat.
+                  We aim to provide you with high-quality, safe, and sustainable travel experiences that will enhance your journey with us. We believe travel is more than just visiting places; it's about creating lasting memories. With our years of expertise, we desire to be a part of your happiness and excitement in every step, guiding you through the breathtaking mountains, thrilling adventures, and vibrant communities.
+                  Your journey with Hi Nepal Treks and Travels is not just a trip, it’s a story of adventure, joy, and growth, which we are honored to help you write.
                 </p>
               </div>
-            </div>
-            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-center'>
-              {clientLogos.map((logo, index) => (
-                <figure key={index} className='flex justify-center items-center p-4 bg-white rounded-lg shadow-sm'>
-                  <Image
-                    src={logo.src || "/placeholder.svg"}
-                    alt={logo.alt}
-                    width={120}
-                    height={60}
-                    className='object-contain h-16 w-auto'
-                  />
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Callback Section */}
-        <section className='py-16 md:py-24 lg:py-32 relative bg-cover bg-center'
-          style={{ backgroundImage: 'url(/placeholder.svg?height=800&width=1600&query=mountain range background)' }}>
-          <div className='absolute inset-0 bg-dark-blue-900/70'></div>
-          <div className='container mx-auto px-4 md:px-6 relative z-10'>
-            <div className='text-center mb-12 md:mb-16'>
-              <div className='max-w-3xl mx-auto'>
-                <h5 className='text-orange-500 text-sm font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
-                  CALLBACK FOR MORE
-                </h5>
-                <h2 className='text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mt-2'>
-                  GO TRAVEL. DISCOVER. REMEMBER US!!
-                </h2>
-                <p className='text-white text-base md:text-lg leading-relaxed mt-4'>
-                  Mollit voluptatem perspiciatis convallis elementum
-                  corporis quo veritatis aliquid blandit, blandit torquent,
-                  odit placeat. Adipiscing repudiandae eius cursus? Nostrum
-                  magnis maxime curae placeat.
-                </p>
-              </div>
-            </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12'>
-              {counterData.map((item, index) => (
-                <div key={index} className='flex flex-col items-center text-center p-6 bg-white/10 rounded-lg backdrop-blur-sm'>
-                  <div className='w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-4'>
-                    {item.icon}
-                  </div>
-                  <div className='text-white'>
-                    <span className='text-5xl font-bold block'>{item.value}</span>
-                    <span className='text-lg'>{item.label}</span>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </section>

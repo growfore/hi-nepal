@@ -8,15 +8,11 @@ const About = () => {
     <div className='min-h-screen flex flex-col'>
       <main className='flex-grow'>
         {/* Inner Banner Section */}
-        <section className='relative h-96 bg-cover bg-center flex items-center justify-center text-white'
-          style={{ backgroundImage: 'url(/placeholder.svg?height=600&width=1920&query=mountain landscape banner)' }}>
-          <div className='absolute inset-0 bg-black/50'></div>
-          <div className='container mx-auto px-4 md:px-6 relative z-10 text-center'>
-            <h1 className='text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg'>
-              About Us
-            </h1>
-          </div>
-          <div className='absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent'></div>
+        <section className='relative h-96 bg-cover bg-center flex items-center justify-center '>
+            <div className="min-h-[40vh] mt-42 flex flex-col p-4  md:p-8 md:items-center border-b-2 border-black">
+                <h1 className="font-bold text-6xl lg:text-9xl">About us</h1>
+                {/* <p className="text-left italic text-xl">Experience the adventure sport of a lifetime amidst the Himalayas, where every thrill comes with breathtaking views.</p> */}
+            </div>
         </section>
 
         {/* About Service Section */}

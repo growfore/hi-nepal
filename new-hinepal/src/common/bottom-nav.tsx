@@ -85,6 +85,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                         )
                     })}
                     <Link href={"/adventure"} className='hidden md:flex hover:text-green-700 font-bold uppercase gap-1 cursor-pointer'> Adventure</Link>
+                    <Link href={"/about"} className='hidden md:flex hover:text-green-700 font-bold uppercase gap-1 cursor-pointer'>About Us</Link>
                 </div>
 
 
@@ -144,6 +145,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                                     )
                                 })}
                                 <Link href={"/adventure"} className='uppercase font-bold text-sm'>Adventures</Link>
+                                <Link href={"/about"} className='uppercase font-bold text-sm'>About us</Link>
 
                             </SheetContent>
                         </Sheet>

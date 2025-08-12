@@ -13,6 +13,7 @@ import PopularPackages from './_components/popular-packages';
 import BlogHome from './_components/blogs';
 import Activities from './_components/activities';
 import Team from './_components/team';
+import AdventureSection from '@/components/adventure-section';
 
 export default async function Home() {
   let siteInformation: TSiteInformation = {} as TSiteInformation;
@@ -55,8 +56,9 @@ export default async function Home() {
   return (
     <main id='content' className='site-main'>
       <Hero carousels={carousels} />
-      <PopularPackages/>
-      <PopularDestinations/>
+      <PopularPackages />
+      <PopularDestinations />
+      <AdventureSection />
       <Numbers />
       <Activities />
       <Gallery siteInformation={siteInformation} />

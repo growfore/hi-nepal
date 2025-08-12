@@ -10,10 +10,12 @@ export default function AdventurePage() {
                 <p className="text-left italic text-xl">Experience the adventure sport of a lifetime amidst the Himalayas, where every thrill comes with breathtaking views.</p>
             </div>
             <div className="p-4 md:p-12 container mx-auto flex flex-col gap-8">
+                <div id="paragliding" className="scroll-mt-42 ">
                 <ImageCard />
+                </div>
 
                 {/* Bungee */}
-                <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start justify-center rounded-md p-2  md:p-8">
+                <div id="bungee" className="scroll-mt-44 scroll-smooth flex flex-col md:flex-row gap-2 md:gap-4 items-start justify-center rounded-md p-2  md:p-8">
                     <div className='md:max-w-[50%]'>
                         <h2 className='font-bold text-xl'>
                             Bungee
@@ -46,7 +48,7 @@ export default function AdventurePage() {
 
 
                 {/* Zipline */}
-                <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start justify-center rounded-md p-2  md:p-8">
+                <div id="zipline" className="scroll-mt-44 scroll-smooth flex flex-col md:flex-row gap-2 md:gap-4 items-start justify-center rounded-md p-2  md:p-8">
                     <div className='md:max-w-[50%]'>
                         <h2 className='font-bold text-xl'>
                             Zipline

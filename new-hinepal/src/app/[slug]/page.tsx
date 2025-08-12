@@ -90,6 +90,8 @@ const activites = async ({ params }: { params: Params }) => {
         { id: 'faqs', label: 'FAQs', icon: "LucideMessageCircleQuestion" },
     ]
 
+    const sectionStyle = 'scroll-mt-42 mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400';
+
 
     return (
         <div>
@@ -110,7 +112,7 @@ const activites = async ({ params }: { params: Params }) => {
 
             {/* Section Navigation */}
             {/* @ts-ignore */}
-            {/* <SectionNav navigations={navigations} /> */}
+            <SectionNav navigations={navigations} />
 
             <main className='container mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12'>
                 {/* Main Content Area */}
@@ -140,112 +142,112 @@ const activites = async ({ params }: { params: Params }) => {
 
                     {/* Overview Section */}
                     {details.overview && (
-                        <div id='overview' className='mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400'>
+                        <div id='overview' className={sectionStyle}>
                             <div className='prose max-w-none' dangerouslySetInnerHTML={{ __html: details.overview }}></div>
                         </div>
                     )}
 
                     {/* Highlights Section */}
                     {details.highlights && (
-                        <div id='highlights' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
+                        <div id='highlights' className={sectionStyle}>
                             <div dangerouslySetInnerHTML={{ __html: details.highlights }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Altitude Section */}
                     {details.altitudeInfo && (
-                        <div id='altitude' className="mb-12 p-6  rounded-lg">
+                        <div id='altitude' className="scroll-mt-42 mb-12 p-6  rounded-lg">
                             <div dangerouslySetInnerHTML={{ __html: details.altitudeInfo }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Itinerary Section */}
                     {details.itenary && (
-                        <div id='itenary' className="mb-12 p-6 bg-white rounded-lg ">
+                        <div id='itenary' className="scroll-mt-42 mb-12 p-6 bg-white rounded-lg ">
                             <div dangerouslySetInnerHTML={{ __html: details.itenary }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Packing Details */}
                     {details.packing && (
-                        <div id='packing' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
+                        <div id='packing' className={sectionStyle}>
                             <div dangerouslySetInnerHTML={{ __html: details.packing }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Seasons */}
                     {details.bestSeasonInfo && (
-                        <div id='best-season' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
+                        <div id='best-season' className={sectionStyle}>
                             <div dangerouslySetInnerHTML={{ __html: details.bestSeasonInfo }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Route Overview */}
                     {details.routeOverview && (
-                        <div id='route-overview' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
+                        <div id='route-overview' className={sectionStyle}>
                             <div dangerouslySetInnerHTML={{ __html: details.routeOverview }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Includes */}
                     {details.includes && (
-                        <div id='includes' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
+                        <div id='includes' className={sectionStyle}>
                             <div dangerouslySetInnerHTML={{ __html: details.includes }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Excludes */}
                     {details.excludes && (
-                        <div id='excludes' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
+                        <div id='excludes' className={sectionStyle}>
                             <div dangerouslySetInnerHTML={{ __html: details.excludes }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Sickness and Safety */}
                     {details.sicknessAndSaftey && (
-                        <div id='sicknessAndSafety' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
+                        <div id='sicknessAndSafety' className={sectionStyle}>
                             <div dangerouslySetInnerHTML={{ __html: details.sicknessAndSaftey }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Travel insurance and regulations */}
                     {details.insuranceAndEmergency && (
-                        <div id='insuranceAndEmergency' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
+                        <div id='insuranceAndEmergency' className={sectionStyle}>
                             <div dangerouslySetInnerHTML={{ __html: details.insuranceAndEmergency }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Permits and regulations */}
                     {details.permitsAndRegulations && (
-                        <div id='permitsAndRegulations' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
+                        <div id='permitsAndRegulations' className={sectionStyle}>
                             <div dangerouslySetInnerHTML={{ __html: details.permitsAndRegulations }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Short itinerary */}
                     {details.shortTrekInfo && (
-                        <div id='shortTrekInfo' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
+                        <div id='shortTrekInfo' className={sectionStyle}>
                             <div dangerouslySetInnerHTML={{ __html: details.shortTrekInfo }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Why trek */}
                     {details.whyChooseThisPackage && (
-                        <div id='whyChooseThisPackage' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
+                        <div id='whyChooseThisPackage' className={sectionStyle}>
                             <div dangerouslySetInnerHTML={{ __html: details.whyChooseThisPackage }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Cost Breakdown */}
                     {details.priceBreakDown && (
-                        <div id='priceBreakdown' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
+                        <div id='priceBreakdown' className={sectionStyle}>
                             <div dangerouslySetInnerHTML={{ __html: details.priceBreakDown }} className="prose max-w-none"></div>
                         </div>
                     )}
 
                     {/* Booking Info */}
                     {details.bookingInfo && (
-                        <div id='bookingInfo' className="mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400">
+                        <div id='bookingInfo' className={sectionStyle}>
                             <div dangerouslySetInnerHTML={{ __html: details.bookingInfo }} className="prose max-w-none"></div>
                         </div>
                     )}
@@ -262,7 +264,7 @@ const activites = async ({ params }: { params: Params }) => {
 
                     {/* Faqs */}
                     {details.goodtoknow && (
-                        <div id='faqs' className="mb-12 p-6 bg-white rounded-lg shadow-md">
+                        <div id='faqs' className={sectionStyle}>
                             <div dangerouslySetInnerHTML={{ __html: details.goodtoknow }} className="prose max-w-none"></div>
                         </div>
                     )}
@@ -278,7 +280,7 @@ const activites = async ({ params }: { params: Params }) => {
 
                 {/* RIGHT SIDEBAR */}
                 <aside className='lg:col-span-1'>
-                    <div className='sticky top-24 p-6 bg-white rounded-lg shadow-md'>
+                    <div className='sticky top-42 p-6 bg-white rounded-lg shadow-md'>
                         <div className='booking-details text-center mb-8'>
                             <Image
                                 src={details.thumbnail || '/placeholder.svg?height=150&width=250&query=package thumbnail'}

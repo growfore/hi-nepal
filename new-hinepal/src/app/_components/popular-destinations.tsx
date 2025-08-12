@@ -8,7 +8,7 @@ import React from 'react';
 const PopularDestinations = async () => {
 const topDestinations: TDestination[] = [];
 await get({
-  endPoint: endpoints.DESTINATIONS + '/top',
+  endPoint: endpoints.DESTINATIONS,
   token: '',
   success: (message, res) => {
     topDestinations.push(...res.data);
@@ -17,9 +17,16 @@ await get({
     console.log(message);
   },
 });
+const data = topDestinations;
+
+const order = ["Everest Region", "Annapurna Region", "Manaslu Region", "Langtang Region", "Dolpo Region"];
+
+const sorted = data
+  .filter(item => order.includes(item.name)) 
+  .sort((a, b) => order.indexOf(a.name) - order.indexOf(b.name));
 
 return (
-  <section className='py-16 md:py-24 lg:py-32 bg-white'>
+  <section className='py-8 bg-white'>
     <div className='container mx-auto px-4 md:px-6'>
       <div className='grid md:grid-cols-2 gap-8 md:gap-12 items-end mb-12 md:mb-16'>
         <div className=''>
@@ -41,7 +48,7 @@ return (
       <div className='grid gap-8'>
         <div className=''>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {topDestinations.slice(0, 3).map((d, index) => {
+            {sorted.slice(0, 5).map((d, index) => {
               return (
                 <Link key={index} className='block' href={"/activities/trekking/" + d.slug}>
                   <div className='relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300'>

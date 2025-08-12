@@ -9,7 +9,7 @@ const PopularPackages = async () => {
   let packages: TPackages = [];
   await get({
     endPoint: endpoints.PACKAGES,
-    params: { query: 'trekking' },
+    params: { query: 'everest' },
     token: '',
     success: (message, res) => {
       packages.push(...res.data.packages);
@@ -19,8 +19,29 @@ const PopularPackages = async () => {
     },
   });
 
+  // const wantedTitles = [
+  //   "Chitwan National Park Tour",
+  //   "Bardiya National Park Tour ",
+  //   "Sarangkot Pokhara Tour",
+  //   "World Peace Pagoda Tour",
+  //   "Panchase Trek"
+  // ];
+
+  // const order = [
+  //   "World Peace Pagoda Tour",
+  //   "Chitwan National Park Tour",
+  //   "Bardiya National Park Tour ",
+  //   "Panchase Trek",
+  //   "Sarangkot Pokhara Tour"
+  // ];
+
+  // const filteredSorted = packages
+  //   .filter(pkg => wantedTitles.includes(pkg.title))
+  //   .sort((a, b) => order.indexOf(a.title) - order.indexOf(b.title));
+
+
   return (
-    <section className='py-16 md:py-24 lg:py-32 bg-white'>
+    <section className='py-8  bg-white'>
       <div className='container mx-auto px-4 md:px-6'>
         <div className='text-center mb-12 md:mb-16'>
           <div className='max-w-4xl mx-auto'>
@@ -39,19 +60,19 @@ const PopularPackages = async () => {
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
             {packages.map(
               (item: TPackages[0], index) =>
-                index < 3 && (
-                  <PackageCard
-                    key={index}
-                    item={item}
-                    destination={{
-                      slug:item.destination.slug.split("/")[2],
-                      activity: {
-                        name: 'Trekking',
-                        slug: 'trekking',
-                      },
-                    }}
-                  />
-                )
+              (
+                <PackageCard
+                  key={index}
+                  item={item}
+                  destination={{
+                    slug: item.destination.slug.split("/")[2],
+                    activity: {
+                      name: 'Trekking',
+                      slug: 'trekking',
+                    },
+                  }}
+                />
+              )
             )}
           </div>
           <div className='text-center mt-12'>

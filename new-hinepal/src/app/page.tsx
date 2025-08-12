@@ -55,8 +55,8 @@ export default async function Home() {
   return (
     <main id='content' className='site-main'>
       <Hero carousels={carousels} />
-      <PopularDestinations/>
       <PopularPackages/>
+      <PopularDestinations/>
       <Numbers />
       <Activities />
       <Gallery siteInformation={siteInformation} />

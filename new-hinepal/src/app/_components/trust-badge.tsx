@@ -11,7 +11,7 @@ export default function TrustBadge() {
         className="hidden sm:block h-0.5 w-28 md:w-56 lg:w-72 bg-gradient-to-r from-transparent to-sky-200/60 rounded-full"
       />
       {/* Pill */}
-      <div className="flex w-full max-w-5xl items-center rounded-full border border-sky-200 bg-sky-50/70 md:divide-x md:divide-sky-200 shadow-[0_0_0_1px_rgba(14,165,233,0.08)]">
+      <div className="flex  w-full max-w-5xl items-center rounded-full border border-sky-200 bg-sky-50/70 md:divide-x md:divide-sky-200 shadow-[0_0_0_1px_rgba(14,165,233,0.08)]">
         {/* Left section */}
         <div className="flex min-w-0 items-center gap-2 md:gap-4 px-3 py-2 md:px-6 md:py-3">
           <ul className="flex items-center gap-2" aria-label="Rated 5 out of 5 on TripAdvisor">

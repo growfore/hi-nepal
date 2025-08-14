@@ -1,4 +1,3 @@
-import Link from "next/link"
 import Image from "next/image"
 import "./card.css";
 
@@ -23,7 +22,7 @@ export default async function TrekkingCard({ slug, image, title }: TCardProps) {
 
                     <div className="trekking-badge">TREKKING</div>
 
-                    <h2 className="trekking-title">{title}</h2>
+                    <p className="trekking-title">{title}</p>
                 </div>
             </div>
         </div>

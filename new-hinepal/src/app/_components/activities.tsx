@@ -3,7 +3,7 @@ import { TActivity } from '@/types/types';
 import { get } from '@/utils/request-hander';
 import React from 'react';
 import Link from 'next/link';
-import { Mountain, Tent, Camera, Compass, Ship, Users, Globe } from 'lucide-react'; 
+import { Mountain, Tent, Camera, Compass, Ship, Users, Globe } from 'lucide-react';
 
 const activityIcons = [
   <Mountain key="trekking" className="w-12 h-12 text-gray-700" />,
@@ -55,9 +55,9 @@ const Activities = async () => {
                 </Link>
               </div>
               <div className='activity-content'>
-                <h4 className='text-lg font-semibold text-dark-blue-900 mb-1'>
+                <p className='text-lg font-semibold text-dark-blue-900 mb-1'>
                   <Link href={`/activities/${activity.slug}`}>{activity.name}</Link>
-                </h4>
+                </p>
                 <p className='text-gray-600 text-sm'>{activity._count.destinations} Destination</p>
               </div>
             </div>

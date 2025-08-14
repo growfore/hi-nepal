@@ -101,9 +101,9 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                     </div>
 
                     <div className='md:hidden'>
-                        <Sheet >
-                            <SheetTrigger>
-                                <LucideMenu size={42} />
+                        <Sheet>
+                            <SheetTrigger title='open navigation menu'>
+                                <LucideMenu size={42}  />
                             </SheetTrigger>
                             <SheetContent className='flex flex-col gap-4 p-8 z-[99999]'>
                                 {navBar.map((activity, index) => {

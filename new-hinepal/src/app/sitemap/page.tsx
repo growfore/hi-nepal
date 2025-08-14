@@ -1,5 +1,6 @@
 import { TNavBar } from "@/types/types";
 import { get } from "@/utils/request-hander";
+import Link from "next/link";
 
 export default async function SitemapPage() {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
@@ -23,29 +24,26 @@ export default async function SitemapPage() {
       <h1 className="font-bold text-xl">Sitemap</h1>
       <ul>
         <li>
-          <a className={hoverStyle} href={`${baseUrl}/`}>Home</a>
+          <Link title="go to homepage"  className={hoverStyle} href={`${baseUrl}/`}>Home</Link>
         </li>
         <li >
-          <a className={hoverStyle} href={`${baseUrl}/about`}>About</a>
+          <Link title="go to about page" className={hoverStyle} href={`${baseUrl}/about`}>About</Link>
         </li>
         {navItems.map((item) => (
           <li key={item.slug}>
-            <a href={`${baseUrl}/activities/${item.slug}`} className={hoverStyle}>{item.name}</a>
+            <Link title={`go to ${item.name} page`} className={hoverStyle} href={`${baseUrl}/activities/${item.slug}`}>{item.name}</Link>
             <ul className="pl-4">
               {item.destinations.map((destination) => (
                 <li key={destination.slug}>
-                  <a href={`${baseUrl}/activities/${item.slug}/${destination.slug}`} className={hoverStyle}>
+                  <Link title={`go to ${destination.name} page`} className={hoverStyle} href={`${baseUrl}/activities/${item.slug}/${destination.slug}`}>
                     {destination.name}
-                  </a>
+                  </Link>
                   <ul className="pl-4">
                     {destination.packages.map((pkg) => (
                       <li key={pkg.slug}>
-                        <a
-                          href={`${baseUrl}/${pkg.slug}`}
-                          className={hoverStyle}
-                        >
+                        <Link title={`go to ${pkg.title} page`} className={hoverStyle} href={`${baseUrl}/${pkg.slug}`}>
                           {pkg.title}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>

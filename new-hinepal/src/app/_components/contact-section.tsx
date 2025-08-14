@@ -96,7 +96,7 @@ const ContactSection = ({ siteInformation = dummySiteInformation }: { siteInform
                 href='/about'
                 className='items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-md shadow-md hover:bg-orange-600 transition-colors duration-300 border border-white'
               >
-                LEARN MORE
+                LEARN MORE ABOUT US
               </Link>
             </div>
           </div>

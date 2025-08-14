@@ -84,8 +84,8 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                             </div>
                         )
                     })}
-                    <Link href={"/adventure"} className='hidden md:flex hover:text-green-700 font-bold uppercase gap-1 cursor-pointer'> Adventure</Link>
-                    <Link href={"/about"} className='hidden md:flex hover:text-green-700 font-bold uppercase gap-1 cursor-pointer'>About Us</Link>
+                    <Link title='go to adventures page' href={"/adventure"} className='hidden md:flex hover:text-green-700 font-bold uppercase gap-1 cursor-pointer'> Adventure</Link>
+                    <Link title='got to about page' href={"/about"} className='hidden md:flex hover:text-green-700 font-bold uppercase gap-1 cursor-pointer'>About Us</Link>
                 </div>
 
 
@@ -96,7 +96,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                 <div className='flex gap-2'>
                     <div className="flex justify-center items-center">
                         <Link href={"/booking"} className='hover:cursor-pointer'>
-                            <Button size={'lg'} className='md:p-8'>Book Now</Button>
+                            <Button name='navigation-menu' title='open navigation menu' size={'lg'} className='md:p-8'>Book Now</Button>
                         </Link>
                     </div>
 
@@ -144,8 +144,8 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                                         </Accordion>
                                     )
                                 })}
-                                <Link href={"/adventure"} className='uppercase font-bold text-sm'>Adventures</Link>
-                                <Link href={"/about"} className='uppercase font-bold text-sm'>About us</Link>
+                                <Link title='go to adventures page' href={"/adventure"} className='uppercase font-bold text-sm'>Adventures</Link>
+                                <Link title='go to about page' href={"/about"} className='uppercase font-bold text-sm'>About us</Link>
 
                             </SheetContent>
                         </Sheet>

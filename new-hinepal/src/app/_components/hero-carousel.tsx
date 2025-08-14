@@ -33,7 +33,7 @@ export function HeroCarousel({ carousels }: { carousels: TCarouselItemType[] }) 
                         <div className='flex flex-col'>
                             <Image
                                 src={carousel.image}
-                                loading='lazy'
+                                fetchPriority="high"
                                 alt={carousel.title}
                                 fill
                                 priority={false}

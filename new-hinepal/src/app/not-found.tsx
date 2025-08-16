@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
 const NotFoundPage = async () => {
@@ -7,11 +8,12 @@ const NotFoundPage = async () => {
   //   <main id='content' className='site-main'>
   //     <div
   //       className='no-content-section 404-page'
-  //       style={{
-  //         backgroundImage: carousels
-  //           ? `url(${await carousels[0]?.image})`
-  //           : 'url(/hinepal/404.png)',
-  //       }}>
+  //       // style={{
+  //       //   backgroundImage: carousels
+  //       //     ? `url(${await carousels[0]?.image})`
+  //       //     : 'url(/hinepal/404.png)',
+  //       // }}
+  //       >
   //       <div className='container'>
   //         <div className='no-content-wrap'>
   //           <span>404</span>

@@ -28,7 +28,7 @@ const ContactForm = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative py-16 text-white bg-orange-500 bg-gradient-to-r from-orange-500 to-orange-600">
+      <section className="relative py-42 text-white bg-orange-500 bg-gradient-to-r from-orange-500 to-orange-600 ">
         <div className="absolute inset-0 bg-black/25"></div>
         <div className="container mx-auto relative z-10 text-center px-4">
           <h1 className="text-5xl font-extrabold mb-4 leading-tight">Plan Your Adventure</h1>
@@ -193,7 +193,7 @@ const ContactForm = () => {
                     <a href="tel:+9779856035091" className="text-white text-xl font-bold block mb-2 hover:underline">
                       +977 985-6035091
                     </a>
-                    <small className="opacity-75 text-sm">We are open 7 Days a Week <br /> 07.30am - 09.30pm</small>
+                    <small className="opacity-75 text-lg font-bold italic">We are open 7 Days a Week <br /> 07.30am - 09.30pm</small>
                   </div>
                 </div>
 

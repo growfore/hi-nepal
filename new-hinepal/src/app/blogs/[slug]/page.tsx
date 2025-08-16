@@ -1,532 +1,100 @@
-import { fetchData } from '@/helper/fetch-data';
-import { formatRevalidate } from '@/helper/formate';
-import { Metadata } from 'next';
-import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
-import React from 'react';
+import Cta from "@/components/cta"
+import { formatRevalidate } from "@/helper/formate"
+import { getBlogSingle } from "@/helper/getBlog"
+import type { Params } from "next/dist/shared/lib/router/utils/route-matcher"
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Params;
-}): Promise<Metadata> {
-  const slug = await params.slug;
-  const blog = await fetchData(`blogs/${slug}`);
-  return {
-    title: blog?.seo?.metaTitle || blog?.title,
-    description: blog?.seo?.metaDescription || blog?.description,
-    keywords: blog?.keywords,
-    robots: {
-      index: true,
-      follow: true,
-      nocache: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        noimageindex: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
-    },
-    referrer: 'origin-when-cross-origin',
-    openGraph: {
-      title: blog?.seo?.metaTitle || blog?.title,
-      description: blog?.seo?.metaDescription || blog?.description,
-      images: [
-        {
-          url: blog?.seo?.metaImage || blog?.image,
-          width: 800,
-          height: 600,
-          alt: blog?.title,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: blog?.title,
-      description: blog?.description,
-      images: blog?.image,
-    },
-  };
-}
-const BlogSingle = async ({ params }: { params: Params }) => {
-  const slug = await params.slug;
-  const blog = await fetchData(`blogs/${slug}`);
+export default async function BlogSingle({ params }: { params: Params }) {
+  const slug = params.slug
+  const blog = await getBlogSingle(slug)
+
+  if (!blog) {
+    return <div className="container mx-auto px-4 py-10 text-center text-gray-600">Post not found</div>
+  }
+
   const schema = {
-    '@context': 'http://schema.org',
-    '@type': 'BlogPosting',
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
     mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `https://hinepaltreks.com/blogs/${slug}`,
+      "@type": "WebPage",
+      "@id": `https://hinepaltreks.com/blogs/${slug}`,
     },
-    headline: blog?.title || '',
-    description: blog?.description || '',
-    image: blog?.image || '',
+    headline: blog.title,
+    description: blog.description,
+    image: blog.image,
     author: {
-      '@type': 'Person',
-      name: 'Hi Nepal Treks and Expenditions',
+      "@type": "Person",
+      name: "Hi Nepal Treks and Expeditions",
     },
-    datePublished: blog?.createdAt || '',
-    dateModified: blog?.updatedAt || '',
-  };
+    datePublished: blog.date,
+    dateModified: blog.updatedAt,
+  }
+
   return (
-    <main id='content' className='site-main'>
-      <script type='application/ld+json'>{JSON.stringify(schema)}</script>
-      <section className='inner-banner-wrap'>
-        <div
-          className='inner-baner-container'
-          style={{ backgroundImage: 'url(' + blog?.image||"" + ')' }}>
-          <div className='container'>
-            <div className='inner-banner-content'>
-              <h1 className='inner-title'>{blog?.title}</h1>
-              <div className='entry-meta'>
-                <span className='byline'>
-                  <a href='#'>{blog?.subtitle}</a>
-                </span>
-                <span className='posted-on'>
-                  <a href='#'>
-                    {blog?.date && formatRevalidate(blog?.createdAt)}
-                  </a>
-                </span>
-                {/* <span className='comments-link'>
-                  <a href='#'>No Comments</a>
-                </span> */}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='inner-shape' />
-      </section>
-      {/* Inner Banner html end*/}
-      <div className='single-post-section'>
-        <div className='single-post-inner'>
-          <div className='container'>
-            <div className='row'>
-              <div className='col-lg-8 primary right-sidebar'>
-                {/* single blog post html start */}
+    <main id="content" className="site-main">
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
 
-                <h2 className='single-title'>{blog?.title}</h2>
-                <figure className='feature-image'>
-                  <img src={blog?.image} alt='' />
-                </figure>
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white">
+              {/* Featured Image */}
+              {blog.image && (
+                <div className="aspect-video overflow-hidden mb-8">
+                  <img
+                    src={blog.image || "/placeholder.svg"}
+                    alt={blog.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              )}
+
+              {/* Content */}
+              <div className="p-8 md:p-12">
+                {/* Article Header */}
+                <header className="mb-8 pb-6 border-b border-gray-200">
+                  <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">{blog.title}</h1>
+                  <div className="flex items-center gap-4 text-sm text-gray-600">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path
+                            fillRule="evenodd"
+                            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <span className="font-medium">Hi Nepal Treks</span>
+                    </div>
+                    <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                    <time className="text-gray-500">{formatRevalidate(blog.date)}</time>
+                  </div>
+                </header>
+
+                {/* Article Content */}
                 <article
-                  dangerouslySetInnerHTML={{ __html: blog?.content || '' }}
-                  className='single-content-wrap'></article>
-                {/* <div className='meta-wrap'>
-                  <div className='tag-links'>
-                    <a href='#'>Destination</a>,<a href='#'>hiking</a>,
-                    <a href='#'>Travel Dairies</a>,<a href='#'>Travelling</a>,
-                    <a href='#'>Trekking</a>
-                  </div>
-                </div>
-                <div className='post-socail-wrap'>
-                  <div className='social-icon-wrap'>
-                    <div className='social-icon social-facebook'>
-                      <a href='#'>
-                        <i className='fab fa-facebook-f' />
-                        <span>Facebook</span>
-                      </a>
-                    </div>
-                    <div className='social-icon social-google'>
-                      <a href='#'>
-                        <i className='fab fa-google-plus-g' />
-                        <span>Google</span>
-                      </a>
-                    </div>
-                    <div className='social-icon social-pinterest'>
-                      <a href='#'>
-                        <i className='fab fa-pinterest' />
-                        <span>Pinterest</span>
-                      </a>
-                    </div>
-                    <div className='social-icon social-linkedin'>
-                      <a href='#'>
-                        <i className='fab fa-linkedin' />
-                        <span>Linkedin</span>
-                      </a>
-                    </div>
-                    <div className='social-icon social-twitter'>
-                      <a href='#'>
-                        <i className='fab fa-twitter' />
-                        <span>Twitter</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className='author-wrap'>
-                  <div className='author-thumb'>
-                    <img src='assets/images/user-img.png' alt='' />
-                  </div>
-                  <div className='author-content'>
-                    <h3 className='author-name'>Demoteam</h3>
-                    <p>
-                      Anim eligendi error magnis. Pretium fugiat cubilia
-                      ullamcorper adipisci, lobortis repellendus sit culpa
-                      maiores!
-                    </p>
-                    <a href='#' className='button-text'>
-                      VIEW ALL POSTS &gt;{' '}
-                    </a>
-                  </div>
-                </div> */}
-                {/* post comment html */}
-                <div className='comment-area'>
-                  {/* <h2 className='comment-title'>3 Comments</h2>
-                  <div className='comment-area-inner'>
-                    <ol>
-                      <li>
-                        <figure className='comment-thumb'>
-                          <img src='assets/images/img20.jpg' alt='' />
-                        </figure>
-                        <div className='comment-content'>
-                          <div className='comment-header'>
-                            <h5 className='author-name'>Tom Sawyer</h5>
-                            <span className='post-on'>Jana 10 2020</span>
-                          </div>
-                          <p>
-                            Officia amet posuere voluptates, mollit montes eaque
-                            accusamus laboriosam quisque cupidatat dolor
-                            pariatur, pariatur auctor.
-                          </p>
-                          <a href='#' className='reply'>
-                            <i className='fas fa-reply' />
-                            Reply
-                          </a>
-                        </div>
-                      </li>
-                      <li>
-                        <ol>
-                          <li>
-                            <figure className='comment-thumb'>
-                              <img src='assets/images/img21.jpg' alt='' />
-                            </figure>
-                            <div className='comment-content'>
-                              <div className='comment-header'>
-                                <h5 className='author-name'>John Doe</h5>
-                                <span className='post-on'>Jana 10 2020</span>
-                              </div>
-                              <p>
-                                Officia amet posuere voluptates, mollit montes
-                                eaque accusamus laboriosam quisque cupidatat
-                                dolor pariatur, pariatur auctor.
-                              </p>
-                              <a href='#' className='reply'>
-                                <i className='fas fa-reply' />
-                                Reply
-                              </a>
-                            </div>
-                          </li>
-                        </ol>
-                      </li>
-                    </ol>
-                    <ol>
-                      <li>
-                        <figure className='comment-thumb'>
-                          <img src='assets/images/img22.jpg' alt='' />
-                        </figure>
-                        <div className='comment-content'>
-                          <div className='comment-header'>
-                            <h5 className='author-name'>Jaan Smith</h5>
-                            <span className='post-on'>Jana 10 2020</span>
-                          </div>
-                          <p>
-                            Officia amet posuere voluptates, mollit montes eaque
-                            accusamus laboriosam quisque cupidatat dolor
-                            pariatur, pariatur auctor.
-                          </p>
-                          <a href='#' className='reply'>
-                            <i className='fas fa-reply' />
-                            Reply
-                          </a>
-                        </div>
-                      </li>
-                    </ol>
-                  </div>
-                  <div className='comment-form-wrap'>
-                    <h2 className='comment-title'>Leave a Reply</h2>
-                    <p>
-                      Your email address will not be published. Required fields
-                      are marked *
-                    </p>
-                    <form className='comment-form'>
-                      <p className='full-width'>
-                        <label>Comment</label>
-                        <textarea rows={9} defaultValue={''} />
-                      </p>
-                      <p>
-                        <label>Name *</label>
-                        <input type='text' name='name' />
-                      </p>
-                      <p>
-                        <label>Email *</label>
-                        <input type='email' name='email' />
-                      </p>
-                      <p>
-                        <label>Website</label>
-                        <input type='text' name='web' />
-                      </p>
-                      <p className='full-width'>
-                        <input
-                          type='submit'
-                          name='submit'
-                          defaultValue='Post comment'
-                        />
-                      </p>
-                    </form>
-                  </div> */}
-                  {/* post navigation html */}
-                  {/* <div className='post-navigation'>
-                    <div className='nav-prev'>
-                      <a href='#'>
-                        <span className='nav-label'>Previous Reading</span>
-                        <span className='nav-title'>
-                          Deleniti illum culpa sodales cubilia.
-                        </span>
-                      </a>
-                    </div>
-                    <div className='nav-next'>
-                      <a href='#'>
-                        <span className='nav-label'>Next Reading</span>
-                        <span className='nav-title'>
-                          Deleniti illum culpa sodales cubilia.
-                        </span>
-                      </a>
-                    </div>
-                  </div> */}
-                </div>
-                {/* blog post item html end */}
+                  dangerouslySetInnerHTML={{ __html: blog.content }}
+                  className="prose prose-lg max-w-none
+                    prose-headings:text-gray-900 prose-headings:font-bold
+                    prose-h1:text-3xl prose-h1:mb-6
+                    prose-h2:text-2xl prose-h2:mb-4 prose-h2:mt-8
+                    prose-h3:text-xl prose-h3:mb-3 prose-h3:mt-6
+                    prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4
+                    prose-a:text-green-600 prose-a:no-underline hover:prose-a:text-green-700 hover:prose-a:underline
+                    prose-strong:text-gray-900 prose-strong:font-semibold
+                    prose-ul:my-6 prose-ol:my-6
+                    prose-li:text-gray-700 prose-li:mb-2
+                    prose-blockquote:border-l-4 prose-blockquote:border-green-500 prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-600
+                    prose-img:rounded-lg prose-img:my-8
+                    prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
+                    prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:p-4"
+                />
               </div>
-              {/* <div className='col-lg-4 secondary'>
-                <div className='sidebar'>
-                  <aside className='widget author_widget'>
-                    <h3 className='widget-title'>ABOUT AUTHOR</h3>
-                    <div className='widget-content text-center'>
-                      <div className='profile'>
-                        <figure className='avatar'>
-                          <a href='#'>
-                            <img src='assets/images/img21.jpg' alt='' />
-                          </a>
-                        </figure>
-                        <div className='text-content'>
-                          <div className='name-title'>
-                            <h3>
-                              <a href='https://demo.bosathemes.com/bosa/photography/james-watson/'>
-                                James Watson
-                              </a>
-                            </h3>
-                          </div>
-                          <p>
-                            Accumsan? Aliquet nobis doloremque, aliqua? Inceptos
-                            voluptatem, duis tempore optio quae animi viverra
-                            distinctio cumque vivamus, earum congue, anim velit
-                          </p>
-                        </div>
-                        <div className='socialgroup'>
-                          <ul>
-                            <li>
-                              {' '}
-                              <a target='_blank' href='#'>
-                                {' '}
-                                <i className='fab fa-facebook' />{' '}
-                              </a>{' '}
-                            </li>
-                            <li>
-                              {' '}
-                              <a target='_blank' href='#'>
-                                {' '}
-                                <i className='fab fa-google' />{' '}
-                              </a>{' '}
-                            </li>
-                            <li>
-                              {' '}
-                              <a target='_blank' href='#'>
-                                {' '}
-                                <i className='fab fa-twitter' />{' '}
-                              </a>{' '}
-                            </li>
-                            <li>
-                              {' '}
-                              <a target='_blank' href='#'>
-                                {' '}
-                                <i className='fab fa-instagram' />{' '}
-                              </a>{' '}
-                            </li>
-                            <li>
-                              {' '}
-                              <a target='_blank' href='#'>
-                                {' '}
-                                <i className='fab fa-pinterest' />{' '}
-                              </a>{' '}
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </aside>
-                  <aside className='widget widget_latest_post widget-post-thumb'>
-                    <h3 className='widget-title'>Recent Post</h3>
-                    <ul>
-                      <li>
-                        <figure className='post-thumb'>
-                          <a href='#'>
-                            <img src='assets/images/img17.jpg' alt='' />
-                          </a>
-                        </figure>
-                        <div className='post-content'>
-                          <h5>
-                            <a href='#'>
-                              Someday I’m going to be free and travel
-                            </a>
-                          </h5>
-                          <div className='entry-meta'>
-                            <span className='posted-on'>
-                              <a href='#'>August 17, 2021</a>
-                            </span>
-                            <span className='comments-link'>
-                              <a href='#'>No Comments</a>
-                            </span>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <figure className='post-thumb'>
-                          <a href='#'>
-                            <img src='assets/images/img18.jpg' alt='' />
-                          </a>
-                        </figure>
-                        <div className='post-content'>
-                          <h5>
-                            <a href='#'>
-                              Enjoying the beauty of the great nature
-                            </a>
-                          </h5>
-                          <div className='entry-meta'>
-                            <span className='posted-on'>
-                              <a href='#'>August 17, 2021</a>
-                            </span>
-                            <span className='comments-link'>
-                              <a href='#'>No Comments</a>
-                            </span>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <figure className='post-thumb'>
-                          <a href='#'>
-                            <img src='assets/images/img19.jpg' alt='' />
-                          </a>
-                        </figure>
-                        <div className='post-content'>
-                          <h5>
-                            <a href='#'>
-                              Let’s start adventure with best tripo guides
-                            </a>
-                          </h5>
-                          <div className='entry-meta'>
-                            <span className='posted-on'>
-                              <a href='#'>August 17, 2021</a>
-                            </span>
-                            <span className='comments-link'>
-                              <a href='#'>No Comments</a>
-                            </span>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <figure className='post-thumb'>
-                          <a href='#'>
-                            <img src='assets/images/img34.jpg' alt='' />
-                          </a>
-                        </figure>
-                        <div className='post-content'>
-                          <h5>
-                            <a href='#'>
-                              Journeys are best measured in new friends
-                            </a>
-                          </h5>
-                          <div className='entry-meta'>
-                            <span className='posted-on'>
-                              <a href='#'>August 17, 2021</a>
-                            </span>
-                            <span className='comments-link'>
-                              <a href='#'>No Comments</a>
-                            </span>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <figure className='post-thumb'>
-                          <a href='#'>
-                            <img src='assets/images/img35.jpg' alt='' />
-                          </a>
-                        </figure>
-                        <div className='post-content'>
-                          <h5>
-                            <a href='#'>
-                              Take only memories, leave only footprints
-                            </a>
-                          </h5>
-                          <div className='entry-meta'>
-                            <span className='posted-on'>
-                              <a href='#'>August 17, 2021</a>
-                            </span>
-                            <span className='comments-link'>
-                              <a href='#'>No Comments</a>
-                            </span>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </aside>
-                  <aside className='widget widget_social'>
-                    <h3 className='widget-title'>Social share</h3>
-                    <div className='social-icon-wrap'>
-                      <div className='social-icon social-facebook'>
-                        <a href='#'>
-                          <i className='fab fa-facebook-f' />
-                          <span>Facebook</span>
-                        </a>
-                      </div>
-                      <div className='social-icon social-pinterest'>
-                        <a href='#'>
-                          <i className='fab fa-pinterest' />
-                          <span>Pinterest</span>
-                        </a>
-                      </div>
-                      <div className='social-icon social-whatsapp'>
-                        <a href='#'>
-                          <i className='fab fa-whatsapp' />
-                          <span>WhatsApp</span>
-                        </a>
-                      </div>
-                      <div className='social-icon social-linkedin'>
-                        <a href='#'>
-                          <i className='fab fa-linkedin' />
-                          <span>Linkedin</span>
-                        </a>
-                      </div>
-                      <div className='social-icon social-twitter'>
-                        <a href='#'>
-                          <i className='fab fa-twitter' />
-                          <span>Twitter</span>
-                        </a>
-                      </div>
-                      <div className='social-icon social-google'>
-                        <a href='#'>
-                          <i className='fab fa-google-plus-g' />
-                          <span>Google</span>
-                        </a>
-                      </div>
-                    </div>
-                  </aside>
-                </div>
-              </div> */}
             </div>
+            <Cta />
           </div>
         </div>
-      </div>
+      </section>
     </main>
-  );
-};
-
-export default BlogSingle;
+  )
+}

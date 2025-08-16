@@ -5,7 +5,7 @@ import { get } from '@/utils/request-hander';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import Image from 'next/image';
 import React from 'react';
-import GallerySlider from '../_components/gallery-slider';
+import GallerySlider from '@/app/_components/gallery-slider';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -15,7 +15,7 @@ import { SectionNav } from '@/components/SectionNav';
 import { Metadata } from 'next';
 import { fetchData } from '@/helper/fetch-data';
 import { formatSlug } from '@/helper/formatSlug';
-import TrustBadge from '../_components/trust-badge';
+import TrustBadge from '@/app/_components/trust-badge';
 
 export async function generateMetadata({
     params,

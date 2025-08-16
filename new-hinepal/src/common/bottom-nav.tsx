@@ -78,14 +78,12 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                                     </div>
 
                                 </div>
-
-
-
                             </div>
                         )
                     })}
                     <Link title='go to adventures page' href={"/adventure"} className='hidden md:flex hover:text-green-700 font-bold uppercase gap-1 cursor-pointer'> Adventure</Link>
                     <Link title='got to about page' href={"/about"} className='hidden md:flex hover:text-green-700 font-bold uppercase gap-1 cursor-pointer'>About Us</Link>
+                    <Link title='go to blogs page' href={"/blogs"} className='hidden md:flex hover:text-green-700 font-bold uppercase gap-1 cursor-pointer'>Blogs</Link>
                 </div>
 
 
@@ -146,7 +144,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                                 })}
                                 <Link title='go to adventures page' href={"/adventure"} className='uppercase font-bold text-sm'>Adventures</Link>
                                 <Link title='go to about page' href={"/about"} className='uppercase font-bold text-sm'>About us</Link>
-
+                                <Link title='go to blogs' href={"/blogs"} className='uppercase font-bold text-sm'>Blogs</Link>
                             </SheetContent>
                         </Sheet>
                     </div>

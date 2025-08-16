@@ -8,6 +8,10 @@ const nextConfig = {
         hostname: 'hinepaltreks.com',
       },
       {
+        protocol: "https",
+        hostname: "blogs.hinepaltreks.com",
+      },
+      {
         protocol: 'https',
         hostname: 'api.hinepaltreks.com',
       },
@@ -177,11 +181,6 @@ const nextConfig = {
       },
       {
         source: '/mansalu-circuit-trek',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/blogs/:slug*',
         destination: '/',
         permanent: true,
       },

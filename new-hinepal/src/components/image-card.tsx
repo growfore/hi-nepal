@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function ImageCard() {
     return (
-        <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center justify-center rounded-md p-2  md:p-8">
+        <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center justify-between rounded-md p-2  md:p-8">
             <div className='md:w-[50%]'>
                 <Image className='rounded-md' src={"/assets/paragliding.webp"} alt='paragliding' height={500} width={500} />
             </div>

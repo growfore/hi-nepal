@@ -1,18 +1,7 @@
 "use server";
 
-import Autoplay from 'embla-carousel-autoplay';
 import * as React from 'react';
-import Image from 'next/image';
 import Head from 'next/head';
-import Link from 'next/link';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
-import { Button } from '@/components/ui/button';
 import { HeroCarousel } from './hero-carousel';
 
 export async function Hero({

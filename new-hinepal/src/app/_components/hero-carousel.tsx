@@ -50,8 +50,8 @@ export function HeroCarousel({ carousels }: { carousels: TCarouselItemType[] }) 
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious className='absolute top-[40vh] left-8 opacity-70' size={'lg'} />
-            <CarouselNext className='absolute top-[40vh] right-8 opacity-70' size={'lg'} />
+            <CarouselPrevious className='absolute top-[40vh] left-8' size={'lg'} />
+            <CarouselNext className='absolute top-[40vh] right-8' size={'lg'} />
         </Carousel>
     )
 }

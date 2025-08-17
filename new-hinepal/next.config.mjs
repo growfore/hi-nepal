@@ -56,7 +56,7 @@ const nextConfig = {
       },
       {
         source: '/tour/day-hike/day-hike-in-santi-stupa',
-        destination: '/',
+        destination: '/world-peace-pagoda',
         permanent: true,
       },
       {
@@ -66,32 +66,32 @@ const nextConfig = {
       },
       {
         source: '/adventure-activity/zip-flyler',
-        destination: '/',
+        destination: '/adventure',
         permanent: true,
       },
       {
         source: '/wildlife-safari/bardiya-national-park',
-        destination: '/',
+        destination: '/bardiya-national-park-tour',
         permanent: true,
       },
       {
         source: '/tour/multi-day-tour',
-        destination: '/',
+        destination: '/activities/tours/multi-days-tour',
         permanent: true,
       },
       {
         source: '/trekking/dolpa-region',
-        destination: '/',
+        destination: '/activities/trekking/dolpo-region',
         permanent: true,
       },
       {
         source: '/adventure-activity/rafting',
-        destination: '/',
+        destination: '/adventure',
         permanent: true,
       },
       {
         source: '/wildlife-safari',
-        destination: '/',
+        destination: '/activities/tours/nature-wildlife',
         permanent: true,
       },
       {
@@ -101,12 +101,12 @@ const nextConfig = {
       },
       {
         source: '/tour/day-tour',
-        destination: '/',
+        destination: '/activities/tours/day-tours',
         permanent: true,
       },
       {
         source: '/adventure-activity/hot-air-balloon',
-        destination: '/',
+        destination: '/adventure',
         permanent: true,
       },
       {
@@ -116,7 +116,7 @@ const nextConfig = {
       },
       {
         source: '/adventure-activity/atv-ride',
-        destination: '/',
+        destination: '/adventure',
         permanent: true,
       },
       {
@@ -126,22 +126,22 @@ const nextConfig = {
       },
       {
         source: '/trekking/annapurna-region',
-        destination: '/region/annapurna',
+        destination: '/activities/trekking/annapurna-region',
         permanent: true,
       },
       {
         source: '/tour',
-        destination: '/',
+        destination: 'https://hinepaltreks.com/activities/tours',
         permanent: true,
       },
       {
         source: '/tour/day-hike',
-        destination: '/',
+        destination: '/activities/tours/day-tours',
         permanent: true,
       },
       {
         source: '/adventure-activity/ultra-light-flying',
-        destination: '/',
+        destination: '/adventure',
         permanent: true,
       },
       {
@@ -151,17 +151,17 @@ const nextConfig = {
       },
       {
         source: '/adventure-activity',
-        destination: '/',
+        destination: '/adventure',
         permanent: true,
       },
       {
         source: '/adventure-activity/paragliding',
-        destination: '/',
+        destination: '/adventure',
         permanent: true,
       },
       {
         source: '/adventure-activity/bungee',
-        destination: '/',
+        destination: '/adventure',
         permanent: true,
       },
       {
@@ -171,27 +171,27 @@ const nextConfig = {
       },
       {
         source: '/region/annapurna',
-        destination: '/',
+        destination: '/activities/trekking/annapurna-region',
         permanent: true,
       },
       {
         source: '/trekking/mansalu-region',
-        destination: '/',
+        destination: '/activities/trekking/manaslu-region',
         permanent: true,
       },
       {
         source: '/mansalu-circuit-trek',
-        destination: '/',
+        destination: '/manaslu-circuit-trek',
         permanent: true,
       },
       {
         source: '/bardiya-national-park%20-tour',
-        destination: '/',
+        destination: '/bardiya-national-park-tour',
         permanent: true,
       },
       {
         source: '/t=um-valley-trek',
-        destination: '/',
+        destination: '/tsum-valley-trek',
         permanent: true,
       },
       {

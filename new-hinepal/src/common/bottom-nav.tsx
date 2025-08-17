@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, ChevronRight, ChevronUp, icons, LucideHam, LucideMail, LucideMenu, LucidePhone } from 'lucide-react';
+import { ChevronDown, ChevronRight, ChevronUp, LucideMenu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Link from 'next/link';
 import {
@@ -36,7 +36,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
     }, []);
 
     return (
-        <nav style={{ top: topValue }} className={cn('fixed  px-4 items-center py-4 z-[999] bg-white   min-w-[100vw]')}>
+        <nav style={{ top: topValue }} className={cn('fixed  px-4 items-center py-4 z-[999] bg-white min-w-[100vw]')}>
             <div className='flex items-center  justify-between container mx-auto  gap-4 md:max-w-[75vw]'>
 
                 <Link href={"/"}>
@@ -48,7 +48,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                             <div key={index}>
                                 <div onClick={handleClick} className={cn(!disableHover && 'group', 'hidden md:flex')}><Link href={`/activities/${activity.slug}`} className='font-bold uppercase flex gap-1 cursor-pointer'>{activity.name} <ChevronDown className='group-hover:hidden' /><ChevronUp className='hidden group-hover:block' /></Link>
                                     <div className=''>
-                                        <div className='rounded-lg hidden group-hover:grid absolute top-[45px] z-[999]  left-0 w-[100vw] py-8 px-0'>
+                                        <div className=' hidden group-hover:grid absolute top-[60px] z-[999]  left-0 w-[100vw] py-8 px-0'>
                                             <div className='pb-8 bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container px-36 mx-auto flex-wrap w-[100vw] rounded-md'>
                                                 {activity.destinations.map((destination, index) => {
                                                     return (
@@ -94,23 +94,22 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                 <div className='flex gap-2'>
                     <div className="flex justify-center items-center">
                         <Link href={"/booking"} className='hover:cursor-pointer'>
-                            <Button name='navigation-menu' title='open navigation menu' size={'lg'} className='md:p-8'>Book Now</Button>
+                            <Button name='navigation-menu' title='open navigation menu' size={'lg'} className='md:p-8 text-lg p-4'>Book Now</Button>
                         </Link>
                     </div>
 
                     <div className='md:hidden'>
                         <Sheet>
                             <SheetTrigger title='open navigation menu'>
-                                <LucideMenu size={42}  />
+                                <LucideMenu size={42} />
                             </SheetTrigger>
                             <SheetContent className='flex flex-col gap-4 p-8 z-[99999]'>
                                 {navBar.map((activity, index) => {
                                     return (
                                         <Accordion key={index} type="single" collapsible>
                                             <AccordionItem value={`item-${index}`}>
-                                                <AccordionTrigger className='font-bold uppercase flex gap-1'>
+                                                <AccordionTrigger className='font-bold text-xl uppercase flex p-0'>
                                                     {activity.name}
-                                                    {/* <Link href={`/activities/${activity.slug}`} className='font-bold uppercase flex gap-1'>{activity.name} <ChevronDown className='group-hover:hidden' /><ChevronUp className='hidden group-hover:block' /></Link> */}
                                                 </AccordionTrigger>
                                                 <AccordionContent>
                                                     {activity.destinations.map((destination, index) => {
@@ -118,13 +117,13 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                                                             destination.packages.length > 0 && (
                                                                 <Accordion key={index} type='single' collapsible>
                                                                     <AccordionItem value={`item-${index}`}>
-                                                                        <AccordionTrigger key={index} className='font-semibold text-lg'>{destination.name}</AccordionTrigger>
+                                                                        <AccordionTrigger key={index} className='font-semibold text-xl p-0 py-2'>{destination.name}</AccordionTrigger>
                                                                         <AccordionContent>
                                                                             <ul className='flex flex-col gap-2'>
                                                                                 {destination.packages.map((packageItem, index) => {
                                                                                     return (
                                                                                         <li key={index}>
-                                                                                            <Link href={`/${packageItem.slug}`} className='hover:border-b-2 border-dashed border-[#EF5922] hover:text-[#EF5922] font-bold text-lg'>
+                                                                                            <Link href={`/${packageItem.slug}`} className='hover:border-b-2 border-dashed border-[#EF5922] hover:text-[#EF5922] font-bold text-lg '>
                                                                                                 {packageItem.title.includes(":") ? packageItem.title.split(":")[0].trim() : packageItem.title.trim()}
                                                                                             </Link>
                                                                                         </li>
@@ -142,9 +141,9 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                                         </Accordion>
                                     )
                                 })}
-                                <Link title='go to adventures page' href={"/adventure"} className='uppercase font-bold text-sm'>Adventures</Link>
-                                <Link title='go to about page' href={"/about"} className='uppercase font-bold text-sm'>About us</Link>
-                                <Link title='go to blogs' href={"/blogs"} className='uppercase font-bold text-sm'>Blogs</Link>
+                                <Link title='go to adventures page' href={"/adventure"} className='uppercase font-bold text-xl'>Adventures</Link>
+                                <Link title='go to about page' href={"/about"} className='uppercase font-bold text-xl'>About us</Link>
+                                <Link title='go to blogs' href={"/blogs"} className='uppercase font-bold text-xl'>Blogs</Link>
                             </SheetContent>
                         </Sheet>
                     </div>

@@ -75,13 +75,16 @@ const PopularPackages = async () => {
               )
             )}
           </div>
-          <div className='text-center mt-12 flex items-center gap-4 justify-center'>
-            <Link href='/activities/trekking' className='inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300'>
-              TREKKING PACKAGES 
-            </Link>
-            <Link href='/activities/tours' className='inline-flex items-center justify-center px-8 py-4 bg-green-700 text-white font-semibold rounded-full shadow-md hover:bg-green-500 transition-colors duration-300'>
-            TOUR PACKAGES
-            </Link>
+          <div className='flex flex-col justify-center items-center my-12'>
+            <small className='mb-4'>Explore More</small>
+            <div className='text-center flex items-center gap-4 justify-center'>
+              <Link href='/activities/trekking' className='inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300'>
+                TREKKING PACKAGES
+              </Link>
+              <Link href='/activities/tours' className='inline-flex items-center justify-center px-8 py-4 bg-green-700 text-white font-semibold rounded-full shadow-md hover:bg-green-500 transition-colors duration-300'>
+                TOUR PACKAGES
+              </Link>
+            </div>
           </div>
         </div>
       </div>

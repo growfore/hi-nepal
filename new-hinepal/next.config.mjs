@@ -55,7 +55,7 @@ const nextConfig = {
       },
       {
         source: '/blogs/tours-in-nepal-kathmandu-pokhara-chitwan',
-        destination: '/',
+        destination: '/blogs',
         permanent: true,
         statusCode: 301
       },
@@ -427,7 +427,7 @@ const nextConfig = {
       },
       {
         source: "/trekking/annapurna-region/australian-camp-trek",
-        destination: "/",
+        destination: "/pokhara-australian-camp-hike",
         permanent: true,
         statusCode: 301
       },
@@ -487,7 +487,7 @@ const nextConfig = {
       },
       {
        source: "/tour/day-hike/australian-camp-day-hike",
-       destination: "/",
+       destination: "/pokhara-australian-camp-hike",
        permanent: true,
        statusCode: 301
       },
@@ -542,6 +542,18 @@ const nextConfig = {
       {
         source: "/adventure-activity/atv-ride/atv-ride-in-pokhara",
         destination: "/adventure",
+        permanent: true,
+        statusCode: 301
+      },
+      {
+        source: "/blogs/tours-in-nepal-kathmandu-pokhara-chitwan",
+        destination: "/blogs",
+        permanent: true,
+        statusCode: 301
+      },
+      {
+        source: "/blogs/Quae%20dolor%20mollit%20fu",
+        destination: "/blogs",
         permanent: true,
         statusCode: 301
       }

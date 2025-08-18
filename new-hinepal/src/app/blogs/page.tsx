@@ -10,7 +10,7 @@ export default async function BlogsPage({ searchParams }: { searchParams: { page
     <main className="py-10 container mx-auto">
       <div className="min-h-[40vh] mt-42 flex flex-col p-4  md:items-center border-b-2 border-black mb-4">
         <h1 className="font-bold text-6xl lg:text-9xl">Blogs</h1>
-        <p className="text-left italic text-xl">
+        <p className="text-left md:text-center italic text-xl mt-8">
           Welcome to the Hi Nepal Tracels and Treks Blog, where you can discover the amazing trekking stories, adventures, and guidelines. If you are looking to explore various corners of Nepal, our blogs will help you enhance your journey.
         </p>
       </div>

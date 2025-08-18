@@ -51,43 +51,18 @@ export function Footer() {
 
                 <aside>
                   <h3 className='text-xl font-bold mb-4 '>Useful Links</h3>
-                  <ul className='flex flex-col justify-center md:justify-start gap-x-4 gap-y-2 text-sm mt-2 md:mt-0'> 
+                  <ul className='flex flex-col justify-center md:justify-start gap-x-4 gap-y-2 text-sm mt-2 md:mt-0'>
                     <li>
-                      <Link href='#' className='hover:underline'>Privacy Policy</Link>
+                      <Link href='/privacy-policy' className='hover:underline'>Privacy Policy</Link>
                     </li>
                     <li>
-                      <Link href='#' className='hover:underline'>Terms &amp; Condition</Link>
-                    </li>
-                    <li>
-                      <Link href='#' className='hover:underline'>FAQ</Link>
+                      <Link href='/terms-and-conditions' className='hover:underline'>Terms &amp; Condition</Link>
                     </li>
                     <li>
                       <Link href='/sitemap' className='hover:underline'>Sitemap</Link>
                     </li>
                   </ul>
                 </aside>
-                {/* Subscribe Us */}
-                {/* <aside className='md:col-span-2 lg:col-span-1'>
-                  <h3 className='text-xl font-bold mb-4'>SUBSCRIBE US</h3>
-                  <div className=' text-base leading-relaxed mb-4'>
-                    Connect with us on our newsletter
-                  </div>
-                  <form className='flex flex-col gap-3'>
-                    <input
-                      type='email'
-                      name='s'
-                      placeholder='Your Email..'
-                      className='p-3 rounded-md  text-gray-800 w-full focus:outline-none focus:ring-2 focus:ring-orange-500'
-                    />
-                    <input
-                      type='submit'
-                      name='s'
-                      disabled
-                      value='SUBSCRIBE NOW'
-                      className='px-6 py-3 bg-orange-500  font-semibold rounded-md w-full cursor-not-allowed opacity-75 hover:bg-orange-600 transition-colors'
-                    />
-                  </form>
-                </aside> */}
               </div>
             </div>
           </div>

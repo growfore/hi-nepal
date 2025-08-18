@@ -19,9 +19,6 @@ export default async function TrekkingCard({ slug, image, title }: TCardProps) {
                         className="trekking-card-image"
                         sizes="(max-width: 768px) 100vw, 400px"
                     />
-
-                    <div className="trekking-badge">TREKKING</div>
-
                     <p className="trekking-title">{title}</p>
                 </div>
             </div>

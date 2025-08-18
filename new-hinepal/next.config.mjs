@@ -139,7 +139,7 @@ const nextConfig = {
       },
       {
         source: '/blogs/upper-mustang-trek-blog',
-        destination: '/',
+        destination: '/upper-mustang-tour',
         permanent: true,
         statusCode: 301
       },
@@ -295,9 +295,9 @@ const nextConfig = {
       },
       {
         source: "/trekking/mustang-region/upper-mustang-trek",
-        destination: "/",
-        permanent: false,
-        statusCode: 302
+        destination: "/upper-mustang-trek",
+        permanent: true,
+        statusCode: 301
       },
       {
         source: "/trekking/manaslu-region/manaslu-and-tsum-valley-circuit-trek",

@@ -31,7 +31,7 @@ export async function getBlogSingle(slug: string) {
     `https://blogs.hinepaltreks.com/wp-json/wp/v2/posts?slug=${slug}&_embed`
   );
   const data = await res.json();
-  const post = data[0]; 
+  const post = data[0];
 
   if (!post) return null;
 
@@ -44,7 +44,7 @@ export async function getBlogSingle(slug: string) {
     updatedAt: post.modified,
     slug: post.slug,
     image:
-      post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url || 
+      post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
       null,
   };
 }

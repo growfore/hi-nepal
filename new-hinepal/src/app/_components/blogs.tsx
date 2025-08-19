@@ -1,7 +1,4 @@
 import BlogCard from "@/components/blog-card"
-import { fetchData } from "@/helper/fetch-data"
-import Image from "next/image"
-import Link from "next/link"
 
 const BlogHome = async () => {
   const getBlogs = async () => {
@@ -30,10 +27,8 @@ const BlogHome = async () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.slice(0,3).map((post: any) => (
-            <Link href={`blogs/${post.slug}`}>
-              <BlogCard title={post.title.rendered} excerpt={post.excerpt.rendered} image={post._embedded?.['wp:featuredmedia']?.[0]?.source_url} slug={post.slug} />
-            </Link>
+          {posts.slice(0, 3).map((post: any) => (
+            <BlogCard title={post.title.rendered} excerpt={post.excerpt.rendered} image={post._embedded?.['wp:featuredmedia']?.[0]?.source_url} slug={post.slug} />
           ))}
         </div>
       </div>
@@ -42,15 +37,3 @@ const BlogHome = async () => {
 }
 
 export default BlogHome
-
-
-
-function formatRevalidate(date: string) {
-  const options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }
-  const formattedDate = new Date(date).toLocaleDateString("en-US", options)
-  return formattedDate
-}

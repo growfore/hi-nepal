@@ -45,6 +45,11 @@ export async function GET() {
     // Static URLs
     links.push({ url: '/', changefreq: 'daily', priority: 1.0 });
     links.push({ url: '/about', changefreq: 'monthly', priority: 0.7 });
+    links.push({ url: '/adventure', changefreq: 'monthly', priority: 0.7 });
+    links.push({ url: '/blogs', changefreq: 'daily', priority: 0.7 });
+    links.push({ url: '/booking', changefreq: 'monthly', priority: 0.7 });
+    links.push({ url: '/privacy-policy', changefreq: 'monthly', priority: 0.7 });
+    links.push({ url: '/terms-and-conditions', changefreq: 'monthly', priority: 0.7 });
 
     // Create a stream to write the sitemap
     const stream = new SitemapStream({ hostname: baseUrl });

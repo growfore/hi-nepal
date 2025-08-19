@@ -20,14 +20,23 @@ export default async function SitemapPage() {
   });
   const hoverStyle = "hover:border-b-2 hover:border-orange-400 hover:border-dashed w-fit mb-1 text-blue-400"
   return (
-    <div style={{ padding: 20 }}>
+    <div className="p-20 mt-24">
       <h1 className="font-bold text-xl">Sitemap</h1>
       <ul>
         <li>
-          <Link title="go to homepage"  className={hoverStyle} href={`${baseUrl}/`}>Home</Link>
+          <Link title="go to homepage" className={hoverStyle} href={`${baseUrl}/`}>Home</Link>
         </li>
         <li >
           <Link title="go to about page" className={hoverStyle} href={`${baseUrl}/about`}>About</Link>
+        </li>
+        <li >
+          <Link title="go to adventure page" className={hoverStyle} href={`${baseUrl}/adventure`}>Adventures</Link>
+        </li>
+        <li >
+          <Link title="go to booking page" className={hoverStyle} href={`${baseUrl}/booking`}>Booking</Link>
+        </li>
+        <li >
+          <Link title="go to blogs page" className={hoverStyle} href={`${baseUrl}/blogs`}>Blogs</Link>
         </li>
         {navItems.map((item) => (
           <li key={item.slug}>
@@ -52,7 +61,14 @@ export default async function SitemapPage() {
             </ul>
           </li>
         ))}
+      <li >
+        <Link title="go to privacy policy page" className={hoverStyle} href={`${baseUrl}/privacy-policy`}>Privacy Policy</Link>
+      </li>
+      <li >
+        <Link title="go to terms and conditions page" className={hoverStyle} href={`${baseUrl}/terms-and-conditions`}>Terms and Conditions</Link>
+      </li>
       </ul>
+
     </div>
   );
 }

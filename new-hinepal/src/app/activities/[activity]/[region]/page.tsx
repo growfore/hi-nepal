@@ -7,7 +7,7 @@ import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export async function generateMetadata({ params }: Params): Promise<any> {
+export async function generateMetadata({ params }: any): Promise<any> {
     return {
         title: formatSlug(params.region) + " - Hi Nepal Travel and Treks",
         description: `Details about ${params.activity} in ${params.region}`,

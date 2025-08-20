@@ -8,6 +8,7 @@ import siteStore from '@/zustand/store';
 import { Footer } from '@/common';
 import CustomLayout from '@/components/custom-layout';
 import { Navbar } from '@/common/navbar';
+import { headers } from 'next/headers';
 
 const playfair = Playfair({
   subsets: ['latin'],

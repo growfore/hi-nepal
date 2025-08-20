@@ -1,7 +1,15 @@
 import { TNavBar } from "@/types/types";
 import { get } from "@/utils/request-hander";
+import { Metadata } from "next";
 import Link from "next/link";
 
+export const metadata: Metadata = {
+  title: "Sitemap",
+  description: "Sitemap",
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/sitemap"
+  }
+}
 export default async function SitemapPage() {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
   const baseUrl = process.env.NEXT_PUBLIC_FRONTEND_BASE_URL;

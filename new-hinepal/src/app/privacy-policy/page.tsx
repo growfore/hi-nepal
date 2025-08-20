@@ -1,4 +1,13 @@
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "Privacy Policy",
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/privacy-policy"
+  }
+}
 
 const PrivacyPolicy = () => {
   return (

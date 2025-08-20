@@ -14,8 +14,13 @@ import BlogHome from './_components/blogs';
 import Activities from './_components/activities';
 import Team from './_components/team';
 import AdventureSection from '@/components/adventure-section';
+import { headers } from 'next/headers';
 
 export default async function Home() {
+  const headersList = headers();
+  const host = headersList.get("host");
+  const protocol = headersList.get("x-forwarded-proto") || "http";
+  const fullUrl = `${protocol}://${host}`;
   let siteInformation: TSiteInformation = {} as TSiteInformation;
   siteInformation = siteStore.getState() as TSiteInformation;
   let reviews: {
@@ -54,19 +59,24 @@ export default async function Home() {
   });
 
   return (
-    <main id='content' className='site-main'>
-      <Hero carousels={carousels} />
-      <PopularPackages />
-      <PopularDestinations />
-      <AdventureSection />
-      <Numbers />
-      <Activities />
-      <Gallery siteInformation={siteInformation} />
-      <Partners />
-      <BlogHome />
-      <Team />
-      {/* <Testimonials reviews={reviews} /> */}
-      <ContactSection siteInformation={siteInformation} />
-    </main>
+    <>
+      <head>
+        <link rel="canonical" href={fullUrl} />
+      </head>
+      <main id='content' className='site-main'>
+        <Hero carousels={carousels} />
+        <PopularPackages />
+        <PopularDestinations />
+        <AdventureSection />
+        <Numbers />
+        <Activities />
+        <Gallery siteInformation={siteInformation} />
+        <Partners />
+        <BlogHome />
+        <Team />
+        {/* <Testimonials reviews={reviews} /> */}
+        {/* <ContactSection siteInformation={siteInformation} /> */}
+      </main>
+    </>
   );
 }

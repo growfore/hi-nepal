@@ -17,7 +17,7 @@ export default function BackToTop() {
     }, []);
     return (
         show && (
-            <Button title='Back to Top' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} variant={'default'} className='bg-green-700 hover:bg-green-500 hover:cursor-pointer rounded-md fixed left-2 bottom-2 p-2'>
+            <Button title='Back to Top' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} variant={'default'} className='bg-green-700 hover:bg-green-500 hover:cursor-pointer rounded-md fixed left-2 bottom-2'>
                 <ChevronUp color='white' />
             </Button>
         )

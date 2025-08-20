@@ -4,7 +4,18 @@ import { notFound } from "next/navigation";
 import TrekkingCard from "@/components/TrekkingCard";
 import Link from "next/link";
 import { ChevronRight, LucideChevronRight } from "lucide-react";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import { formatSlug } from "@/helper/formatSlug";
 
+export async function generateMetadata({ params }: Params): Promise<any> {
+    return {
+        title: formatSlug(params.activity) + " - Hi Nepal Travel and Treks",
+        description: `Details about ${params.activity}`,
+        alternates: {
+            canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + `/activities/${params.activity}` || " ",
+        },
+    };
+}
 export default async function ActivitySingle({ params }: { params: Promise<{ activity: string }> }) {
     const activity = (await params).activity;
 

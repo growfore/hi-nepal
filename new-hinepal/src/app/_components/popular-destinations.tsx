@@ -38,11 +38,7 @@ const PopularDestinations = async () => {
             </h2>
           </div>
           <div className='text-gray-600 text-base md:text-lg leading-relaxed'>
-            Hi Nepal Travels & Treks is a premier travel agency specializing
-            in unforgettable trekking and adventure experiences across
-            Nepal. From breathtaking mountain trails to rich cultural
-            journeys, we offer expertly guided treks, customized tours, and
-            seamless travel services.
+            Hi Nepal Travels & Treks Pvt. Ltd. is a premier travel agency in Pokhara specializing in offering unforgettable <Link className='text-green-700' href={"/activities/trekking"}>trekking</Link> , <Link className='text-green-700' href={"/activities/tours"}>tours</Link>, and adventure sports experiences across Nepal. From breathtaking mountain trails to rich cultural journeys, our travel agency in Pokhara offers expertly guided treks, customized tours, and seamless travel services.
           </div>
         </div>
         <div className='grid gap-8'>
@@ -81,7 +77,7 @@ const PopularDestinations = async () => {
         </div>
         <div className='flex flex-col justify-center items-center my-12'>
           <small className='mb-4'>Explore More</small>
-          <div className='text-center flex items-center gap-4 justify-center'>
+          <div className='text-center flex flex-col md:flex-row items-center gap-4 justify-center'>
             <Link href='/activities/trekking' className='inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300'>
               TREKKING DESTINATIONS 
             </Link>

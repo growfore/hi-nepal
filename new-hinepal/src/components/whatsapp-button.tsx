@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LucideMessageCircle } from "lucide-react";
+import { LucideMessageCircle, MessageCircle } from "lucide-react";
 import {
     Tooltip,
     TooltipContent,
@@ -14,9 +14,9 @@ export default function WhatsAppButton() {
                     title='whatsapp us'
                     href="https://wa.me/9779856035091"
                     target='_blank'
-                    className="fixed bottom-4 right-4 p-3 bg-green-500 text-white rounded-full shadow-lg"
+                    className="fixed bottom-4 right-4 bg-green-500 text-white rounded-full shadow-lg p-4"
                 >
-                    <LucideMessageCircle className="w-6 h-6" />
+                    <MessageCircle size={24}/>
                 </Link>
             </TooltipTrigger>
             <TooltipContent>

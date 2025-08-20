@@ -23,6 +23,9 @@ export async function generateMetadata({
         return {
             title: blog.title,
             description: blog.description,
+            alternates: {
+                canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/" + blog.slug
+            },
             openGraph: {
                 title: blog.title,
                 description: blog.description,
@@ -43,6 +46,9 @@ export async function generateMetadata({
     return {
         title: destination?.package?.seo?.metaTitle || destination?.title || formatSlug(slug),
         description: destination?.package?.seo?.metaDescription || destination?.description,
+        alternates: {
+            canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/" + destination?.package?.slug
+        },
         keywords: destination?.package?.seo?.keywords,
         robots: {
             index: true,
@@ -134,7 +140,6 @@ const activites = async ({ params }: { params: Params }) => {
             },
         });
     }
-
     relatedProducts = packages.filter((pkg) => pkg.id !== details.id);
 
     return (

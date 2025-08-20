@@ -1,7 +1,15 @@
 import Image from "next/image";
 import { ImageCard } from "@/components/image-card";
 import Link from "next/link";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Adventures - Hi Nepal Travel and Treks",
+  description: "Experience the adventure sport of a lifetime amidst the Himalayas, where every thrill comes with breathtaking views.",
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/adventure"
+  }
+}
 export default function AdventurePage() {
     return (
         <div className="min-h-[100vh] flex flex-col items-center">

@@ -20,10 +20,9 @@ const CustomLayout = ({
           {children}
         </main>
         {footer}
-
+        <BackToTop />
+        <WhatsAppButton />
       </div>
-      <BackToTop />
-      <WhatsAppButton />
     </>
   );
 };

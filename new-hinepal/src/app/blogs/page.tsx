@@ -1,7 +1,15 @@
 import BlogCard from "@/components/blog-card";
 import { getBlogs } from "@/helper/getBlog";
+import { Metadata } from "next";
 import Link from "next/link";
 
+export const metadata: Metadata = {
+  title: "Blogs",
+  description: "Welcome to the Hi Nepal Travels and Treks Blog, where you can discover the amazing trekking stories, adventures, and guidelines. If you are looking to explore various corners of Nepal, our blogs will help you enhance your journey.",
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/blogs"
+  }
+}
 export default async function BlogsPage({ searchParams }: { searchParams: { page?: string } }) {
   const page = Number(searchParams.page) || 1;
   const { posts, totalPages } = await getBlogs(page, 6);

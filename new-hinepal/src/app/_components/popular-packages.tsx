@@ -52,7 +52,9 @@ const PopularPackages = async () => {
               POPULAR PACKAGES
             </h2>
             <p className='text-gray-600 text-base md:text-lg leading-relaxed mt-4'>
-              Popular packages for trekking and adventure in Nepal
+              Are you looking for Premium Trekking or Tour packages in Nepal?
+              Get the best package with one of the best travel agencies in Nepal. 
+              Hi Nepal Travel and Treks Pvt. Ltd. offers
             </p>
           </div>
         </div>
@@ -77,7 +79,7 @@ const PopularPackages = async () => {
           </div>
           <div className='flex flex-col justify-center items-center my-12'>
             <small className='mb-4'>Explore More</small>
-            <div className='text-center flex items-center gap-4 justify-center'>
+            <div className='text-center flex flex-col md:flex-row items-center gap-4 justify-center'>
               <Link href='/activities/trekking' className='inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300'>
                 TREKKING PACKAGES
               </Link>

@@ -27,12 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <head>
-        {/* no index for now */}
-        <meta name='robots' content='noindex' />
-      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        className={`${geistSans.variable} ${geistMono.variable}`}>
         <Toaster
           position='top-right'
           toastOptions={{

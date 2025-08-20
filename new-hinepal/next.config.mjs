@@ -556,6 +556,12 @@ const nextConfig = {
         destination: "/blogs",
         permanent: true,
         statusCode: 301
+      },
+      {
+        source: "/world-peace-pagoda-tour",
+        destination: "/world-peace-pagoda",
+        permanent: true,
+        statusCode: 301
       }
     ];
   },

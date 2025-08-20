@@ -2,7 +2,15 @@
 import React from 'react';
 import { DollarSign, MapPin, User,  Users, Award, Activity, Globe, Hotel, Plane, Ticket } from 'lucide-react';
 import { ServiceCard } from '@/components/service-card';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: "About - Hi Nepal Travel and Treks",
+  description: "Know more about Hi Nepal Travel and Treks",
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/about"
+  }
+}
 const About = () => {
   return (
     <div className='min-h-screen flex flex-col'>

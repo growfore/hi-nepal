@@ -53,7 +53,7 @@ export default async function RegionPage({ params }: { params: Promise<{ activit
                 {
                     region.includes("langtang") &&
                     <p className="text-left md:text-center md:mt-4 italic text-xl">
-                        Another popular trekking region in Nepal is the Langtang Region. Langtang region trek is a perfect location for the trekkers looking for quiet yet off-the-beaten trekking trails in Nepal.
+                        Another popular trekking region in Nepal is the Langtang Region. Langtang trek is a perfect location for the trekkers looking for quiet yet off-the-beaten trekking trails in Nepal.
                     </p>
                 }
                 {
@@ -75,15 +75,17 @@ export default async function RegionPage({ params }: { params: Promise<{ activit
                         <Link className="text-green-700" href={"/upper-mustang-tour"}> Upper Mustang Tour</Link>,
                         <Link className="text-green-700" href={"/rara-lake-tour-nepal"}>Rara Lake Tour</Link>, and
                         <Link className="text-green-700" href={"/ghandruk-village-tour"}>Ghandruk Village Tour</Link>,
+                        with a reputed tour agency in Nepal.
                     </p>
                 }
                 {
                     region.includes("day-tours") &&
                     <p className="text-left md:text-center md:mt-4 italic text-xl">
-                        Day tours in Nepal are the perfect way to experience the country’s cultural richness and natural beauty in a short amount of time. Ideal for travelers with limited schedules, the tours like
+                        Day tours in Nepal are the perfect way to experience the country’s cultural richness and natural beauty in a short amount of time. Ideal for travelers with limited schedules, with a reputed tour agency in Nepal, the tours like
                         <Link className="text-green-700" href={"/pokhara-valley-tour"} > Pokhara Valley Tour,</Link>
                         <Link className="text-green-700" href={"/world-peace-pagoda"}> World Peace Pagoda Tour, </Link> and
-                        <Link className="text-green-700" href={"/sarangkot-pokhara-tour"}> Sarangkot Tour</Link> allow you to explore iconic landmarks, bustling cities, and stunning viewpoints without the need for overnight stays.
+                        <Link className="text-green-700" href={"/sarangkot-pokhara-tour"}> Sarangkot Tour</Link>
+                        allow you to explore iconic landmarks, bustling cities, and stunning viewpoints without the need for overnight stays.
                     </p>
                 }
                 {
@@ -91,7 +93,8 @@ export default async function RegionPage({ params }: { params: Promise<{ activit
                     <p className="text-left md:text-center md:mt-4 italic text-xl">
                         Nepal is a paradise for nature and wildlife enthusiasts, offering diverse ecosystems that range from subtropical forests to alpine meadows and high Himalayan peaks. The country is home to some of the world’s rarest flora and fauna, thriving within its rich landscapes and protected National Parks such as
                         <Link className="text-green-700" href={"/chitwan-national-park-tour"} > Chitwan National Park</Link> and
-                        <Link className="text-green-700" href={"/bardiya-national-park-tour"} > Bardiya National Park.</Link>
+                        <Link className="text-green-700" href={"/bardiya-national-park-tour"} > Bardiya National Park. </Link>
+                        Explore the diverse natural beauty with Hi Nepal Travels and Treks, one of the best tour operators in Nepal.
                     </p>
                 }
                 <div className="lg:px-32 flex flex-col gap-2 mt-4 text-green-700">
@@ -109,13 +112,58 @@ export default async function RegionPage({ params }: { params: Promise<{ activit
                 })}
             </div>
 
-            <div className="p-2 md:p-8 lg:p-12">
+            <div className="p-2 md:px-12 lg:px-24">
                 {
                     region.includes("everest") &&
-                    <p className="text-lg text-justify">
-                        The Everest region trek is one of the heavenly paradises on Earth, offering some of the major trekking routes in Nepal, such as the <Link href={"/everest-base-camp-trek"} className={linkStyle}>Everest Base Camp Trek,</Link> the <Link href={"/chola-pass-gokyo-trek"} className={linkStyle}>Everest Cho La Pass Trek,</Link> the <Link className={linkStyle} href={"/gokyo-valley-trek"}>Gokyo Ri Trek,</Link> and the <Link className={linkStyle} href={"/pikey-peak-trek"}>Pikey Peak Trek.</Link>
-                        Home to the world’s highest peak, Mount Everest, the Everest region in Nepal, offers tons of adventures to adventure lovers, such as walking to the world’s highest passes to climbing 8000 m+ mountains. Located in the northeastern part of Nepal, the Everest region is home to many snow-capped mountains such as Mount Everest, Lhotse, Makalu, Ama Dablam, and Cho Oyu.
-                        The Everest region trekking is not just about hiking to high altitude regions of Nepal, but also about exploring the natural and cultural beauties of Nepal. While in this region, you will have opportunities to closely observe rare wildlife such as the snow leopard, red panda, and Monal. Also, witness the lush and multi-colored Rhododendron forest while the EBC trek in the spring season.
+                    <p className="text-lg text-justify font-medium">
+                        The Everest region trek is one of the heavenly paradises on Earth, offering some of the major trekking routes in Nepal, such as the <Link href={"/everest-base-camp-trek"} className="text-green-700">Everest Base Camp Trek,</Link> the <Link href={"/chola-pass-gokyo-trek"} className="text-green-700">Everest Cho La Pass Trek,</Link> the <Link className="text-green-700" href={"/gokyo-valley-trek"}>Gokyo Ri Trek</Link>, and
+                        the <Link className="text-green-700" href={"/pikey-peak-trek"}> Pikey Peak Trek. </Link>
+                        <br /> Home to the world’s highest peak, Mount Everest, the Everest region in Nepal, offers tons of adventures to adventure lovers, such as walking to the world’s highest passes to climbing 8000 m+ mountains. Located in the northeastern part of Nepal, the Everest region is home to many snow-capped mountains such as Mount Everest, Lhotse, Makalu, Ama Dablam, and Cho Oyu.
+                        The Everest region trekking is not just about hiking to high altitude regions of Nepal, but also about exploring the natural and cultural beauties of Nepal. While in this region, you will have opportunities to closely observe rare wildlife such as the snow leopard, red panda, and Monal. Also, witness the lush and multi-colored Rhododendron forest while on the EBC trek in the spring season.
+                    </p>
+                }
+                {
+                    region.includes("annapurna") &&
+                    <p className="text-lg text-justify font-medium">
+                        The Annapurna Region is home to several trekking routes. From short and beginner-friendly treks like the <Link className="text-green-700" href={"/mardi-himal-trek"}>Mardi Himal trek</Link>, <Link href={"/ghorepani-poon-hill-trek"} className="text-green-700">Ghorepani Poon Hill Trek,</Link> and <Link href={"/khumai-danda-trek"} className="text-green-700">Khumai Danda Trek</Link> to challenging and thrilling
+                        <Link href={"/annapurna-circuit-trek"} className="text-green-700"> Annapurna Circuit Trek</Link>,
+                        <Link className="text-green-700" href={"/north-annapurna-base-camp-trek"}> North ABC Trek</Link>, and
+                        <Link className="text-green-700" href={"/dhaulagiri-circuit-trek"}> Dhaulagiri Circuit Trek</Link>, the Annapurna Region offer a range of options.
+                        <br /> The treks in the Annapurna Region are not only popular for the Mountains’ beauty, but also for the authentic cultural experiences, warm and welcoming locals, natural beauty, and ancient architecture. Explore this hidden gem of the Annapurna Region with Hi Nepal Travels and Treks, a reliable trekking agency in Nepal.
+                    </p>
+                }
+                {
+                    region.includes("langtang") &&
+                    <p className="text-lg text-justify font-medium">
+                        The Langtang Trek is Nepal's most satisfying shorter trek with magnificent mountain views, green forests, and rich cultural experiences within a short drive from Kathmandu. Referred to as the "valley of glaciers," Langtang Trekking is surrounded by snow-covered mountains, Langtang Lirung (7,227 m), and dotted with yak herds, alpine meadows, and rural villages.
+                        <br />Located on the northern side of Kathmandu Valley, the Langtang Region offers some of the classic Langtang trekking routes, such as the
+                        <Link href={"/langtang-gosaikunda-trek"} className="text-green-700"> Langtang Gosaikunda trek</Link>, the
+                        <Link href={"/langtang-valley-trek"} className="text-green-700"> Langtang Valley trek</Link>, and the
+                        <Link href={"/helambu-trek"} className="text-green-700"> Helambu Trek</Link>. This reason is also the perfect blend of the stunning landscape and mountain views, and cultural significance.
+                        <br />Cultural immersion is also the highlight of the Langtang region. The trekker can explore Tamang villages with Tibetan-influenced culture, where ancient monasteries, chortens, and mani walls reflect deep spiritual heritage.
+                        <br />Rich in natural biodiversity, the Langtang Region is home to several species of flora and fauna. With fewer crowds, this region gives a tranquil and thrilling experience. Trekkers on the Langtang Trek routes are treated to diverse landscapes, from subtropical forests filled with rhododendrons and bamboo to high-altitude terrains where prayer flags flutter against dramatic Himalayan backdrops. Explore the Langtang Trekking Region with Hi Nepal Travels and Treks Pvt, Ltd, one of the reputed tour agencies in Nepal.
+
+                    </p>
+                }
+
+                {
+                    region.includes("manaslu") &&
+                    <p className="text-lg text-justify font-medium">
+                        Immersion in the local Tibetan-influenced culture is one of the hiking highlights in the Manaslu region. Trekkers can enjoy both the natural beauty and a rich cultural experience in this area, which is home to old Buddhist temples, prayer wheels, and chortens.
+                        <br />The Manaslu region offers a more remote and peaceful experience than other trekking sites in Nepal, even with its growing popularity. For daring trekkers seeking a more off-the-beaten-path experience, the Manaslu Region treks, such as the
+                        <Link className="text-green-700" href={"/manaslu-circuit-trek"}> Manaslu Circuit Trek</Link>,
+                        <Link className="text-green-700" href={"/manaslu-tsum-valley-circuit-trek"}> Manaslu and Tsum Valley Circuit Trek</Link>, and the
+                        <Link className="text-green-700" href={"/tsum-valley-trek"}> Tsum Valley Trek</Link>, are the hidden gems because of their breathtaking landscapes, cultural diversity, and lack of tourists. Explore the Manaslu Region with Hi Nepal Travels and Treks, one of the best trekking companies in Nepal.
+                    </p>
+                }
+                {
+                    region.includes("dolpo-region") &&
+                    <p className="text-lg text-justify font-medium">
+                        Dolpo's trekking visitors are greeted by landscapes of drama, arid valleys, rocky cliffs, azure Phoksundo Lake, and towering snow-white peaks. The region is equally culturally rich, with centuries-old monasteries, traditional villages, and the Bon faith, dating back to pre-Buddhism. Wind-whipped prayer flags, chortens, and mani walls reflect the deep spiritual nature of the place.
+                        <br />Compared to the more touristy treks of Nepal, Dolpo provides an unparalleled sense of isolation and tranquility. Treks such as the 
+                        <Link className="text-green-700" href={"/upper-dolpo-trek"}> Upper Dolpo Trek</Link>, 
+                        <Link className="text-green-700" href={"/lower-dolpo-trek"}> Lower Dolpo Trek</Link>, and 
+                        <Link className="text-green-700" href={"/shey-phoksundo-lake-trek"}> Shey Phoksundo Lake Trek</Link> introduce one to both natural splendor and an age-old way of life that remains unscathed. For those seeking an off-the-beaten-path adventure filled with raw beauty and cultural depth, Dolpo is a Himalayan secret gem. Explore this hidden gem with Hi Nepal Travels and Treks, a reliable trekking agency in Nepal.
                     </p>
                 }
             </div>

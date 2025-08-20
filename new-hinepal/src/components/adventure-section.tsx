@@ -14,11 +14,9 @@ export default function AdventureSection() {
                             ADVENTURES
                         </h2>
                         <p className='text-gray-600 text-base md:text-lg leading-relaxed mt-4'>
-                            Experience top-notch <Link className="text-green-700" href={"/adventure"}>adventure sports</Link> with Hi Nepal Travels and Treks, one of the reputed trek and travel agencies in Nepal. From heart-pounding activities like white-water rafting, paragliding, and bungee jumping to iconic treks such as 
-                            <Link className="text-green-700" href={"/everest-base-camp-trek"}> Everest Base Camp,</Link>
-                            <Link className="text-green-700" href={"/annapurna-base-camp-trek"}> Annapurna Base Camp</Link> and
-                            <Link className="text-green-700" href={"/langtang-valley-trek"}> Langntang Valley</Link>, 
-                            we bring you the ultimate combination of thrill and exploration.
+                            Experience top-notch <Link href={"/adventure"} className="text-green-700">adventure sports</Link> with Hi Nepal Travels and Treks, one of the reputed trek and travel agencies in Nepal. From heart-pounding activities like white-water rafting, paragliding, and bungee jumping to iconic treks such as <Link href={"/everest-base-camp-trek"} className="text-green-700">Everest Base Camp,</Link>
+                            <Link href={"/annapurna-base-camp-trek"} className="text-green-700">Annapurna Base Camp, </Link>  and
+                            <Link href={"/langtang-valley-trek"} className="text-green-700"> Langtang Valley, </Link> we bring you the ultimate combination of thrill and exploration.
                         </p>
                     </div>
                 </div>

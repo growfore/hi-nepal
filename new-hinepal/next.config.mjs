@@ -568,6 +568,12 @@ const nextConfig = {
         destination: "/best-time-to-do-annapurna-base-camp-trek",
         permanent: true,
         statusCode: 301
+      },
+      {
+        source: "/blogs/best-time-to-do-annapurna-base-camp-trek",
+        destination:"/best-time-to-do-annapurna-base-camp-trek",
+        permanent: true,
+        statusCode: 301
       }
     ];
   },

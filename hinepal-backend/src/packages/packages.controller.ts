@@ -96,7 +96,7 @@ export class PackagesController {
     @Query('offset') offset: number | undefined,
     @Query('query') query: string | undefined,
   ) {
-    let limitNumber = 10;
+    let limitNumber = 100;
     let offsetNumber = 0;
     if (limit) {
       limitNumber = Number(limit);

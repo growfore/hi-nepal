@@ -1,6 +1,8 @@
+"use client";
+
 import { TPackageDetails } from "@/types/types";
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import GallerySlider from '@/app/_components/gallery-slider';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -9,8 +11,8 @@ import { DataIcon } from '@/components/data-icon';
 import { SectionNav } from '@/components/SectionNav';
 import TrustBadge from '@/app/_components/trust-badge';
 
-export function ItineraryPage({details, relatedProducts}:{details: TPackageDetails, relatedProducts: TPackageDetails[]}) {
-
+export function ItineraryPage({ details, relatedProducts }: { details: TPackageDetails, relatedProducts: TPackageDetails[] }) {
+    const [regionName, setRegionName] = useState("");
     const navigations = [
         { id: 'overview', label: 'Overview', icon: "LucideEye" },
         { id: 'itenary', label: 'Itinerary', icon: "LucideList" },
@@ -209,27 +211,28 @@ export function ItineraryPage({details, relatedProducts}:{details: TPackageDetai
                 {/* RIGHT SIDEBAR */}
                 <aside className='lg:col-span-1'>
                     <div className='sticky top-42 p-6 bg-white rounded-lg shadow-md'>
-                        <div className='booking-details text-center mb-8'>
+                        <div className='booking-details flex flex-col items-center mb-8'>
+                            <p className="font-bold text-2xl mb-4">Speak to an Expert</p>
                             <Image
-                                src={details.thumbnail}
+                                src={"/assets/mohan-prasad-subedi.webp"}
                                 alt={details.title || 'Package thumbnail'}
-                                width={250}
-                                height={150}
-                                className='w-full h-auto object-cover rounded-md mb-4'
+                                width={100}
+                                height={100}
+                                className='object-cover rounded-full mb-4'
                             />
                             <p className='text-xl font-bold text-dark-blue-900 mb-4'>
-                                <strong>{details.title.split(":")[0]}</strong>
+                                <strong>Mohan Prasad Subedi</strong>
                             </p>
-                            <Link href="/booking">
-                                <Button className='w-full bg-orange-500 text-white hover:bg-orange-600 px-6 py-3 text-lg font-semibold rounded-md'>
-                                    Book Now
+                            <Link href="https://wa.me/9779856035091" target="_blank">
+                                <Button className='w-full bg-green-500 text-white hover:bg-orange-600 px-6 py-3 text-lg font-semibold rounded-md'>
+                                    Chat on Whatsapp
                                 </Button>
                             </Link>
                         </div>
-                        <div className="suggested-posts">
-                            {relatedProducts && relatedProducts.length > 0 &&
-                                <h3 className='text-2xl font-bold text-dark-blue-900 mb-4 border-t pt-4'>Related Packages</h3>
-                            }
+                        {relatedProducts && relatedProducts.length > 0 &&
+                            <h3 className='text-2xl font-bold text-dark-blue-900 mb-4 border-t pt-4'>Related Itineraries</h3>
+                        }
+                        <div className="overflow-scroll h-[35vh]">
                             <ul>
                                 {!relatedProducts || relatedProducts?.length === 0 &&
                                     (
@@ -237,7 +240,8 @@ export function ItineraryPage({details, relatedProducts}:{details: TPackageDetai
                                     )}
                                 {relatedProducts?.map((product) => (
                                     <li key={product.slug} className='mb-2'>
-                                        <Link href={`/${product.slug}`} className='text-green-600 hover:underline text-lg'>
+                                        <Link href={`/${product.slug}`} className='text-green-600 hover:underline text-lg flex items-start gap-2 bg-gray-50 rounded-md p-2 '>
+                                            <Image src={product.thumbnail} className="rounded-md" alt={product.title} width={100} height={100} />
                                             {product.title.split(":")[0].trim()}
                                         </Link>
                                     </li>

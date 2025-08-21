@@ -85,14 +85,13 @@ export async function generateMetadata({
     };
 }
 
-
-
 const activites = async ({ params }: { params: Params }) => {
     let details: TPackageDetails = {} as TPackageDetails;
     let relatedProducts: TPackageDetails[] = [] as TPackageDetails[];
     const packages: TPackageDetails[] = [];
     let schema;
-
+    let destinationSlug = "";
+    let destinationPackages: any = [];
 
     let blog = await getBlogSingle(params.slug)
 
@@ -122,6 +121,7 @@ const activites = async ({ params }: { params: Params }) => {
             token: '',
             success: (_, res) => {
                 details = res.data.package;
+                destinationSlug = res.data.package.destination.slug
             },
             failure: (message) => {
                 notFound();
@@ -130,7 +130,7 @@ const activites = async ({ params }: { params: Params }) => {
 
         await get({
             endPoint: endpoints.PACKAGES,
-            params: { query: params.slug.split("-")[0] },
+            // params: { query: params.slug.split("-")[0] },
             token: '',
             success: (message, res) => {
                 packages.push(...res.data.packages);
@@ -139,8 +139,23 @@ const activites = async ({ params }: { params: Params }) => {
                 console.log(message);
             },
         });
+        await get({
+            endPoint: endpoints.DESTINATIONS + "/" + destinationSlug,
+            token: '',
+            success: (mes, res) => {
+                destinationPackages.push(...res.data.packages)
+            },
+            failure: (message) => {
+                console.log("error: ", message)
+            }
+        })
     }
-    relatedProducts = packages.filter((pkg) => pkg.id !== details.id);
+    // const onlyRelated = packages.filter((pkg) => pkg.destination.slug !== details.destination.slug)
+    console.log("Destination slug", destinationSlug)
+    console.log("Region related: ", destinationPackages)
+
+    relatedProducts = destinationPackages.filter((pkg:any) => pkg.id !== details.id);
+    console.log("Related Products:", relatedProducts)
 
     return (
         blog ?

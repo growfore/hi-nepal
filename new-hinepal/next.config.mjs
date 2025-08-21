@@ -31,7 +31,7 @@ const nextConfig = {
     return [
       {
         source: "/trekking",
-        destination:"/activities/trekking",
+        destination: "/activities/trekking",
         permanent: true,
         statusCode: 301
       },
@@ -229,7 +229,7 @@ const nextConfig = {
       },
       {
         source: "/trekking/langtang-valley-trek",
-        destination:"/langtang-valley-trek",
+        destination: "/langtang-valley-trek",
         permanent: true,
         statusCode: 301
       },
@@ -241,7 +241,7 @@ const nextConfig = {
       },
       {
         source: "/trekking/gokyo-valley-trek",
-        destination:"/gokyo-valley-trek",
+        destination: "/gokyo-valley-trek",
         permanent: true,
         statusCode: 301
       },
@@ -266,7 +266,7 @@ const nextConfig = {
       {
         source: "/trekking/langtang-gosaikunda-trek",
         destination: "/langtang-gosaikunda-trek",
-        permanent: true,  
+        permanent: true,
         statusCode: 301
       },
       {
@@ -372,7 +372,7 @@ const nextConfig = {
         statusCode: 301
       },
       {
-        source:"/trekking/annapurna-region/nar-phu-valley-with-annapurna-circuit-trek",
+        source: "/trekking/annapurna-region/nar-phu-valley-with-annapurna-circuit-trek",
         destination: "/",
         permanent: false,
         statusCode: 302
@@ -453,13 +453,13 @@ const nextConfig = {
         source: "/trekking/annapurna-region/annapurna-base-camp-trek",
         destination: "/annapurna-base-camp-trek",
         permanent: true,
-        statusCode: 301 
+        statusCode: 301
       },
       {
         source: "/tour/multi-day-tour/nepal-tour-package",
         destination: "/activities/tours",
         permanent: true,
-        statusCode: 301 
+        statusCode: 301
       },
       {
         source: "/tour/multi-day-tour/bardia-national-park",
@@ -486,17 +486,17 @@ const nextConfig = {
         statusCode: 301
       },
       {
-       source: "/tour/day-hike/australian-camp-day-hike",
-       destination: "/pokhara-australian-camp-hike",
-       permanent: true,
-       statusCode: 301
+        source: "/tour/day-hike/australian-camp-day-hike",
+        destination: "/pokhara-australian-camp-hike",
+        permanent: true,
+        statusCode: 301
       },
       {
         source: "/heli-tour/annapurna-heli-tour/kapuche-helicopter-tour",
         destination: "/kapuche-lake-trek",
         permanent: true,
         statusCode: 301
-      }, 
+      },
       {
         source: "/heli-tour/annapurna-heli-tour/experience-the-beautiful-of-kapuche-lake-by-helicopter",
         destination: "/",
@@ -513,7 +513,7 @@ const nextConfig = {
         source: "/heli-tour/annapurna-heli-tour/abc-helicopter-tour",
         destination: "/",
         permanent: true,
-        statusCode: 301 
+        statusCode: 301
       },
       {
         source: "/adventure-activity/rafting/upper-seti-rafting",
@@ -560,6 +560,12 @@ const nextConfig = {
       {
         source: "/world-peace-pagoda-tour",
         destination: "/world-peace-pagoda",
+        permanent: true,
+        statusCode: 301
+      },
+      {
+        source: "/best-time-to-do-annapurna-base-camp-trek-a-seasonal-guide-to-your-adventure",
+        destination: "/best-time-to-do-annapurna-base-camp-trek",
         permanent: true,
         statusCode: 301
       }

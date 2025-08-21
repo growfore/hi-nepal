@@ -93,6 +93,24 @@ const activites = async ({ params }: { params: Params }) => {
     let destinationSlug = "";
     let destinationPackages: any = [];
 
+    const popularTreks = [
+        "everest-base-camp-trek",
+        "annapurna-base-camp-trek",
+        "langtang",
+        "annapurna-circuit-trek",
+        "manaslu-circuit-trek",
+        "ghorepani-poon-hill-trek",
+        "mardi-himal-trek"
+    ]
+    const popularTours = [
+        "pokhara-valley-tour",
+        "chitwan-national-park-tour",
+        "kathmandu-tour-package",
+        "pokhara-australian-camp-hike",
+        "sarangkot-pokhara-tour",
+        "upper-mustang-tour"
+    ]
+
     let blog = await getBlogSingle(params.slug)
 
     if (blog) {
@@ -150,12 +168,15 @@ const activites = async ({ params }: { params: Params }) => {
             }
         })
     }
-    // const onlyRelated = packages.filter((pkg) => pkg.destination.slug !== details.destination.slug)
-    console.log("Destination slug", destinationSlug)
-    console.log("Region related: ", destinationPackages)
 
-    relatedProducts = destinationPackages.filter((pkg:any) => pkg.id !== details.id);
-    console.log("Related Products:", relatedProducts)
+    const filteredTreks: TPackageDetails[] = packages.filter(pkg =>
+        popularTreks.includes(pkg.slug)
+    );
+
+    const filteredTours: TPackageDetails[] = packages.filter(pkg => popularTours.includes(pkg.slug))
+    const pacakgesToPass: TPackageDetails[] = params.slug.includes("trek") ? filteredTreks : filteredTours 
+
+    relatedProducts = destinationPackages.filter((pkg: any) => pkg.id !== details.id);
 
     return (
         blog ?
@@ -165,7 +186,7 @@ const activites = async ({ params }: { params: Params }) => {
                 <BlogPage blog={blog} />
             </main> :
 
-            <ItineraryPage details={details} relatedProducts={relatedProducts} />
+            <ItineraryPage details={details} relatedProducts={relatedProducts} popularPackages={pacakgesToPass} />
     );
 };
 

@@ -5,9 +5,10 @@ type TCardProps = {
     slug: string,
     image: string,
     title: string,
+    days?: string | null,
 }
 
-export default async function TrekkingCard({ slug, image, title }: TCardProps) {
+export default async function TrekkingCard({ slug, image, title, days }: TCardProps) {
     return (
         <div className="trekking-card-wrapper">
             <div className="trekking-card">
@@ -19,7 +20,7 @@ export default async function TrekkingCard({ slug, image, title }: TCardProps) {
                         className="trekking-card-image"
                         sizes="(max-width: 768px) 100vw, 400px"
                     />
-                    <p className="trekking-title">{title}</p>
+                    <p className="trekking-title">{title.split(":")[0]} - {days} Days</p>
                 </div>
             </div>
         </div>

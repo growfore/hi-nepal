@@ -10,8 +10,9 @@ import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, HomeIcon 
 import { DataIcon } from '@/components/data-icon';
 import { SectionNav } from '@/components/SectionNav';
 import TrustBadge from '@/app/_components/trust-badge';
+import TrekkingCard from "../TrekkingCard";
 
-export function ItineraryPage({ details, relatedProducts }: { details: TPackageDetails, relatedProducts: TPackageDetails[] }) {
+export function ItineraryPage({ details, relatedProducts, popularPackages }: { details: TPackageDetails, relatedProducts: TPackageDetails[], popularPackages: TPackageDetails[] }) {
     const [regionName, setRegionName] = useState("");
     const navigations = [
         { id: 'overview', label: 'Overview', icon: "LucideEye" },
@@ -206,6 +207,7 @@ export function ItineraryPage({ details, relatedProducts }: { details: TPackageD
                             <GallerySlider details={details} />
                         </div>
                     }
+
                 </section>
 
                 {/* RIGHT SIDEBAR */}
@@ -251,6 +253,17 @@ export function ItineraryPage({ details, relatedProducts }: { details: TPackageD
                     </div>
                 </aside>
             </main>
+            <div className="container mx-auto">
+                <h2 className="text-3xl font-bold text-left px-4">Popular {details.slug.includes("trek") ? "Treks" : details.slug.includes("tour") ? "Tours" : "Destinations"}</h2>
+                <div className="gap-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4">
+                    {popularPackages.map((p, k) => {
+                        return (
+                            <TrekkingCard slug={p.slug} image={p.thumbnail} title={p.title} days={p?.duration} />
+                        )
+                    })
+                    }
+                </div>
+            </div>
         </div>
     )
 }

@@ -20,7 +20,7 @@ export function SectionNav({ navigations }: Props) {
 
     const handleScroll = () => {
       if (ignoreScrollUpdate.current) return;
-      const scrollPos = window.scrollY + NAVBAR_HEIGHT + 1; 
+      const scrollPos = window.scrollY + NAVBAR_HEIGHT + 1;
 
       let currentSection = "";
       for (const nav of navigations) {
@@ -59,41 +59,43 @@ export function SectionNav({ navigations }: Props) {
   if (!visible) return null;
 
   return (
-    <div className="z-[99] section-nav fixed top-[30px] mt-16  px-4 md:px-24 lg:px-36 flex gap-1 bg-orange-500 py-1 w-[100vw] overflow-auto whitespace-nowrap">
-      {navigations.map((nav) => {
-        const Icon = Icons[nav.icon];
-        return (
-          <div
-            // @ts-ignore
-            ref={(el) => (itemRefs.current[nav.id] = el)}
-            className={`my-1 container mx-auto  nav-item ${activeId === nav.id ? "active" : ""}`}
-            key={nav.id}
-          >
-            <Link href={`#${nav.id}`}>
-              <Button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveId(nav.id);
+    <div className="z-[99] fixed top-[30px] mt-16  flex justify-center  bg-orange-500  w-[100vw]">
+      <div className="container z-[99] section-nav  flex justify-center  bg-orange-500  w-full  overflow-auto whitespace-nowrap">
+        {navigations.map((nav, index) => {
+          const Icon = Icons[nav.icon];
+          return (
+            <div
+              // @ts-ignore
+              ref={(el) => (itemRefs.current[nav.id] = el)}
+              className={`py-2 cursor-pointer container flex items-center justify-center mx-auto hover:bg-green-600 hover:opacity-80  hover:text-white text-white ${activeId === nav.id ? "active" : ""}`}
+              key={index}
+            >
+              <Link href={`#${nav.id}`}>
+                <Button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveId(nav.id);
 
-                  ignoreScrollUpdate.current = true;
-                  setTimeout(() => {
-                    ignoreScrollUpdate.current = false;
-                  }, 3000);
+                    ignoreScrollUpdate.current = true;
+                    setTimeout(() => {
+                      ignoreScrollUpdate.current = false;
+                    }, 3000);
 
-                  const section = document.getElementById(nav.id);
-                  if (section) {
-                    section.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-              variant={'ghost'} className="hover:bg-green-600 hover:text-white text-white">
-              {/* @ts-ignore */}
-              {Icon && <Icon className="w-4 h-4 mr-2" />}
-              {nav.label}
-            </Button>
-          </Link>
-          </div>
-  );
-})}
-    </div >
+                    const section = document.getElementById(nav.id);
+                    if (section) {
+                      section.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  variant={'ghost'} className="hover:bg-green-600 hover:text-white text-white rounded-none text-lg text-center">
+                  {/* @ts-ignore */}
+                  {Icon && <Icon className="w-4 h-4 mr-2" />}
+                  {nav.label}
+                </Button>
+              </Link>
+            </div>
+          );
+        })}
+      </div >
+    </div>
   );
 }

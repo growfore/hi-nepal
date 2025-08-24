@@ -259,7 +259,7 @@ export function ItineraryPage({ details, relatedProducts, popularPackages }: { d
                 <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  p-4">
                     {popularPackages.map((p, k) => {
                         return (
-                            <PopularCard slug={p.slug} image={p.thumbnail} title={p.title} days={p?.duration} />
+                            <PopularCard key={k} slug={p.slug} image={p.thumbnail} title={p.title} days={p?.duration} />
                         )
                     })
                     }

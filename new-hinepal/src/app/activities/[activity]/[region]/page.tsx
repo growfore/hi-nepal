@@ -3,7 +3,6 @@ import endpoints from "@/constant/endpoints";
 import { formatSlug } from "@/helper/formatSlug";
 import { get } from "@/utils/request-hander";
 import { LucideChevronRight } from "lucide-react";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -106,7 +105,7 @@ export default async function RegionPage({ params }: { params: Promise<{ activit
                 {data && data?.length > 0 && data?.map((d, idx) => {
                     return (
                         <Link key={idx} href={`/${d.slug}`}>
-                            <TrekkingCard slug={d.slug} title={d.title.split(":")[0]} image={d.thumbnail} />
+                            <TrekkingCard slug={d.slug} title={d.title.split(":")[0]} image={d.thumbnail} days={d.duration} />
                         </Link>
                     )
                 })}

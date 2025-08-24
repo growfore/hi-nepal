@@ -20,7 +20,11 @@ export default async function TrekkingCard({ slug, image, title, days }: TCardPr
                         className="trekking-card-image"
                         sizes="(max-width: 768px) 100vw, 400px"
                     />
-                    <p className="trekking-title">{title.split(":")[0]}</p>
+                    <p className="trekking-title">{title.split(":")[0]} <br />
+                        {days &&
+                            <p className="text-lg bg-green-700 px-2 w-fit rounded-md">{days && days.includes(":") ? days : days + " Day(s)"}</p>
+                        }
+                    </p>
                 </div>
             </div>
         </div>

@@ -27,8 +27,8 @@ const BlogHome = async () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.slice(0, 3).map((post: any) => (
-            <BlogCard title={post.title.rendered} excerpt={post.excerpt.rendered} image={post._embedded?.['wp:featuredmedia']?.[0]?.source_url} slug={post.slug} />
+          {posts.slice(0, 3).map((post: any, index: number) => (
+            <BlogCard key={index} title={post.title.rendered} excerpt={post.excerpt.rendered} image={post._embedded?.['wp:featuredmedia']?.[0]?.source_url} slug={post.slug} />
           ))}
         </div>
       </div>

@@ -1,7 +1,6 @@
-
 export async function getBlogs(page = 1, perPage = 6) {
   const res = await fetch(
-    `https://blogs.hinepaltreks.com/wp-json/wp/v2/posts?per_page=${perPage}&page=${page}&_embed`
+    `https://blogs.hinepaltreks.com/wp-json/wp/v2/posts?per_page=${perPage}&page=${page}&_embed`, {cache: "no-store"}
   );
 
   const total = res.headers.get("X-WP-Total");

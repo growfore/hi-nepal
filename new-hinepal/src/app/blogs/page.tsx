@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/blogs"
   }
 }
+export const dynamic = "force-dynamic";
+
 export default async function BlogsPage({ searchParams }: { searchParams: { page?: string } }) {
   const page = Number(searchParams.page) || 1;
   const { posts, totalPages } = await getBlogs(page, 6);
@@ -22,7 +24,6 @@ export default async function BlogsPage({ searchParams }: { searchParams: { page
           Welcome to the Hi Nepal Travels and Treks Blog, where you can discover the amazing trekking stories, adventures, and guidelines. If you are looking to explore various corners of Nepal, our blogs will help you enhance your journey.
         </p>
       </div>
-
       <div className="grid md:grid-cols-3 gap-6 container mx-auto">
         {posts.map((post: any) => (
           <BlogCard slug={post.slug} title={post.title} key={post.id} image={post.image} excerpt={post.excerpt} />

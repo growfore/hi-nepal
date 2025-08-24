@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LucideMessageCircle, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import {
     Tooltip,
     TooltipContent,

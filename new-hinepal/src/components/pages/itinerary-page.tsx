@@ -2,7 +2,7 @@
 
 import { TPackageDetails } from "@/types/types";
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React  from 'react';
 import GallerySlider from '@/app/_components/gallery-slider';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -14,7 +14,6 @@ import TrekkingCard from "../TrekkingCard";
 import PopularCard from "../popular-card";
 
 export function ItineraryPage({ details, relatedProducts, popularPackages }: { details: TPackageDetails, relatedProducts: TPackageDetails[], popularPackages: TPackageDetails[] }) {
-    const [regionName, setRegionName] = useState("");
     const navigations = [
         { id: 'overview', label: 'Overview', icon: "LucideEye" },
         { id: 'itenary', label: 'Itinerary', icon: "LucideList" },

@@ -9,7 +9,6 @@ type TDataIconProps = {
 }
 export function DataIcon({ icon: Icon, k, v, size, color }: TDataIconProps) {
     return (
-
         <div>
             <div className='bg-green-900 w-fit rounded-full p-2' style={{ backgroundColor: color }}>
                 <Icon size={size} color="white" />

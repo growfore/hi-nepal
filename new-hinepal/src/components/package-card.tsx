@@ -57,11 +57,6 @@ const PackageCard = (props: TProps) => {
                 {item.title.split(":")[0] + "-" + item.duration + " Days"}
               </Link>
             </h3>
-            {/* <p className='text-gray-600 text-sm leading-relaxed'>
-              {item.description?.length > 40
-                ? item.description.slice(0, 37) + '...'
-                : item.description}
-            </p> */}
           </div>
         </div>
       </div>

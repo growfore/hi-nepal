@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import TrekkingCard from "@/components/TrekkingCard";
 import Link from "next/link";
 import { ChevronRight, LucideChevronRight } from "lucide-react";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { formatSlug } from "@/helper/formatSlug";
 
 export async function generateMetadata({ params }: any): Promise<any> {
@@ -28,11 +27,11 @@ export async function generateMetadata({ params }: any): Promise<any> {
         },
     };
 }
+
 export default async function ActivitySingle({ params }: { params: Promise<{ activity: string }> }) {
     const activity = (await params).activity;
 
     let data;
-
     await get({
         endPoint: endpoints.ACTIVITIES + '/' + activity,
         token: '',
@@ -43,7 +42,6 @@ export default async function ActivitySingle({ params }: { params: Promise<{ act
             notFound();
         },
     });
-
     return (
         <div className="mt-24 p-4 flex flex-col gap-4">
             {

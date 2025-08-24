@@ -6,8 +6,6 @@ import { Hero } from './_components/hero';
 import { Partners } from './_components/partners';
 import Numbers from './_components/numbers';
 import Gallery from './_components/Gallery';
-import ContactSection from './_components/contact-section';
-import Testimonials from './_components/testimonials';
 import PopularDestinations from './_components/popular-destinations';
 import PopularPackages from './_components/popular-packages';
 import BlogHome from './_components/blogs';
@@ -15,7 +13,18 @@ import Activities from './_components/activities';
 import Team from './_components/team';
 import AdventureSection from '@/components/adventure-section';
 import { headers } from 'next/headers';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: 'Hi Nepal Travels and Treks Pvt. Ltd. | Home',
+  description: 'Hi Nepal Travels and Treks Pvt. Ltd.',
+  keywords:
+    'Hi Nepal,Trekking,Adventure, Best trekking agency in nepal,Visit Nepal 2025,Best place to visit in Nepal',
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL 
+  }
+};
+ 
 export default async function Home() {
   const headersList = headers();
   const host = headersList.get("host");
@@ -58,11 +67,9 @@ export default async function Home() {
     },
   });
 
+  
   return (
     <>
-      <head>
-        <link rel="canonical" href={fullUrl} />
-      </head>
       <main id='content' className='site-main'>
         <Hero carousels={carousels} />
         <PopularPackages />

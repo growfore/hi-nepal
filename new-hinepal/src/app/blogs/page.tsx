@@ -8,7 +8,19 @@ export const metadata: Metadata = {
   description: "Welcome to the Hi Nepal Travels and Treks Blog, where you can discover the amazing trekking stories, adventures, and guidelines. If you are looking to explore various corners of Nepal, our blogs will help you enhance your journey.",
   alternates: {
     canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/blogs"
-  }
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 }
 export const dynamic = "force-dynamic";
 

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { DollarSign, MapPin, User,  Users, Award, Activity, Globe, Hotel, Plane, Ticket } from 'lucide-react';
+import { DollarSign, MapPin, User, Users, Award, Activity, Globe, Hotel, Plane, Ticket } from 'lucide-react';
 import { ServiceCard } from '@/components/service-card';
 import { Metadata } from 'next';
 
@@ -9,7 +9,19 @@ export const metadata: Metadata = {
   description: "Know more about Hi Nepal Travel and Treks",
   alternates: {
     canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/about"
-  }
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 }
 const About = () => {
   return (
@@ -17,10 +29,10 @@ const About = () => {
       <main className='flex-grow'>
         {/* Inner Banner Section */}
         <section className='relative h-96 bg-cover bg-center flex items-center justify-center '>
-            <div className="min-h-[40vh] mt-42 flex flex-col p-4  md:p-8 md:items-center border-b-2 border-black">
-                <h1 className="font-bold text-6xl lg:text-9xl">About us</h1>
-                {/* <p className="text-left italic text-xl">Experience the adventure sport of a lifetime amidst the Himalayas, where every thrill comes with breathtaking views.</p> */}
-            </div>
+          <div className="min-h-[40vh] mt-42 flex flex-col p-4  md:p-8 md:items-center border-b-2 border-black">
+            <h1 className="font-bold text-6xl lg:text-9xl">About us</h1>
+            {/* <p className="text-left italic text-xl">Experience the adventure sport of a lifetime amidst the Himalayas, where every thrill comes with breathtaking views.</p> */}
+          </div>
         </section>
 
         {/* About Service Section */}

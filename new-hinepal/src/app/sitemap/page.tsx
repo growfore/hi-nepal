@@ -8,7 +8,19 @@ export const metadata: Metadata = {
   description: "Sitemap",
   alternates: {
     canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/sitemap"
-  }
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 }
 export default async function SitemapPage() {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;

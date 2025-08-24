@@ -6,7 +6,19 @@ export const metadata: Metadata = {
   description: "Privacy Policy",
   alternates: {
     canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/privacy-policy"
-  }
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 }
 
 const PrivacyPolicy = () => {

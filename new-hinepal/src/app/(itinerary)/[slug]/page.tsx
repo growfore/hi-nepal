@@ -26,6 +26,18 @@ export async function generateMetadata({
             alternates: {
                 canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/" + blog.slug
             },
+            robots: {
+                index: true,
+                follow: true,
+                nocache: true,
+                googleBot: {
+                    index: true,
+                    follow: true,
+                    "max-video-preview": -1,
+                    "max-image-preview": "large",
+                    "max-snippet": -1,
+                },
+            },
             openGraph: {
                 title: blog.title,
                 description: blog.description,
@@ -57,7 +69,6 @@ export async function generateMetadata({
             googleBot: {
                 index: true,
                 follow: true,
-                noimageindex: true,
                 "max-video-preview": -1,
                 "max-image-preview": "large",
                 "max-snippet": -1,
@@ -174,7 +185,7 @@ const activites = async ({ params }: { params: Params }) => {
     );
 
     const filteredTours: TPackageDetails[] = packages.filter(pkg => popularTours.includes(pkg.slug))
-    const pacakgesToPass: TPackageDetails[] = params.slug.includes("trek") ? filteredTreks : filteredTours 
+    const pacakgesToPass: TPackageDetails[] = params.slug.includes("trek") ? filteredTreks : filteredTours
 
     relatedProducts = destinationPackages.filter((pkg: any) => pkg.id !== details.id);
 

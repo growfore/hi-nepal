@@ -570,7 +570,7 @@ const nextConfig = {
         statusCode: 301
       },
       {
-        source: "/blogs/mest-time-to-do-annapurna-base-camp-trek",
+        source: "/blogs/best-time-to-do-annapurna-base-camp-trek",
         destination:"/best-time-to-do-annapurna-base-camp-trek",
         permanent: true,
         statusCode: 301

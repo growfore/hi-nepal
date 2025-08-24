@@ -4,11 +4,23 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Adventures - Hi Nepal Travel and Treks",
-  description: "Experience the adventure sport of a lifetime amidst the Himalayas, where every thrill comes with breathtaking views.",
-  alternates: {
-    canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/adventure"
-  }
+    title: "Adventures - Hi Nepal Travel and Treks",
+    description: "Experience the adventure sport of a lifetime amidst the Himalayas, where every thrill comes with breathtaking views.",
+    alternates: {
+        canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/adventure"
+    },
+    robots: {
+        index: true,
+        follow: true,
+        nocache: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
+    },
 }
 export default function AdventurePage() {
     return (

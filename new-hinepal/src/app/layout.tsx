@@ -8,7 +8,6 @@ import siteStore from '@/zustand/store';
 import { Footer } from '@/common';
 import CustomLayout from '@/components/custom-layout';
 import { Navbar } from '@/common/navbar';
-import { headers } from 'next/headers';
 
 const playfair = Playfair({
   subsets: ['latin'],
@@ -16,12 +15,6 @@ const playfair = Playfair({
   display: 'swap',
 });
 
-export const metadata: Metadata = {
-  title: 'Hi Nepal Travels and Treks Pvt. Ltd. | Home',
-  description: 'Hi Nepal Travels and Treks Pvt. Ltd.',
-  keywords:
-    'Hi Nepal,Trekking,Adventure, Best trekking agency in nepal,Visit Nepal 2025,Best place to visit in Nepal',
-};
 
 export default async function RootLayout({
   children,

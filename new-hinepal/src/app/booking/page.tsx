@@ -30,6 +30,7 @@ const ContactForm = () => {
     <>
       <Head>
         <link rel='canonical' href={process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/booking"} />
+        <meta name="robots" content="index, follow" />
       </Head>
       <main>
         {/* Hero Section */}

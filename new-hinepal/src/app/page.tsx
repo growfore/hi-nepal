@@ -12,24 +12,21 @@ import BlogHome from './_components/blogs';
 import Activities from './_components/activities';
 import Team from './_components/team';
 import AdventureSection from '@/components/adventure-section';
-import { headers } from 'next/headers';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Hi Nepal Travels and Treks Pvt. Ltd. | Home',
-  description: 'Hi Nepal Travels and Treks Pvt. Ltd.',
-  keywords:
-    'Hi Nepal,Trekking,Adventure, Best trekking agency in nepal,Visit Nepal 2025,Best place to visit in Nepal',
-  alternates: {
-    canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL 
-  }
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Hi Nepal Travels and Treks Pvt. Ltd. | Home",
+    description: "Hi Nepal Travels and Treks Pvt. Ltd.",
+    keywords:
+      "Hi Nepal,Trekking,Adventure, Best trekking agency in nepal,Visit Nepal 2025,Best place to visit in Nepal",
+    alternates: {
+      canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/",
+    },
+  };
+}
  
 export default async function Home() {
-  const headersList = headers();
-  const host = headersList.get("host");
-  const protocol = headersList.get("x-forwarded-proto") || "http";
-  const fullUrl = `${protocol}://${host}`;
   let siteInformation: TSiteInformation = {} as TSiteInformation;
   siteInformation = siteStore.getState() as TSiteInformation;
   let reviews: {
@@ -81,8 +78,6 @@ export default async function Home() {
         <Partners />
         <BlogHome />
         <Team />
-        {/* <Testimonials reviews={reviews} /> */}
-        {/* <ContactSection siteInformation={siteInformation} /> */}
       </main>
     </>
   );

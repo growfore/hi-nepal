@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { Playfair } from 'next/font/google';
 import './globals.css';
 import endpoints from '@/constant/endpoints';

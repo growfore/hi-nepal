@@ -23,7 +23,8 @@ const ContactForm = () => {
   }
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
+    console.log("form data:", formData);
   }
 
   return (

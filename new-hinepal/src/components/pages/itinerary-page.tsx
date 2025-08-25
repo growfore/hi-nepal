@@ -10,7 +10,6 @@ import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, HomeIcon 
 import { DataIcon } from '@/components/data-icon';
 import { SectionNav } from '@/components/SectionNav';
 import TrustBadge from '@/app/_components/trust-badge';
-import TrekkingCard from "../TrekkingCard";
 import PopularCard from "../popular-card";
 
 export function ItineraryPage({ details, relatedProducts, popularPackages }: { details: TPackageDetails, relatedProducts: TPackageDetails[], popularPackages: TPackageDetails[] }) {
@@ -27,10 +26,10 @@ export function ItineraryPage({ details, relatedProducts, popularPackages }: { d
     return (
         <div>
             <div
-                className='relative h-[80vh] bg-cover bg-center flex items-center justify-center text-white'
+                className='relative h-[90vh]  bg-center bg-cover flex items-center justify-center text-white'
                 style={{ backgroundImage: `url(${details.banner})` }}
             >
-                <div className='absolute inset-0 bg-black/50'></div>
+                <div className='absolute inset-0 bg-black/10'></div>
                 <div className='container mx-auto px-4 md:px-6 relative z-10 text-center'>
                     <h1 className='text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg'>
                         {details.title}

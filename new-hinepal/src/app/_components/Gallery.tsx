@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 import { TSiteInformation } from '@/types/types';
+import { getProxyUrl } from '@/utils/imageProxy';
 
 const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) => {
     return (
@@ -20,10 +21,11 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                             </p>
                         </div>
                         <figure className='rounded-xl overflow-hidden shadow-lg h-[400px] md:h-[500px]'>
-                            <Image
+                            <img
                                 height={500}
                                 width={400}
-                                src={siteInformation?.about?.image1 || ''}
+                                // @ts-ignore
+                                src={getProxyUrl(siteInformation?.about?.image1) || ''}
                                 alt='home page gallery image'
                                 className='w-full h-full object-cover'
                             />
@@ -34,19 +36,22 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                     <div className='grid grid-cols-1 gap-6'>
                         <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
                             <figure className='rounded-xl overflow-hidden shadow-lg h-[250px]'>
-                                <Image
+                                <img
                                     height={250}
                                     width={300}
                                     className='w-full h-full object-cover'
-                                    src={siteInformation?.about?.image2 || ''}
+                                    // @ts-ignore
+                                    src={getProxyUrl(siteInformation?.about?.image2) || ''}
                                     alt='home page gallery image'
                                 />
                             </figure>
                             <figure className='rounded-xl overflow-hidden shadow-lg h-[250px]'>
-                                <Image
+                                <img
                                     height={250}
                                     width={300}
-                                    src={siteInformation?.about?.image3 || ''}
+
+                                    // @ts-ignore
+                                    src={getProxyUrl(siteInformation?.about?.image3) || ''}
                                     alt='home page gallery image'
                                     className='w-full h-full object-cover'
                                 />
@@ -54,11 +59,13 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                         </div>
                         <div className=''>
                             <figure className='rounded-xl overflow-hidden shadow-lg h-[400px]'>
-                                <Image
+                                <img
                                     height={400}
                                     width={700}
                                     className='w-full h-full object-cover'
-                                    src={siteInformation?.about?.image4 || ''}
+
+                                    // @ts-ignore
+                                    src={getProxyUrl(siteInformation?.about?.image4) || ''}
                                     alt='home page gallery image'
                                 />
                             </figure>

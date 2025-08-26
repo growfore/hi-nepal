@@ -1,3 +1,4 @@
+import { getProxyUrl } from '@/utils/imageProxy';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -12,12 +13,12 @@ const AdventureCard = ({ image, text, buttonText, link }: { image: string, text:
                         href={link}
                         className="block w-full h-full"
                     >
-                        <Image
+                        <img
                             loading='lazy'
                             width={300}
                             height={300}
                             className='w-full h-full object-cover rounded-t-xl'
-                            src={image}
+                            src={getProxyUrl(image)}
                             alt={text}
                         />
                     </Link>

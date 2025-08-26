@@ -17,14 +17,13 @@ export function Footer() {
               <aside className=''>
                 <div className='flex mb-2'>
                   <Link href='/' className='bg-white p-1 w-fit rounded-md'>
-                    <Image
+                    <img
                       height={200}
                       width={200}
                       className='p-2 rounded-md'
                       src='/assets/hinepal-logo.webp'
                       alt='logo'
                       loading='lazy'
-                      priority={false}
                     />
                   </Link>
                 </div>
@@ -90,7 +89,7 @@ export function Footer() {
                   <div className='flex flex-col items-left gap-1'>
                     <p className='font-bold flex items-center gap-1'><LucideVerified className='text-white' /> Recommended by 100% of Travellers</p>
                     <div className='bg-white p-2 w-fit rounded-md'>
-                      <Image src={"/assets/tripadvisor-logo.webp"} height={200} width={200} alt='tripadvisor logo' />
+                      <img src={"/assets/tripadvisor-logo.webp"} height={200} width={200} alt='tripadvisor logo' />
                     </div>
                     <div className='flex font-bold items-center italic'>
                       {Array.from([0, 1, 2, 3, 4]).map((_, idx) => <div key={idx} className='size-4 bg-green-500 rounded-full ml-1'></div>)} <span className='ml-4'> Reviews: </span> 5/5

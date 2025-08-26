@@ -1,3 +1,4 @@
+import { getProxyUrl } from '@/utils/imageProxy';
 import Image from 'next/image';
 import React from 'react';
 
@@ -19,12 +20,11 @@ const Team = () => {
               <div key={index} className='flex justify-center'>
                 <article className='bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-sm'>
                   <figure className='w-full h-72 relative'>
-                    <Image
+                    <img
                       height={300}
                       width={300}
-                      priority={false}
                       alt={item.name}
-                      src={item.image} 
+                      src={getProxyUrl(item.image)} 
                       className='w-full h-full object-cover'
                     />
                   </figure>

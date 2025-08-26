@@ -24,7 +24,7 @@ const PackageCard = (props: TProps) => {
             href={`/${item.slug}`}
             className="block w-full h-full"
           >
-            <Image
+            <img
               loading='lazy'
               width={300}
               height={300}

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Image from 'next/image';
+import { getProxyUrl } from '@/utils/imageProxy';
 
 export function Partners() {
   const images = [
@@ -18,7 +19,7 @@ export function Partners() {
         {images.map((image, index) => {
           return (
             <div key={index} className='flex justify-center items-center p-4'>
-              <Image src={"/assets" + image} alt={image} height={200} width={200} />
+              <img src={getProxyUrl("/assets" + image)} alt={image} height={200} width={200} />
             </div>
           )
         })}

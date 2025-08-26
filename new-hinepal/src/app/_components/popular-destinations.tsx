@@ -1,5 +1,6 @@
 import endpoints from '@/constant/endpoints';
 import { TDestination } from '@/types/types';
+import { getProxyUrl } from '@/utils/imageProxy';
 import { get } from '@/utils/request-hander';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -49,12 +50,11 @@ const PopularDestinations = async () => {
                   <Link key={index} className='block' href={"/activities/trekking/" + d.slug}>
                     <div className='relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300'>
                       <figure className='w-full h-64'>
-                        <Image
-                          src={d.image}
+                        <img
+                          src={getProxyUrl(d.image)}
                           loading='lazy'
                           width={600}
                           height={400}
-                          quality={75}
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 366px"
                           alt={d.name}
                           className='w-full h-full object-cover'

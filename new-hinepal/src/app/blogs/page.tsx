@@ -36,7 +36,7 @@ export default async function BlogsPage({ searchParams }: { searchParams: { page
           Welcome to the Hi Nepal Travels and Treks Blog, where you can discover the amazing trekking stories, adventures, and guidelines. If you are looking to explore various corners of Nepal, our blogs will help you enhance your journey.
         </p>
       </div>
-      <div className="grid md:grid-cols-3 gap-6 container mx-auto">
+      <div className="grid md:grid-cols-3 gap-6 container mx-auto p-4">
         {posts.map((post: any) => (
           <BlogCard slug={post.slug} title={post.title} key={post.id} image={post.image} excerpt={post.excerpt} />
         ))}

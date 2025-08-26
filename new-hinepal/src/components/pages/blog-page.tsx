@@ -4,13 +4,13 @@ import { TBlog } from "@/types/types";
 
 export function BlogPage({blog}:{blog: TBlog}) {
     return (
-        <section className="py-16 bg-gray-50">
+        <section className="pt-32 pb-12 ">
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto">
-                    <div className="bg-white">
+                    <div className="">
                         {/* Featured Image */}
                         {blog.image && (
-                            <div className="aspect-video overflow-hidden mb-8">
+                            <div className="aspect-video overflow-hidden mb-8 rounded-md">
                                 <img
                                     src={blog.image || "/placeholder.svg"}
                                     alt={blog.title}

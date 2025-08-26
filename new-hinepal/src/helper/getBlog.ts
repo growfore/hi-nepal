@@ -1,3 +1,5 @@
+import { getProxyUrl } from "@/utils/imageProxy";
+
 export async function getBlogs(page = 1, perPage = 6) {
   const res = await fetch(
     `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?per_page=${perPage}&page=${page}&_embed`, {cache: "no-store"}
@@ -44,6 +46,6 @@ export async function getBlogSingle(slug: string) {
     slug: post.slug,
     image:
       post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-      null,
+      "",
   };
 }

@@ -1,8 +1,11 @@
+"use server";
+
 import { TDestinationSingle, TPackages } from '@/types/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { Clock, Users, MapPin } from 'lucide-react';
+import { getProxyUrl } from '@/utils/imageProxy';
 
 type TProps = {
   item: TPackages[0];
@@ -26,7 +29,7 @@ const PackageCard = (props: TProps) => {
               width={300}
               height={300}
               className='w-full h-full object-cover rounded-t-xl'
-              src={item?.thumbnail}
+              src={getProxyUrl(item?.thumbnail)}
               alt={item.title || 'Package thumbnail'}
             />
           </Link>

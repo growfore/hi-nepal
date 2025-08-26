@@ -23,7 +23,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                             <Image
                                 height={500}
                                 width={400}
-                                src={siteInformation?.about?.image1 || ''} 
+                                src={siteInformation?.about?.image1 || ''}
                                 alt='home page gallery image'
                                 className='w-full h-full object-cover'
                             />

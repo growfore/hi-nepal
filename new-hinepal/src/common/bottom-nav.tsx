@@ -40,7 +40,9 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
             <div className='flex items-center  justify-between container mx-auto  gap-4 md:max-w-[75vw]'>
 
                 <Link href={"/"}>
-                    <Image src={"/assets/hinepal-logo.webp"} priority height={170} width={130} alt='hinepal logo' />
+                    <Image
+                        loader={({ src }) => src}
+                        src={"/assets/hinepal-logo.webp"} priority height={170} width={130} alt='hinepal logo' />
                 </Link>
                 <div className='flex gap-4 items-center'>
                     {navBar.map((activity, index) => {

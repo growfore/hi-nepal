@@ -16,7 +16,7 @@ export default function BlogCard({ title, excerpt, image, slug }: TBlogCardProps
                 className="flex flex-col bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100"
             >
                 <div className="relative h-64 w-full">
-                    <Image src={image || ""} alt={title} fill className="object-cover" />
+                    <img src={image || ""} alt={title} className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <div className="p-6 flex flex-col gap-3">
                     <h2

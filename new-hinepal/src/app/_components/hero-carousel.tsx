@@ -38,6 +38,7 @@ export function HeroCarousel({ carousels }: { carousels: TCarouselItemType[] }) 
                                 fill
                                 priority={false}
                                 className='brightness-50 object-cover'
+                                loader={({src}) => src}
                             />
                             <Link className='absolute bottom-[10vh] md:px-36 mx-4' href={carousel.link}>
                                 <div className='flex flex-col'>

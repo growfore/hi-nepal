@@ -1,6 +1,7 @@
 import Image from "next/image"
 import "./card.css";
 import { LucideTimer } from "lucide-react";
+import { getProxyUrl } from "@/utils/imageProxy";
 
 type TCardProps = {
     slug: string,
@@ -14,11 +15,10 @@ export default async function TrekkingCard({ slug, image, title, days }: TCardPr
         <div className="trekking-card-wrapper">
             <div className="trekking-card">
                 <div className="trekking-card-image-container">
-                    <Image
-                        src={image}
+                    <img
+                        src={getProxyUrl(image)}
                         alt={title}
-                        fill
-                        className="trekking-card-image"
+                        className="trekking-card-image w-fill h-fill object-cover"
                         sizes="(max-width: 768px) 100vw, 400px"
                     />
                     <p className="trekking-title">

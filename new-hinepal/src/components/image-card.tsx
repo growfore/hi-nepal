@@ -5,7 +5,7 @@ export function ImageCard() {
     return (
         <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center justify-between rounded-md p-2  md:p-8">
             <div className='md:w-[50%]'>
-                <Image className='rounded-md' src={"/assets/paragliding.webp"} alt='paragliding' height={500} width={500} />
+                <img className='rounded-md' src={"/assets/paragliding.webp"} alt='paragliding' height={500} width={500} />
             </div>
             <div className='md:max-w-[50%]'>
                 <h2 className='font-bold text-xl'>

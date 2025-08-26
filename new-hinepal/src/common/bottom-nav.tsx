@@ -42,6 +42,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                 <Link href={"/"}>
                     <Image
                         loader={({ src }) => src}
+                        unoptimized
                         src={"/assets/hinepal-logo.webp"} priority height={170} width={130} alt='hinepal logo' />
                 </Link>
                 <div className='flex gap-4 items-center'>

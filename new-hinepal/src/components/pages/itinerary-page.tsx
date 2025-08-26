@@ -11,6 +11,7 @@ import { DataIcon } from '@/components/data-icon';
 import { SectionNav } from '@/components/SectionNav';
 import TrustBadge from '@/app/_components/trust-badge';
 import PopularCard from "../popular-card";
+import { getProxyUrl } from "@/utils/imageProxy";
 
 export function ItineraryPage({ details, relatedProducts, popularPackages }: { details: TPackageDetails, relatedProducts: TPackageDetails[], popularPackages: TPackageDetails[] }) {
     const navigations = [
@@ -216,7 +217,7 @@ export function ItineraryPage({ details, relatedProducts, popularPackages }: { d
                     <div className='sticky top-42 p-6 bg-white rounded-lg shadow-md'>
                         <div className='booking-details flex flex-col items-center mb-8'>
                             <p className="font-bold text-2xl mb-4">Speak to an Expert</p>
-                            <Image
+                            <img
                                 src={"/assets/mohan-prasad-subedi.webp"}
                                 alt={details.title || 'Package thumbnail'}
                                 width={100}
@@ -244,7 +245,7 @@ export function ItineraryPage({ details, relatedProducts, popularPackages }: { d
                                 {relatedProducts?.map((product) => (
                                     <li key={product.slug} className='mb-2'>
                                         <Link href={`/${product.slug}`} className='text-green-600 hover:underline text-lg flex items-start gap-2 bg-gray-50 rounded-md p-2 '>
-                                            <Image src={product.thumbnail} className="rounded-md" alt={product.title} width={100} height={100} />
+                                            <img src={getProxyUrl(product.thumbnail)} className="rounded-md" alt={product.title} width={100} height={100} />
                                             {product.title.split(":")[0].trim()}
                                         </Link>
                                     </li>

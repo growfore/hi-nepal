@@ -1,37 +1,16 @@
 "use client";
 
-import { LucideMail, LucideMapPin, LucidePhone, LucideSend } from 'lucide-react'
-import type React from "react";
-import { useState } from "react";
+import { LucideMail, LucideMapPin, LucidePhone, LucideSend } from "lucide-react";
+import { useForm, ValidationError } from "@formspree/react";
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    destination: "",
-    groupSize: "",
-    experienceLevel: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("form data:", formData);
-  }
+  const [state, handleSubmit] = useForm("mandyjwv");
 
   return (
     <>
       <main>
         {/* Hero Section */}
-        <section className="relative py-42 text-white bg-orange-500 bg-gradient-to-r from-orange-500 to-orange-600 ">
+        <section className="relative py-42 text-white bg-orange-500 bg-gradient-to-r from-orange-500 to-orange-600">
           <div className="absolute inset-0 bg-black/25"></div>
           <div className="container mx-auto relative z-10 text-center px-4">
             <h1 className="text-5xl font-extrabold mb-4 leading-tight">Plan Your Adventure</h1>
@@ -56,46 +35,47 @@ const ContactForm = () => {
                   </div>
                   <div className="p-8">
                     <form onSubmit={handleSubmit}>
+                      {/* Full Name */}
                       <div className="mb-4">
                         <label htmlFor="fullName" className="block text-sm font-semibold text-gray-700 mb-1">
                           Full Name *
                         </label>
                         <input
                           type="text"
-                          className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                           id="fullName"
                           name="fullName"
-                          value={formData.fullName}
-                          onChange={handleChange}
+                          className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                           required
                         />
+                        <ValidationError prefix="Full Name" field="fullName" errors={state.errors} />
                       </div>
+
+                      {/* Destination */}
                       <div className="mb-4">
                         <label htmlFor="destination" className="block text-sm font-semibold text-gray-700 mb-1">
                           Desired Destination *
                         </label>
                         <input
                           type="text"
-                          className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                           id="destination"
                           name="destination"
-                          value={formData.destination}
-                          onChange={handleChange}
                           placeholder="e.g., Everest Base Camp, Annapurna Circuit"
+                          className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                           required
                         />
+                        <ValidationError prefix="Destination" field="destination" errors={state.errors} />
                       </div>
+
+                      {/* Group Size & Experience Level */}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="mb-4">
                           <label htmlFor="groupSize" className="block text-sm font-semibold text-gray-700 mb-1">
                             Group Size *
                           </label>
                           <select
-                            className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                             id="groupSize"
                             name="groupSize"
-                            value={formData.groupSize}
-                            onChange={handleChange}
+                            className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                             required
                           >
                             <option value="">Select group size</option>
@@ -105,17 +85,16 @@ const ContactForm = () => {
                             <option value="6-10">Medium group (6-10 people)</option>
                             <option value="10+">Large group (10+ people)</option>
                           </select>
+                          <ValidationError prefix="Group Size" field="groupSize" errors={state.errors} />
                         </div>
                         <div className="mb-4">
                           <label htmlFor="experienceLevel" className="block text-sm font-semibold text-gray-700 mb-1">
                             Experience Level
                           </label>
                           <select
-                            className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                             id="experienceLevel"
                             name="experienceLevel"
-                            value={formData.experienceLevel}
-                            onChange={handleChange}
+                            className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                           >
                             <option value="">Select experience level</option>
                             <option value="beginner">Beginner</option>
@@ -123,8 +102,11 @@ const ContactForm = () => {
                             <option value="advanced">Advanced</option>
                             <option value="expert">Expert</option>
                           </select>
+                          <ValidationError prefix="Experience Level" field="experienceLevel" errors={state.errors} />
                         </div>
                       </div>
+
+                      {/* Email & Phone */}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="mb-4">
                           <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">
@@ -132,13 +114,12 @@ const ContactForm = () => {
                           </label>
                           <input
                             type="email"
-                            className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                             id="email"
                             name="email"
-                            value={formData.email}
-                            onChange={handleChange}
+                            className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                             required
                           />
+                          <ValidationError prefix="Email" field="email" errors={state.errors} />
                         </div>
                         <div className="mb-4">
                           <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-1">
@@ -146,35 +127,46 @@ const ContactForm = () => {
                           </label>
                           <input
                             type="tel"
-                            className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                             id="phone"
                             name="phone"
-                            value={formData.phone}
-                            onChange={handleChange}
+                            className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                           />
+                          <ValidationError prefix="Phone" field="phone" errors={state.errors} />
                         </div>
                       </div>
+
+                      {/* Message */}
                       <div className="mb-4">
                         <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-1">
                           Additional Details *
                         </label>
                         <textarea
-                          className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 resize-y"
                           id="message"
                           name="message"
                           rows={6}
-                          value={formData.message}
-                          onChange={handleChange}
+                          className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 resize-y"
                           placeholder="Tell us more about your ideal trekking or travel experience, preferred dates, special requirements, etc."
                           required
                         ></textarea>
+                        <ValidationError prefix="Message" field="message" errors={state.errors} />
                       </div>
+
+                      {/* Submit Button */}
                       <div className="w-full">
-                        <button type="submit" className="w-full flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 text-lg font-semibold rounded-md shadow-md hover:bg-green-700 transition-colors">
+                        <button
+                          type="submit"
+                          disabled={state.submitting}
+                          className="w-full flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 text-lg font-semibold rounded-md shadow-md hover:bg-green-700 transition-colors"
+                        >
                           <LucideSend className="w-5 h-5" />
-                          Send Inquiry
+                          {state.submitting ? "Sending..." : "Send Inquiry"}
                         </button>
                       </div>
+
+                      {/* Success / Error */}
+                      {state.succeeded && <p className="text-green-600 mt-3">Form submitted successfully!</p>}
+                      {/* @ts-ignore */}
+                      {state.errors?.length > 0 && <p className="text-red-600 mt-3">Please fix the errors above.</p>}
                     </form>
                   </div>
                 </div>
@@ -196,7 +188,9 @@ const ContactForm = () => {
                       <a href="tel:+9779856035091" className="text-white text-xl font-bold block mb-2 hover:underline">
                         +977 985-6035091
                       </a>
-                      <small className="opacity-75 text-lg font-bold italic">We are open 7 Days a Week <br /> 07.30am - 09.30pm</small>
+                      <small className="opacity-75 text-lg font-bold italic">
+                        We are open 7 Days a Week <br /> 07.30am - 09.30pm
+                      </small>
                     </div>
                   </div>
 
@@ -220,7 +214,9 @@ const ContactForm = () => {
                         <div>
                           <p className="font-semibold text-gray-700 mb-1">Address</p>
                           <p className="text-gray-600 text-sm mb-0">
-                            Street No. 13,Lakeside, Pokhara<br />Nepal
+                            Street No. 13,Lakeside, Pokhara
+                            <br />
+                            Nepal
                           </p>
                         </div>
                       </div>
@@ -232,7 +228,8 @@ const ContactForm = () => {
                     <div className="p-6">
                       <h5 className="font-bold text-green-600 text-xl mb-3">Quick Response</h5>
                       <p className="text-green-600 text-sm mb-0">
-                        We typically respond to all inquiries within 24 hours during business days to help you plan your trip.
+                        We typically respond to all inquiries within 24 hours during business days to help you plan your
+                        trip.
                       </p>
                     </div>
                   </div>
@@ -243,7 +240,7 @@ const ContactForm = () => {
         </section>
       </main>
     </>
-  )
-}
+  );
+};
 
-export default ContactForm
+export default ContactForm;

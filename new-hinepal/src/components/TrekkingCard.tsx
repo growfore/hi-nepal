@@ -1,5 +1,6 @@
 import Image from "next/image"
 import "./card.css";
+import { LucideTimer } from "lucide-react";
 
 type TCardProps = {
     slug: string,
@@ -20,10 +21,11 @@ export default async function TrekkingCard({ slug, image, title, days }: TCardPr
                         className="trekking-card-image"
                         sizes="(max-width: 768px) 100vw, 400px"
                     />
-                    <p className="trekking-title">{title.split(":")[0]} <br />
+                    <p className="trekking-title">
                         {days &&
-                            <p className="text-lg bg-green-700 px-2 w-fit rounded-md">{days && days.includes(":") ? days : days + " Day(s)"}</p>
+                            <p className="flex items-center justify-center gap-1 p-1 text-lg bg-green-700 px-2 w-fit rounded-md"><LucideTimer/> {days && days.includes(":") ? days : days + " Day(s)"}</p>
                         }
+                        {title.split(":")[0]} <br />
                     </p>
                 </div>
             </div>

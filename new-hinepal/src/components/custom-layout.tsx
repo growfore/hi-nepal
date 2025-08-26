@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import BackToTop from '@/app/_components/back-to-top';
 import WhatsAppButton from './whatsapp-button';
 
 const CustomLayout = ({
@@ -20,7 +19,6 @@ const CustomLayout = ({
           {children}
         </main>
         {footer}
-        <BackToTop />
         <WhatsAppButton />
       </div>
     </>

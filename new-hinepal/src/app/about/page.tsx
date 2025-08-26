@@ -6,7 +6,8 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "About - Hi Nepal Travel and Treks",
-  description: "Know more about Hi Nepal Travel and Treks",
+  description: "Hi Nepal Travels and Treks is a certified travel and trekking agency in Nepal, offering personalized trekking, tours, and adventure sports with years of experience.",
+  keywords: "trekking, tours, adventure sports, travel and trekking agency in nepal", 
   alternates: {
     canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/about"
   },

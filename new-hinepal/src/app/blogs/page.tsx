@@ -5,7 +5,8 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Blogs - Hi Nepal Travel and Treks",
-  description: "Welcome to the Hi Nepal Travels and Treks Blog, where you can discover the amazing trekking stories, adventures, and guidelines. If you are looking to explore various corners of Nepal, our blogs will help you enhance your journey.",
+  description: "Explore Hi Nepal Travels and Treks' blogs for expert trekking tips, seasonal guides, hidden gems, and cultural insights to enhance your Nepal adventure.",
+  keywords: "trekking tips, blogs",
   alternates: {
     canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/blogs"
   },

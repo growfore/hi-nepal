@@ -2,11 +2,11 @@
 
 import { TPackageDetails } from "@/types/types";
 import Image from 'next/image';
-import React  from 'react';
+import React from 'react';
 import GallerySlider from '@/app/_components/gallery-slider';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, HomeIcon as House, MountainSnow, LucideCircle, LucideHeart, LucideEye, LucideList, LucideBackpack, LucideCloudSunRain, LucideCheck, LucideX, LucideMessageCircleQuestion } from 'lucide-react';
+import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, HomeIcon as House, MountainSnow, LucideCircle, LucideHeart, LucideEye, LucideList, LucideBackpack, LucideCloudSunRain, LucideCheck, LucideX, LucideMessageCircleQuestion, LucideChevronDown } from 'lucide-react';
 import { DataIcon } from '@/components/data-icon';
 import { SectionNav } from '@/components/SectionNav';
 import TrustBadge from '@/app/_components/trust-badge';
@@ -31,11 +31,13 @@ export function ItineraryPage({ details, relatedProducts, popularPackages }: { d
             >
                 <div className='absolute inset-0 bg-black/10'></div>
                 <div className='container mx-auto px-4 md:px-6 relative z-10 text-center'>
-                    <h1 className='text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg'>
+                    <h1 className='text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg shadow'>
                         {details.title}
                     </h1>
                     <div className='mt-8'>
-                        <TrustBadge />
+                        <Button
+                            onClick={() => window.scrollTo({ top: 500, behavior: "smooth" })}
+                         size={'lg'} className="cursor-pointer bg-green-700 rounded-3xl hover:bg-green-500 ">Explore <LucideChevronDown /></Button>
                     </div>
                 </div>
             </div>
@@ -48,8 +50,8 @@ export function ItineraryPage({ details, relatedProducts, popularPackages }: { d
                 {/* Main Content Area */}
                 <section className='lg:col-span-2'>
                     {/* Data Icons Section */}
-
-                    <div className="bg-green-50 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-12 p-6 bg-light-blue-bg rounded-lg shadow-sm">
+                    <TrustBadge />
+                    <div className="mt-4 bg-green-50 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-12 p-6 bg-light-blue-bg rounded-lg shadow-sm">
                         {details?.title && <DataIcon icon={MountainSnow} k='Destination' v={details.title} />}
                         {details?.duration && <DataIcon icon={Clock} k='Duration' v={details.duration + " Days"} />}
                         {details?.tripGrade && <DataIcon icon={CircleGauge} k='Trip Grade' v={details.tripGrade ?? "-"} />}

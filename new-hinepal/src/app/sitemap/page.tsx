@@ -5,10 +5,11 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Sitemap",
-  description: "Sitemap",
+  description: "Discover all Hi Nepal Travels and Treks' trek routes, adventures, tours, and useful pages in one place, explore Nepal with our travel and trekking agency in Nepal.",
   alternates: {
     canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/sitemap"
   },
+  keywords: "travel and trekking agency in nepal",
   robots: {
     index: true,
     follow: true,

@@ -17,9 +17,8 @@ import { Metadata } from 'next';
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Hi Nepal Travels and Treks Pvt. Ltd. | Home",
-    description: "Hi Nepal Travels and Treks Pvt. Ltd.",
-    keywords:
-      "Hi Nepal,Trekking,Adventure, Best trekking agency in nepal,Visit Nepal 2025,Best place to visit in Nepal",
+    description: "Hi Nepal Travels and Treks is a trusted travel and trekking agency in Nepal, offering unforgettable treks, tours, and adventure holidays with expert guides.",
+    keywords:"trekking agency in nepal, travel agency in nepal",
     alternates: {
       canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/",
     },

@@ -5,11 +5,17 @@ import TrekkingCard from "@/components/TrekkingCard";
 import Link from "next/link";
 import { ChevronRight, LucideChevronRight } from "lucide-react";
 import { formatSlug } from "@/helper/formatSlug";
+import { param } from "jquery";
 
 export async function generateMetadata({ params }: any): Promise<any> {
+
     return {
         title: formatSlug(params.activity) + " - Hi Nepal Travel and Treks",
-        description: `Details about ${params.activity}`,
+        description: params.activity == "tours"  ? 
+        "Explore Nepal's rich culture and landscapes with Hi Nepal Travels and Treks. Offering guided multi-day and day tours, nature & wildlife experiences."
+        :
+        "A leading trekking agency in Nepal offering diverse trekking routes across regions like Annapurna, Everest, Manaslu, Langtang, Dolpo, and Kanchenjunga.",
+        keywords: params.activity == "tours" ? "multi-day and day tours " : "trekking, trekking agency in nepal",
         alternates: {
             canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + `/activities/${params.activity}` || " ",
         },
@@ -52,6 +58,9 @@ export default async function ActivitySingle({ params }: { params: Promise<{ act
                             <p className="text-left md:text-center  mt-4 italic text-xl">
                                 Enhance your journey with one of the best sightseeing tours in Nepal. Learn about Nepalese unique culture, traditional rituals, friendly people, and stunning natural and manmade attractions with a planned itinerary to make your trip memorable.
                             </p>
+                            <div className="lg:px-32 flex flex-col gap-2 px-4 pt-4">
+                                <div className="flex items-center gap-1 text-green-700"><Link href={"/"}>Home</Link><LucideChevronRight /> <Link href={`/activities/${activity}`}>{activity.charAt(0).toUpperCase() + activity.slice(1)} </Link> <ChevronRight /></div>
+                            </div>
                         </div>
                     </div> :
                     <div className="md:min-h-[40vh] mt-24  md:mt-8 flex flex-col p-4  md:p-8 md:items-center border-b-2 border-black">
@@ -59,11 +68,11 @@ export default async function ActivitySingle({ params }: { params: Promise<{ act
                         <p className="text-left md:text-center  mt-4 italic text-xl">
                             Embark some of the best trekking in Nepal, exploring the Himalayan regions, strolling around some of the highest peaks such as Mount Everest, Annapurna, Manaslu, and many more.
                         </p>
+                        <div className="lg:px-32 flex flex-col gap-2 px-4 pt-4">
+                            <div className="flex items-center gap-1 text-green-700"><Link href={"/"}>Home</Link><LucideChevronRight /> <Link href={`/activities/${activity}`}>{activity.charAt(0).toUpperCase() + activity.slice(1)} </Link> <ChevronRight /></div>
+                        </div>
                     </div>
             }
-            <div className="lg:px-32 flex flex-col gap-2 px-4">
-                <div className="flex items-center gap-1"><Link href={"/"}>Home</Link><LucideChevronRight /> <Link href={`/activities/${activity}`}>{activity.charAt(0).toUpperCase() + activity.slice(1)} </Link> <ChevronRight /></div>
-            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:px-32 p-4">
                 {/* @ts-ignore */}
                 {data && data?.length > 0 && data.map((d, idx) => {

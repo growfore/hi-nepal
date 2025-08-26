@@ -3,7 +3,8 @@ import React from "react";
 
 export const metadata: Metadata = {
   title: "Terms and Conditions",
-  description: "Terms and conditions",
+  description: "Review Hi Nepal Travels and Treks’ Terms and Conditions for booking policies, payment details, cancellations, insurance requirements, and liability information.",
+  keywords: "terms and conditions",
   alternates: {
     canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/terms-and-conditions"
   },

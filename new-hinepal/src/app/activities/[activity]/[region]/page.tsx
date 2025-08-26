@@ -7,12 +7,57 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: any): Promise<any> {
+    const { region, activity } = params;
+
+    const title = `${formatSlug(region)} - Hi Nepal Travel and Treks`;
+
+    let description = "";
+    let keywords = "";
+
+    if (region.includes("annapurna-region")) {
+        description =
+            "Hi Nepal Travels and Treks, a trusted travel agency in Nepal, offers Annapurna Region treks with expert guides. Explore with a leading trekking agency in Nepal.";
+        keywords = "annapurna region, trekking agency in nepal, travel agency in nepal";
+    }
+    if (region.includes("everest-region")) {
+        description =
+            "Experience the Everest Region with Hi Nepal Travel and Treks. Trusted guides, breathtaking views, and unforgettable treks await you.";
+        keywords = "everest region, trekking agency in nepal, travel agency in nepal";
+    }
+    if (region.includes("multi-days-tour")){
+        description = "Discover all planned Hi Nepal Travels and Treks' multi-day tours, explore Nepal with our travel and trekking agency in Nepal."
+        keywords="multi-day tour, travel agency in nepal"
+    }
+    if (region.includes("manaslu-region")){
+        description = "Hi Nepal Travels and Treks, a premier trekking agency in Nepal, offers unforgettable journeys in the Manaslu Region, remote trekking with diverse beauty.",
+        keywords = "manaslu region, trekking agency in nepal"
+    }
+    if (region.includes("dolpo-region")){
+        description = "Hi Nepal Travels and Treks, a reputed travel agency in Nepal, offers Dolpo Region treks with expert guides. Explore with a leading trekking agency in Nepal.",
+        keywords = "dolpo region, travel agency in nepal, trekking agency in nepal"
+    }
+    if (region.includes("nature-wildlife")){
+        description = "Explore Nepal's rich biodiversity with Hi Nepal Travels and Treks. Experience Chitwan & Bardiya National Parks with guided by a trusted trekking agency in Nepal.",
+        keywords = "trekking agency in nepal"
+    }
+    if (region.includes("day-tours")){
+        description = "Hi Nepal Travels and Treks offers exciting day tours in Nepal, exploring cultural sites, natural beauty, and adventure sports with the best travel and tour agency.",
+        keywords = "day tours in nepal, travel and trekking agency"
+    }
+
+    if (region.includes("langtang-region")){
+        description = "Explore Nepal's Langtang Region with Hi Nepal Travels and Treks. Witness serene trails, Tibetan-influenced culture, and stunning Himalayan views on our guided treks.",
+        keywords = "langtang region"
+    }
+
     return {
         title: formatSlug(params.region) + " - Hi Nepal Travel and Treks",
-        description: `Details about ${params.activity} in ${params.region}`,
+        description: description || undefined,
+        keywords: keywords || undefined,
         alternates: {
             canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + `/activities/${params.activity}/${params.region}` || " ",
         },
+
         robots: {
             index: true,
             follow: true,
@@ -48,7 +93,7 @@ export default async function RegionPage({ params }: { params: Promise<{ activit
     return (
         <div className="mt-24 flex flex-col gap-4 p-4">
             <div className="md:min-h-[40vh] mt-12  flex flex-col p-4  md:p-8 md:items-center border-b-2 border-black">
-                <h1 className="font-bold text-6xl lg:text-9xl">{formatSlug(region)}</h1>
+                <h1 className="font-bold md:text-center text-6xl lg:text-9xl">{region.includes("wildlife") ? "Nature and Wildlife Tours" : formatSlug(region)}</h1>
                 {
                     region.includes("everest") &&
                     <p className="text-left md:text-center md:mt-4 italic text-xl">
@@ -171,9 +216,9 @@ export default async function RegionPage({ params }: { params: Promise<{ activit
                     region.includes("dolpo-region") &&
                     <p className="text-lg text-justify font-medium">
                         Dolpo's trekking visitors are greeted by landscapes of drama, arid valleys, rocky cliffs, azure Phoksundo Lake, and towering snow-white peaks. The region is equally culturally rich, with centuries-old monasteries, traditional villages, and the Bon faith, dating back to pre-Buddhism. Wind-whipped prayer flags, chortens, and mani walls reflect the deep spiritual nature of the place.
-                        <br />Compared to the more touristy treks of Nepal, Dolpo provides an unparalleled sense of isolation and tranquility. Treks such as the 
-                        <Link className="text-green-700" href={"/upper-dolpo-trek"}> Upper Dolpo Trek</Link>, 
-                        <Link className="text-green-700" href={"/lower-dolpo-trek"}> Lower Dolpo Trek</Link>, and 
+                        <br />Compared to the more touristy treks of Nepal, Dolpo provides an unparalleled sense of isolation and tranquility. Treks such as the
+                        <Link className="text-green-700" href={"/upper-dolpo-trek"}> Upper Dolpo Trek</Link>,
+                        <Link className="text-green-700" href={"/lower-dolpo-trek"}> Lower Dolpo Trek</Link>, and
                         <Link className="text-green-700" href={"/shey-phoksundo-lake-trek"}> Shey Phoksundo Lake Trek</Link> introduce one to both natural splendor and an age-old way of life that remains unscathed. For those seeking an off-the-beaten-path adventure filled with raw beauty and cultural depth, Dolpo is a Himalayan secret gem. Explore this hidden gem with Hi Nepal Travels and Treks, a reliable trekking agency in Nepal.
                     </p>
                 }

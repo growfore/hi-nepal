@@ -32,7 +32,7 @@ export function ItineraryPage({ details, relatedProducts, popularPackages }: { d
             >
                 <div className='absolute inset-0 bg-black/10'></div>
                 <div className='container mx-auto px-4 md:px-6 relative z-10 text-center'>
-                    <h1 className='text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg shadow'>
+                    <h1 className='text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight'>
                         {details.title}
                     </h1>
                     <div className='mt-8'>

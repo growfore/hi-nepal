@@ -19,7 +19,6 @@ const CustomLayout = ({
           {children}
         </main>
         {footer}
-        <WhatsAppButton />
       </div>
     </>
   );

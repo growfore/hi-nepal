@@ -46,7 +46,7 @@ const Activities = async () => {
             </p>
           </div>
         </div>
-        <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-5 gap-y-8 justify-items-center'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 '>
           {activities.map((activity, index) => (
             <div key={index} className='flex flex-col items-center text-center'>
               <div className='w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mb-4 shadow-md'>

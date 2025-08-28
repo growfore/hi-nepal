@@ -14,10 +14,13 @@ import {
 import { TNavBar } from '@/types/types';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { usePathname, useRouter } from 'next/navigation';
 
 export function BottomNav({ navBar }: { navBar: TNavBar }) {
     const [topValue, setTopValue] = useState(60);
     const [disableHover, setDisableHover] = useState(false);
+    const path = usePathname();
+    const destination = path.slice(1);
 
     const handleClick = () => {
         setDisableHover(true);
@@ -96,7 +99,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                 {/* mobile menu */}
                 <div className='flex gap-2'>
                     <div className="flex justify-center items-center">
-                        <Link href={"/booking"} className='hover:cursor-pointer'>
+                        <Link href={`/booking?destination=${destination}`} className='hover:cursor-pointer'>
                             <Button name='navigation-menu' title='open navigation menu' size={'lg'} className='md:p-8 text-lg p-4'>Book Now</Button>
                         </Link>
                     </div>

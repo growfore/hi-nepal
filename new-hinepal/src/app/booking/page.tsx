@@ -1,4 +1,8 @@
 import ContactForm from "@/components/pages/contact-page"
+import endpoints from "@/constant/endpoints";
+import { TPackageDetails } from "@/types/types";
+import { get } from "@/utils/request-hander";
+import { notFound } from "next/navigation";
 
 export const metadata = {
   title: "Plan Your Adventure | Hi Nepal Treks",
@@ -13,6 +17,22 @@ export const metadata = {
   },
 }
 
-export default function BookingPage() {
-  return <ContactForm />
+export default async function BookingPage() {
+  let packages: TPackageDetails[] = [];
+  await get({
+    endPoint: endpoints.PACKAGES,
+    token: '',
+    success: (_, res) => {
+      packages.push(...res.data.packages);
+    },
+    failure: (message) => {
+      notFound();
+    },
+  });
+
+  return (
+    <>
+      <ContactForm packages={packages} />
+    </>
+  )
 }

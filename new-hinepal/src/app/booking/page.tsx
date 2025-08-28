@@ -30,9 +30,11 @@ export default async function BookingPage() {
     },
   });
 
+  const sortedPackges = packages.sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()))
+
   return (
     <>
-      <ContactForm packages={packages} />
+      <ContactForm packages={sortedPackges} />
     </>
   )
 }

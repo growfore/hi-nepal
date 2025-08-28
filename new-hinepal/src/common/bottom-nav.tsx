@@ -20,11 +20,31 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
     const [topValue, setTopValue] = useState(60);
     const [disableHover, setDisableHover] = useState(false);
     const path = usePathname();
-    const destination = path.slice(1);
+
+    function getDestination(path: string) {
+        const staticPaths = [
+            "/",
+            "/booking",
+            "/adventure",
+            "/about-us",
+            "/blogs",
+            "/treks/everest-base-camp",
+            "/guides/professional"
+        ];
+        const slashCount = path.split("/").length - 1;
+
+        if (staticPaths.includes(path) || slashCount > 2) {
+            return "";
+        }
+
+        return path.startsWith("/") ? path.slice(1) : path;
+    }
+
+    const destination = getDestination(path);
 
     const handleClick = () => {
         setDisableHover(true);
-        setTimeout(() => setDisableHover(false), 500); // re-enable after 500ms
+        setTimeout(() => setDisableHover(false), 500);
     };
 
     useEffect(() => {

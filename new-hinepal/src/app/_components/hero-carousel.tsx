@@ -29,7 +29,7 @@ export function HeroCarousel({ carousels }: { carousels: TCarouselItemType[] }) 
         >
             <CarouselContent>
                 {carousels?.map((carousel, index) => (
-                    <CarouselItem key={index} className='relative h-[85vh] w-full'>
+                    <CarouselItem key={index} className='relative h-[90vh] w-full'>
                         <div className='flex flex-col'>
                             <Image
                                 src={carousel.image}

@@ -1,7 +1,8 @@
 import PackageCard from '@/components/package-card';
 import endpoints from '@/constant/endpoints';
-import { TPackages } from '@/types/types';
+import { TPackageDetails, TPackages } from '@/types/types';
 import { get } from '@/utils/request-hander';
+import { usePopularPackages } from '@/zustand/store';
 import Link from 'next/link';
 import React from 'react';
 
@@ -9,7 +10,7 @@ const PopularPackages = async () => {
   let packages: TPackages = [];
   await get({
     endPoint: endpoints.PACKAGES,
-    params: { query: 'everest' },
+    // params: { query: 'everest' },
     token: '',
     success: (message, res) => {
       packages.push(...res.data.packages);
@@ -19,25 +20,20 @@ const PopularPackages = async () => {
     },
   });
 
-  // const wantedTitles = [
-  //   "Chitwan National Park Tour",
-  //   "Bardiya National Park Tour ",
-  //   "Sarangkot Pokhara Tour",
-  //   "World Peace Pagoda Tour",
-  //   "Panchase Trek"
-  // ];
+  const popularTreks = [
+    "everest-base-camp-trek",
+    "annapurna-base-camp-trek",
+    "manaslu-circuit-trek",
+    "mardi-himal-trek",
+    "kathmandu-tour-package",
+    "pokhara-valley-tour"
+  ]
 
-  // const order = [
-  //   "World Peace Pagoda Tour",
-  //   "Chitwan National Park Tour",
-  //   "Bardiya National Park Tour ",
-  //   "Panchase Trek",
-  //   "Sarangkot Pokhara Tour"
-  // ];
-
-  // const filteredSorted = packages
-  //   .filter(pkg => wantedTitles.includes(pkg.title))
-  //   .sort((a, b) => order.indexOf(a.title) - order.indexOf(b.title));
+  const filteredPackages = packages.filter(pkg =>
+    popularTreks.includes(pkg.slug))
+    .sort(
+      (a, b) =>
+        popularTreks.indexOf(a.slug) - popularTreks.indexOf(b.slug))
 
 
   return (
@@ -53,15 +49,15 @@ const PopularPackages = async () => {
             </h2>
             <p className='text-gray-600 text-base md:text-lg leading-relaxed mt-4'>
               Are you looking for Premium Trekking or Tour packages in Nepal?
-              Get the best package with one of the best travel agencies in Nepal. 
+              Get the best package with one of the best travel agencies in Nepal.
               Hi Nepal Travel and Treks Pvt. Ltd. offers
             </p>
           </div>
         </div>
         <div className='mt-8'>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {packages.map(
-              (item: TPackages[0], index) =>
+            {filteredPackages.map(
+              (item: any, index) =>
               (
                 <PackageCard
                   key={index}

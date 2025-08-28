@@ -1,4 +1,5 @@
 "use server";
+
 import endpoints from '@/constant/endpoints';
 import { TPackageDetails } from '@/types/types';
 import { get } from '@/utils/request-hander';
@@ -10,6 +11,7 @@ import { formatSlug } from '@/helper/formatSlug';
 import { ItineraryPage } from '@/components/pages/itinerary-page';
 import { getBlogSingle } from '@/helper/getBlog';
 import { BlogPage } from '@/components/pages/blog-page';
+import { usePopularPackages } from '@/zustand/store';
 
 export async function generateMetadata({
     params,
@@ -186,7 +188,8 @@ const activites = async ({ params }: { params: Params }) => {
 
     const filteredTours: TPackageDetails[] = packages.filter(pkg => popularTours.includes(pkg.slug))
     const pacakgesToPass: TPackageDetails[] = params.slug.includes("trek") ? filteredTreks : filteredTours
-
+    usePopularPackages.getState().setTreks(filteredTreks);
+    usePopularPackages.getState().setTours(filteredTours);
     relatedProducts = destinationPackages.filter((pkg: any) => pkg.id !== details.id);
 
     return (

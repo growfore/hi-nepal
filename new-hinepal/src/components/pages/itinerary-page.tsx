@@ -1,12 +1,11 @@
 "use client";
 
 import { TPackageDetails } from "@/types/types";
-import Image from 'next/image';
 import React from 'react';
 import GallerySlider from '@/app/_components/gallery-slider';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, HomeIcon as House, MountainSnow, LucideCircle, LucideHeart, LucideEye, LucideList, LucideBackpack, LucideCloudSunRain, LucideCheck, LucideX, LucideMessageCircleQuestion, LucideChevronDown } from 'lucide-react';
+import { Calendar, Ticket, CarFront, CircleGauge, Clock, CloudSunRain, HomeIcon as House, MountainSnow, LucideChevronDown } from 'lucide-react';
 import { DataIcon } from '@/components/data-icon';
 import { SectionNav } from '@/components/SectionNav';
 import TrustBadge from '@/app/_components/trust-badge';

@@ -13,11 +13,11 @@ export default function BlogCard({ title, excerpt, image, slug }: TBlogCardProps
         <div>
             <Link
                 href={`/${slug}`}
-                className="flex flex-col bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100"
+                className="flex flex-col bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 h-[420px]"
             >
-                <div className="relative h-64 w-full">
+                <figure className="relative h-64 w-full">
                     <img src={image || ""} alt={title} className="w-full h-full object-cover" loading="lazy" />
-                </div>
+                </figure>
                 <div className="p-6 flex flex-col gap-3">
                     <h2
                         className="text-xl font-bold text-gray-900 leading-tight line-clamp-2"

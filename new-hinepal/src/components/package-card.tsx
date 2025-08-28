@@ -1,7 +1,6 @@
 "use server";
 
 import { TDestinationSingle, TPackages } from '@/types/types';
-import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { Clock, Users, MapPin } from 'lucide-react';
@@ -39,11 +38,11 @@ const PackageCard = (props: TProps) => {
             <ul className='flex justify-around w-full'>
               <li className='flex items-center gap-1'>
                 <Clock className='w-4 h-4' />
-                {item.duration}
+                {item.duration} {parseInt(item.duration) == 1 ? "Day" : "Days"}
               </li>
               <li className='flex items-center gap-1'>
                 <Users className='w-4 h-4' />
-                People: {item.groupSize}
+                Group Size: {item.groupSize || "-"}
               </li>
               <li className='flex items-center gap-1'>
                 <MapPin className='w-4 h-4' />
@@ -52,12 +51,12 @@ const PackageCard = (props: TProps) => {
             </ul>
           </div>
           <div className='p-6'>
-            <h3 className='text-xl font-bold text-dark-blue-900 mb-2'>
+            <h3 className='text-2xl font-bold text-dark-blue-900 mb-2'>
               <Link
                 title={item.title}
                 href={`/${item.slug}`}
               >
-                {item.title.split(":")[0] + "-" + item.duration + " Days"}
+                {item.title.split(":")[0]} 
               </Link>
             </h3>
           </div>

@@ -1,7 +1,6 @@
 import { TSiteInformation } from '@/types/types';
 import siteStore from '@/zustand/store';
 import { LucidePhone, LucideMail, LucideMapPin, LucideCheck, LucideVerified } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export function Footer() {

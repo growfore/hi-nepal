@@ -5,7 +5,7 @@ import { ServiceCard } from '@/components/service-card';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "About - Hi Nepal Travel and Treks",
+  title: "About - Hi Nepal Travels and Treks",
   description: "Hi Nepal Travels and Treks is a certified travel and trekking agency in Nepal, offering personalized trekking, tours, and adventure sports with years of experience.",
   keywords: "trekking, tours, adventure sports, travel and trekking agency in nepal", 
   alternates: {
@@ -51,7 +51,7 @@ const About = () => {
                 </div>
                 <div className='text-gray-600 text-base md:text-lg leading-relaxed space-y-4'>
                   <p>
-                    Hi Nepal Trek and Travels Pvt. Ltd. is a certified trekking and travel agency, known for its years of high-quality service in the tourism industry of Nepal. With over 17+ years of experience, our goal is to assist you in exploring all the corners of Nepal and make your journey worthwhile, which will last in your memories forever.
+                    Hi Nepal Travels and Treks Pvt. Ltd. is a certified trekking and travel agency, known for its years of high-quality service in the tourism industry of Nepal. With over 17+ years of experience, our goal is to assist you in exploring all the corners of Nepal and make your journey worthwhile, which will last in your memories forever.
                     Our team of experienced guides and travel experts which are committed to providing you safe, responsible, and comfortable tour. We take pride in our professionalism, local knowledge, and dedication towards sustainable tourism. From the exciting trekking to the thrilling adventure sports, we lay out the best according to our demands and desires.
                   </p>
                 </div>
@@ -131,7 +131,7 @@ const About = () => {
                 </h2>
                 <p className='text-gray-600 text-base md:text-lg leading-relaxed mt-4'>
                   We aim to provide you with high-quality, safe, and sustainable travel experiences that will enhance your journey with us. We believe travel is more than just visiting places; it's about creating lasting memories. With our years of expertise, we desire to be a part of your happiness and excitement in every step, guiding you through the breathtaking mountains, thrilling adventures, and vibrant communities.
-                  Your journey with Hi Nepal Treks and Travels is not just a trip, it’s a story of adventure, joy, and growth, which we are honored to help you write.
+                  Your journey with Hi Nepal Travels and Treks is not just a trip, it’s a story of adventure, joy, and growth, which we are honored to help you write.
                 </p>
               </div>
             </div>

@@ -117,10 +117,12 @@
     @apply border-border outline-ring/50;
     /* font-family: "Jost", sans-serif; */
   }
+
   body {
     @apply bg-background text-foreground;
   }
-  .active{
+
+  .active {
     background-color: #00A63E;
   }
 }

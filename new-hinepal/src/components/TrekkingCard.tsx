@@ -1,34 +1,48 @@
-import Image from "next/image"
-import "./card.css";
-import { LucideTimer } from "lucide-react";
-import { getProxyUrl } from "@/utils/imageProxy";
+import { LucideTimer } from "lucide-react"
+import { getProxyUrl } from "../utils/imageProxy"
+import Link from "next/link"
 
 type TCardProps = {
-    slug: string,
-    image: string,
-    title: string,
-    days?: string | null,
+  slug: string
+  image: string
+  title: string
+  days?: string | null
 }
 
-export default async function TrekkingCard({ slug, image, title, days }: TCardProps) {
-    return (
-        <div className="trekking-card-wrapper">
-            <div className="trekking-card">
-                <div className="trekking-card-image-container">
-                    <img
-                        src={getProxyUrl(image)}
-                        alt={title}
-                        className="trekking-card-image w-fill h-fill object-cover"
-                        sizes="(max-width: 768px) 100vw, 400px"
-                    />
-                    <p className="trekking-title">
-                        {days &&
-                            <p className="flex items-center justify-center gap-1 p-1 text-lg bg-green-700 px-2 w-fit rounded-md"><LucideTimer/> {days && days.includes(":") ? days : days + " Day(s)"}</p>
-                        }
-                        {title.split(":")[0]} <br />
-                    </p>
-                </div>
+export default function TrekkingCard({ slug, image, title, days }: TCardProps) {
+  return (
+      <div className="max-w-[380px]">
+        <Link
+          href={`/${slug}`}
+          className="block no-underline text-inherit focus:outline-2 focus:outline-blue-500 focus:outline-offset-2 hover:-translate-y-0.5 transition-transform duration-300 ease-in-out"
+        >
+          <div className="relative overflow-hidden rounded-lg shadow-lg bg-white hover:shadow-2xl transition-all duration-300 ease-in-out">
+            <div className="relative aspect-[16/9] w-[420px] overflow-hidden">
+              <img
+                src={getProxyUrl(image) || "/placeholder.svg"}
+                alt={title}
+                className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 400px"
+              />
+
+              {/* Dark gradient overlay for better text contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+
+              {/* Title overlay with improved contrast */}
+              <div className="absolute bottom-6 left-6 md:bottom-4 md:left-4 text-white z-10">
+                {days && (
+                  <div className="flex items-center gap-1 p-1 text-lg bg-green-700 px-2 w-fit rounded-md mb-2">
+                    <LucideTimer className="w-4 h-4" />
+                    {days.includes(":") ? days : `${days} Day(s)`}
+                  </div>
+                )}
+                <h3 className="text-3xl md:text-2xl sm:text-xl font-bold m-0 leading-tight text-white drop-shadow-2xl">
+                  {title.split(":")[0]}
+                </h3>
+              </div>
             </div>
-        </div>
-    )
+          </div>
+        </Link>
+      </div>
+  )
 }

@@ -3,7 +3,7 @@
 import { TDestinationSingle, TPackages } from '@/types/types';
 import Link from 'next/link';
 import React from 'react';
-import { Clock, Users, MapPin } from 'lucide-react';
+import { Clock, Users, MapPin, LucideTimer } from 'lucide-react';
 import { getProxyUrl } from '@/utils/imageProxy';
 
 type TProps = {
@@ -16,8 +16,11 @@ const PackageCard = (props: TProps) => {
 
   return (
     <div className='w-full'>
-      <div className='bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-[420px]'>
-        <figure className='w-full h-64 relative'>
+      <div className='bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-[340px] relative'>
+        <div className='absolute top-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full z-10'>
+          {item?.destination?.name}
+        </div>
+        <figure className='w-full h-56 relative'>
           <Link
             aria-label={item.title}
             href={`/${item.slug}`}
@@ -33,30 +36,15 @@ const PackageCard = (props: TProps) => {
             />
           </Link>
         </figure>
-        <div className=''>
-          <div className='bg-green-500 text-white py-2 px-4 flex justify-around items-center text-sm'>
-            <ul className='flex justify-around w-full'>
-              <li className='flex items-center gap-1'>
-                <Clock className='w-4 h-4' />
-                {item.duration} {parseInt(item.duration) == 1 ? "Day" : "Days"}
-              </li>
-              <li className='flex items-center gap-1'>
-                <Users className='w-4 h-4' />
-                Group Size: {item.groupSize || "-"}
-              </li>
-              <li className='flex items-center gap-1'>
-                <MapPin className='w-4 h-4' />
-                {item.destination?.name}
-              </li>
-            </ul>
-          </div>
-          <div className='p-6'>
+        <div className='p-4'>
+          <div className=''>
+            <p className="flex items-center justify-center gap-1 p-1 text-lg bg-green-700 px-2 w-fit rounded-md text-white"><LucideTimer /> {item?.duration && item.duration.includes(":") ? item.duration : item.duration + " Day(s)"}</p>
             <h3 className='text-2xl font-bold text-dark-blue-900 mb-2'>
               <Link
                 title={item.title}
                 href={`/${item.slug}`}
               >
-                {item.title.split(":")[0]} 
+                {item.title.split(":")[0]}
               </Link>
             </h3>
           </div>

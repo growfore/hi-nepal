@@ -26,7 +26,7 @@ export function ItineraryPage({ details, relatedProducts, popularPackages }: { d
     return (
         <div>
             <div
-                className='relative h-[90vh]  bg-center bg-cover flex items-center justify-center text-white'
+                className='relative h-[100vh]  bg-center bg-cover flex items-center justify-center text-white'
                 style={{ backgroundImage: `url(${details.banner})` }}
             >
                 <div className='absolute inset-0 bg-black/10'></div>

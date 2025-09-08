@@ -60,9 +60,9 @@ const PopularDestinations = async () => {
                           className='w-full h-full object-cover'
                         />
                       </figure>
-                      <div className='absolute top-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full z-10'>
+                      {/* <div className='absolute top-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full z-10'>
                         {d.activity.name}
-                      </div>
+                      </div> */}
                       <div className='absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white'>
                         <h3 className='text-xl font-bold'>
                           {d.name}

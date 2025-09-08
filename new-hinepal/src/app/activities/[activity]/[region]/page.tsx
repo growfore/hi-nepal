@@ -157,7 +157,7 @@ export default async function RegionPage({ params }: { params: Promise<{ activit
                     <div className="flex gap-1"><Link href={"/"}>Home</Link><LucideChevronRight /> <Link href={`/activities/${activity}`}>{activity?.charAt(0).toUpperCase() + activity.slice(1)} </Link> <LucideChevronRight /> <Link href={`/activities/${activity}/${region}`}> {region.split("-")[0].charAt(0).toUpperCase() + region.split("-")[0].slice(1) + " " + region.split("-")[1].charAt(0).toUpperCase() + region.split("-")[1].slice(1)}</Link></div>
                 </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:px-32">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:px-32">
                 {/* @ts-ignore */}
                 {data && data?.length > 0 && data?.map((d, idx) => {
                     return (

@@ -5,7 +5,6 @@ import TrekkingCard from "@/components/TrekkingCard";
 import Link from "next/link";
 import { ChevronRight, LucideChevronRight } from "lucide-react";
 import { formatSlug } from "@/helper/formatSlug";
-import { param } from "jquery";
 
 export async function generateMetadata({ params }: any): Promise<any> {
 
@@ -73,7 +72,7 @@ export default async function ActivitySingle({ params }: { params: Promise<{ act
                         </div>
                     </div>
             }
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:px-32 p-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 lg:px-24 p-4">
                 {/* @ts-ignore */}
                 {data && data?.length > 0 && data.map((d, idx) => {
                     return (

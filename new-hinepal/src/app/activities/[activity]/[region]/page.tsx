@@ -24,30 +24,30 @@ export async function generateMetadata({ params }: any): Promise<any> {
             "Experience the Everest Region with Hi Nepal Travel and Treks. Trusted guides, breathtaking views, and unforgettable treks await you.";
         keywords = "everest region, trekking agency in nepal, travel agency in nepal";
     }
-    if (region.includes("multi-days-tour")){
+    if (region.includes("multi-days-tour")) {
         description = "Discover all planned Hi Nepal Travels and Treks' multi-day tours, explore Nepal with our travel and trekking agency in Nepal."
-        keywords="multi-day tour, travel agency in nepal"
+        keywords = "multi-day tour, travel agency in nepal"
     }
-    if (region.includes("manaslu-region")){
+    if (region.includes("manaslu-region")) {
         description = "Hi Nepal Travels and Treks, a premier trekking agency in Nepal, offers unforgettable journeys in the Manaslu Region, remote trekking with diverse beauty.",
-        keywords = "manaslu region, trekking agency in nepal"
+            keywords = "manaslu region, trekking agency in nepal"
     }
-    if (region.includes("dolpo-region")){
+    if (region.includes("dolpo-region")) {
         description = "Hi Nepal Travels and Treks, a reputed travel agency in Nepal, offers Dolpo Region treks with expert guides. Explore with a leading trekking agency in Nepal.",
-        keywords = "dolpo region, travel agency in nepal, trekking agency in nepal"
+            keywords = "dolpo region, travel agency in nepal, trekking agency in nepal"
     }
-    if (region.includes("nature-wildlife")){
+    if (region.includes("nature-wildlife")) {
         description = "Explore Nepal's rich biodiversity with Hi Nepal Travels and Treks. Experience Chitwan & Bardiya National Parks with guided by a trusted trekking agency in Nepal.",
-        keywords = "trekking agency in nepal"
+            keywords = "trekking agency in nepal"
     }
-    if (region.includes("day-tours")){
+    if (region.includes("day-tours")) {
         description = "Hi Nepal Travels and Treks offers exciting day tours in Nepal, exploring cultural sites, natural beauty, and adventure sports with the best travel and tour agency.",
-        keywords = "day tours in nepal, travel and trekking agency"
+            keywords = "day tours in nepal, travel and trekking agency"
     }
 
-    if (region.includes("langtang-region")){
+    if (region.includes("langtang-region")) {
         description = "Explore Nepal's Langtang Region with Hi Nepal Travels and Treks. Witness serene trails, Tibetan-influenced culture, and stunning Himalayan views on our guided treks.",
-        keywords = "langtang region"
+            keywords = "langtang region"
     }
 
     return {
@@ -153,6 +153,18 @@ export default async function RegionPage({ params }: { params: Promise<{ activit
                         Explore the diverse natural beauty with Hi Nepal Travels and Treks, one of the best tour operators in Nepal.
                     </p>
                 }
+                {
+                    region.includes("kanchenjunga") &&
+                    <p className="text-left md:text-center md:mt-4 italic text-xl">
+                        The <Link className="text-green-700" href={"https://hinepaltreks.com/activities/trekking/kanchenjunga-region"}>Kanchenjunga Region </Link>
+                        in Nepal offers remote
+                        <Link className="text-green-700" href={"https://hinepaltreks.com/activities/trekking"}>trekking</Link>
+                        with stunning Himalayan scenery and rich cultural exposure. Trekkers can visit
+                        <Link className="text-green-700" href={"https://hinepaltreks.com/kanchenjunga-north-base-camp-trek"}> Kanchenjunga North</Link>  or
+                        <Link className="text-green-700" href={"https://hinepaltreks.com/kanchenjunga-south-base-camp-trek"}> South Base Camps</Link>, and the
+                        <Link className="text-green-700" href={"https://hinepaltreks.com/kanchenjunga-circuit-trek"}> Kanchenjunga Circuit Trek</Link> combines both routes.
+                    </p>
+                }
                 <div className="lg:px-32 flex flex-col gap-2 mt-4 text-green-700">
                     <div className="flex gap-1"><Link href={"/"}>Home</Link><LucideChevronRight /> <Link href={`/activities/${activity}`}>{activity?.charAt(0).toUpperCase() + activity.slice(1)} </Link> <LucideChevronRight /> <Link href={`/activities/${activity}/${region}`}> {region.split("-")[0].charAt(0).toUpperCase() + region.split("-")[0].slice(1) + " " + region.split("-")[1].charAt(0).toUpperCase() + region.split("-")[1].slice(1)}</Link></div>
                 </div>
@@ -220,6 +232,21 @@ export default async function RegionPage({ params }: { params: Promise<{ activit
                         <Link className="text-green-700" href={"/upper-dolpo-trek"}> Upper Dolpo Trek</Link>,
                         <Link className="text-green-700" href={"/lower-dolpo-trek"}> Lower Dolpo Trek</Link>, and
                         <Link className="text-green-700" href={"/shey-phoksundo-lake-trek"}> Shey Phoksundo Lake Trek</Link> introduce one to both natural splendor and an age-old way of life that remains unscathed. For those seeking an off-the-beaten-path adventure filled with raw beauty and cultural depth, Dolpo is a Himalayan secret gem. Explore this hidden gem with Hi Nepal Travels and Treks, a reliable trekking agency in Nepal.
+                    </p>
+                }
+                {
+                    region.includes("kanchenjunga") &&
+                    <p className="text-lg text-justify font-medium">
+                        The 
+                        <Link className="text-green-700" href={"https://hinepaltreks.com/activities/trekking/kanchenjunga-region"}> Kanchenjunga Region </Link> 
+                        is one of the most remote and raw 
+                        <Link className="text-green-700" href={"https://hinepaltreks.com/activities/trekking"}> trekking areas </Link> in Nepal, with breathtaking Himalayan scenery and rich cultural exposure. Trekkers can choose to visit the 
+                        <Link className="text-green-700" href={"https://hinepaltreks.com/kanchenjunga-north-base-camp-trek"}> Kanchenjunga North Base Camp </Link> or the 
+                        <Link className="text-green-700" href={"https://hinepaltreks.com/kanchenjunga-south-base-camp-trek"}> Kanchenjunga South Base Camp</Link>, each of which provides different angles of the world's third-highest peak. From encounters with locals belonging to several communities like Rai, Limbu, Tamang, and Sherpas, to exploring the pristine beauty of nature, treks in the Kanchenjunga Region serve all.
+                        For the adventurers, the 
+                        <Link className="text-green-700" href={"https://hinepaltreks.com/kanchenjunga-circuit-trek"}> Kanchenjunga Circuit Trek </Link> combines both routes, providing an unforgettable experience of trekking along alpine forests, high-altitude passes, and centuries-old villages in this unspoiled corner of Nepal. Unlike the
+                        <Link className="text-green-700" href={"https://hinepaltreks.com/activities/trekking/everest-region"}> Everest </Link> or 
+                        <Link className="text-green-700" href={"https://hinepaltreks.com/activities/trekking/annapurna-region"}> Annapurna Region </Link> Treks, the Kanchenjunga Region is less crowded, perfect for adventure along with peace seekers.
                     </p>
                 }
             </div>

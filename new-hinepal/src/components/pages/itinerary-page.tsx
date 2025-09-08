@@ -24,9 +24,9 @@ export function ItineraryPage({ details, relatedProducts, popularPackages }: { d
     ]
     const sectionStyle = 'scroll-mt-42 mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400';
     return (
-        <div>
+        <div className="mt-24">
             <div
-                className='relative h-[100vh]  bg-center bg-cover flex items-center justify-center text-white'
+                className='relative h-[100vh]  bg-bottom bg-cover flex items-center justify-center text-white'
                 style={{ backgroundImage: `url(${details.banner})` }}
             >
                 <div className='absolute inset-0 bg-black/10'></div>

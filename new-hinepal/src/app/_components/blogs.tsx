@@ -1,4 +1,6 @@
 import BlogCard from "@/components/blog-card"
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const BlogHome = async () => {
   const getBlogs = async () => {
@@ -30,6 +32,11 @@ const BlogHome = async () => {
           {posts.slice(0, 3).map((post: any, index: number) => (
             <BlogCard key={index} title={post.title.rendered} excerpt={post.excerpt.rendered} image={post._embedded?.['wp:featuredmedia']?.[0]?.source_url} slug={post.slug} />
           ))}
+        </div>
+        <div className='text-center mt-12'>
+          <Link href='/blogs' className='inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300'>
+          View All
+          </Link>
         </div>
       </div>
     </section>

@@ -27,7 +27,7 @@ export default function TrustBadge() {
               href="https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"
               className="underline decoration-2 underline-offset-4 decoration-slate-800 hover:decoration-emerald-600"
             >
-              111 Reviews
+              110+ Reviews
             </Link>
             {" in TripAdvisor"}
           </p>

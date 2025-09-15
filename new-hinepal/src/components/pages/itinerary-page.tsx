@@ -11,7 +11,6 @@ import { SectionNav } from '@/components/SectionNav';
 import TrustBadge from '@/app/_components/trust-badge';
 import PopularCard from "../popular-card";
 import { getProxyUrl } from "@/utils/imageProxy";
-import Image from "next/image";
 
 export function ItineraryPage({ details, relatedProducts, popularPackages }: { details: TPackageDetails, relatedProducts: TPackageDetails[], popularPackages: TPackageDetails[] }) {
     const navigations = [
@@ -26,7 +25,22 @@ export function ItineraryPage({ details, relatedProducts, popularPackages }: { d
     const sectionStyle = 'scroll-mt-42 mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400';
     return (
         <div className="">
-
+            <div
+                className='relative h-[80vh] bg-bottom bg-cover flex items-center justify-center text-white rounded-md mb-4  mt-24 max-w-[90vw] mx-auto'
+                style={{ backgroundImage: `url(${details.banner})` }}
+            >
+                <div className='absolute inset-0 bg-black/10'></div>
+                <div className='container mx-auto px-4 md:px-6 relative z-10 text-center'>
+                    <h1 className='text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-shadow-lg drop-shadow-2xl'>
+                        {details.title}
+                    </h1>
+                    <div className='mt-8'>
+                        <Button
+                            onClick={() => window.scrollTo({ top: 500, behavior: "smooth" })}
+                            size={'lg'} className="cursor-pointer bg-green-700 rounded-3xl hover:bg-green-500 ">Explore <LucideChevronDown /></Button>
+                    </div>
+                </div>
+            </div>
             {/* Section Navigation */}
             {/* @ts-ignore */}
             <SectionNav navigations={navigations} />
@@ -34,22 +48,6 @@ export function ItineraryPage({ details, relatedProducts, popularPackages }: { d
             <main className='container mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12'>
                 {/* Main Content Area */}
                 <section className='lg:col-span-2'>
-                    <div
-                        className='relative h-[100vh]  bg-bottom bg-cover flex items-center justify-center text-white rounded-md my-4'
-                        style={{ backgroundImage: `url(${details.banner})` }}
-                    >
-                        <div className='absolute inset-0 bg-black/10'></div>
-                        <div className='container mx-auto px-4 md:px-6 relative z-10 text-center'>
-                            <h1 className='text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight'>
-                                {details.title}
-                            </h1>
-                            <div className='mt-8'>
-                                <Button
-                                    onClick={() => window.scrollTo({ top: 500, behavior: "smooth" })}
-                                    size={'lg'} className="cursor-pointer bg-green-700 rounded-3xl hover:bg-green-500 ">Explore <LucideChevronDown /></Button>
-                            </div>
-                        </div>
-                    </div>
                     {/* Data Icons Section */}
                     <TrustBadge />
                     <div className="mt-4 bg-green-50 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-12 p-6 bg-light-blue-bg rounded-lg shadow-sm">

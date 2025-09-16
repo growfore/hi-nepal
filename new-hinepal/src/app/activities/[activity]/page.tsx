@@ -9,9 +9,9 @@ import { formatSlug } from "@/helper/formatSlug";
 export async function generateMetadata({ params }: any): Promise<any> {
 
     return {
-        title: formatSlug(params.activity) + " - Hi Nepal Travel and Treks",
+        title: params.activity == "tours" ? "Nepal Tour Packages: Explore Nepal with Multi-day and Nature Tour - Hi Nepal Travel and Treks" : formatSlug(params.activity) + " - Hi Nepal Travel and Treks",
         description: params.activity == "tours"  ? 
-        "Explore Nepal's rich culture and landscapes with Hi Nepal Travels and Treks. Offering guided multi-day and day tours, nature & wildlife experiences."
+        "Explore the best Nepal Tour Packages. Book now for customized itineraries, Himalayan adventures, cultural tours, and unforgettable experiences in Nepal."
         :
         "A leading trekking agency in Nepal offering diverse trekking routes across regions like Annapurna, Everest, Manaslu, Langtang, Dolpo, and Kanchenjunga.",
         keywords: params.activity == "tours" ? "multi-day and day tours " : "trekking, trekking agency in nepal",

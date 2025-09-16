@@ -23,11 +23,15 @@ export async function generateMetadata({
   const blog = await getBlogSingle(slug);
   if (blog) {
     return {
-      title: blog.title,
-      description: blog.description,
+      //   @ts-ignore
+      title: blog.rank_math_meta?.title || blog.title,
+      //   @ts-ignore
+      description: blog.rank_math_meta?.title || blog.title,
       alternates: {
         canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/" + blog.slug,
       },
+      //   @ts-ignore
+      keywords: blog.rank_math_meta?.keywords || undefined,
       robots: {
         index: true,
         follow: true,
@@ -142,8 +146,10 @@ const activites = async ({ params }: { params: Params }) => {
         "@type": "WebPage",
         "@id": `https://hinepaltreks.com/blogs/${blog.slug}`,
       },
-      headline: blog.title,
-      description: blog.description,
+      //   @ts-ignore
+      headline: blog?.rank_math_meta?.title | blog.title,
+      //   @ts-ignore
+      description: blog?.rank_math_meta?.description | blog.description,
       image: blog.image,
       author: {
         "@type": "Person",

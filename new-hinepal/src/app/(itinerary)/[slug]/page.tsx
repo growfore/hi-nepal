@@ -195,13 +195,13 @@ const activites = async ({ params }: { params: Params }) => {
   );
   const itinerarySchema = {
     "@context": "https://schema.org",
-    "@type": "TouristTrip",
+    "@type": "Product",
     name: details.title,
     description: details.description,
     url: `${process.env.NEXT_PUBLIC_FRONTEND_BASE_URL}/${details.slug}`,
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "5.0",
+      ratingValue: "5",
       reviewCount: "113",
     },
   };

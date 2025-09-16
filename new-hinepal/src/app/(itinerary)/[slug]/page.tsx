@@ -23,15 +23,12 @@ export async function generateMetadata({
   const blog = await getBlogSingle(slug);
   if (blog) {
     return {
-      //   @ts-ignore
-      title: blog.rank_math_meta?.title || blog.title,
-      //   @ts-ignore
-      description: blog.rank_math_meta?.title || blog.title,
+      title: blog.title,
+      description: blog.description,
       alternates: {
         canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/" + blog.slug,
       },
-      //   @ts-ignore
-      keywords: blog.rank_math_meta?.keywords || undefined,
+      keywords: blog.keywords || undefined,
       robots: {
         index: true,
         follow: true,

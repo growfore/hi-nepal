@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, ChevronRight, ChevronUp, LucideMenu } from 'lucide-react';
+import { ChevronDown, ChevronRight, ChevronUp, DessertIcon, LucideMenu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Link from 'next/link';
 import {
@@ -29,7 +29,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
             "/about-us",
             "/blogs",
             "/treks/everest-base-camp",
-            "/guides/professional"
+            "/guides/professional",
         ];
         const slashCount = path.split("/").length - 1;
 
@@ -37,10 +37,13 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
             return "";
         }
 
+
         return path.startsWith("/") ? path.slice(1) : path;
     }
 
     const destination = getDestination(path);
+
+    const destinationNavs = ["Nepal", "Bhutan", "Tibet"]
 
     const handleClick = () => {
         setDisableHover(true);
@@ -107,6 +110,20 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                             </div>
                         )
                     })}
+                    {/* <div className='flex gap-4 items-center group'>
+                        <p className='hidden  font-bold uppercase md:flex gap-1 cursor-pointer'>Destinations <ChevronDown /></p>
+                        <div className='absolute hidden group-hover:grid  bg-white p-8 pr-32 rounded-b-md top-16'>
+                            {destinationNavs.map((navItem, index) => {
+                                return (
+                                    <li key={index} className='hidden group-hover:flex'>
+                                        <Link href={`/${navItem.toString()}`} className='hover:border-b-2 border-dashed border-green-700 hover:text-green-700 font-lg uppercase font-bold'>
+                                            {navItem}
+                                        </Link>
+                                    </li>
+                                )
+                            })}
+                        </div>
+                    </div> */}
                     <Link title='go to adventures page' href={"/adventure"} className='hidden md:flex hover:text-green-700 font-bold uppercase gap-1 cursor-pointer'> Adventure</Link>
                     <Link title='got to about page' href={"/about"} className='hidden md:flex hover:text-green-700 font-bold uppercase gap-1 cursor-pointer'>About Us</Link>
                     <Link title='go to blogs page' href={"/blogs"} className='hidden md:flex hover:text-green-700 font-bold uppercase gap-1 cursor-pointer'>Blogs</Link>
@@ -130,46 +147,66 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                                 <LucideMenu size={42} />
                             </SheetTrigger>
                             <SheetContent className='flex flex-col gap-4 p-8 z-[99999]'>
-                                {navBar.map((activity, index) => {
-                                    return (
-                                        <Accordion key={index} type="single" collapsible>
-                                            <AccordionItem value={`item-${index}`}>
-                                                <AccordionTrigger className='font-bold text-xl uppercase flex p-0'>
-                                                    {activity.name}
-                                                </AccordionTrigger>
-                                                <AccordionContent>
-                                                    {activity.destinations.map((destination, index) => {
-                                                        return (
-                                                            destination.packages.length > 0 && (
-                                                                <Accordion key={index} type='single' collapsible>
-                                                                    <AccordionItem value={`item-${index}`}>
-                                                                        <AccordionTrigger key={index} className='font-semibold text-xl p-0 py-2'>{destination.name}</AccordionTrigger>
-                                                                        <AccordionContent>
-                                                                            <ul className='flex flex-col gap-2'>
-                                                                                {destination.packages.map((packageItem, index) => {
-                                                                                    return (
-                                                                                        <li key={index}>
-                                                                                            <Link href={`/${packageItem.slug}`} className='hover:border-b-2 border-dashed border-[#EF5922] hover:text-[#EF5922] font-bold text-lg '>
-                                                                                                {packageItem.title.includes(":") ? packageItem.title.split(":")[0].trim() : packageItem.title.trim()}
-                                                                                            </Link>
-                                                                                        </li>
-                                                                                    )
-                                                                                })}
-                                                                            </ul>
-                                                                        </AccordionContent>
-                                                                    </AccordionItem>
-                                                                </Accordion>
+                                <>
+                                    {navBar.map((activity, index) => {
+                                        return (
+                                            <Accordion key={index} type="single" collapsible>
+                                                <AccordionItem value={`item-${index}`}>
+                                                    <AccordionTrigger className='font-bold text-xl uppercase flex p-0'>
+                                                        {activity.name}
+                                                    </AccordionTrigger>
+                                                    <AccordionContent>
+                                                        {activity.destinations.map((destination, index) => {
+                                                            return (
+                                                                destination.packages.length > 0 && (
+                                                                    <Accordion key={index} type='single' collapsible>
+                                                                        <AccordionItem value={`item-${index}`}>
+                                                                            <AccordionTrigger key={index} className='font-semibold text-xl p-0 py-2'>{destination.name}</AccordionTrigger>
+                                                                            <AccordionContent>
+                                                                                <ul className='flex flex-col gap-2'>
+                                                                                    {destination.packages.map((packageItem, index) => {
+                                                                                        return (
+                                                                                            <li key={index}>
+                                                                                                <Link href={`/${packageItem.slug}`} className='hover:border-b-2 border-dashed border-[#EF5922] hover:text-[#EF5922] font-bold text-lg '>
+                                                                                                    {packageItem.title.includes(":") ? packageItem.title.split(":")[0].trim() : packageItem.title.trim()}
+                                                                                                </Link>
+                                                                                            </li>
+                                                                                        )
+                                                                                    })}
+                                                                                </ul>
+                                                                            </AccordionContent>
+                                                                        </AccordionItem>
+                                                                    </Accordion>
+                                                                )
                                                             )
-                                                        )
-                                                    })}
-                                                </AccordionContent>
-                                            </AccordionItem>
-                                        </Accordion>
-                                    )
-                                })}
-                                <Link title='go to adventures page' href={"/adventure"} className='uppercase font-bold text-xl'>Adventures</Link>
-                                <Link title='go to about page' href={"/about"} className='uppercase font-bold text-xl'>About us</Link>
-                                <Link title='go to blogs' href={"/blogs"} className='uppercase font-bold text-xl'>Blogs</Link>
+                                                        })}
+                                                    </AccordionContent>
+                                                </AccordionItem>
+                                            </Accordion>
+                                        )
+                                    })}
+                                    {/* <Accordion type="single" collapsible>
+                                        <AccordionItem value="destinations">
+                                            <AccordionTrigger className="font-bold text-xl uppercase flex p-0">
+                                                Destinations
+                                            </AccordionTrigger>
+                                            <AccordionContent>
+                                                <ul>
+                                                    {destinationNavs.map((item, index) => (
+                                                        <li key={index}>
+                                                            <Link href={`/${item.toString().toLowerCase()}`} className='hover:border-b-2 border-dashed border-[#EF5922] hover:text-[#EF5922] font-bold text-lg '>
+                                                                {item}
+                                                            </Link>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                    </Accordion> */}
+                                    <Link title='go to adventures page' href={"/adventure"} className='uppercase font-bold text-xl'>Adventures</Link>
+                                    <Link title='go to about page' href={"/about"} className='uppercase font-bold text-xl'>About us</Link>
+                                    <Link title='go to blogs' href={"/blogs"} className='uppercase font-bold text-xl'>Blogs</Link>
+                                </>
                             </SheetContent>
                         </Sheet>
                     </div>

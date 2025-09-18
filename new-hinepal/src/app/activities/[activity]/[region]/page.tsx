@@ -28,8 +28,9 @@ export async function generateMetadata({ params }: any): Promise<any> {
       "everest region, trekking agency in nepal, travel agency in nepal";
   }
   if (region.includes("multi-days-tour")) {
+    title = "Multi-Day Tour: Unforgettable Nepal Tour Packages";
     description =
-      "Discover all planned Hi Nepal Travels and Treks' multi-day tours, explore Nepal with our travel and trekking agency in Nepal.";
+      "Explore Nepal tour packages with multi-day cultural tours, heritage sites, and scenic getaways. Book now to experience Nepal’s rich culture and beauty!";
     keywords = "multi-day tour, travel agency in nepal";
   }
   if (region.includes("manaslu-region")) {
@@ -45,9 +46,10 @@ export async function generateMetadata({ params }: any): Promise<any> {
     keywords = "dolpo region, travel agency in nepal, trekking agency in nepal";
   }
   if (region.includes("nature-wildlife")) {
-    (description =
-      "Explore Nepal's rich biodiversity with Hi Nepal Travels and Treks. Experience Chitwan & Bardiya National Parks with guided by a trusted trekking agency in Nepal."),
-      (keywords = "trekking agency in nepal");
+    title = "Nature and Wildlife Tours in Nepal: Itinerary, Safari & Best Time";
+    description =
+      "Experience Nature and Wildlife Tours in Nepal with safaris, jungle walks, and ideal seasons. Book now to explore Nepal’s rich biodiversity and wild beauty!";
+    keywords = "trekking agency in nepal";
   }
   if (region.includes("day-tours")) {
     (description =
@@ -66,6 +68,17 @@ export async function generateMetadata({ params }: any): Promise<any> {
     title = "Kanchenjunga Region Trekking in Nepal: Best Itineraries for 2025";
     description =
       "Experience the Kanchenjunga Region Trekking in Nepal with breathtaking Himalayan views, remote trails, and ideal seasons. Book now for an epic adventure in Nepal";
+  }
+
+  if (region.includes("day-tours")) {
+    title = "Day tours in Nepal: Perfect itinerary and Best Season";
+    description =
+      "Discover the best Day Tours in Nepal with perfect itineraries and ideal seasons. Book now to explore culture, heritage, and scenic wonders in a single day!";
+  }
+  if (region.includes("nature-wildlife")) {
+    title = "Nature and Wildlife Tours in Nepal: Itinerary, Safari & Best Time";
+    description =
+      "Experience Nature and Wildlife Tours in Nepal with safaris, jungle walks, and ideal seasons. Book now to explore Nepal’s rich biodiversity and wild beauty!";
   }
 
   return {
@@ -276,12 +289,12 @@ export default async function RegionPage({
         )}
         {region.includes("multi-days-tour") && (
           <p className="text-left md:text-center md:mt-4 italic text-xl">
-            Embark on multiday tours in Nepal for a deeper exploration of the
-            country’s breathtaking landscapes, vibrant culture, and adventurous
-            spirit. Unlike short trips, these tours allow travelers to
-            experience Nepal at a slower pace, immersing themselves in both
+            Embark on multiday Nepal tour packages for a deeper exploration of
+            the country’s breathtaking landscapes, vibrant culture, and
+            adventurous spirit. Unlike short trips, these tours allow travelers
+            to experience Nepal at a slower pace, immersing themselves in both
             natural beauty and authentic local life. Get an exposure to Nepal's
-            diverse beauty with Planned multi-day tours like
+            diverse beauty with planned multi-day Nepal tours like
             <Link className="text-green-700" href={"/upper-mustang-tour"}>
               {" "}
               Upper Mustang Tour
@@ -302,18 +315,26 @@ export default async function RegionPage({
             Day tours in Nepal are the perfect way to experience the country’s
             cultural richness and natural beauty in a short amount of time.
             Ideal for travelers with limited schedules, with a reputed tour
-            agency in Nepal, the tours like
-            <Link className="text-green-700" href={"/pokhara-valley-tour"}>
-              {" "}
-              Pokhara Valley Tour,
+            agency in Nepal, the tours like{" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/pokhara-valley-tour"}
+            >
+              Pokhara Valley Tour
             </Link>
-            <Link className="text-green-700" href={"/world-peace-pagoda"}>
+            ,
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/world-peace-pagoda"}
+            >
               {" "}
-              World Peace Pagoda Tour,{" "}
-            </Link>{" "}
-            and
-            <Link className="text-green-700" href={"/sarangkot-pokhara-tour"}>
-              {" "}
+              World Peace Pagoda Tour
+            </Link>
+            , and{" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/sarangkot-pokhara-tour"}
+            >
               Sarangkot Tour
             </Link>
             allow you to explore iconic landmarks, bustling cities, and stunning
@@ -326,10 +347,10 @@ export default async function RegionPage({
             diverse ecosystems that range from subtropical forests to alpine
             meadows and high Himalayan peaks. The country is home to some of the
             world’s rarest flora and fauna, thriving within its rich landscapes
-            and protected National Parks such as
+            and protected National Parks such as{" "}
             <Link
               className="text-green-700"
-              href={"/chitwan-national-park-tour"}
+              href={"https://hinepaltreks.com/chitwan-national-park-tour"}
             >
               {" "}
               Chitwan National Park
@@ -337,13 +358,25 @@ export default async function RegionPage({
             and
             <Link
               className="text-green-700"
-              href={"/bardiya-national-park-tour"}
+              href={"https://hinepaltreks.com/bardiya-national-park-tour"}
             >
               {" "}
-              Bardiya National Park.{" "}
+              Bardiya National Park
             </Link>
-            Explore the diverse natural beauty with Hi Nepal Travels and Treks,
-            one of the best tour operators in Nepal.
+            . Explore the diverse natural beauty with
+            <Link className="text-green-700" href={"https://hinepaltreks.com/"}>
+              {" "}
+              Hi Nepal Travels and Treks
+            </Link>
+            , one of the{" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/about"}
+            >
+              {" "}
+              best tour operators in Nepal
+            </Link>
+            .
           </p>
         )}
         {region.includes("kanchenjunga") && (
@@ -913,6 +946,239 @@ export default async function RegionPage({
               trekking experience{" "}
             </Link>
             for those who want to view natural grandeur and cultural wealth.
+          </p>
+        )}
+
+        {region.includes("multi-days-tour") && (
+          <p className="text-lg text-justify font-medium">
+            Nepal is known for its{" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/activities/trekking"}
+            >
+              multiple treks
+            </Link>{" "}
+            around various parts of Nepal.{" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/activities/tours"}
+            >
+              Nepal tours
+            </Link>{" "}
+            are equally renowned, which demand less physical strength compared
+            to several treks in the{" "}
+            <Link
+              className="text-green-700"
+              href={
+                "https://hinepaltreks.com/activities/trekking/everest-region"
+              }
+            >
+              Everest
+            </Link>{" "}
+            or
+            <Link
+              className="text-green-700"
+              href={
+                "https://hinepaltreks.com/activities/trekking/annapurna-region"
+              }
+            >
+              {" "}
+              Annapurna region
+            </Link>
+            . From short tours exploring the city life with the{" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/kathmandu-tour-package"}
+            >
+              Kathmandu tour package
+            </Link>{" "}
+            to traditional cultural village tours like{" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/sikles-villge-tour"}
+            >
+              {" "}
+              Siklesh
+            </Link>
+            ,
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/panchase-trek"}
+            >
+              {" "}
+              Panchase
+            </Link>
+            , and the
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/ghandruk-village-tour"}
+            >
+              {" "}
+              Ghandruk Village tour
+            </Link>
+            . Nepal tour packages are filled with tons of options. <br /> If you
+            want a longer tour, exploring the remote areas of Nepal, you can
+            have a variety of options for multi-day Nepal tours, including{" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/kalinchowk-trek"}
+            >
+              {" "}
+              Kalinchowk
+            </Link>
+            ,
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/rara-lake-tour-nepal"}
+            >
+              {" "}
+              Rara Lake
+            </Link>
+            ,
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/tilicho-lake-tour"}
+            >
+              {" "}
+              Tilicho Lake
+            </Link>
+            , and
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/upper-mustang-tour"}
+            >
+              {" "}
+              Upper Mustang Tours
+            </Link>
+            , which are the perfect tour itinerary for you. <br /> These
+            multi-day Nepal tours are planned carefully to make the most out of
+            your journey, leaving life-lasting memories.
+          </p>
+        )}
+
+        {region.includes("day-tours") && (
+          <p className="text-lg text-justify font-medium">
+            The Short Day tours in Nepal are a perfect adventure for people with
+            limited time, or looking for a quick getaway from their regular
+            hectic schedule. For those who want a{" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/activities/trekking"}
+            >
+              {" "}
+              trekking
+            </Link>{" "}
+            experience with fewer physical demands and in a short time, one-day
+            tours in Nepal offer various short hikes in the{" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/pokhara-valley-tour"}
+            >
+              {" "}
+              Pokhara valley
+            </Link>
+            , including
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/sarangkot-pokhara-tour"}
+            >
+              {" "}
+              Sarangkot
+            </Link>
+            ,
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/world-peace-pagoda"}
+            >
+              {" "}
+              World Peace Pagoda
+            </Link>
+            ,{" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/kalikasthan-thulakot-hill"}
+            >
+              {" "}
+              Kalikasthan Thulakot
+            </Link>
+            , and the
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/kalikasthan-thulakot-hill"}
+            >
+              {" "}
+              Australian Camp tour
+            </Link>
+            . <br />
+            Each of the one-day{" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/activities/tours"}
+            >
+              {" "}
+              tours in Nepal
+            </Link>{" "}
+            is planned with the itineraries to make the most out of your trip in
+            Nepal. From enjoying the magical vista of the Himalayas and natural
+            landscapes to learning the unique traditional cultures of Nepal,
+            these tour itineraries offer everything you desire. <br />
+            If you are a nature lover and want to witness the epic Himalayan
+            range, Thulakot and Saragnkot are two of the{" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/viewpoints-for-annapurna-region"}
+            >
+              {" "}
+              major viewpoints for the Annapurna Range
+            </Link>
+            . Enjoy your short day-tours in Nepal with the One of the{" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/assets/hinepal-logo.webp"}
+            >
+              {" "}
+              best trekking agencies in Nepal
+            </Link>
+            .
+          </p>
+        )}
+        {region.includes("nature-wildlife") && (
+          <p className="text-lg text-justify font-medium">
+            In addition to its wildlife, Nepal's natural scenery also offers
+            challenging possibilities for adventure. From jungle walks along the
+            Terai to bird watching tours in{" "}
+            <Link className="text-green-700" href={"https://hinepaltreks.com/chitwan-national-park-tour"}>
+            {" "}
+              Chitwan National Park
+            {" "}
+            </Link>
+            and{" "}
+            <Link className="text-green-700" href={"https://hinepaltreks.com/bardiya-national-park-tour"}>
+            {" "}
+              Bardiya National Park
+            </Link>
+            , tourists can glimpse exotic wildlife such as the one-horned
+            rhinoceros and Bengal tiger in their natural habitats. The foothills
+            of the Himalayas are similarly varied, with several hundred species
+            of orchids, medicinal plants, and butterflies adding to the
+            country's ecological splendor. <br />
+            Aside from its natural abundance, Nepal's scenery is filled with
+            cultural and religious significance as well. The majority of sacred
+            sites, including lakes, caves, and forests, are closely associated
+            with local legends and traditions, providing travelers with the best
+            of nature and culture in the same trip. Whether{" "}
+            <Link className="text-green-700" href={"https://hinepaltreks.com/activities/trekking"}>
+            {" "}
+              trekking{" "}
+            </Link>
+            over rhododendron trees, rafting over virgin rivers, or exploring
+            UNESCO-listed national parks,{" "}
+            <Link className="text-green-700" href={"https://hinepaltreks.com/"}>
+            {" "}
+              Hi Nepal Travels and Treks
+            </Link>{" "}
+            promises a once-in-a-lifetime experience that blends conservation,
+            adventure, and authentic interaction with locals.
           </p>
         )}
       </div>

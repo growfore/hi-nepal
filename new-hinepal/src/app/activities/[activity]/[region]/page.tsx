@@ -413,9 +413,10 @@ export default async function RegionPage({
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:px-32">
-        {/* @ts-ignore */}
         {data &&
+          /* @ts-ignore */
           data?.length > 0 &&
+          /* @ts-ignore */
           data?.map((d, idx) => {
             return (
               <Link key={idx} href={`/${d.slug}`}>
@@ -839,7 +840,7 @@ export default async function RegionPage({
               className="text-green-700"
               href={"https://hinepaltreks.com/activities/trekking"}
             >
-              trekking { " "}
+              trekking{" "}
             </Link>
             areas in Nepal, with breathtaking Himalayan scenery and rich
             cultural exposure. Trekkers can choose to visit the{" "}

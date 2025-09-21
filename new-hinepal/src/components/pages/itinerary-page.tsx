@@ -55,8 +55,8 @@ export function ItineraryPage({
   return (
     <div className="">
       <div
-        className="relative h-[40vh] md:h-[80vh] bg-bottom bg-cover flex items-center justify-center 
-                 text-white rounded-md mb-4 mt-24 max-w-[90vw] mx-auto"
+        className="relative h-[60vh] md:h-[80vh] bg-bottom bg-cover flex items-end md:items-center justify-center 
+                 text-white rounded-md mb-4 mt-24 max-w-[90vw] mx-auto pb-8 md:pb-0"
         style={{
           backgroundImage: `url(${
             isMobile ? details.thumbnail : details.banner
@@ -64,8 +64,8 @@ export function ItineraryPage({
         }}
       >
         <div className="absolute inset-0 bg-black/10"></div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-shadow-lg drop-shadow-2xl">
+        <div className="container mx-auto px-4 md:px-6 relative z-10  text-left md:text-center">
+          <h1 className="text-2xl  md:text-5xl lg:text-6xl font-extrabold leading-tight text-shadow-lg drop-shadow-2xl">
             {details.title}
           </h1>
           <div className="mt-8">
@@ -83,7 +83,7 @@ export function ItineraryPage({
       {/* @ts-ignore */}
       <SectionNav navigations={navigations} />
 
-      <main className="container mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <main className="container mx-auto px-4 md:px-6 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Main Content Area */}
         <section className="lg:col-span-2">
           {/* Data Icons Section */}

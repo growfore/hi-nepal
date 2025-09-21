@@ -1,7 +1,7 @@
 "use client";
 
 import { TPackageDetails } from "@/types/types";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import GallerySlider from "@/app/_components/gallery-slider";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -32,6 +32,15 @@ export function ItineraryPage({
   relatedProducts: TPackageDetails[];
   popularPackages: TPackageDetails[];
 }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkSize = () => setIsMobile(window.innerWidth < 768); 
+    checkSize();
+    window.addEventListener("resize", checkSize);
+    return () => window.removeEventListener("resize", checkSize);
+  }, []);
+
   const navigations = [
     { id: "overview", label: "Overview", icon: "LucideEye" },
     { id: "itenary", label: "Itinerary", icon: "LucideList" },
@@ -46,8 +55,13 @@ export function ItineraryPage({
   return (
     <div className="">
       <div
-        className="relative h-[80vh] bg-bottom bg-cover flex items-center justify-center text-white rounded-md mb-4  mt-24 max-w-[90vw] mx-auto"
-        style={{ backgroundImage: `url(${details.banner})` }}
+        className="relative h-[80vh] bg-bottom bg-cover flex items-center justify-center 
+                 text-white rounded-md mb-4 mt-24 max-w-[90vw] mx-auto"
+        style={{
+          backgroundImage: `url(${
+            isMobile ? details.thumbnail : details.banner
+          })`,
+        }}
       >
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">

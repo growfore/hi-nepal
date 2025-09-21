@@ -55,7 +55,7 @@ export function ItineraryPage({
   return (
     <div className="">
       <div
-        className="relative h-[80vh] bg-bottom bg-cover flex items-center justify-center 
+        className="relative h-[40vh] md:h-[80vh] bg-bottom bg-cover flex items-center justify-center 
                  text-white rounded-md mb-4 mt-24 max-w-[90vw] mx-auto"
         style={{
           backgroundImage: `url(${

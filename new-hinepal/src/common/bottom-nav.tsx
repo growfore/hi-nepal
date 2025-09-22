@@ -104,7 +104,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                   </Link>
                   <div className="">
                     <div className="hidden group-hover:grid absolute top-[60px] z-[999]  left-0 w-[100vw] py-8 px-0">
-                      <div className="pb-8 bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container px-36 mx-auto flex-wrap w-[100vw] rounded-md">
+                      <div className="pb-8 bg-white  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container px-12 mx-auto flex-wrap w-[100vw] rounded-md">
                         {activity.destinations.map((destination, index) => {
                           return (
                             <div key={index}>
@@ -172,7 +172,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
           </Link>
           <Link
             title="got to about page"
-            href={"/about"}
+            href={"/about-us"}
             className="hidden md:flex hover:text-green-700 font-bold uppercase gap-1 cursor-pointer"
           >
             About Us
@@ -295,7 +295,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                   </Link>
                   <Link
                     title="go to about page"
-                    href={"/about"}
+                    href={"/about-us"}
                     className="uppercase font-bold text-xl"
                   >
                     About us

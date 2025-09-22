@@ -43,8 +43,8 @@ export function HeroCarousel({ carousels }: { carousels: TCarouselItemType[] }) 
                             />
                             <Link className='absolute bottom-[10vh] md:px-36 mx-4' href={carousel.link}>
                                 <div className='flex flex-col'>
-                                    <h2 className='font-black text-white text-4xl md:text-7xl text-shadow-2xs'>{carousel.title}</h2>
-                                    <p className='text-white text-shadow-xs text-xl max-w-3xl mb-4'>{carousel.description}</p>
+                                    <h2 className='mb-8 md:mb-4 font-black text-white text-4xl md:text-7xl text-shadow-2xs'>{carousel.title}</h2>
+                                    <p className='hidden md:flex text-white text-shadow-xs text-xl max-w-3xl mb-4'>{carousel.description}</p>
                                     <Button className='p-8 w-fit font-bold uppercase bg-green-700 hover:bg-green-900 hover:cursor-pointer'> Continue Reading </Button>
                                 </div>
                             </Link>

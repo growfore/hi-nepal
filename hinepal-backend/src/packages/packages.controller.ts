@@ -80,7 +80,7 @@ export class PackagesController {
     if (files?.thumbnail) {
       createPackageDto.thumbnail = this.UploadService.saveFile(
         files.thumbnail[0],
-        'packages',
+        'packages/thumbnails',
       );
     }
 
@@ -174,7 +174,7 @@ export class PackagesController {
     if (files?.thumbnail) {
       updatePackageDto.thumbnail = this.UploadService.saveFile(
         files.thumbnail[0],
-        'packages',
+        'packages/thumbnails',
       );
     } else {
       updatePackageDto.thumbnail = undefined;

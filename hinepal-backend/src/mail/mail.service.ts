@@ -7,7 +7,6 @@ import {
   createSuccessResponse,
 } from 'src/utils/response.util';
 import { PrismaService } from 'src/prisma.service';
-import getMailTemplate from 'src/helper/mailhelper';
 
 @Injectable()
 export class MailService {

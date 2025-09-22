@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
-import { join } from 'path/posix';
+import { join } from 'path';
 
 @Injectable()
 export class UploadService {
@@ -21,6 +21,7 @@ export class UploadService {
     }
 
     // Save the file if it doesn't exist
+    //@ts-ignore
     fs.writeFileSync(filePath, file.buffer);
 
     return this.getFileUrl(fileName, folder);

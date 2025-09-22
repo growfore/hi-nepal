@@ -19,6 +19,7 @@ import BestShortTreks from "./_components/best-short-treks";
 import TenDaysPlusTreks from "./_components/10-days-plus-treks";
 import PopularTours from "./_components/popular-tours";
 import OneDayTours from "./_components/one-day-hiking";
+import { HomeFAQs } from "./_components/home-faqs";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -96,6 +97,8 @@ export default async function Home() {
             More about Us
           </Link>
         </div>
+
+        <HomeFAQs/>
       </main>
     </>
   );

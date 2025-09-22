@@ -12,8 +12,8 @@ const Team = () => {
             Our Team
           </h2>
           <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
-            Meet the dedicated professionals who make your travel dreams a
-            reality.
+            Meet the dedicated professionals of the best local trekking company
+            in Nepal, who make your travel dreams a reality.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8">

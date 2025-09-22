@@ -15,6 +15,10 @@ import AdventureSection from "@/components/adventure-section";
 import { Metadata } from "next";
 import { getProxyUrl } from "@/utils/imageProxy";
 import Link from "next/link";
+import BestShortTreks from "./_components/best-short-treks";
+import TenDaysPlusTreks from "./_components/10-days-plus-treks";
+import PopularTours from "./_components/popular-tours";
+import OneDayTours from "./_components/one-day-hiking";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -73,10 +77,13 @@ export default async function Home() {
       <main id="content" className="site-main">
         <Hero carousels={carousels} />
         <PopularPackages />
+        <BestShortTreks/>
+        <TenDaysPlusTreks/>
+        <PopularTours/>
+        <OneDayTours/>
         <PopularDestinations />
         <AdventureSection />
         <Numbers />
-        <Activities />
         <Gallery siteInformation={siteInformation} />
         <Partners />
         <BlogHome />

@@ -1,6 +1,5 @@
 import { LucideTimer } from "lucide-react"
 import { getProxyUrl } from "../utils/imageProxy"
-import Link from "next/link"
 
 type TCardProps = {
   slug: string

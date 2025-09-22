@@ -198,7 +198,7 @@ export default async function ActivitySingle({
             >
               World Peace Pagoda
             </Link>
-            ,{" "}
+            ,
             <Link
               className="text-green-700"
               href={"https://hinepaltreks.com/sarangkot-pokhara-tour"}

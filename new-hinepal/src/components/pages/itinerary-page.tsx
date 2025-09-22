@@ -50,6 +50,7 @@ export function ItineraryPage({
     { id: "excludes", label: "Excludes", icon: "LucideX" },
     { id: "faqs", label: "FAQs", icon: "LucideMessageCircleQuestion" },
   ];
+
   const sectionStyle =
     "scroll-mt-42 mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400";
   return (

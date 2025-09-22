@@ -5,7 +5,7 @@ import { get } from "@/utils/request-hander";
 import Link from "next/link";
 import React from "react";
 
-const PopularPackages = async () => {
+const PopularTours = async () => {
   let packages: TPackages = [];
   await get({
     endPoint: endpoints.PACKAGES,
@@ -20,12 +20,9 @@ const PopularPackages = async () => {
   });
 
   const popularTreks = [
-    "everest-base-camp-trek",
-    "annapurna-base-camp-trek",
-    "manaslu-circuit-trek",
-    "mardi-himal-trek",
     "kathmandu-tour-package",
-    "pokhara-valley-tour",
+    "upper-mustang-tour",
+    "tilicho-lake-tour",
   ];
 
   const filteredPackages = packages
@@ -39,28 +36,50 @@ const PopularPackages = async () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12 md:mb-16">
           <div className="max-w-4xl mx-auto mt-12">
-            <p className='text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
-              EXPLORE GREAT PLACES
-            </p>
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
-              Are you looking for Premium Trekking or Tour packages with a
-              Reliable trekking agency in Nepal? Get the best Nepal Tour package
-              with the Best Travel and Trekking Company in Nepal. Hi Nepal
-              Travels and Treks Pvt. Ltd. is one of the reputed Nepal trekking
-              companies offering high-quality services in trekking and
-              travelling fields for more than 20 years.
-            </p>
-
             <h2 className='mt-12 text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
-            Popular Treks in Nepal
+              Popular Tours in Nepal
             </h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
-              Nepal is a heaven on Earth offering some of the most popular treks
-              in the world, including Everest Base Camp, Annapurna Base Camp,
-              and Manaslu Circuit treks. Enhance your trekking experience with
-              the best trekking company in Nepal while strolling between
-              high-standing snow-capped mountains and stunning natural and
-              cultural beauties.
+              Nepal is not just about the Himalayan trekkings, with the best
+              planned and{" "}
+              <Link
+                className="text-green-700"
+                href={
+                  "https://hinepaltreks.com/activities/tours/multi-days-tour"
+                }
+              >
+                most popular multi-day tour
+              </Link>{" "}
+              with the best tour operator in Nepal, you can make your travels
+              rewarding. Explore Nepal with the{" "}
+              <Link
+                className="text-green-700"
+                href={"https://hinepaltreks.com/upper-mustang-tour"}
+              >
+                Upper Mustang
+              </Link>
+              , { " "}
+              <Link
+                className="text-green-700"
+                href={"https://hinepaltreks.com/rara-lake-tour-nepal"}
+              >
+                Rara Lake
+              </Link>
+              , {" "}
+              <Link
+                className="text-green-700"
+                href={"https://hinepaltreks.com/tilicho-lake-tour"}
+              >
+                Tilicho Lake
+              </Link>
+              , and {" "}
+              <Link
+                className="text-green-700"
+                href={"https://hinepaltreks.com/kathmandu-tour-package"}
+              >
+                Kathmandu Valley tour package
+              </Link>
+              , some of the best Nepal hiking tours
             </p>
           </div>
         </div>
@@ -81,13 +100,12 @@ const PopularPackages = async () => {
             ))}
           </div>
           <div className="flex flex-col justify-center items-center my-12">
-            <small className="mb-4">Explore More</small>
             <div className="text-center flex flex-col md:flex-row items-center gap-4 justify-center">
               <Link
-                href="/activities/trekking"
+                href="/activities/tours"
                 className="uppercase inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
               >
-                Popular Trekking Packages
+                All Popular Tours
               </Link>
             </div>
           </div>
@@ -97,4 +115,4 @@ const PopularPackages = async () => {
   );
 };
 
-export default PopularPackages;
+export default PopularTours;

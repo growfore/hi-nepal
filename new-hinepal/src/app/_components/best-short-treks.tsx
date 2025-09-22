@@ -1,11 +1,12 @@
 import PackageCard from "@/components/package-card";
 import endpoints from "@/constant/endpoints";
-import { TPackages } from "@/types/types";
+import { TPackageDetails, TPackages } from "@/types/types";
 import { get } from "@/utils/request-hander";
+import { usePopularPackages } from "@/zustand/store";
 import Link from "next/link";
 import React from "react";
 
-const PopularPackages = async () => {
+const BestShortTreks = async () => {
   let packages: TPackages = [];
   await get({
     endPoint: endpoints.PACKAGES,
@@ -20,12 +21,9 @@ const PopularPackages = async () => {
   });
 
   const popularTreks = [
-    "everest-base-camp-trek",
-    "annapurna-base-camp-trek",
-    "manaslu-circuit-trek",
     "mardi-himal-trek",
-    "kathmandu-tour-package",
-    "pokhara-valley-tour",
+    "ghorepani-poon-hill-trek",
+    "kori-trek",
   ];
 
   const filteredPackages = packages
@@ -38,29 +36,28 @@ const PopularPackages = async () => {
     <section className="py-8  bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12 md:mb-16">
-          <div className="max-w-4xl mx-auto mt-12">
+          <div className="max-w-4xl mx-auto">
             <p className='text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
-              EXPLORE GREAT PLACES
+            BEST SHORT TREKS IN NEPAL
             </p>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
-              Are you looking for Premium Trekking or Tour packages with a
-              Reliable trekking agency in Nepal? Get the best Nepal Tour package
-              with the Best Travel and Trekking Company in Nepal. Hi Nepal
-              Travels and Treks Pvt. Ltd. is one of the reputed Nepal trekking
-              companies offering high-quality services in trekking and
-              travelling fields for more than 20 years.
-            </p>
-
-            <h2 className='mt-12 text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
-            Popular Treks in Nepal
-            </h2>
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
-              Nepal is a heaven on Earth offering some of the most popular treks
-              in the world, including Everest Base Camp, Annapurna Base Camp,
-              and Manaslu Circuit treks. Enhance your trekking experience with
-              the best trekking company in Nepal while strolling between
-              high-standing snow-capped mountains and stunning natural and
-              cultural beauties.
+              Looking for the best yet short trekking options in Nepal. Hi Nepal
+              Travels and Treks, a reliable trekking agency in Nepal, offers you
+              well-planned itineraries of some of the most pleasing treks of
+              Nepal, like{" "}
+              <Link className="text-green-700" href={"https://hinepaltreks.com/mardi-himal-trek"}>
+                Mardi Himal
+              </Link>
+              ,{" "}
+              <Link className="text-green-700" href={"https://hinepaltreks.com/ghorepani-poon-hill-trek"}>
+                Ghorepani Poon Hill
+              </Link>
+              , and{" "}
+              <Link className="text-green-700" href={"https://hinepaltreks.com/kapuche-lake-trek"}>
+                Kapuche Lake Trek
+              </Link>
+              . Explore the beautiful Himalaya range of Nepal with us,
+              maximizing your travel experience.
             </p>
           </div>
         </div>
@@ -87,7 +84,7 @@ const PopularPackages = async () => {
                 href="/activities/trekking"
                 className="uppercase inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
               >
-                Popular Trekking Packages
+                Best Treks in Nepal
               </Link>
             </div>
           </div>
@@ -97,4 +94,4 @@ const PopularPackages = async () => {
   );
 };
 
-export default PopularPackages;
+export default BestShortTreks;

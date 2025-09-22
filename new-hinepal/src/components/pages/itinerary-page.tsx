@@ -68,7 +68,7 @@ export function ItineraryPage({
           <h1 className="text-2xl  md:text-5xl lg:text-6xl font-extrabold leading-tight text-shadow-lg drop-shadow-2xl">
             {details.title}
           </h1>
-          <div className="mt-8">
+          <div className="mt-2">
             <Button
               onClick={() => window.scrollTo({ top: 500, behavior: "smooth" })}
               size={"lg"}

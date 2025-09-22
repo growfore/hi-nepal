@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import WhatsAppButton from './whatsapp-button';
+import { ReactNode } from "react";
+import WhatsAppButton from "./whatsapp-button";
 
 const CustomLayout = ({
   children,
@@ -12,12 +12,10 @@ const CustomLayout = ({
 }) => {
   return (
     <>
-      <div
-      >
+      <div>
         {header}
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
+        <WhatsAppButton />
         {footer}
       </div>
     </>

@@ -367,10 +367,10 @@ export function ItineraryPage({
               <p className="font-bold text-2xl mb-4">Speak to an Expert</p>
               <img
                 src={"/assets/mohan-prasad-subedi.webp"}
-                alt={details.title || "Package thumbnail"}
+                alt={details.title || "Mohan Prasad Subedi"}
                 width={100}
                 height={100}
-                className="object-cover rounded-full mb-4"
+                className="object-cover rounded-full  mb-4"
               />
               <p className="text-xl font-bold text-dark-blue-900 mb-4">
                 <strong>Mohan Prasad Subedi</strong>

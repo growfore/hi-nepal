@@ -27,9 +27,9 @@ export function HeroCarousel({ carousels }: { carousels: TCarouselItemType[] }) 
                 }),
             ]}
         >
-            <CarouselContent>
+            <CarouselContent className="mt-16 md:mt-[100px]">
                 {carousels?.map((carousel, index) => (
-                    <CarouselItem key={index} className='relative h-[90vh] w-full'>
+                    <CarouselItem key={index} className='relative h-[60vh] md:h-[80vh] w-full'>
                         <div className='flex flex-col'>
                             <Image
                                 src={carousel.image}
@@ -37,7 +37,7 @@ export function HeroCarousel({ carousels }: { carousels: TCarouselItemType[] }) 
                                 alt={carousel.title}
                                 fill
                                 priority={false}
-                                className='brightness-50 object-cover'
+                                className='object-cover md:object-fit'
                                 loader={({src}) => src}
                                 unoptimized
                             />
@@ -52,8 +52,8 @@ export function HeroCarousel({ carousels }: { carousels: TCarouselItemType[] }) 
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious className='absolute top-[40vh] left-8 opacity-70 md:opacity-100' size={'lg'} />
-            <CarouselNext className='absolute top-[40vh] right-8 opacity-70 md:opacity-100' size={'lg'} />
+            <CarouselPrevious className='absolute  md:top-[50vh] left-8 opacity-70 md:opacity-100' size={'lg'} />
+            <CarouselNext className='absolute  md:top-[50vh] right-8 opacity-70 md:opacity-100' size={'lg'} />
         </Carousel>
     )
 }

@@ -14,7 +14,6 @@ import Team from './_components/team';
 import AdventureSection from '@/components/adventure-section';
 import { Metadata } from 'next';
 import { getProxyUrl } from '@/utils/imageProxy';
-import WhatsAppButton from '@/components/whatsapp-button';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -82,7 +81,6 @@ export default async function Home() {
         <Partners />
         <BlogHome />
         <Team />
-        <WhatsAppButton/>
       </main>
     </>
   );

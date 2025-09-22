@@ -53,39 +53,44 @@ export function HomeFAQs() {
       <div>
         <h2 className="text-5xl font-bold">Frequently Asked Questions</h2>
       </div>
-      <Accordion
-        type="single"
-        collapsible
-        className="w-full "
-        defaultValue="item-1"
-      >
-        {faqs.map((faq, index) => {
-          return (
-            <AccordionItem value={`item-${index}`}>
-              <AccordionTrigger className="text-lg cursor-pointer hover:cursor-pointer">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="flex flex-col gap-4 text-balance">
-                <p className="text-lg">{faq.answer}</p>
-              </AccordionContent>
-            </AccordionItem>
-          );
-        })}
-        <AccordionItem value={"mount-everest"}>
-          <AccordionTrigger className="text-lg cursor-pointer hover:cursor-pointer">
-            Where is mount everest located?
-          </AccordionTrigger>
-          <AccordionContent className="flex flex-col gap-4 text-balance">
-            <p className="text-lg">
-              <Link className="text-green-700" href={"https://hinepaltreks.com/where-is-mount-everest"}>
-                {" "}
-                Mount Everest is located on the border of Nepal and China{" "}
-              </Link>{" "}
-              in the Himalaya Region.
-            </p>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+      <div className="bg-slate-100 p-4  rounded-[32px] w-full">
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full "
+          defaultValue="item-1"
+        >
+          {faqs.map((faq, index) => {
+            return (
+              <AccordionItem value={`item-${index}`}>
+                <AccordionTrigger className="text-lg cursor-pointer hover:cursor-pointer">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="flex flex-col gap-4 text-balance">
+                  <p className="text-lg">{faq.answer}</p>
+                </AccordionContent>
+              </AccordionItem>
+            );
+          })}
+          <AccordionItem value={"mount-everest"}>
+            <AccordionTrigger className="text-lg cursor-pointer hover:cursor-pointer">
+              Where is mount everest located?
+            </AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p className="text-lg">
+                <Link
+                  className="text-green-700"
+                  href={"https://hinepaltreks.com/where-is-mount-everest"}
+                >
+                  {" "}
+                  Mount Everest is located on the border of Nepal and China{" "}
+                </Link>{" "}
+                in the Himalaya Region.
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
     </div>
   );
 }

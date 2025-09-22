@@ -66,6 +66,24 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const destinationOrder = [
+    "Everest Region",
+    "Annapurna Region",
+    "Manaslu Region",
+  ];
+
+  function sortDestinations(destinations: any[]) {
+    return [...destinations].sort((a, b) => {
+      const aIndex = destinationOrder.indexOf(a.name);
+      const bIndex = destinationOrder.indexOf(b.name);
+
+      if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+      if (aIndex !== -1) return -1;
+      if (bIndex !== -1) return 1;
+      return 0;
+    });
+  }
+
   return (
     <nav
       style={{ top: topValue }}

@@ -59,7 +59,7 @@ const Numbers = () => {
                   <LucideCalendar color='white' size={40} />
                 </div>
                 <div className=''>
-                  <span className='text-4xl font-bold'>17+</span>
+                  <span className='text-4xl font-bold'>20+</span>
                   <span className='block text-sm'>Years of Experience</span>
                 </div>
               </div>

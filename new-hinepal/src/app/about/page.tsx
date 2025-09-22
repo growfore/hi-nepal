@@ -51,7 +51,7 @@ const About = () => {
                 </div>
                 <div className='text-gray-600 text-base md:text-lg leading-relaxed space-y-4'>
                   <p>
-                    Hi Nepal Travels and Treks Pvt. Ltd. is a certified trekking and travel agency, known for its years of high-quality service in the tourism industry of Nepal. With over 17+ years of experience, our goal is to assist you in exploring all the corners of Nepal and make your journey worthwhile, which will last in your memories forever.
+                    Hi Nepal Travels and Treks Pvt. Ltd. is a certified trekking and travel agency, known for its years of high-quality service in the tourism industry of Nepal. With over 20+ years of experience, our goal is to assist you in exploring all the corners of Nepal and make your journey worthwhile, which will last in your memories forever.
                     Our team of experienced guides and travel experts which are committed to providing you safe, responsible, and comfortable tour. We take pride in our professionalism, local knowledge, and dedication towards sustainable tourism. From the exciting trekking to the thrilling adventure sports, we lay out the best according to our demands and desires.
                   </p>
                 </div>

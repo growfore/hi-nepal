@@ -304,7 +304,7 @@ export default async function ActivitySingle({
             everything to first-time travelers as well as repeat visitors.
           </div>
         ) : (
-          <p className="container mx-auto text-justify p-8">
+          <p className="container mx-auto text-justify p-8 text-xl">
             Nepal is home to some of the stunning and popular trekking routes
             offering unique and diverse natural landscapes and mountain views,
             along with raw cultural and traditional significance. Whether you

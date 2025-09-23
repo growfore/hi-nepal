@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { ServiceCard } from "@/components/service-card";
 import { Metadata } from "next";
-import Team from "@/app/_components/team";
+import Team from "@/components/team";
 
 export const metadata: Metadata = {
   title: "About - Hi Nepal Travels and Treks",

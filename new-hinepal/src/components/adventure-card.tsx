@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-const AdventureCard = ({ image, text, buttonText, link }: { image: string, text: string, buttonText?: string, link: string }) => {
+const AdventureCard = ({ image, text, link }: { image: string, text: string, buttonText?: string, link: string }) => {
 
     return (
         <div className='w-full'>

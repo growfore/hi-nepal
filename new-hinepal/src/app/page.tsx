@@ -2,24 +2,24 @@ import endpoints from "@/constant/endpoints";
 import { TSiteInformation } from "@/types/types";
 import { get } from "@/utils/request-hander";
 import siteStore from "@/zustand/store";
-import { Hero } from "./_components/hero";
-import { Partners } from "./_components/partners";
-import Numbers from "./_components/numbers";
-import Gallery from "./_components/Gallery";
-import PopularDestinations from "./_components/popular-destinations";
-import PopularPackages from "./_components/popular-packages";
-import BlogHome from "./_components/blogs";
-import Activities from "./_components/activities";
-import Team from "./_components/team";
+import { Hero } from "@/components/hero";
+import { Partners } from "../components/partners";
+import Numbers from "../components/numbers";
+import Gallery from "../components/Gallery";
+import PopularDestinations from "../components/popular-destinations";
+import PopularPackages from "../components/popular-packages";
+import BlogHome from "../components/blogs";
+import Activities from "../components/activities";
+import Team from "../components/team";
 import AdventureSection from "@/components/adventure-section";
 import { Metadata } from "next";
 import { getProxyUrl } from "@/utils/imageProxy";
 import Link from "next/link";
-import BestShortTreks from "./_components/best-short-treks";
-import TenDaysPlusTreks from "./_components/10-days-plus-treks";
-import PopularTours from "./_components/popular-tours";
-import OneDayTours from "./_components/one-day-hiking";
-import { HomeFAQs } from "./_components/home-faqs";
+import BestShortTreks from "../components/best-short-treks";
+import TenDaysPlusTreks from "../components/10-days-plus-treks";
+import PopularTours from "../components/popular-tours";
+import OneDayTours from "../components/one-day-hiking";
+import { HomeFAQs } from "../components/home-faqs";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

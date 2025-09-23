@@ -2,7 +2,6 @@
 
 import { TPackageDetails } from "@/types/types";
 import React, { useEffect, useState } from "react";
-import GallerySlider from "@/app/_components/gallery-slider";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import {
@@ -14,14 +13,13 @@ import {
   CloudSunRain,
   HomeIcon as House,
   MountainSnow,
-  LucideChevronDown,
 } from "lucide-react";
 import { DataIcon } from "@/components/data-icon";
 import { SectionNav } from "@/components/SectionNav";
-import TrustBadge from "@/app/_components/trust-badge";
+import TrustBadge from "@/components/trust-badge";
 import PopularCard from "../popular-card";
 import { getProxyUrl } from "@/utils/imageProxy";
-import ReviewsGroup from "@/app/_components/reviews";
+import ReviewsGroup from "@/components/reviews";
 
 export function ItineraryPage({
   details,
@@ -35,7 +33,7 @@ export function ItineraryPage({
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkSize = () => setIsMobile(window.innerWidth < 768); 
+    const checkSize = () => setIsMobile(window.innerWidth < 768);
     checkSize();
     window.addEventListener("resize", checkSize);
     return () => window.removeEventListener("resize", checkSize);
@@ -56,8 +54,8 @@ export function ItineraryPage({
   return (
     <div className="">
       <div
-        className="bg-no-repeat relative h-[56vh] md:h-[80vh] bg-center bg-contain md:bg-cover flex items-end md:items-center justify-center 
-                 text-white rounded-md mb-4 mt-24 max-w-[90vw] mx-auto pb-8 md:pb-0"
+        className="bg-no-repeat relative h-[56vh] md:h-[80vh] bg-center bg-contain md:bg-cover flex items-end justify-center 
+                 text-white  mb-4 mt-24  mx-auto pb-8 md:pb-0"
         style={{
           backgroundImage: `url(${
             isMobile ? details.thumbnail : details.banner
@@ -65,19 +63,8 @@ export function ItineraryPage({
         }}
       >
         <div className="absolute inset-0 bg-black/10"></div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10  text-left md:text-center">
-          <h1 className="text-2xl  md:text-5xl lg:text-6xl font-extrabold leading-tight text-shadow-lg drop-shadow-2xl">
-            {details.title}
-          </h1>
-          <div className="mt-2">
-            <Button
-              onClick={() => window.scrollTo({ top: 500, behavior: "smooth" })}
-              size={"lg"}
-              className="cursor-pointer bg-green-700 rounded-3xl hover:bg-green-500 "
-            >
-              Explore <LucideChevronDown />
-            </Button>
-          </div>
+        <div className="p-4">
+        <TrustBadge />
         </div>
       </div>
       {/* Section Navigation */}
@@ -87,8 +74,12 @@ export function ItineraryPage({
       <main className="container mx-auto px-4 md:px-6 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Main Content Area */}
         <section className="lg:col-span-2">
+          <div className="container  py-4 text-left">
+            <h1 className="text-2xl md:text-3xl lg:4xl font-extrabold leading-tight text-shadow-lg drop-shadow-2xl">
+              {details.title}
+            </h1>
+          </div>
           {/* Data Icons Section */}
-          <TrustBadge />
           <div className="mt-4 bg-green-50 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-12 p-6 bg-light-blue-bg rounded-lg shadow-sm">
             {details?.title && (
               <DataIcon icon={MountainSnow} k="Destination" v={details.title} />
@@ -351,14 +342,14 @@ export function ItineraryPage({
           </Link>
 
           {/* Gallery */}
-          {details?.media && details?.media.length > 0 && (
+          {/* {details?.media && details?.media.length > 0 && (
             <div className="gallery mb-12 p-6 bg-white rounded-lg shadow-md">
               <h2 className="text-3xl font-bold text-dark-blue-900 mb-6">
                 Gallery
               </h2>
               <GallerySlider details={details} />
             </div>
-          )}
+          )} */}
         </section>
 
         {/* RIGHT SIDEBAR */}

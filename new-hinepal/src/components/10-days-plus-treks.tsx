@@ -9,7 +9,6 @@ const TenDaysPlusTreks = async () => {
   let packages: TPackages = [];
   await get({
     endPoint: endpoints.PACKAGES,
-    // params: { query: 'everest' },
     token: "",
     success: (message, res) => {
       packages.push(...res.data.packages);

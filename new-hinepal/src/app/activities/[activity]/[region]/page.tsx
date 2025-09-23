@@ -456,7 +456,7 @@ export default async function RegionPage({
                 <TrekkingCard
                   slug={d.slug}
                   title={d.title.split(":")[0]}
-                  image={d.image}
+                  image={d.thumbnail}
                   days={d.duration}
                 />
               </Link>

@@ -1,14 +1,15 @@
-import { LucideTimer } from "lucide-react"
-import { getProxyUrl } from "../utils/imageProxy"
+import { LucideTimer } from "lucide-react";
+import { getProxyUrl } from "../utils/imageProxy";
+import { Badge } from "./ui/badge";
 
 type TCardProps = {
-  slug: string
-  image: string
-  title: string
-  days?: string | null
-}
+  slug: string;
+  image: string;
+  title: string;
+  days?: string | null;
+};
 
-export default function TrekkingCard({image, title, days }: TCardProps) {
+export default function TrekkingCard({ image, title, days }: TCardProps) {
   return (
     <div className="max-w-[380px]">
       <div className="relative overflow-hidden rounded-lg shadow-lg bg-white hover:shadow-2xl transition-all duration-300 ease-in-out">
@@ -26,10 +27,10 @@ export default function TrekkingCard({image, title, days }: TCardProps) {
           {/* Title overlay with improved contrast */}
           <div className="absolute bottom-6 left-6 md:bottom-4 md:left-4 text-white z-10">
             {days && (
-              <div className="flex items-center gap-1 p-1 text-lg bg-green-700 px-2 w-fit rounded-md mb-2">
+              <Badge className="bg-green-700">
                 <LucideTimer className="w-4 h-4" />
                 {days.includes(":") ? days : `${days} Day(s)`}
-              </div>
+              </Badge>
             )}
             <h3 className="text-3xl md:text-2xl sm:text-xl font-bold m-0 leading-tight text-white drop-shadow-2xl">
               {title.split(":")[0]}
@@ -38,5 +39,5 @@ export default function TrekkingCard({image, title, days }: TCardProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }

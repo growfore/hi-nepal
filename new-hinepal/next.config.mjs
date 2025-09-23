@@ -597,6 +597,12 @@ const nextConfig = {
         permanent: true,
         statusCode: 301,
       },
+      {
+        source: "/sikles-villge-tour",
+        destination: "/sikles-village-tour",
+        permanent: true,
+        statusCode: 301,
+      },
     ];
   },
 };

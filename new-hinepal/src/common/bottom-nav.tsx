@@ -2,12 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import {
-  ChevronDown,
-  ChevronRight,
-  ChevronUp,
-  LucideMenu,
-} from "lucide-react";
+import { ChevronDown, ChevronRight, ChevronUp, LucideMenu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
 import {
@@ -28,7 +23,11 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
 
   const destination = path.split("/")[2] || "";
 
-  const destinationOrder = ["Everest Region", "Annapurna Region", "Manaslu Region"];
+  const destinationOrder = [
+    "Everest Region",
+    "Annapurna Region",
+    "Manaslu Region",
+  ];
 
   function sortDestinations(destinations: any[]) {
     return [...destinations].sort((a, b) => {
@@ -67,11 +66,37 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
       "manaslu-tsum-valley-circuit-trek",
       "tsum-valley-trek",
     ],
+    "everest-region": [
+      "everest-base-camp-trek",
+      "chola-pass-gokyo-trek",
+      "gokyo-valley-trek",
+      "pikey-peak-trek",
+      "three-passes-trek",
+      "renjo-la-pass-trek",
+    ],
+    "multi-days-tour":[
+      "kathmandu-tour-package",
+      "upper-mustang-tour",
+      "tilicho-lake-tour",
+      "rara-lake-tour-nepal",
+      "kalinchowk-trek",
+      "ghandruk-village-tour",
+      "sikles-village-tour",
+      "panchase-trek"
+    ],
+    "day-tours":[
+      "pokhara-valley-tour",
+      "sarangkot-pokhara-tour",
+      "world-peace-pagoda",
+      "pokhara-australian-camp-hike",
+      "kalikasthan-thulakot-hill"
+    ]
   };
 
   function sortPackages(destinationSlug: string, packages: any[]) {
     const order = packageOrders[destinationSlug];
-    if (!order) return [...packages].sort((a, b) => a.title.localeCompare(b.title));
+    if (!order)
+      return [...packages].sort((a, b) => a.title.localeCompare(b.title));
 
     return [...packages].sort(
       (a, b) => order.indexOf(a.slug) - order.indexOf(b.slug)
@@ -92,7 +117,10 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
   }, []);
 
   return (
-    <nav style={{ top: topValue }} className="fixed px-4 py-4 z-[999] bg-white w-full">
+    <nav
+      style={{ top: topValue }}
+      className="fixed px-4 py-4 z-[999] bg-white w-full"
+    >
       <div className="flex items-center justify-between container mx-auto gap-4 md:max-w-[75vw]">
         <Link href={"/"} className="flex-shrink-0 min-w-[50px]">
           <Image
@@ -124,44 +152,60 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
 
                 <div className="hidden group-hover:grid absolute top-[60px] left-0 w-[100vw] py-8 px-0 z-[999]">
                   <div className="pb-8 bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container px-12 mx-auto flex-wrap w-[100vw] rounded-md">
-                    {sortDestinations(activity.destinations).map((destination, idx) => (
-                      <div key={idx}>
-                        <Link
-                          className="font-semibold text-lg"
-                          href={`/activities/${activity.slug}/${destination.slug}`}
-                        >
-                          <div className="flex gap-1 items-center mb-2 text-[#F05A24] hover:text-green-700">
-                            <span>{destination.name}</span>
-                            <ChevronRight className="size-4" />
-                          </div>
-                        </Link>
-                        <ul className="flex flex-col gap-2">
-                          {sortPackages(destination.slug, destination.packages).map((pkg, pIdx) => (
-                            <li key={pIdx}>
-                              <Link
-                                href={`/${pkg.slug}`}
-                                className="hover:border-b-2 border-dashed border-green-700 hover:text-green-700"
-                              >
-                                {pkg.title.includes(":") ? pkg.title.split(":")[0].trim() : pkg.title.trim()}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
+                    {sortDestinations(activity.destinations).map(
+                      (destination, idx) => (
+                        <div key={idx}>
+                          <Link
+                            className="font-semibold text-lg"
+                            href={`/activities/${activity.slug}/${destination.slug}`}
+                          >
+                            <div className="flex gap-1 items-center mb-2 text-[#F05A24] hover:text-green-700">
+                              <span>{destination.name}</span>
+                              <ChevronRight className="size-4" />
+                            </div>
+                          </Link>
+                          <ul className="flex flex-col gap-2">
+                            {sortPackages(
+                              destination.slug,
+                              destination.packages
+                            ).map((pkg, pIdx) => (
+                              <li key={pIdx}>
+                                <Link
+                                  href={`/${pkg.slug}`}
+                                  className="hover:border-b-2 border-dashed border-green-700 hover:text-green-700"
+                                >
+                                  {pkg.title.includes(":")
+                                    ? pkg.title.split(":")[0].trim()
+                                    : pkg.title.trim()}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )
+                    )}
                   </div>
                 </div>
               </div>
             </div>
           ))}
 
-          <Link href={"/adventure"} className="hidden md:flex hover:text-green-700 font-bold uppercase gap-1">
+          <Link
+            href={"/adventure"}
+            className="hidden md:flex hover:text-green-700 font-bold uppercase gap-1"
+          >
             Adventure
           </Link>
-          <Link href={"/about-us"} className="hidden md:flex hover:text-green-700 font-bold uppercase gap-1">
+          <Link
+            href={"/about-us"}
+            className="hidden md:flex hover:text-green-700 font-bold uppercase gap-1"
+          >
             About Us
           </Link>
-          <Link href={"/blogs"} className="hidden md:flex hover:text-green-700 font-bold uppercase gap-1">
+          <Link
+            href={"/blogs"}
+            className="hidden md:flex hover:text-green-700 font-bold uppercase gap-1"
+          >
             Blogs
           </Link>
         </div>
@@ -169,7 +213,9 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
         {/* Mobile menu */}
         <div className="flex gap-2">
           <Link href={`/booking?destination=${destination}`}>
-            <Button size="lg" className="md:p-8 text-lg p-4">Book Now</Button>
+            <Button size="lg" className="md:p-8 text-lg p-4">
+              Book Now
+            </Button>
           </Link>
 
           <div className="md:hidden">
@@ -181,33 +227,59 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                 {navBar.map((activity, idx) => (
                   <Accordion key={idx} type="single" collapsible>
                     <AccordionItem value={`item-${idx}`}>
-                      <AccordionTrigger className="font-bold text-xl uppercase flex p-0">{activity.name}</AccordionTrigger>
+                      <AccordionTrigger className="font-bold text-xl uppercase flex p-0">
+                        {activity.name}
+                      </AccordionTrigger>
                       <AccordionContent>
-                        {sortDestinations(activity.destinations).map((destination, dIdx) => (
-                          <Accordion key={dIdx} type="single" collapsible>
-                            <AccordionItem value={`item-${dIdx}`}>
-                              <AccordionTrigger className="font-semibold text-xl p-0 py-2">{destination.name}</AccordionTrigger>
-                              <AccordionContent>
-                                <ul className="flex flex-col gap-2">
-                                  {sortPackages(destination.slug, destination.packages).map((pkg, pIdx) => (
-                                    <li key={pIdx}>
-                                      <Link href={`/${pkg.slug}`} className="hover:border-b-2 border-dashed border-[#EF5922] hover:text-[#EF5922] font-bold text-lg">
-                                        {pkg.title.includes(":") ? pkg.title.split(":")[0].trim() : pkg.title.trim()}
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </AccordionContent>
-                            </AccordionItem>
-                          </Accordion>
-                        ))}
+                        {sortDestinations(activity.destinations).map(
+                          (destination, dIdx) => (
+                            <Accordion key={dIdx} type="single" collapsible>
+                              <AccordionItem value={`item-${dIdx}`}>
+                                <AccordionTrigger className="font-semibold text-xl p-0 py-2">
+                                  {destination.name}
+                                </AccordionTrigger>
+                                <AccordionContent>
+                                  <ul className="flex flex-col gap-2">
+                                    {sortPackages(
+                                      destination.slug,
+                                      destination.packages
+                                    ).map((pkg, pIdx) => (
+                                      <li key={pIdx}>
+                                        <Link
+                                          href={`/${pkg.slug}`}
+                                          className="hover:border-b-2 border-dashed border-[#EF5922] hover:text-[#EF5922] font-bold text-lg"
+                                        >
+                                          {pkg.title.includes(":")
+                                            ? pkg.title.split(":")[0].trim()
+                                            : pkg.title.trim()}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </AccordionContent>
+                              </AccordionItem>
+                            </Accordion>
+                          )
+                        )}
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
                 ))}
-                <Link href={"/adventure"} className="uppercase font-bold text-xl">Adventures</Link>
-                <Link href={"/about-us"} className="uppercase font-bold text-xl">About us</Link>
-                <Link href={"/blogs"} className="uppercase font-bold text-xl">Blogs</Link>
+                <Link
+                  href={"/adventure"}
+                  className="uppercase font-bold text-xl"
+                >
+                  Adventures
+                </Link>
+                <Link
+                  href={"/about-us"}
+                  className="uppercase font-bold text-xl"
+                >
+                  About us
+                </Link>
+                <Link href={"/blogs"} className="uppercase font-bold text-xl">
+                  Blogs
+                </Link>
               </SheetContent>
             </Sheet>
           </div>

@@ -5,19 +5,7 @@ import { get } from "@/utils/request-hander";
 import Link from "next/link";
 import React from "react";
 
-const OneDayTours = async () => {
-  let packages: TPackages = [];
-  await get({
-    endPoint: endpoints.PACKAGES,
-    // params: { query: 'everest' },
-    token: "",
-    success: (message, res) => {
-      packages.push(...res.data.packages);
-    },
-    failure: (message) => {
-      console.log(message);
-    },
-  });
+const OneDayTours = async ({packages}: {packages: TPackages}) => {
 
   const popularTreks = [
     "pokhara-valley-tour",

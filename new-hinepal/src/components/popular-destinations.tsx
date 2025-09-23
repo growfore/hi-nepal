@@ -1,5 +1,5 @@
 import endpoints from "@/constant/endpoints";
-import { TDestination } from "@/types/types";
+import { TDestination, TPackage } from "@/types/types";
 import { getProxyUrl } from "@/utils/imageProxy";
 import { get } from "@/utils/request-hander";
 import Link from "next/link";

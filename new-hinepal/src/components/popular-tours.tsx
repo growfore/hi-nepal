@@ -5,18 +5,7 @@ import { get } from "@/utils/request-hander";
 import Link from "next/link";
 import React from "react";
 
-const PopularTours = async () => {
-  let packages: TPackages = [];
-  await get({
-    endPoint: endpoints.PACKAGES,
-    token: "",
-    success: (message, res) => {
-      packages.push(...res.data.packages);
-    },
-    failure: (message) => {
-      console.log(message);
-    },
-  });
+const PopularTours = async ({packages}: {packages: TPackages}) => {
 
   const popularTours = [
     "kathmandu-tour-package",

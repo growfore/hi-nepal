@@ -7,19 +7,7 @@ import React from "react";
 import { Badge } from "./ui/badge";
 import { LucideCompass } from "lucide-react";
 
-const PopularPackages = async () => {
-  let packages: TPackages = [];
-  await get({
-    endPoint: endpoints.PACKAGES,
-    // params: { query: 'everest' },
-    token: "",
-    success: (message, res) => {
-      packages.push(...res.data.packages);
-    },
-    failure: (message) => {
-      console.log(message);
-    },
-  });
+const PopularPackages = async ({ packages }: { packages: TPackages }) => {
 
   const popularTreks = [
     "everest-base-camp-trek",
@@ -44,7 +32,12 @@ const PopularPackages = async () => {
             {/* <p className='text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
               EXPLORE GREAT PLACES
             </p> */}
-            <Badge variant={'outline'} className="text-orange-500 p-2 rounded-[32px]"><LucideCompass size={42}/> Explore Great Places</Badge>
+            <Badge
+              variant={"outline"}
+              className="text-orange-500 p-2 rounded-[32px]"
+            >
+              <LucideCompass size={42} /> Explore Great Places
+            </Badge>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
               Are you looking for Premium Trekking or Tour packages with a
               Reliable trekking agency in Nepal? Get the best Nepal Tour package
@@ -55,7 +48,7 @@ const PopularPackages = async () => {
             </p>
 
             <h2 className='mt-12 text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
-            Popular Treks in Nepal
+              Popular Treks in Nepal
             </h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
               Nepal is a heaven on Earth offering some of the most popular treks

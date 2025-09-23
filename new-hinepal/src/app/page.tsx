@@ -1,25 +1,24 @@
 import endpoints from "@/constant/endpoints";
-import { TSiteInformation } from "@/types/types";
+import { TPackages, TSiteInformation } from "@/types/types";
 import { get } from "@/utils/request-hander";
 import siteStore from "@/zustand/store";
 import { Hero } from "@/components/hero";
-import { Partners } from "../components/partners";
-import Numbers from "../components/numbers";
-import Gallery from "../components/Gallery";
-import PopularDestinations from "../components/popular-destinations";
-import PopularPackages from "../components/popular-packages";
-import BlogHome from "../components/blogs";
-import Activities from "../components/activities";
-import Team from "../components/team";
+import { Partners } from "@/components/partners";
+import Numbers from "@/components/numbers";
+import Gallery from "@/components/Gallery";
+import PopularDestinations from "@/components/popular-destinations";
+import PopularPackages from "@/components/popular-packages";
+import BlogHome from "@/components/blogs";
+import Team from "@/components/team";
 import AdventureSection from "@/components/adventure-section";
 import { Metadata } from "next";
 import { getProxyUrl } from "@/utils/imageProxy";
 import Link from "next/link";
-import BestShortTreks from "../components/best-short-treks";
-import TenDaysPlusTreks from "../components/10-days-plus-treks";
-import PopularTours from "../components/popular-tours";
-import OneDayTours from "../components/one-day-hiking";
-import { HomeFAQs } from "../components/home-faqs";
+import BestShortTreks from "@/components/best-short-treks";
+import TenDaysPlusTreks from "@/components/10-days-plus-treks";
+import PopularTours from "@/components/popular-tours";
+import OneDayTours from "@/components/one-day-hiking";
+import { HomeFAQs } from "@/components/home-faqs";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -36,12 +35,6 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   let siteInformation: TSiteInformation = {} as TSiteInformation;
   siteInformation = siteStore.getState() as TSiteInformation;
-  // let reviews: {
-  //   name: string;
-  //   description: string;
-  //   image: string;
-  //   link: string;
-  // }[] = [];
   let carousels: {
     title: string;
     description: string;
@@ -62,26 +55,28 @@ export default async function Home() {
       console.log("Carousel Error:", message);
     },
   });
-  // await get({
-  //   endPoint: endpoints.REVIEWS,
-  //   token: '',
-  //   success: (message, res) => {
-  //     reviews = res.data;
-  //   },
-  //   failure: (message) => {
-  //     console.log('Reviews Error:', message);
-  //   },
-  // });
+
+  let packages: TPackages = [];
+  await get({
+    endPoint: endpoints.PACKAGES,
+    token: "",
+    success: (message, res) => {
+      packages.push(...res.data.packages);
+    },
+    failure: (message) => {
+      console.log(message);
+    },
+  });
 
   return (
     <>
       <main id="content" className="site-main">
         <Hero carousels={carousels} />
-        <PopularPackages />
-        <BestShortTreks/>
-        <TenDaysPlusTreks/>
-        <PopularTours/>
-        <OneDayTours/>
+        <PopularPackages packages={packages} />
+        <BestShortTreks packages={packages} />
+        <TenDaysPlusTreks packages={packages} />
+        <PopularTours packages={packages} />
+        <OneDayTours packages={packages} />
         <PopularDestinations />
         <AdventureSection />
         <Numbers />
@@ -98,7 +93,7 @@ export default async function Home() {
           </Link>
         </div>
 
-        <HomeFAQs/>
+        <HomeFAQs />
       </main>
     </>
   );

@@ -49,8 +49,8 @@ export function HomeFAQs() {
   ];
 
   return (
-    <div className="flex justify-between gap-4 container mx-auto my-24">
-      <div>
+    <div className="p-4 flex flex-col md:flex-row justify-between gap-4 container mx-auto my-24">
+      <div className="mb-4">
         <h2 className="text-5xl font-bold">Frequently Asked Questions</h2>
       </div>
       <div className="bg-slate-100 p-4  rounded-[32px] w-full">

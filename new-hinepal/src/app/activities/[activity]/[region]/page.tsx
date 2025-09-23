@@ -472,7 +472,7 @@ export default async function RegionPage({
     *****/}
       <div className="p-2 md:px-12 lg:px-24">
         {region.includes("everest") && (
-          <p className="text-justify font-medium italic text-xl">
+          <p className="text-justify text-xl">
             Home to the world’s highest peak, Mount Everest, the Everest region
             in Nepal, offers tons of adventures to adventure lovers, such as
             walking to the world’s highest passes to climbing 8000 m+ mountains.
@@ -515,7 +515,7 @@ export default async function RegionPage({
           </p>
         )}
         {region.includes("annapurna") && (
-          <p className="text-lg text-justify font-medium">
+          <p className="text-xl text-justify">
             The Annapurna Region is home to several trekking routes. From short
             and beginner-friendly treks like the{" "}
             <Link
@@ -655,7 +655,7 @@ export default async function RegionPage({
           </p>
         )}
         {region.includes("langtang") && (
-          <p className="text-lg text-justify font-medium">
+          <p className="text-xl text-justify">
             Located on the northern side of Kathmandu Valley, the Langtang
             Region offers some of the classic Langtang trekking routes, such as
             the{" "}
@@ -720,7 +720,7 @@ export default async function RegionPage({
         )}
 
         {region.includes("manaslu") && (
-          <p className="text-lg text-justify font-medium">
+          <p className="text-xl text-justify">
             <p>
               Immersion in the local Tibetan-influenced culture is one of the
               hiking highlights in the Manaslu region. Trekkers can enjoy both
@@ -792,7 +792,7 @@ export default async function RegionPage({
           </p>
         )}
         {region.includes("dolpo-region") && (
-          <p className="text-lg text-justify font-medium">
+          <p className="text-xl text-justify">
             Dolpo's trekking visitors are greeted by landscapes of drama, arid
             valleys, rocky cliffs, azure Phoksundo Lake, and towering snow-white
             peaks. The region is equally culturally rich, with centuries-old
@@ -858,7 +858,7 @@ export default async function RegionPage({
           </p>
         )}
         {region.includes("kanchenjunga") && (
-          <p className="text-lg text-justify font-medium">
+          <p className="text-xl text-justify">
             The{" "}
             <Link
               className="text-green-700"
@@ -950,7 +950,7 @@ export default async function RegionPage({
         )}
 
         {region.includes("multi-days-tour") && (
-          <p className="text-lg text-justify font-medium">
+          <p className="text-xl text-justify">
             Nepal is known for its{" "}
             <Link
               className="text-green-700"
@@ -1057,7 +1057,7 @@ export default async function RegionPage({
         )}
 
         {region.includes("day-tours") && (
-          <p className="text-lg text-justify font-medium">
+          <p className="text-xl text-justify">
             The Short Day tours in Nepal are a perfect adventure for people with
             limited time, or looking for a quick getaway from their regular
             hectic schedule. For those who want a{" "}
@@ -1143,18 +1143,23 @@ export default async function RegionPage({
           </p>
         )}
         {region.includes("nature-wildlife") && (
-          <p className="text-lg text-justify font-medium">
+          <p className="text-xl text-justify">
             In addition to its wildlife, Nepal's natural scenery also offers
             challenging possibilities for adventure. From jungle walks along the
             Terai to bird watching tours in{" "}
-            <Link className="text-green-700" href={"https://hinepaltreks.com/chitwan-national-park-tour"}>
-            {" "}
-              Chitwan National Park
-            {" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/chitwan-national-park-tour"}
+            >
+              {" "}
+              Chitwan National Park{" "}
             </Link>
             and{" "}
-            <Link className="text-green-700" href={"https://hinepaltreks.com/bardiya-national-park-tour"}>
-            {" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/bardiya-national-park-tour"}
+            >
+              {" "}
               Bardiya National Park
             </Link>
             , tourists can glimpse exotic wildlife such as the one-horned
@@ -1167,14 +1172,17 @@ export default async function RegionPage({
             sites, including lakes, caves, and forests, are closely associated
             with local legends and traditions, providing travelers with the best
             of nature and culture in the same trip. Whether{" "}
-            <Link className="text-green-700" href={"https://hinepaltreks.com/activities/trekking"}>
-            {" "}
+            <Link
+              className="text-green-700"
+              href={"https://hinepaltreks.com/activities/trekking"}
+            >
+              {" "}
               trekking{" "}
             </Link>
             over rhododendron trees, rafting over virgin rivers, or exploring
             UNESCO-listed national parks,{" "}
             <Link className="text-green-700" href={"https://hinepaltreks.com/"}>
-            {" "}
+              {" "}
               Hi Nepal Travels and Treks
             </Link>{" "}
             promises a once-in-a-lifetime experience that blends conservation,

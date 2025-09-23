@@ -143,25 +143,7 @@ type TRequest = {
   failure: (message: string) => void;
 };
 
-// interface IRequestRepo {
-//   get(request: TRequest): Promise<void>;
-//   post(request: TRequest): Promise<TpostResponse>;
-//   patch(request: TRequest): Promise<TpatchResponse>;
-//   delete(request: TRequest): Promise<TdeleteResponse>;
-//   postWithFile(request: TRequest): Promise<TpostWithFileResponse>;
-// }
-
-// type TgetResponse = TgetSuccessResponse | TgetFailureResponse;
 type TpostResponse = any;
 type TpatchResponse = any;
 type TdeleteResponse = any;
 type TpostWithFileResponse = any;
-
-// type TgetSuccessResponse = {
-//   success: true;
-//   data: any;
-// };
-// type TgetFailureResponse = {
-//   success: false;
-//   error: string;
-// };

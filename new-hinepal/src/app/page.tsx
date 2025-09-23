@@ -89,7 +89,7 @@ export default async function Home() {
         <Partners />
         <BlogHome />
         <Team />
-        <div className="flex justify-center items-center flex-col -mt-12  md:-mt-16 mb-8">
+        <div className="flex justify-center items-center flex-col  md:-mt-16 mb-8">
           <Link
             href="/about-us"
             className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"

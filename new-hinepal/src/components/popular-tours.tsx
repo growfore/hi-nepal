@@ -9,7 +9,6 @@ const PopularTours = async () => {
   let packages: TPackages = [];
   await get({
     endPoint: endpoints.PACKAGES,
-    // params: { query: 'everest' },
     token: "",
     success: (message, res) => {
       packages.push(...res.data.packages);
@@ -19,24 +18,24 @@ const PopularTours = async () => {
     },
   });
 
-  const popularTreks = [
+  const popularTours = [
     "kathmandu-tour-package",
     "upper-mustang-tour",
     "tilicho-lake-tour",
   ];
 
   const filteredPackages = packages
-    .filter((pkg) => popularTreks.includes(pkg.slug))
+    .filter((pkg) => popularTours.includes(pkg.slug))
     .sort(
-      (a, b) => popularTreks.indexOf(a.slug) - popularTreks.indexOf(b.slug)
+      (a, b) => popularTours.indexOf(a.slug) - popularTours.indexOf(b.slug)
     );
 
   return (
     <section className="py-8  bg-white">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12 md:mb-16">
-          <div className="max-w-4xl mx-auto mt-12">
-            <h2 className='mt-12 text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
+        <div className="text-left md:text-center mb-12 md:mb-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className='text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
               Popular Tours in Nepal
             </h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">

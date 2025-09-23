@@ -8,13 +8,9 @@ type TCardProps = {
   days?: string | null
 }
 
-export default function TrekkingCard({ slug, image, title, days }: TCardProps) {
+export default function TrekkingCard({image, title, days }: TCardProps) {
   return (
     <div className="max-w-[380px]">
-      {/* <Link
-          href={`/${slug}`}
-          className="block no-underline text-inherit focus:outline-2 focus:outline-blue-500 focus:outline-offset-2 hover:-translate-y-0.5 transition-transform duration-300 ease-in-out"
-        > */}
       <div className="relative overflow-hidden rounded-lg shadow-lg bg-white hover:shadow-2xl transition-all duration-300 ease-in-out">
         <div className="relative aspect-[16/9] w-[420px] overflow-hidden">
           <img
@@ -41,7 +37,6 @@ export default function TrekkingCard({ slug, image, title, days }: TCardProps) {
           </div>
         </div>
       </div>
-      {/* </Link> */}
     </div>
   )
 }

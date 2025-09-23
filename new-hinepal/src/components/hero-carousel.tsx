@@ -46,10 +46,9 @@ export function HeroCarousel({
             <div className="flex flex-col">
               <Image
                 src={carousel.image}
-                fetchPriority="high"
                 alt={carousel.title}
                 fill
-                priority={false}
+                loading="lazy"
                 className="object-cover md:object-fit"
                 loader={({ src }) => src}
                 unoptimized

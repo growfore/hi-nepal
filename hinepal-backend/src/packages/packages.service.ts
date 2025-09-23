@@ -139,6 +139,7 @@ export class PackagesService {
         price: true,
         discount: true,
         groupSize: true,
+        media: true,
         destination: {
           select: {
             name: true,

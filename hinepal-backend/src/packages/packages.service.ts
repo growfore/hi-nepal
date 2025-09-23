@@ -139,7 +139,11 @@ export class PackagesService {
         price: true,
         discount: true,
         groupSize: true,
-        media: true,
+        media: {
+          select: {
+            url: true,
+          },
+        },
         destination: {
           select: {
             name: true,
@@ -289,20 +293,20 @@ export class PackagesService {
           transportation: updatePackageDto?.transportation || '',
           permits: updatePackageDto?.permits || '',
           tripGrade: updatePackageDto?.tripGrade || '',
-          overview: updatePackageDto?.overview || "",
-          highlights: updatePackageDto?.highlights || "",
-          altitudeInfo: updatePackageDto?.altitudeInfo || "",
-          packing: updatePackageDto?.packing || "",
-          bestSeasonInfo: updatePackageDto?.bestSeasonInfo || "",
-          routeOverview: updatePackageDto?.routeOverview || "",
-          excludes: updatePackageDto?.excludes || "",
-          sicknessAndSaftey: updatePackageDto?.sicknessAndSaftey || "",
-          insuranceAndEmergency: updatePackageDto?.insuranceAndEmergency || "",
-          permitsAndRegulations: updatePackageDto?.permitsAndRegulations || "",
-          shortTrekInfo: updatePackageDto?.shortTrekInfo || "",
-          whyChooseThisPackage: updatePackageDto?.whyChooseThisPackage || "",
-          priceBreakDown: updatePackageDto?.priceBreakDown || "",
-          bookingInfo: updatePackageDto?.bookingInfo || "",
+          overview: updatePackageDto?.overview || '',
+          highlights: updatePackageDto?.highlights || '',
+          altitudeInfo: updatePackageDto?.altitudeInfo || '',
+          packing: updatePackageDto?.packing || '',
+          bestSeasonInfo: updatePackageDto?.bestSeasonInfo || '',
+          routeOverview: updatePackageDto?.routeOverview || '',
+          excludes: updatePackageDto?.excludes || '',
+          sicknessAndSaftey: updatePackageDto?.sicknessAndSaftey || '',
+          insuranceAndEmergency: updatePackageDto?.insuranceAndEmergency || '',
+          permitsAndRegulations: updatePackageDto?.permitsAndRegulations || '',
+          shortTrekInfo: updatePackageDto?.shortTrekInfo || '',
+          whyChooseThisPackage: updatePackageDto?.whyChooseThisPackage || '',
+          priceBreakDown: updatePackageDto?.priceBreakDown || '',
+          bookingInfo: updatePackageDto?.bookingInfo || '',
 
           Author: {
             connect: {

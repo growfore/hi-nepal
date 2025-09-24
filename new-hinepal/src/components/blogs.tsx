@@ -1,15 +1,14 @@
 import BlogCard from "@/components/blog-card"
-import { getBlogs } from "@/helper/getBlog";
 import Link from "next/link";
 
 const BlogHome = async () => {
-  // const getBlogs = async () => {
-  //   const res = await fetch('https://blogs.hinepaltreks.com/wp-json/wp/v2/posts?_embed', {
-  //     next: { revalidate: 60 },
-  //   });
-  //   return res.json();
-  // }
-  const posts = await getBlogs(1, 6);
+  const getBlogs = async () => {
+    const res = await fetch('https://blogs.hinepaltreks.com/wp-json/wp/v2/posts?_embed', {
+      next: { revalidate: 60 },
+    });
+    return res.json();
+  }
+  const posts = await getBlogs();
 
   return (
     <section className="py-16 bg-background">
@@ -29,7 +28,7 @@ const BlogHome = async () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts?.posts?.map((post: any, index: number) => (
+          {posts.map((post: any, index: number) => (
             <BlogCard key={index} title={post.title.rendered} excerpt={post.excerpt.rendered} image={post._embedded?.['wp:featuredmedia']?.[0]?.source_url} slug={post.slug} />
           ))}
         </div>

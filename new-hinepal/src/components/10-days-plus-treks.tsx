@@ -69,7 +69,7 @@ const TenDaysPlusTreks = async ({packages}: {packages: TPackages}) => {
                 href="/activities/trekking"
                 className="uppercase inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
               >
-                Learn More
+                More Trekking Trails
               </Link>
             </div>
           </div>

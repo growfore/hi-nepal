@@ -64,7 +64,7 @@ export function ItineraryPage({
       >
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="p-4">
-        <TrustBadge />
+          <TrustBadge />
         </div>
       </div>
       {/* Section Navigation */}
@@ -148,7 +148,7 @@ export function ItineraryPage({
           {details.overview && (
             <div id="overview" className={sectionStyle}>
               <div
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
                 dangerouslySetInnerHTML={{ __html: details.overview }}
               ></div>
             </div>
@@ -159,7 +159,7 @@ export function ItineraryPage({
             <div id="highlights" className={sectionStyle}>
               <div
                 dangerouslySetInnerHTML={{ __html: details.highlights }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -169,7 +169,7 @@ export function ItineraryPage({
             <div id="altitude" className="scroll-mt-42 mb-12 p-6  rounded-lg">
               <div
                 dangerouslySetInnerHTML={{ __html: details.altitudeInfo }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -182,7 +182,7 @@ export function ItineraryPage({
             >
               <div
                 dangerouslySetInnerHTML={{ __html: details.itenary }}
-                className="prose max-w-none"
+                className="prose marker:text-black marker:!text-xl max-w-none"
               ></div>
             </div>
           )}
@@ -192,7 +192,7 @@ export function ItineraryPage({
             <div id="packing" className={sectionStyle}>
               <div
                 dangerouslySetInnerHTML={{ __html: details.packing }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -202,7 +202,7 @@ export function ItineraryPage({
             <div id="best-season" className={sectionStyle}>
               <div
                 dangerouslySetInnerHTML={{ __html: details.bestSeasonInfo }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -212,7 +212,7 @@ export function ItineraryPage({
             <div id="route-overview" className={sectionStyle}>
               <div
                 dangerouslySetInnerHTML={{ __html: details.routeOverview }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -222,7 +222,7 @@ export function ItineraryPage({
             <div id="includes" className={sectionStyle}>
               <div
                 dangerouslySetInnerHTML={{ __html: details.includes }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -232,7 +232,7 @@ export function ItineraryPage({
             <div id="excludes" className={sectionStyle}>
               <div
                 dangerouslySetInnerHTML={{ __html: details.excludes }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -242,7 +242,7 @@ export function ItineraryPage({
             <div id="sicknessAndSafety" className={sectionStyle}>
               <div
                 dangerouslySetInnerHTML={{ __html: details.sicknessAndSaftey }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -254,7 +254,7 @@ export function ItineraryPage({
                 dangerouslySetInnerHTML={{
                   __html: details.insuranceAndEmergency,
                 }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -266,7 +266,7 @@ export function ItineraryPage({
                 dangerouslySetInnerHTML={{
                   __html: details.permitsAndRegulations,
                 }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -276,7 +276,7 @@ export function ItineraryPage({
             <div id="shortTrekInfo" className={sectionStyle}>
               <div
                 dangerouslySetInnerHTML={{ __html: details.shortTrekInfo }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -288,7 +288,7 @@ export function ItineraryPage({
                 dangerouslySetInnerHTML={{
                   __html: details.whyChooseThisPackage,
                 }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -298,7 +298,7 @@ export function ItineraryPage({
             <div id="priceBreakdown" className={sectionStyle}>
               <div
                 dangerouslySetInnerHTML={{ __html: details.priceBreakDown }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -308,7 +308,7 @@ export function ItineraryPage({
             <div id="bookingInfo" className={sectionStyle}>
               <div
                 dangerouslySetInnerHTML={{ __html: details.bookingInfo }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -330,7 +330,7 @@ export function ItineraryPage({
             <div id="faqs" className={sectionStyle}>
               <div
                 dangerouslySetInnerHTML={{ __html: details.goodtoknow }}
-                className="prose max-w-none"
+                className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
             </div>
           )}
@@ -365,7 +365,9 @@ export function ItineraryPage({
                 className="object-cover rounded-full  mb-4"
               />
               <p className="text-xl font-bold text-dark-blue-900 mb-4">
-                <strong>Mohan Prasad Subedi</strong>
+                <strong className="text-center flex flex-col">
+                  Mohan Prasad Subedi <br/> <span className="text-sm font-semibold">(20+ Years in Tourism)</span>
+                </strong>
               </p>
               <Link href="https://wa.me/9779856035091" target="_blank">
                 <Button className="w-full bg-green-500 text-white hover:bg-orange-600 px-6 py-3 text-lg font-semibold rounded-md">

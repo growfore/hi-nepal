@@ -62,7 +62,7 @@ export default async function SitemapPage() {
           <Link
             title="go to about page"
             className={hoverStyle}
-            href={`${baseUrl}/about`}
+            href={`${baseUrl}/about-us`}
           >
             About
           </Link>

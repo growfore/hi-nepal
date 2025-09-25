@@ -55,7 +55,7 @@ export async function GET() {
 
     // Static URLs
     links.push({ url: "/", changefreq: "daily", priority: 1.0 });
-    links.push({ url: "/about", changefreq: "monthly", priority: 0.7 });
+    links.push({ url: "/about-us", changefreq: "monthly", priority: 0.7 });
     links.push({ url: "/adventure", changefreq: "monthly", priority: 0.7 });
     links.push({ url: "/blogs", changefreq: "daily", priority: 0.7 });
     links.push({ url: "/booking", changefreq: "monthly", priority: 0.7 });

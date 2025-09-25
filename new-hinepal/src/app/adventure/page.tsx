@@ -94,7 +94,7 @@ export default function AdventurePage() {
                             Cycling
                         </h2>
                         <p className="text-justify">
-                            Cycling in Nepal offers a unique mixture of adventure, fitness, and cultural exploration. It offers smooth city rides and challenging mountain trails, allowing enthusiasts to experience the country's beauty. Mountain bikers can tackle rugged tracks in Kathmandu, Pokhara, and the Annapurna region, while leisure riders can enjoy peaceful lakeside paths or gentle countryside roads. Cycling can even enhance your day tours in Pokhara, such as the <Link className="text-green-700 underline" href={"https://hinepaltreks.com/sarangkot-pokhara-tour"}>Sarangkot Tour</Link> or <Link className="text-green-700 underline" href={"https://hinepaltreks.com/world-peace-pagoda-tour"}>World Peace Pagoda Tour</Link>.
+                            Cycling in Nepal offers a unique mixture of adventure, fitness, and cultural exploration. It offers smooth city rides and challenging mountain trails, allowing enthusiasts to experience the country's beauty. Mountain bikers can tackle rugged tracks in Kathmandu, Pokhara, and the Annapurna region, while leisure riders can enjoy peaceful lakeside paths or gentle countryside roads. Cycling can even enhance your day tours in Pokhara, such as the <Link className="text-green-700 underline" href={"https://hinepaltreks.com/sarangkot-pokhara-tour"}>Sarangkot Tour</Link> or <Link className="text-green-700 underline" href={"https://hinepaltreks.com/world-peace-pagoda"}>World Peace Pagoda Tour</Link>.
                         </p>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import { LucideTimer } from "lucide-react";
-import { getProxyUrl } from "../utils/imageProxy";
-import { Badge } from "./ui/badge";
+import { getProxyUrl } from "@/utils/imageProxy";
+import { Badge } from "@/components/ui/badge";
 
 type TCardProps = {
   slug: string;
@@ -24,7 +24,6 @@ export default function TrekkingCard({ image, title, days }: TCardProps) {
           {/* Dark gradient overlay for better text contrast */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
-          {/* Title overlay with improved contrast */}
           <div className="absolute bottom-6 left-6 md:bottom-4 md:left-4 text-white z-10">
             {days && (
               <Badge className="bg-green-700">

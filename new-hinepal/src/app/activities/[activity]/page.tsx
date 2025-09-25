@@ -293,9 +293,9 @@ export default async function ActivitySingle({
             and{" "}
             <Link
               className="text-green-700"
-              href={"https://hinepaltreks.com/sikles-villge-tour"}
+              href={"https://hinepaltreks.com/sikles-village-tour"}
             >
-              Siklesh Village tour
+              Sikles Village tour
             </Link>
             , for all the enthusiasts who always have something to do with
             digging up historical sites and secret treasures. <br />

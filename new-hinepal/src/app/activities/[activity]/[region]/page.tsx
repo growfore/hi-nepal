@@ -371,7 +371,7 @@ export default async function RegionPage({
             , one of the{" "}
             <Link
               className="text-green-700"
-              href={"https://hinepaltreks.com/about"}
+              href={"https://hinepaltreks.com/about-us"}
             >
               {" "}
               best tour operators in Nepal
@@ -995,10 +995,10 @@ export default async function RegionPage({
             to traditional cultural village tours like{" "}
             <Link
               className="text-green-700"
-              href={"https://hinepaltreks.com/sikles-villge-tour"}
+              href={"https://hinepaltreks.com/sikles-village-tour"}
             >
               {" "}
-              Siklesh
+              Sikles
             </Link>
             ,
             <Link

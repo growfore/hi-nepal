@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   keywords:
     "trekking, tours, adventure sports, travel and trekking agency in nepal",
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/about",
+    canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/about-us",
   },
   robots: {
     index: true,

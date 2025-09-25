@@ -59,7 +59,7 @@ After some travel issues I experienced with my airplane, Hi Nepal also worked wi
 
   return (
     <div className="min-h-screen">
-        <h1 className="text-2xl font-bold text-green-700 mb-8">Customer Reviews</h1>
+        <h2 className="text-2xl font-bold text-green-700 mb-8">Customer Reviews</h2>
         <div className="space-y-6">
           {reviews.map((review, index) => (
             <ReviewCard key={index} {...review} onLike={() => handleLike(index)} />

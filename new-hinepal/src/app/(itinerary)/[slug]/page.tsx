@@ -196,7 +196,7 @@ const activites = async ({ params }: { params: Params }) => {
   const filteredTreks: TPackageDetails[] = packages.filter((pkg) =>
     popularTreks.includes(pkg.slug)
   );
-  const itinerarySchema = {
+  const itinerarySchema = details?.seo?.schema || {
     "@context": "https://schema.org",
     "@type": "Product",
     name: details.title,
@@ -228,8 +228,8 @@ const activites = async ({ params }: { params: Params }) => {
     </main>
   ) : (
     <main>
-      <script type="application/ld+json">
-        {JSON.stringify(itinerarySchema)}
+      {/* @ts-ignore */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(JSON.parse(itinerarySchema))}}>
       </script>
       <ItineraryPage
         details={details}

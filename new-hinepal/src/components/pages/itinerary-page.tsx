@@ -53,7 +53,7 @@ export function ItineraryPage({
     "scroll-mt-42 mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400";
   return (
     <div className="">
-      <div
+      {/* <div
         className="bg-no-repeat relative h-[56vh] md:h-[80vh] bg-center bg-contain md:bg-cover flex items-end justify-center 
                  text-white  mb-4 mt-24  mx-auto pb-8 md:pb-0"
         style={{
@@ -63,22 +63,28 @@ export function ItineraryPage({
         }}
       >
         <div className="absolute inset-0 bg-black/10"></div>
-        <div className="p-4">
-          <TrustBadge />
-        </div>
-      </div>
+      </div> */}
       {/* Section Navigation */}
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="container py-4 text-left mt-24">
+          <h1 className="text-2xl md:text-3xl lg:4xl font-extrabold leading-tight text-shadow-lg drop-shadow-2xl">
+            {details.title}
+          </h1>
+          <div className="">
+            <TrustBadge />
+          </div>
+        </div>
+        <img
+          className="rounded-md"
+          src={isMobile ? details?.thumbnail : details?.banner}
+        />
+      </div>
       {/* @ts-ignore */}
       <SectionNav navigations={navigations} />
 
       <main className="container mx-auto px-4 md:px-6 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Main Content Area */}
         <section className="lg:col-span-2">
-          <div className="container  py-4 text-left">
-            <h1 className="text-2xl md:text-3xl lg:4xl font-extrabold leading-tight text-shadow-lg drop-shadow-2xl">
-              {details.title}
-            </h1>
-          </div>
           {/* Data Icons Section */}
           <div className="mt-4 bg-green-50 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-12 p-6 bg-light-blue-bg rounded-lg shadow-sm">
             {details?.title && (
@@ -366,7 +372,10 @@ export function ItineraryPage({
               />
               <p className="text-xl font-bold text-dark-blue-900 mb-4">
                 <strong className="text-center flex flex-col">
-                  Mohan Prasad Subedi <br/> <span className="text-sm font-semibold">(20+ Years in Tourism)</span>
+                  Mohan Prasad Subedi <br />{" "}
+                  <span className="text-sm font-semibold">
+                    (20+ Years in Tourism)
+                  </span>
                 </strong>
               </p>
               <Link href="https://wa.me/9779856035091" target="_blank">

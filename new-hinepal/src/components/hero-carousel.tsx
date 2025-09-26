@@ -37,7 +37,7 @@ export function HeroCarousel({
         }),
       ]}
     >
-      <CarouselContent className="mt-16 md:mt-[100px]">
+      <CarouselContent className="mt-16 md:mt-[96px]">
         {carousels?.map((carousel, index) => (
           <CarouselItem
             key={index}

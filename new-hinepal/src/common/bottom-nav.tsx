@@ -118,7 +118,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
   return (
     <nav
       style={{ top: topValue }}
-      className="fixed px-4 py-4 z-[999] bg-white w-full"
+      className="fixed px-4 py-4 z-[999] bg-white w-full shadow-sm"
     >
       <div className="flex items-center justify-between container mx-auto gap-4 md:max-w-[75vw]">
         <Link href={"/"} className="flex-shrink-0 min-w-[50px]">
@@ -220,7 +220,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
           <div className="lg:hidden">
             <Sheet>
               <SheetTrigger className="flex justify-center items-center">
-                <LucideMenu className="sm:size-12 -mt-1 md:mt-0 md:size-16" />
+                <LucideMenu className="size-12 -mt-1 md:mt-0 md:size-16" />
               </SheetTrigger>
               <SheetContent className="flex flex-col gap-4 p-8 z-[99999]">
                 {navBar.map((activity, idx) => (

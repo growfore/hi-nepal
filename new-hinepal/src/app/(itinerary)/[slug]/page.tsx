@@ -196,20 +196,27 @@ const activites = async ({ params }: { params: Params }) => {
   const filteredTreks: TPackageDetails[] = packages.filter((pkg) =>
     popularTreks.includes(pkg.slug)
   );
-  const itinerarySchema = details?.seo.schema;
 
-  const fallBackItinerarySchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: details.title,
-    description: details.description,
-    url: `${process.env.NEXT_PUBLIC_FRONTEND_BASE_URL}/${details.slug}`,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5",
-      reviewCount: "113",
-    },
-  };
+  let itinerarySchema;
+  if (!blog) {
+    itinerarySchema = details?.seo.schema;
+  }
+
+  let fallBackItinerarySchema;
+  if (!blog) {
+    fallBackItinerarySchema = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: details.title,
+      description: details.description,
+      url: `${process.env.NEXT_PUBLIC_FRONTEND_BASE_URL}/${details.slug}`,
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "5",
+        reviewCount: "113",
+      },
+    };
+  }
 
   const filteredTours: TPackageDetails[] = packages.filter((pkg) =>
     popularTours.includes(pkg.slug)
@@ -225,7 +232,12 @@ const activites = async ({ params }: { params: Params }) => {
 
   return blog ? (
     <main id="content" className="site-main">
-      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      ></script>
       <BlogPage blog={blog} />
     </main>
   ) : (

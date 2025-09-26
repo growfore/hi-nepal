@@ -41,7 +41,6 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
     });
   }
 
-  // ✅ Predefined package order arrays
   const packageOrders: Record<string, string[]> = {
     "annapurna-region": [
       "annapurna-base-camp-trek",
@@ -140,7 +139,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
             <div key={index}>
               <div
                 onClick={handleClick}
-                className={cn(!disableHover && "group", "hidden md:flex")}
+                className={cn(!disableHover && "group", "hidden lg:flex")}
               >
                 <Link
                   href={`/activities/${activity.slug}`}
@@ -192,36 +191,36 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
 
           <Link
             href={"/adventure"}
-            className="hidden md:flex hover:text-green-700 font-bold uppercase gap-1"
+            className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
           >
             Adventure
           </Link>
           <Link
             href={"/about-us"}
-            className="hidden md:flex hover:text-green-700 font-bold uppercase gap-1"
+            className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
           >
             About Us
           </Link>
           <Link
             href={"/blogs"}
-            className="hidden md:flex hover:text-green-700 font-bold uppercase gap-1"
+            className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
           >
             Blogs
           </Link>
         </div>
 
         {/* Mobile menu */}
-        <div className="flex gap-2">
+        <div className="flex gap-2 self-center">
           <Link href={`/booking?destination=${destination}`}>
             <Button size="lg" className="md:p-8 text-lg p-4">
               Book Now
             </Button>
           </Link>
 
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Sheet>
-              <SheetTrigger>
-                <LucideMenu size={42} />
+              <SheetTrigger className="flex justify-center items-center">
+                <LucideMenu className="sm:size-12 -mt-1 md:mt-0 md:size-16" />
               </SheetTrigger>
               <SheetContent className="flex flex-col gap-4 p-8 z-[99999]">
                 {navBar.map((activity, idx) => (

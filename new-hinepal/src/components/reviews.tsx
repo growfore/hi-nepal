@@ -1,4 +1,5 @@
 import { ReviewCard } from "./review-card"
+import { Button } from "./ui/button"
 
 export default function ReviewsGroup() {
   const reviews = [
@@ -64,6 +65,7 @@ After some travel issues I experienced with my airplane, Hi Nepal also worked wi
           {reviews.map((review, index) => (
             <ReviewCard key={index} {...review} onLike={() => handleLike(index)} />
           ))}
+          <Button className="bg-green-700 p-8 hover:cursor-pointer">View More Reviews</Button>
         </div>
     </div>
   )

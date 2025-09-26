@@ -196,7 +196,9 @@ const activites = async ({ params }: { params: Params }) => {
   const filteredTreks: TPackageDetails[] = packages.filter((pkg) =>
     popularTreks.includes(pkg.slug)
   );
-  const itinerarySchema = {
+  const itinerarySchema = details?.seo.schema;
+
+  const fallBackItinerarySchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: details.title,
@@ -228,9 +230,23 @@ const activites = async ({ params }: { params: Params }) => {
     </main>
   ) : (
     <main>
-      {/* @ts-ignore */}
-      {/* <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(JSON.parse(itinerarySchema))}}> */}
-      {/* </script> */}
+      {itinerarySchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            //  @ts-ignore
+            __html: JSON.stringify(JSON.parse(itinerarySchema)),
+          }}
+        ></script>
+      ) : (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            //  @ts-ignore
+            __html: JSON.stringify(fallBackItinerarySchema),
+          }}
+        ></script>
+      )}
       <ItineraryPage
         details={details}
         relatedProducts={relatedProducts}

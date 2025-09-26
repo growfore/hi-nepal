@@ -42,3 +42,4 @@ yarn-error.log*
 next-env.d.ts
 
 /test-schema.json
+/test-schema2.json

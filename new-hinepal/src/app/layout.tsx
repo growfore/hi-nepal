@@ -18,7 +18,7 @@ const playfair = Playfair({
 export const metadata = {
   title: {
     default: "Hi Nepal Travels & Treks",
-    template: "%s | Hi Nepal Travels & Treks",
+    template: "%s",
   },
   description:
     "Official Hi Nepal Treks website offering authentic trekking, tours, and adventures across Nepal.",

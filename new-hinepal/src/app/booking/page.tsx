@@ -5,7 +5,7 @@ import { get } from "@/utils/request-hander";
 import { notFound } from "next/navigation";
 
 export const metadata = {
-  title: "Plan Your Adventure | Hi Nepal Treks",
+  title: "Plan Your Adventure",
   description: "Plan your Himalayan adventure with Hi Nepal Travels and Treks. Booking trekking, tours, and adventure sports in Nepal through our easy online inquiry form.",
   keywords: "trekking, tour, adventure sports, bookings, travel and trekking agency in nepal",
   alternates: {

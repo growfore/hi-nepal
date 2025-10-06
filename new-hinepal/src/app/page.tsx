@@ -22,7 +22,7 @@ import { HomeFAQs } from "@/components/home-faqs";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Hi Nepal Travels and Treks Pvt. Ltd. | Home",
+    title: "Home",
     description:
       "Hi Nepal Travels and Treks is a trusted travel and trekking agency in Nepal, offering unforgettable treks, tours, and adventure holidays with expert guides.",
     keywords: "trekking agency in nepal, travel agency in nepal",

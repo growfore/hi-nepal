@@ -16,7 +16,7 @@ import { Metadata } from "next";
 import Team from "@/components/team";
 
 export const metadata: Metadata = {
-  title: "About - Hi Nepal Travels and Treks",
+  title: "About",
   description:
     "Hi Nepal Travels and Treks is a certified travel and trekking agency in Nepal, offering personalized trekking, tours, and adventure sports with years of experience.",
   keywords:

@@ -8,7 +8,7 @@ import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: any): Promise<any> {
   const { region, activity } = params;
-  let title = `${formatSlug(region)} - Hi Nepal Travel and Treks`;
+  let title = `${formatSlug(region)}`;
   let description = "";
   let keywords = "";
 

@@ -10,8 +10,7 @@ export async function generateMetadata({ params }: any): Promise<any> {
     title:
       params.activity == "tours"
         ? "Nepal Tour Packages: Explore Nepal with Multi-day and Nature Tour - Hi Nepal Travel and Treks"
-        : "Trekking in Nepal: Itinerary, Season & All Important Details" +
-          " - Hi Nepal Travel and Treks",
+        : "Trekking in Nepal: Itinerary, Season & All Important Details",
     description:
       params.activity == "tours"
         ? "Explore the best Nepal Tour Packages. Book now for customized itineraries, Himalayan adventures, cultural tours, and unforgettable experiences in Nepal."
@@ -191,7 +190,7 @@ export default async function ActivitySingle({
             >
               Pokhara Valley
             </Link>
-            , {" "}
+            ,{" "}
             <Link
               className="text-green-700"
               href={"https://hinepaltreks.com/world-peace-pagoda"}
@@ -209,7 +208,8 @@ export default async function ActivitySingle({
             <Link
               className="text-green-700"
               href={"https://hinepaltreks.com/kalikasthan-thulakot-hill"}
-            > { " "}
+            >
+              {" "}
               Kalikasthan Thulakot Tours
             </Link>
             , to various long multi-day tours like{" "}

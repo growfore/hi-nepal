@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Adventures",
+    title: "Adventures | Hi Nepal Travels & Treks",
     description: "Hi Nepal Travels and Treks, a top travel and trekking agency in Nepal, offers thrilling adventure sports like paragliding and bungee jumping across the Himalayas.",
     keywords: "adventure sports, travel and trekking agency in nepal",
     alternates: {

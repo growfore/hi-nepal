@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions",
+  title: "Terms and Conditions | Hi Nepal Travels & Treks",
   description: "Review Hi Nepal Travels and Treks’ Terms and Conditions for booking policies, payment details, cancellations, insurance requirements, and liability information.",
   keywords: "terms and conditions",
   alternates: {

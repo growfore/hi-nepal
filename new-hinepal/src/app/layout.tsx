@@ -15,6 +15,18 @@ const playfair = Playfair({
   display: "swap",
 });
 
+export const metadata = {
+  title: {
+    default: "Hi Nepal Travels & Treks Pvt. Ltd.",
+    template: "%s | Hi Nepal Travels & Treks Pvt. Ltd.",
+  },
+  description:
+    "Official Hi Nepal Treks website offering authentic trekking, tours, and adventures across Nepal.",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -35,6 +47,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
+        <title>Hi Nepal Travels & Treks Pvt. Ltd.</title>
+        {/*  */}
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
     (function(c,l,a,r,i,t,y){

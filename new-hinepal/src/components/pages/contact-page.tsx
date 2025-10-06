@@ -221,9 +221,6 @@ export function Form({ packages }: { packages: TPackageDetails[] }) {
                       <LucidePhone color="white" className="w-8 h-8" />
                     </div>
                     <h5 className="font-bold text-xl mb-3">ADVENTURE PLANNING</h5>
-                    <a href="tel:061-457510" className="text-white text-xl font-bold block hover:underline">
-                      061-457510
-                    </a>
                     <a href="tel:+9779856035091" className="text-white text-xl font-bold block mb-2 hover:underline">
                       +977 985-6035091
                     </a>
@@ -243,7 +240,7 @@ export function Form({ packages }: { packages: TPackageDetails[] }) {
                       </div>
                       <div>
                         <p className="font-semibold text-gray-700 mb-1">Email</p>
-                        <p className="text-gray-600 text-sm mb-0">hinepaltreks@gmail.com</p>
+                        <p className="text-gray-600 text-sm mb-0">info@hinepaltreks.com</p>
                       </div>
                     </div>
                     <div className="flex items-center">

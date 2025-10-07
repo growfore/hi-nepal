@@ -23,6 +23,7 @@ import PopularCard from "../popular-card";
 import { getProxyUrl } from "@/utils/imageProxy";
 import ReviewsGroup from "@/components/reviews";
 import TripAdvisorBadge from "../trip-advisor-badge";
+import FAQSection from "../itinerary-faq";
 
 export function ItineraryPage({
   details,
@@ -342,12 +343,13 @@ export function ItineraryPage({
 
           {/* Faqs */}
           {details.goodtoknow && (
-            <div id="faqs" className={sectionStyle}>
-              <div
-                dangerouslySetInnerHTML={{ __html: details.goodtoknow }}
-                className="prose max-w-none marker:text-black marker:!text-xl "
-              ></div>
-            </div>
+            <FAQSection html={details.goodtoknow} />
+            // <div id="faqs" className={sectionStyle}>
+            //   <div
+            //     dangerouslySetInnerHTML={{ __html: details.goodtoknow }}
+            //     className="prose max-w-none marker:text-black marker:!text-xl "
+            //   ></div>
+            // </div>
           )}
           <Link
             target="_blank"
@@ -382,10 +384,10 @@ export function ItineraryPage({
                 className="aspect-square object-cover rounded-full border border-gray-300 shadow-md mb-4"
               />
               <p className="text-xl font-bold text-dark-blue-900 mb-4">
-                  Mohan Prasad Subedi <br />{" "}
-                  <span className="text-sm font-semibold">
-                   (20+ Years of Trusted Travel Experience)
-                  </span>
+                Mohan Prasad Subedi <br />{" "}
+                <span className="text-sm font-semibold">
+                  (20+ Years of Trusted Travel Experience)
+                </span>
               </p>
               <ul className="flex flex-col justify-start  mb-4 gap-2">
                 {expertServices.map((service, index) => {

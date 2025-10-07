@@ -92,7 +92,7 @@ export function Footer() {
                     </div>
                     <div className='flex font-bold items-center italic'>
                       {Array.from([0, 1, 2, 3, 4]).map((_, idx) => <div key={idx} className='size-4 bg-green-500 rounded-full ml-1'></div>)} <span className='ml-4'> Reviews: </span> 5/5
-                      (110+ Reviews)
+                      (115+ Reviews)
                     </div>
                   </div>
                 </div>

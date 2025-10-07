@@ -126,3 +126,21 @@
     background-color: #00A63E;
   }
 }
+
+#packing > div > ul {
+  background: #00A63E20;
+  border: 2px dashed #00A63E87;
+  border-radius: 12px;
+  padding: 1rem;
+  color:white !important;
+}
+#packing > div > ul > li {
+  list-style-type: disc !important;
+  margin-left: 1.5rem;
+}
+/* #packing > div > ul > li > span {
+  color: white !important;
+}
+#packing > div > ul > li::marker {
+  color: white !important;
+} */

@@ -35,7 +35,6 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Hi Nepal Travels & Treks Pvt. Ltd.</title>
         {/*  */}
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`

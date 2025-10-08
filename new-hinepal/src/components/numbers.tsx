@@ -41,7 +41,7 @@ const Numbers = () => {
                   <LucideUsers color='white' size={40} />
                 </div>
                 <div className=''>
-                  <span className='text-4xl font-bold'>25K+</span>
+                  <span className='text-4xl font-bold'>2.5K+</span>
                   <span className='block text-sm'>Satisfied Clients</span>
                 </div>
               </div>

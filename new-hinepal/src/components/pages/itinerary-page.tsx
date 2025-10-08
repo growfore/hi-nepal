@@ -13,8 +13,6 @@ import {
   CloudSunRain,
   HomeIcon as House,
   MountainSnow,
-  CheckCircle,
-  LucideGraduationCap,
 } from "lucide-react";
 import { DataIcon } from "@/components/data-icon";
 import { SectionNav } from "@/components/SectionNav";
@@ -22,8 +20,9 @@ import TrustBadge from "@/components/trust-badge";
 import PopularCard from "../popular-card";
 import { getProxyUrl } from "@/utils/imageProxy";
 import ReviewsGroup from "@/components/reviews";
-import TripAdvisorBadge from "../trip-advisor-badge";
 import FAQSection from "../itinerary-faq";
+import TalkToExpertCard from "../talk-to-expert-card";
+import GallerySlider from "../gallery-slider";
 
 export function ItineraryPage({
   details,
@@ -34,12 +33,6 @@ export function ItineraryPage({
   relatedProducts: TPackageDetails[];
   popularPackages: TPackageDetails[];
 }) {
-  const expertServices = [
-    "Hassle Free Booking",
-    "Seamless Communication",
-    "Secure Payments",
-    "No Hidden Fees",
-  ];
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -95,6 +88,10 @@ export function ItineraryPage({
       <main className="container mx-auto px-4 md:px-6 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Main Content Area */}
         <section className="lg:col-span-2">
+          <div className="lg:hidden">
+            {/*** VISIBLE IN ALL SCREENS BESIDES LARGE****/}
+            <TalkToExpertCard details={details} />
+          </div>
           {/* Data Icons Section */}
           <div className="mt-4 bg-green-50 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-12 p-6 bg-light-blue-bg rounded-lg shadow-sm">
             {details?.title && (
@@ -359,63 +356,24 @@ export function ItineraryPage({
           </Link>
 
           {/* Gallery */}
-          {/* {details?.media && details?.media.length > 0 && (
+          {details?.media && details?.media.length > 0 && (
             <div className="gallery mb-12 p-6 bg-white rounded-lg shadow-md">
               <h2 className="text-3xl font-bold text-dark-blue-900 mb-6">
                 Gallery
               </h2>
               <GallerySlider details={details} />
             </div>
-          )} */}
+          )}
         </section>
 
         {/* RIGHT SIDEBAR */}
         <aside className="lg:col-span-1">
-          <div className="sticky top-42 p-6 bg-white rounded-lg  shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-300">
-            <div className="booking-details flex flex-col mb-8">
-              <p className="font-bold text-2xl mb-4">
-                <strong>Get free Advice from Experts</strong>
-              </p>
-              <img
-                src={"/assets/mohan-prasad-subedi.webp"}
-                alt={details.title || "Mohan Prasad Subedi"}
-                width={100}
-                height={100}
-                className="aspect-square object-cover rounded-full border border-gray-300 shadow-md mb-4"
-              />
-              <p className="text-xl font-bold text-dark-blue-900 mb-4">
-                Mohan Prasad Subedi <br />{" "}
-                <span className="text-sm font-semibold">
-                  (20+ Years of Trusted Travel Experience)
-                </span>
-              </p>
-              <ul className="flex flex-col justify-start  mb-4 gap-2">
-                {expertServices.map((service, index) => {
-                  return (
-                    <li className="flex gap-1 items-center" key={index}>
-                      <CheckCircle className="text-green-700" size={16} />
-                      {service}
-                    </li>
-                  );
-                })}
-              </ul>
-              <Link
-                href="https://wa.me/9779856035091"
-                target="_blank"
-                className="w-[340px] mb-4 hover:pointer-cursor flex gap-2 items-center justify-start py-1 px-4 border border-gray-300 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 font-bold"
-              >
-                <img
-                  height={42}
-                  width={42}
-                  src="/assets/whatsapp-icon.webp"
-                  alt="WhatsApp"
-                />
-                <span className="">Chat on Whatsapp</span>
-              </Link>
-              <TripAdvisorBadge />
+          <div className="sticky top-32 px-2 pt-6">
+            <div className="hidden lg:block">
+              <TalkToExpertCard details={details} />
             </div>
             {relatedProducts && relatedProducts.length > 0 && (
-              <h3 className="text-2xl font-bold text-dark-blue-900 mb-4 border-t pt-4">
+              <h3 className="text-xl font-bold text-dark-blue-900 mb-4 border-t pt-4">
                 Related Itineraries
               </h3>
             )}

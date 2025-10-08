@@ -14,9 +14,15 @@ export default function TrustBadge() {
     >
       <div className="flex gap-1">
         5.0
-        <div className="flex gap-1 items-center justify-center">
+        <div className="flex gap-0.5 items-center justify-center mx-2">
           {Array.from({ length: 5 }).map((arr, index) => {
-            return <LucideStar color="orange" fill="orange" />;
+            return (
+              <div
+                key={index}
+                className="bg-green-700 rounded-full w-4 h-4"
+              ></div>
+            );
+            // return <LucideStar color="orange" fill="orange" />;
           })}
         </div>
       </div>

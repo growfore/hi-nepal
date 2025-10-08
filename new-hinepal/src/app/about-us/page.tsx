@@ -11,9 +11,9 @@ import {
   Plane,
   Ticket,
 } from "lucide-react";
-import { ServiceCard } from "@/components/service-card";
+import { ServiceCard } from "@/components/molecules/service-card";
 import { Metadata } from "next";
-import Team from "@/components/team";
+import Team from "@/components/organisms/team";
 
 export const metadata: Metadata = {
   title: "About | Hi Nepal Travels & Treks",

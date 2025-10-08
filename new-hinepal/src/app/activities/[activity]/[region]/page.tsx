@@ -1,4 +1,4 @@
-import TrekkingCard from "@/components/TrekkingCard";
+import TrekkingCard from "@/components/molecules/TrekkingCard";
 import endpoints from "@/constant/endpoints";
 import { formatSlug } from "@/helper/formatSlug";
 import { get } from "@/utils/request-hander";
@@ -435,12 +435,12 @@ export default async function RegionPage({
             </Link>{" "}
             <LucideChevronRight />{" "}
             <Link href={`/activities/${activity}/${region}`}>
-              {" "}
-              {region.split("-")[0].charAt(0).toUpperCase() +
-                region.split("-")[0].slice(1) +
-                " " +
-                region.split("-")[1].charAt(0).toUpperCase() +
-                region.split("-")[1].slice(1)}
+              {region
+                ? region
+                    .split("-")
+                    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+                    .join(" ")
+                : ""}
             </Link>
           </div>
         </div>

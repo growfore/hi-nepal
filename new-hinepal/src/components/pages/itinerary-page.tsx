@@ -14,14 +14,14 @@ import {
   HomeIcon as House,
   MountainSnow,
 } from "lucide-react";
-import { DataIcon } from "@/components/data-icon";
-import { SectionNav } from "@/components/SectionNav";
-import TrustBadge from "@/components/trust-badge";
-import PopularCard from "../popular-card";
+import { DataIcon } from "@/components/molecules/data-icon";
+import { SectionNav } from "@/components/organisms/SectionNav";
+import TrustBadge from "@/components/molecules/trust-badge";
+import PopularCard from "../molecules/popular-card";
 import { getProxyUrl } from "@/utils/imageProxy";
-import ReviewsGroup from "@/components/reviews";
-import FAQSection from "../itinerary-faq";
-import TalkToExpertCard from "../talk-to-expert-card";
+import ReviewsGroup from "@/components/organisms/reviews";
+import FAQSection from "../organisms/itinerary-faq";
+import TalkToExpertCard from "../organisms/talk-to-expert-card";
 import GallerySlider from "../gallery-slider";
 
 export function ItineraryPage({

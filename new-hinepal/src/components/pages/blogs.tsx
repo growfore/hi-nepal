@@ -1,4 +1,4 @@
-import BlogCard from "@/components/blog-card"
+import BlogCard from "@/components/molecules/blog-card"
 import Link from "next/link";
 
 const BlogHome = async () => {

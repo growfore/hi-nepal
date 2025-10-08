@@ -1,5 +1,5 @@
 import Link from "next/link";
-import AdventureCard from "./adventure-card";
+import AdventureCard from "@/components/molecules/adventure-card";
 
 export default function AdventureSection() {
   return (

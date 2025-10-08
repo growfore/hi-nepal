@@ -10,7 +10,7 @@ import { fetchData } from "@/helper/fetch-data";
 import { formatSlug } from "@/helper/formatSlug";
 import { ItineraryPage } from "@/components/pages/itinerary-page";
 import { getBlogSingle } from "@/helper/getBlog";
-import { BlogPage } from "@/components/pages/blog-page";
+import { BlogPage } from "@/components/pages/blog-page-single";
 import { usePopularPackages } from "@/zustand/store";
 
 export async function generateMetadata({

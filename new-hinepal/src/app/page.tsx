@@ -2,23 +2,23 @@ import endpoints from "@/constant/endpoints";
 import { TPackages, TSiteInformation } from "@/types/types";
 import { get } from "@/utils/request-hander";
 import siteStore from "@/zustand/store";
-import { Hero } from "@/components/hero";
-import { Partners } from "@/components/partners";
-import Numbers from "@/components/numbers";
+import { Hero } from "@/components/organisms/hero";
+import { Partners } from "@/components/organisms/partners";
+import Numbers from "@/components/organisms/numbers";
 import Gallery from "@/components/Gallery";
-import PopularDestinations from "@/components/popular-destinations";
-import PopularPackages from "@/components/popular-packages";
-import BlogHome from "@/components/blogs";
-import Team from "@/components/team";
-import AdventureSection from "@/components/adventure-section";
+import PopularDestinations from "@/components/organisms/popular-destinations";
+import PopularPackages from "@/components/organisms/popular-packages";
+import BlogHome from "@/components/pages/blogs";
+import Team from "@/components/organisms/team";
+import AdventureSection from "@/components/organisms/adventure-section";
 import { Metadata } from "next";
 import { getProxyUrl } from "@/utils/imageProxy";
 import Link from "next/link";
-import BestShortTreks from "@/components/best-short-treks";
-import TenDaysPlusTreks from "@/components/10-days-plus-treks";
-import PopularTours from "@/components/popular-tours";
-import OneDayTours from "@/components/one-day-hiking";
-import { HomeFAQs } from "@/components/home-faqs";
+import BestShortTreks from "@/components/organisms/best-short-treks";
+import TenDaysPlusTreks from "@/components/organisms/10-days-plus-treks";
+import PopularTours from "@/components/organisms/popular-tours";
+import OneDayTours from "@/components/organisms/one-day-hiking";
+import { HomeFAQs } from "@/components/organisms/home-faqs";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

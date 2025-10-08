@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ImageCard } from "@/components/image-card";
+import { ImageCard } from "@/components/molecules/image-card";
 import Link from "next/link";
 import { Metadata } from "next";
 

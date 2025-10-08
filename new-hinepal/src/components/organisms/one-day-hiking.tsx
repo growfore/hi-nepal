@@ -1,7 +1,5 @@
-import PackageCard from "@/components/package-card";
-import endpoints from "@/constant/endpoints";
+import PackageCard from "@/components/molecules/package-card";
 import { TPackages } from "@/types/types";
-import { get } from "@/utils/request-hander";
 import Link from "next/link";
 import React from "react";
 

@@ -1,5 +1,5 @@
-import { ReviewCard } from "./review-card"
-import { Button } from "./ui/button"
+import { ReviewCard } from "../molecules/review-card"
+import { Button } from "../ui/button"
 
 export default function ReviewsGroup() {
   const reviews = [

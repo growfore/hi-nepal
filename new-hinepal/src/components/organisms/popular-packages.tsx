@@ -1,4 +1,4 @@
-import PackageCard from "@/components/package-card";
+import PackageCard from "@/components/molecules/package-card";
 import { TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";

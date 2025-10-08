@@ -1,4 +1,4 @@
-import BlogCard from "@/components/blog-card";
+import BlogCard from "@/components/molecules/blog-card";
 import { getBlogs } from "@/helper/getBlog";
 import { Metadata } from "next";
 import Link from "next/link";

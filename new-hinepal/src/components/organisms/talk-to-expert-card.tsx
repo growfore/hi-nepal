@@ -1,6 +1,6 @@
 import { CheckCircle } from "lucide-react";
 import Link from "next/link";
-import TripAdvisorBadge from "@/components/trip-advisor-badge";
+import TripAdvisorBadge from "@/components/molecules/trip-advisor-badge";
 
 const expertServices = [
   "Hassle Free Booking",

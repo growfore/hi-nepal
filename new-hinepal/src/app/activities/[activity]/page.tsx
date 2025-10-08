@@ -1,7 +1,7 @@
 import endpoints from "@/constant/endpoints";
 import { get } from "@/utils/request-hander";
 import { notFound } from "next/navigation";
-import TrekkingCard from "@/components/TrekkingCard";
+import TrekkingCard from "@/components/molecules/TrekkingCard";
 import Link from "next/link";
 import { ChevronRight, LucideChevronRight } from "lucide-react";
 

@@ -1,4 +1,4 @@
-import PackageCard from "@/components/package-card";
+import PackageCard from "@/components/molecules/package-card";
 import endpoints from "@/constant/endpoints";
 import { TPackages } from "@/types/types";
 import { get } from "@/utils/request-hander";

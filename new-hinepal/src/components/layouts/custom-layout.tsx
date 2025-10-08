@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import WhatsAppButton from "./whatsapp-button";
+import WhatsAppButton from "../molecules/whatsapp-button";
 
 const CustomLayout = ({
   children,

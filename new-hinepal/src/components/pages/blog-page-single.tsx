@@ -1,5 +1,5 @@
 import { formatRevalidate } from "@/helper/formate";
-import Cta from "../cta";
+import Cta from "@/components/organisms/cta";
 import { TBlog } from "@/types/types";
 
 export function BlogPage({ blog }: { blog: TBlog }) {

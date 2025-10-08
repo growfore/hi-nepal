@@ -5,7 +5,7 @@ import { TSiteInformation } from "@/types/types";
 import { get } from "@/utils/request-hander";
 import siteStore from "@/zustand/store";
 import { Footer } from "@/common";
-import CustomLayout from "@/components/custom-layout";
+import CustomLayout from "@/components/layouts/custom-layout";
 import { Navbar } from "@/common/navbar";
 import Script from "next/script";
 

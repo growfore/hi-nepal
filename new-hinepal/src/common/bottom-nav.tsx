@@ -3,7 +3,13 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronRight, ChevronUp, LucideMenu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetFooter,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import Link from "next/link";
 import {
   Accordion,
@@ -73,7 +79,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
       "three-passes-trek",
       "renjo-la-pass-trek",
     ],
-    "multi-days-tour":[
+    "multi-days-tour": [
       "kathmandu-tour-package",
       "upper-mustang-tour",
       "tilicho-lake-tour",
@@ -81,15 +87,15 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
       "kalinchowk-trek",
       "ghandruk-village-tour",
       "sikles-village-tour",
-      "panchase-trek"
+      "panchase-trek",
     ],
-    "day-tours":[
+    "day-tours": [
       "pokhara-valley-tour",
       "sarangkot-pokhara-tour",
       "world-peace-pagoda",
       "pokhara-australian-camp-hike",
-      "kalikasthan-thulakot-hill"
-    ]
+      "kalikasthan-thulakot-hill",
+    ],
   };
 
   function sortPackages(destinationSlug: string, packages: any[]) {
@@ -227,7 +233,9 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                   <Accordion key={idx} type="single" collapsible>
                     <AccordionItem value={`item-${idx}`}>
                       <AccordionTrigger className="font-bold text-xl uppercase flex p-0">
-                        {activity.name}
+                        <a href={`/activities/${activity.slug}`}>
+                          {activity.name}
+                        </a>
                       </AccordionTrigger>
                       <AccordionContent>
                         {sortDestinations(activity.destinations).map(
@@ -235,7 +243,12 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                             <Accordion key={dIdx} type="single" collapsible>
                               <AccordionItem value={`item-${dIdx}`}>
                                 <AccordionTrigger className="font-semibold text-xl p-0 py-2">
-                                  {destination.name}
+                                  <a
+                                    href={`/activities/${activity.slug}/${destination.slug}`}
+                                    className="flex gap-1 items-center"
+                                  >
+                                    {destination.name}
+                                  </a>
                                 </AccordionTrigger>
                                 <AccordionContent>
                                   <ul className="flex flex-col gap-2">
@@ -244,14 +257,14 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                                       destination.packages
                                     ).map((pkg, pIdx) => (
                                       <li key={pIdx}>
-                                        <Link
+                                        <a
                                           href={`/${pkg.slug}`}
                                           className="hover:border-b-2 border-dashed border-[#EF5922] hover:text-[#EF5922] font-bold text-lg"
                                         >
                                           {pkg.title.includes(":")
                                             ? pkg.title.split(":")[0].trim()
                                             : pkg.title.trim()}
-                                        </Link>
+                                        </a>
                                       </li>
                                     ))}
                                   </ul>
@@ -264,21 +277,21 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                     </AccordionItem>
                   </Accordion>
                 ))}
-                <Link
+                <a
                   href={"/adventure"}
                   className="uppercase font-bold text-xl"
                 >
                   Adventures
-                </Link>
-                <Link
+                </a>
+                <a
                   href={"/about-us"}
                   className="uppercase font-bold text-xl"
                 >
                   About us
-                </Link>
-                <Link href={"/blogs"} className="uppercase font-bold text-xl">
+                </a>
+                <a href={"/blogs"} className="uppercase font-bold text-xl">
                   Blogs
-                </Link>
+                </a>
               </SheetContent>
             </Sheet>
           </div>

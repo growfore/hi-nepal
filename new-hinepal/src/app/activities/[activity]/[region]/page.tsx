@@ -426,6 +426,8 @@ export default async function RegionPage({
             combines both routes.
           </p>
         )}
+
+        {/* BREADCRUMB */}
         <div className="lg:px-32 flex flex-col gap-2 mt-4 text-green-700">
           <div className="flex gap-1">
             <Link href={"/"}>Home</Link>

@@ -1,5 +1,6 @@
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, MessageCircle } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import TripAdvisorBadge from "@/components/molecules/trip-advisor-badge";
 
 const expertServices = [
@@ -45,10 +46,10 @@ export default function TalkToExpertCard({ details }: { details: any }) {
           target="_blank"
           className="w-full mb-2 hover:pointer-cursor flex gap-2 items-center justify-start py-1 px-4 border border-gray-300 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 font-bold"
         >
-          <img
+          <Image
             height={42}
             width={42}
-            src="/assets/whatsapp-icon.webp"
+            src="/assets/whatsapp-logo.webp"
             alt="WhatsApp"
           />
           <span className="">Chat on Whatsapp</span>

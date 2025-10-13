@@ -19,6 +19,7 @@ import TenDaysPlusTreks from "@/components/organisms/10-days-plus-treks";
 import PopularTours from "@/components/organisms/popular-tours";
 import OneDayTours from "@/components/organisms/one-day-hiking";
 import { HomeFAQs } from "@/components/organisms/home-faqs";
+import NewHero from "@/components/organisms/new-hero";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -71,6 +72,7 @@ export default async function Home() {
   return (
     <>
       <main id="content" className="site-main">
+        {/* <NewHero packages={packages}/> */}
         <Hero carousels={carousels} />
         <PopularPackages packages={packages} />
         <BestShortTreks packages={packages} />

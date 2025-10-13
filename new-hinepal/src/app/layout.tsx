@@ -8,6 +8,7 @@ import { Footer } from "@/common";
 import CustomLayout from "@/components/layouts/custom-layout";
 import { Navbar } from "@/common/navbar";
 import Script from "next/script";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const playfair = Playfair({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default async function RootLayout({
       <body className={`${playfair.variable} antialiased`}>
         <CustomLayout footer={<Footer />} header={<Navbar />}>
           {children}
+            <GoogleAnalytics gaId="G-E1QTRNT388"/>
         </CustomLayout>
       </body>
     </html>

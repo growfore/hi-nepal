@@ -46,7 +46,7 @@ export default async function RootLayout({
     })(window, document, "clarity", "script", "srgj9d5fel");
             `}
         </Script>
-        <Script
+        {/* <Script
           strategy="afterInteractive"
           src="⁦https://www.googletagmanager.com/gtag/js?id=G-E1QTRNT388⁩"
         ></Script>
@@ -57,7 +57,7 @@ export default async function RootLayout({
     gtag('js', new Date());
     gtag('config', 'G-E1QTRNT388');
   `}
-        </Script>
+        </Script> */}
       </head>
       <body className={`${playfair.variable} antialiased`}>
         <CustomLayout footer={<Footer />} header={<Navbar />}>

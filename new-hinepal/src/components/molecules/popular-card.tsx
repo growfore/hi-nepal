@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { LucideTimer } from "lucide-react";
+import Image from "next/image";
 
 type TCardProps = {
   slug: string;
@@ -19,7 +18,7 @@ export default async function PopularCard({
     <Link href={slug}>
       <div className=" w-[380px] h-[542px] bg-slate-100 p-4 shadow-sm  rounded-md flex flex-col items-start gap-2">
         <div className="max-h-[240px] overflow-hidden rounded-md">
-          <img
+          <Image
             src={image}
             alt={title}
             height={200}

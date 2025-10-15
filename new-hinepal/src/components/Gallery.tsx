@@ -1,6 +1,5 @@
 import React from 'react';
 import { TSiteInformation } from '@/types/types';
-import { getProxyUrl } from '@/utils/imageProxy';
 import Image from 'next/image';
 
 const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) => {

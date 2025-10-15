@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function TripAdvisorBadge() {
   return (
@@ -10,7 +11,7 @@ export default function TripAdvisorBadge() {
       target="_blank"
       className="w-full hover:pointer-cursor flex gap-2 items-center justify-center md:justify-start lg:justify-center  px-8 py-2 border border-gray-300 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
     >
-      <img
+      <Image
         src="/assets/tripadvisor-logo-icon.webp"
         alt="Tripadvisor Logo"
         width={50}

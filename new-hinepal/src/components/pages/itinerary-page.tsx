@@ -14,12 +14,9 @@ import {
   MountainSnow,
 } from "lucide-react";
 import { DataIcon } from "@/components/molecules/data-icon";
-import { SectionNav } from "@/components/organisms/SectionNav";
 import TrustBadge from "@/components/molecules/trust-badge";
 import PopularCard from "@/components/molecules/popular-card";
-import { getProxyUrl } from "@/utils/imageProxy";
 import ReviewsGroup from "@/components/organisms/reviews";
-import FAQSection from "@/components/organisms/itinerary-faq";
 import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";
 import GallerySlider from "@/components/gallery-slider";
 import Image from "next/image";
@@ -372,8 +369,8 @@ export async function ItineraryPage({
                       href={`/${product.slug}`}
                       className="text-green-600 hover:underline text-lg flex items-start gap-2 bg-gray-50 rounded-md p-2 "
                     >
-                      <img
-                        src={getProxyUrl(product.thumbnail)}
+                      <Image
+                        src={(product.thumbnail)}
                         className="rounded-md"
                         alt={product.title}
                         width={100}

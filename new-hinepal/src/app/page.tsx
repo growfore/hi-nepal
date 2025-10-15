@@ -12,7 +12,6 @@ import BlogHome from "@/components/pages/blogs";
 import Team from "@/components/organisms/team";
 import AdventureSection from "@/components/organisms/adventure-section";
 import { Metadata } from "next";
-import { getProxyUrl } from "@/utils/imageProxy";
 import Link from "next/link";
 import BestShortTreks from "@/components/organisms/best-short-treks";
 import TenDaysPlusTreks from "@/components/organisms/10-days-plus-treks";
@@ -49,7 +48,7 @@ export default async function Home() {
     success: (message, res) => {
       carousels = res.data.map((item: any) => ({
         ...item,
-        image: getProxyUrl(item.image),
+        image: item.image,
       }));
     },
     failure: (message) => {

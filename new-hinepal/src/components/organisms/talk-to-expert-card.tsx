@@ -17,7 +17,7 @@ export default function TalkToExpertCard({ details }: { details: any }) {
           <strong>Get free Advice from Experts</strong>
         </p>
         <div className="flex gap-4 items-center my-2">
-          <img
+          <Image
             src={"/assets/mohan-prasad-subedi.webp"}
             alt={details.title || "Mohan Prasad Subedi"}
             width={75}

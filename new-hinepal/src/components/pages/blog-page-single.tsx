@@ -1,6 +1,7 @@
 import { formatRevalidate } from "@/helper/formate";
 import Cta from "@/components/organisms/cta";
 import { TBlog } from "@/types/types";
+import Image from "next/image";
 
 export function BlogPage({ blog }: { blog: TBlog }) {
     return (
@@ -11,7 +12,7 @@ export function BlogPage({ blog }: { blog: TBlog }) {
                         {/* Featured Image */}
                         {blog.image && (
                             <div className="aspect-video overflow-hidden mb-8 rounded-md">
-                                <img
+                                <Image
                                     src={blog.image || "/placeholder.svg"}
                                     alt={blog.title}
                                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"

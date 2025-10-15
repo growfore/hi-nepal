@@ -23,7 +23,6 @@ export function Footer() {
                       className='p-2 rounded-md'
                       src='/assets/hinepal-logo.webp'
                       alt='logo'
-                      loading='lazy'
                     />
                   </Link>
                 </div>

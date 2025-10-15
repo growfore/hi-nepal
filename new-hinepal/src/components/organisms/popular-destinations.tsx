@@ -1,9 +1,9 @@
 import endpoints from "@/constant/endpoints";
 import { TDestination, TPackage } from "@/types/types";
-import { getProxyUrl } from "@/utils/imageProxy";
 import { get } from "@/utils/request-hander";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 const PopularDestinations = async () => {
   const topDestinations: TDestination[] = [];
@@ -132,8 +132,8 @@ const PopularDestinations = async () => {
                   >
                     <div className="relative rounded-md hover:-translate-y-1 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
                       <figure className="w-full h-64">
-                        <img
-                          src={getProxyUrl(d.image)}
+                        <Image
+                          src={(d.image)}
                           loading="lazy"
                           width={600}
                           height={400}

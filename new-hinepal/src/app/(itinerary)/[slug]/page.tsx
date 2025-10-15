@@ -24,7 +24,6 @@ import {
 import { DataIcon } from "@/components/molecules/data-icon";
 import { SectionNav } from "@/components/organisms/SectionNav";
 import TrustBadge from "@/components/molecules/trust-badge";
-import { getProxyUrl } from "@/utils/imageProxy";
 import ReviewsGroup from "@/components/organisms/reviews";
 import FAQSection from "@/components/organisms/itinerary-faq";
 import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";

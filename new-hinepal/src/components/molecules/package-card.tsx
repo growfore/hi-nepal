@@ -4,7 +4,6 @@ import { TDestinationSingle, TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";
 import { LucideClock, LucideStar } from "lucide-react";
-import { getProxyUrl } from "@/utils/imageProxy";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 

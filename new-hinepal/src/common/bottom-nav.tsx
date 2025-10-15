@@ -129,7 +129,6 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
       <div className="flex items-center justify-between container mx-auto gap-4 md:max-w-[75vw]">
         <Link href={"/"} className="flex-shrink-0 min-w-[50px]">
           <Image
-            unoptimized
             src={"/assets/hinepal-logo.webp"}
             priority
             height={170}

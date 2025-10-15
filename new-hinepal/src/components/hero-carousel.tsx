@@ -48,10 +48,7 @@ export function HeroCarousel({
                 src={carousel.image}
                 alt={carousel.title}
                 fill
-                loading="lazy"
                 className="object-cover md:object-fit"
-                loader={({ src }) => src}
-                unoptimized
               />
               <Link
                 className="absolute bottom-[10vh] md:px-36 mx-4"

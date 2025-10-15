@@ -623,8 +623,8 @@ const activites = async ({ params }: { params: Params }) => {
                         href={`/${product.slug}`}
                         className="text-green-600 hover:underline text-lg flex items-start gap-2 bg-gray-50 rounded-md p-2 "
                       >
-                        <img
-                          src={getProxyUrl(product.thumbnail)}
+                        <Image
+                          src={product.thumbnail}
                           className="rounded-md"
                           alt={product.title}
                           width={100}

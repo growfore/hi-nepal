@@ -13,7 +13,7 @@ const AdventureCard = ({ image, text, link }: { image: string, text: string, but
                         href={link}
                         className="block w-full h-full"
                     >
-                        <img
+                        <Image
                             loading='lazy'
                             width={300}
                             height={300}

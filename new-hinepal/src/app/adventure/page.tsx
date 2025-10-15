@@ -46,7 +46,7 @@ export default function AdventurePage() {
                         </p>
                     </div>
                     <div className=''>
-                        <img className='rounded-md' src={"/assets/bungee.webp"} alt='bungee' height={500} width={500} />
+                        <Image className='rounded-md' src={"/assets/bungee.webp"} alt='bungee' height={500} width={500} />
                     </div>
                 </div>
 
@@ -54,7 +54,7 @@ export default function AdventurePage() {
                 {/* Rock Climbing */}
                 <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start  justify-between rounded-md p-2  md:p-8">
                     <div className=''>
-                        <img className='rounded-md' src={"/assets/rock_climbing.webp"} alt='rock-climbing' height={500} width={500} />
+                        <Image className='rounded-md' src={"/assets/rock_climbing.webp"} alt='rock-climbing' height={500} width={500} />
                     </div>
                     <div className='md:max-w-[40vw]'>
                         <h2 className='font-bold text-xl'>
@@ -79,7 +79,7 @@ export default function AdventurePage() {
                         </p>
                     </div>
                     <div className=''>
-                        <img className='rounded-md' src={"/assets/zipline.webp"} alt='zipline' height={500} width={500} />
+                        <Image className='rounded-md' src={"/assets/zipline.webp"} alt='zipline' height={500} width={500} />
                     </div>
                 </div>
 
@@ -87,7 +87,7 @@ export default function AdventurePage() {
                 {/* Cycling  */}
                 <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start justify-between rounded-md p-2  md:p-8">
                     <div className=''>
-                        <img className='rounded-md' src={"/assets/cycling.webp"} alt='cycling' height={500} width={500} />
+                        <Image className='rounded-md' src={"/assets/cycling.webp"} alt='cycling' height={500} width={500} />
                     </div>
                     <div className='md:max-w-[40vw]'>
                         <h2 className='font-bold text-xl'>
@@ -118,7 +118,7 @@ export default function AdventurePage() {
                         </ul>
                     </div>
                     <div className=''>
-                        <img className='rounded-md' src={"/assets/ultra-light-flight.webp"} alt='ultra-light-flight' height={500} width={500} />
+                        <Image className='rounded-md' src={"/assets/ultra-light-flight.webp"} alt='ultra-light-flight' height={500} width={500} />
                     </div>
 
                 </div>
@@ -128,7 +128,7 @@ export default function AdventurePage() {
 
                 <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start justify-between rounded-md p-2  md:p-8">
                     <div className=''>
-                        <img className='rounded-md' src={"/assets/rafting.webp"} alt='rafting' height={500} width={500} />
+                        <Image className='rounded-md' src={"/assets/rafting.webp"} alt='rafting' height={500} width={500} />
                     </div>
                     <div className='md:max-w-[40vw]'>
                         <h2 className='font-bold text-xl'>
@@ -161,7 +161,7 @@ export default function AdventurePage() {
                         </p>
                     </div>
                     <div className=''>
-                        <img className='rounded-md' src={"/assets/hot-air-balloon.webp"} alt='rafting' height={500} width={400} />
+                        <Image className='rounded-md' src={"/assets/hot-air-balloon.webp"} alt='rafting' height={500} width={400} />
                     </div>
                 </div>
 
@@ -169,7 +169,7 @@ export default function AdventurePage() {
                 {/* atv ride */}
                 <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start justify-between rounded-md p-2  md:p-8">
                     <div className=''>
-                        <img className='rounded-md' src={"/assets/atv-ride.webp"} alt='rafting' height={500} width={400} />
+                        <Image className='rounded-md' src={"/assets/atv-ride.webp"} alt='rafting' height={500} width={400} />
                     </div>
                     <div className='md:max-w-[40vw]'>
                         <h2 className='font-bold text-xl'>

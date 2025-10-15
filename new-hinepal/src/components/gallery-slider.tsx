@@ -2,6 +2,7 @@
 import { TPackageDetails } from '@/types/types';
 import React from 'react';
 import Slider from 'react-slick';
+import Image from 'next/image';
 
 const GallerySlider = ({ details }: { details: TPackageDetails }) => {
   const settings = {
@@ -27,7 +28,7 @@ const GallerySlider = ({ details }: { details: TPackageDetails }) => {
         {details?.media?.map((item, index: number) => (
           <div key={index} className='single-tour-item'>
             <figure className='feature-image'>
-              <img src={item.url} alt={item.alt || 'feature image'} />
+              <Image src={item.url} alt={item.alt || 'feature image'} />
             </figure>
           </div>
         ))}

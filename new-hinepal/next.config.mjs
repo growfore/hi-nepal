@@ -27,6 +27,10 @@ const nextConfig = {
         hostname: "localhost",
         port: "4017",
       },
+      {
+        protocol: "https",
+        hostname: "hinepaltreks.com/cms/wp-content/uploads"
+      }
     ],
   },
   async redirects() {

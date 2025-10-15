@@ -1,6 +1,7 @@
 import React from 'react';
 import { TSiteInformation } from '@/types/types';
 import { getProxyUrl } from '@/utils/imageProxy';
+import Image from 'next/image';
 
 const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) => {
     return (
@@ -20,7 +21,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                             </p>
                         </div>
                         <figure className='rounded-xl overflow-hidden shadow-lg h-[400px] md:h-[500px]'>
-                            <img
+                            <Image
                                 height={500}
                                 width={400}
                                 // @ts-ignore
@@ -35,7 +36,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                     <div className='grid grid-cols-1 gap-6'>
                         <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
                             <figure className='rounded-xl overflow-hidden shadow-lg h-[250px]'>
-                                <img
+                                <Image
                                     height={250}
                                     width={300}
                                     className='w-full h-full object-cover'
@@ -45,7 +46,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                 />
                             </figure>
                             <figure className='rounded-xl overflow-hidden shadow-lg h-[250px]'>
-                                <img
+                                <Image
                                     height={250}
                                     width={300}
 
@@ -58,7 +59,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                         </div>
                         <div className=''>
                             <figure className='rounded-xl overflow-hidden shadow-lg h-[400px]'>
-                                <img
+                                <Image
                                     height={400}
                                     width={700}
                                     className='w-full h-full object-cover'

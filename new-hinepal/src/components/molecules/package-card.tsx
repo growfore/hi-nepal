@@ -3,10 +3,10 @@
 import { TDestinationSingle, TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";
-import { LucideClock, LucideStar, LucideTimer } from "lucide-react";
+import { LucideClock, LucideStar } from "lucide-react";
 import { getProxyUrl } from "@/utils/imageProxy";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "../ui/button";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 type TProps = {
   item: TPackages[0];
@@ -25,7 +25,7 @@ const PackageCard = (props: TProps) => {
             href={`/${item.slug}`}
             className="block w-full h-full"
           >
-            <img
+            <Image
               loading="lazy"
               width={300}
               height={300}
@@ -71,7 +71,13 @@ const PackageCard = (props: TProps) => {
           </div>
           <div className="flex ">
             <Link href={`/booking?destination=${item?.slug}`}>
-            <Button size={'lg'} className="rounded-full bg-orange-400 hover:bg-orange-600 cursor-pointer mt-4"> Book Now</Button>
+              <Button
+                size={"lg"}
+                className="rounded-full bg-orange-400 hover:bg-orange-600 cursor-pointer mt-4"
+              >
+                {" "}
+                Book Now
+              </Button>
             </Link>
           </div>
         </div>

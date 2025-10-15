@@ -26,11 +26,10 @@ const PackageCard = (props: TProps) => {
             className="block w-full h-full"
           >
             <Image
-              loading="lazy"
               width={300}
               height={300}
               className="w-full h-full object-cover rounded-t-md"
-              src={getProxyUrl(item?.thumbnail)}
+              src={(item?.thumbnail)}
               alt={item.title || "Package thumbnail"}
             />
           </Link>

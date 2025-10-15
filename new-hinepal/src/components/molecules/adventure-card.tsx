@@ -14,11 +14,10 @@ const AdventureCard = ({ image, text, link }: { image: string, text: string, but
                         className="block w-full h-full"
                     >
                         <Image
-                            loading='lazy'
                             width={300}
                             height={300}
                             className='w-full h-full object-cover rounded-t-xl'
-                            src={getProxyUrl(image)}
+                            src={(image)}
                             alt={text}
                         />
                     </Link>

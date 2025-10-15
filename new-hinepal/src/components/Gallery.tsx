@@ -25,7 +25,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                 height={500}
                                 width={400}
                                 // @ts-ignore
-                                src={getProxyUrl(siteInformation?.about?.image1) || ''}
+                                src={(siteInformation?.about?.image1) || ''}
                                 alt='home page gallery image'
                                 className='w-full h-full object-cover'
                             />
@@ -41,7 +41,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                     width={300}
                                     className='w-full h-full object-cover'
                                     // @ts-ignore
-                                    src={getProxyUrl(siteInformation?.about?.image2) || ''}
+                                    src={(siteInformation?.about?.image2) || ''}
                                     alt='home page gallery image'
                                 />
                             </figure>
@@ -51,7 +51,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                     width={300}
 
                                     // @ts-ignore
-                                    src={getProxyUrl(siteInformation?.about?.image3) || ''}
+                                    src={(siteInformation?.about?.image3) || ''}
                                     alt='home page gallery image'
                                     className='w-full h-full object-cover'
                                 />
@@ -65,7 +65,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                     className='w-full h-full object-cover'
 
                                     // @ts-ignore
-                                    src={getProxyUrl(siteInformation?.about?.image4) || ''}
+                                    src={(siteInformation?.about?.image4) || ''}
                                     alt='home page gallery image'
                                 />
                             </figure>

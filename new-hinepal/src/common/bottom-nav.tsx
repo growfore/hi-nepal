@@ -27,7 +27,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
   const [disableHover, setDisableHover] = useState(false);
   const path = usePathname();
 
-  const destination = path.split("/")[2] || "";
+  const destination = path.split("/")[1] || "";
 
   const destinationOrder = [
     "Everest Region",
@@ -218,7 +218,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
         {/* Mobile menu */}
         <div className="flex gap-2 self-center">
           <Link href={`/booking?destination=${destination}`}>
-            <Button size="lg" className="md:p-8 text-lg p-4 bg-orange-400 hover:bg-orane-600 cursor-pointer rounded-lg hover:bg-ornage-600">
+            <Button size="lg" className="md:p-8 text-lg p-4 bg-green-700 hover:bg-orane-600 cursor-pointer rounded-lg hover:bg-orange-400">
               Book Now
             </Button>
           </Link>

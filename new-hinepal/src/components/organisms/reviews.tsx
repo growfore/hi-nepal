@@ -1,5 +1,7 @@
-import { ReviewCard } from "../molecules/review-card"
-import { Button } from "../ui/button"
+"use client";
+import Link from "next/link";
+import { ReviewCard } from "../molecules/review-card";
+import { Button } from "../ui/button";
 
 export default function ReviewsGroup() {
   const reviews = [
@@ -52,21 +54,35 @@ After some travel issues I experienced with my airplane, Hi Nepal also worked wi
       likesCount: 1,
       isLiked: false,
     },
-  ]
+  ];
 
   const handleLike = (index: number) => {
-    console.log(`Review ${index + 1} liked!`)
-  }
+    console.log(`Review ${index + 1} liked!`);
+  };
 
   return (
     <div className="min-h-screen">
-        <h2 className="text-2xl font-bold text-green-700 mb-8">Customer Reviews</h2>
-        <div className="space-y-6">
-          {reviews.map((review, index) => (
-            <ReviewCard key={index} {...review} onLike={() => handleLike(index)} />
-          ))}
-          <Button className="bg-green-700 p-8 hover:cursor-pointer">View More Reviews</Button>
-        </div>
+      <h2 className="text-2xl font-bold text-green-700 mb-8">
+        Customer Reviews
+      </h2>
+      <div className="space-y-6">
+        {reviews.map((review, index) => (
+          <ReviewCard
+            key={index}
+            {...review}
+            onLike={() => handleLike(index)}
+          />
+        ))}
+
+        <Link
+          target="_blank"
+          href="https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"
+        >
+          <Button className="bg-green-700 p-8 hover:cursor-pointer">
+            View More Reviews
+          </Button>
+        </Link>
+      </div>
     </div>
-  )
+  );
 }

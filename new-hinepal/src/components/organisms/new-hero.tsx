@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { TPackage } from "@/types/types";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import useIsMobile from "@/utils/useMobile";
 import { Search } from "lucide-react";
 
 export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
@@ -13,17 +12,6 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
   const [filteredPackages, setFilteredPackages] = useState<TPackage[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [isLoading, setShowLoading] = useState(false);
-
-  const isMobile = useIsMobile(768);
-
-  const mobileBgStyle = {
-    backgroundImage:
-      'url("https://upload.wikimedia.org/wikipedia/commons/b/b6/Mount_Everest_as_seen_from_Drukair2_PLW_edit_Cropped.jpg")',
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-  };
-
-  // const sectionStyle = isMobile ? mobileBgStyle : {};
 
   useEffect(() => {
     const delay = setTimeout(() => {
@@ -49,7 +37,7 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
       {/* Video Background */}
       <div className="absolute inset-0 -z-10 h-full w-full overflow-hidden">
         <iframe
-          src="https://www.youtube.com/embed/nZmO8B9rRik&t?autoplay=1&start=1046&mute=1&loop=1&playlist=nZmO8B9rRik&t&controls=0&showinfo=0&modestbranding=1"
+          src="https://www.youtube.com/embed/nZmO8B9rRik?autoplay=1&start=1046&end=1056&mute=1&loop=1&playlist=nZmO8B9rRik&t&controls=0&showinfo=0&modestbranding=1"
           title="Nepal Video Background"
           allow="autoplay; fullscreen"
           allowFullScreen
@@ -68,8 +56,8 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
           Find your adventure in the heart of Himalayas
         </h1>
         <p className="mt-3 text-base sm:text-lg md:text-xl opacity-90">
-          Plan your next unforgettable escape — explore the mountains, culture,
-          and spirit of Nepal with HI Nepal.
+          Plan your next unforgettable escape, explore the mountains, culture,
+          and spirit of Nepal with Hi Nepal Travel and Treks.
         </p>
       </div>
 

@@ -2,7 +2,6 @@
 // import { getProxyUrl } from "@/utils/imageProxy";
 // import { Badge } from "@/components/ui/badge";
 
-
 // export default function TrekkingCard({ image, title, days }: TCardProps) {
 //   return (
 //     <div className="max-w-[380px]">
@@ -35,7 +34,6 @@
 //   );
 // }
 
-
 "use server";
 
 import { TDestinationSingle, TPackages } from "@/types/types";
@@ -50,11 +48,11 @@ type TCardProps = {
   image: string;
   title: string;
   days?: string | null;
-  destination?:string,
+  destination?: string;
 };
 
-const TrekkingCard= (props: TCardProps) => {
-  const { slug, image, title, days, destination} = props;
+const TrekkingCard = (props: TCardProps) => {
+  const { slug, image, title, days, destination } = props;
 
   return (
     <div className="w-full">
@@ -87,9 +85,7 @@ const TrekkingCard= (props: TCardProps) => {
                 <p>{destination && destination}</p>
                 <p className="flex gap-1 items-center">
                   <LucideClock strokeWidth={1} />
-                  <span>
-                      {days && days} Day(s)
-                  </span>
+                  <span>{days && days} Day(s)</span>
                 </p>
               </div>
               <div className="flex flex-col">
@@ -108,7 +104,15 @@ const TrekkingCard= (props: TCardProps) => {
             </div>
           </div>
           <div className="flex ">
-            <Button size={'lg'} className="rounded-full bg-orange-400 hover:bg-orange-600 cursor-pointer mt-4"> Book Now</Button>
+            <Link href={`/booking?destination=${slug}`}>
+              <Button
+                size={"lg"}
+                className="rounded-full bg-orange-400 hover:bg-orange-600 cursor-pointer mt-4"
+              >
+                {" "}
+                Book Now
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

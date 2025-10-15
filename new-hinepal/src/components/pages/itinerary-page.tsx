@@ -1,4 +1,5 @@
-"use client";
+"use server";
+
 import { TPackageDetails } from "@/types/types";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -21,7 +22,7 @@ import ReviewsGroup from "@/components/organisms/reviews";
 import FAQSection from "@/components/organisms/itinerary-faq";
 import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";
 import GallerySlider from "@/components/gallery-slider";
-import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 export async function ItineraryPage({
   details,
@@ -32,15 +33,6 @@ export async function ItineraryPage({
   relatedProducts: TPackageDetails[];
   popularPackages: TPackageDetails[];
 }) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkSize = () => setIsMobile(window.innerWidth < 768);
-    checkSize();
-    window.addEventListener("resize", checkSize);
-    return () => window.removeEventListener("resize", checkSize);
-  }, []);
-
   const navigations = [
     { id: "overview", label: "Overview", icon: "LucideEye" },
     { id: "itenary", label: "Itinerary", icon: "LucideList" },
@@ -64,9 +56,19 @@ export async function ItineraryPage({
             <TrustBadge />
           </div>
         </div>
-        <img
-          className="rounded-md"
-          src={isMobile ? details?.thumbnail : details?.banner}
+        <Image
+          className="md:hidden rounded-sm"
+          src={details?.thumbnail}
+          height={720}
+          width={1080}
+          alt={details?.title}
+        />
+        <Image
+          className="hidden md:block rounded-sm"
+          src={details?.banner}
+          height={720}
+          width={1920}
+          alt={details?.title}
         />
       </div>
       {/* @ts-ignore */}
@@ -319,22 +321,20 @@ export async function ItineraryPage({
               Interested in this package?
             </h2>
             <Link href={"tel:+977 9856035091"} id="ask-for-cost-btn">
-              <Button className="bg-white text-orange-500 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full">
+              <Button className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-full">
                 Ask for the Cost Now
               </Button>
             </Link>
           </div>
 
           {/* Faqs */}
-          {/* {details.goodtoknow && (
-            <FAQSection html={details.goodtoknow} />
-          )} */}
-          <Link
+          {details.goodtoknow && <FAQSection html={details.goodtoknow} />}
+          {/* <Link
             target="_blank"
             href="https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"
-          >
-            <ReviewsGroup />
-          </Link>
+          > */}
+          {/* </Link> */}
+          <ReviewsGroup />
 
           {/* Gallery */}
           {details?.media && details?.media.length > 0 && (

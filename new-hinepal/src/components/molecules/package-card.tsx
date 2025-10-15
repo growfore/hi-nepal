@@ -70,7 +70,9 @@ const PackageCard = (props: TProps) => {
             </div>
           </div>
           <div className="flex ">
+            <Link href={`/booking?destination=${item?.slug}`}>
             <Button size={'lg'} className="rounded-full bg-orange-400 hover:bg-orange-600 cursor-pointer mt-4"> Book Now</Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@ const CustomLayout = ({
       <div>
         {header}
         <main>{children}</main>
-        <WhatsAppButton />
+        {/* <WhatsAppButton /> */}
         {footer}
       </div>
     </>

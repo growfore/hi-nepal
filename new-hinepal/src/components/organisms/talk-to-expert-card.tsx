@@ -1,4 +1,4 @@
-import { CheckCircle, MessageCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import TripAdvisorBadge from "@/components/molecules/trip-advisor-badge";

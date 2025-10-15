@@ -72,8 +72,8 @@ export default async function Home() {
   return (
     <>
       <main id="content" className="site-main">
-        <NewHero packages={packages}/>
-        {/* <Hero carousels={carousels} /> */}
+        {/* <NewHero packages={packages}/> */}
+        <Hero carousels={carousels} />
         <PopularPackages packages={packages} />
         <BestShortTreks packages={packages} />
         <TenDaysPlusTreks packages={packages} />

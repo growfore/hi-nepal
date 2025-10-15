@@ -1,4 +1,4 @@
-"use server";
+export const dynamic = "force-dynamic";
 import endpoints from "@/constant/endpoints";
 import { TPackageDetails } from "@/types/types";
 import { get } from "@/utils/request-hander";
@@ -316,7 +316,7 @@ const activites = async ({ params }: { params: Params }) => {
           />
         </div>
         {/* @ts-ignore */}
-        {/* <SectionNav navigations={navigations} /> */}
+        <SectionNav navigations={navigations} />
 
         <main className="container mx-auto px-4 md:px-6 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Main Content Area */}
@@ -578,7 +578,13 @@ const activites = async ({ params }: { params: Params }) => {
             </div>
 
             {/* Faqs */}
-            {details.goodtoknow && <FAQSection html={details.goodtoknow} />}
+            {/* {details.goodtoknow && <FAQSection html={details.goodtoknow} />} */}
+            {details.goodtoknow && (
+              <div
+                dangerouslySetInnerHTML={{ __html: details.goodtoknow }}
+                className="prose max-w-none marker:text-black marker:!text-xl "
+              ></div>
+            )}
             <ReviewsGroup />
 
             {/* Gallery */}

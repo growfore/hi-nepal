@@ -72,7 +72,7 @@ export async function ItineraryPage({
         />
       </div>
       {/* @ts-ignore */}
-      <SectionNav navigations={navigations} />
+      {/* <SectionNav navigations={navigations} /> */}
 
       <main className="container mx-auto px-4 md:px-6 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Main Content Area */}

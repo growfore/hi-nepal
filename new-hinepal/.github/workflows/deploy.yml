@@ -24,4 +24,4 @@ jobs:
             git pull origin main  # Pull latest changes
             npm ci  # Install dependencies (if needed)
             npm run build  # Build project (if applicable)
-            pm2 restart hinepaltreks  # Restart the app if using PM2
+            pm2 restart frontend # Restart the app if using PM2

@@ -11,7 +11,6 @@ type FAQItem = {
   answer: string;
 };
 
-// This component is purely for rendering the interactive UI
 export default function FAQRenderer({ faqs }: { faqs: FAQItem[] }) {
   if (!faqs || faqs.length === 0) return null;
 

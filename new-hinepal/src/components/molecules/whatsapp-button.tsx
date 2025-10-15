@@ -1,12 +1,10 @@
 import Link from "next/link";
-import { MessageCircle } from "lucide-react";
 import Image from "next/image";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Button } from "@/components/ui/button";
 
 export default function WhatsAppButton() {
   return (
@@ -20,11 +18,10 @@ export default function WhatsAppButton() {
         >
           <Image
             src={"/assets/whatsapp-icon.webp"}
-            height={80}
-            width={80}
+            height={60}
+            width={60}
             alt="Whatsapp Icon - Click to Contact on Whatsapp"
           />
-          {/* <MessageCircle size={42} /> */}
         </Link>
       </TooltipTrigger>
       <TooltipContent className="">Message us on Whatsapp</TooltipContent>

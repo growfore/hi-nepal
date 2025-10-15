@@ -58,7 +58,7 @@ export function HomeFAQs() {
           type="single"
           collapsible
           className="w-full "
-          defaultValue="item-1"
+          defaultValue="item-0"
         >
           {faqs.map((faq, index) => {
             return (

@@ -1,6 +1,5 @@
 import * as React from "react";
 import Image from "next/image";
-import { getProxyUrl } from "@/utils/imageProxy";
 
 export function Partners() {
   const images = [

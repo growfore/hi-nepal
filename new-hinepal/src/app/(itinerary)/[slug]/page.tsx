@@ -71,56 +71,56 @@ export async function generateMetadata({
         ],
       },
     };
-  }
+  } else {
+    const destination = await fetchData(`packages/${slug}`);
 
-  const destination = await fetchData(`packages/${slug}`);
-
-  return {
-    title:
-      destination?.package?.seo?.metaTitle ||
-      destination?.title ||
-      formatSlug(slug),
-    description:
-      destination?.package?.seo?.metaDescription || destination?.description,
-    alternates: {
-      canonical:
-        process.env.NEXT_PUBLIC_FRONTEND_BASE_URL +
-        "/" +
-        destination?.package?.slug,
-    },
-    keywords: destination?.package?.seo?.keywords,
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
+    return {
+      title:
+        destination?.package?.seo?.metaTitle ||
+        destination?.title ||
+        formatSlug(slug),
+      description:
+        destination?.package?.seo?.metaDescription || destination?.description,
+      alternates: {
+        canonical:
+          process.env.NEXT_PUBLIC_FRONTEND_BASE_URL +
+          "/" +
+          destination?.package?.slug,
+      },
+      keywords: destination?.package?.seo?.keywords,
+      robots: {
         index: true,
         follow: true,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-      },
-    },
-    referrer: "origin-when-cross-origin",
-    openGraph: {
-      title: destination?.seo?.metaTitle || destination?.title,
-      description:
-        destination?.seo?.metaDescription || destination?.description,
-      images: [
-        {
-          url: destination?.seo?.metaImage || destination?.image,
-          width: 800,
-          height: 600,
-          alt: destination?.title,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
         },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: destination?.title,
-      description: destination?.description,
-      images: [destination?.image],
-    },
-  };
+      },
+      referrer: "origin-when-cross-origin",
+      openGraph: {
+        title: destination?.seo?.metaTitle || destination?.title,
+        description:
+          destination?.seo?.metaDescription || destination?.description,
+        images: [
+          {
+            url: destination?.seo?.metaImage || destination?.image,
+            width: 800,
+            height: 600,
+            alt: destination?.title,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: destination?.title,
+        description: destination?.description,
+        images: [destination?.image],
+      },
+    };
+  }
 }
 
 const activites = async ({ params }: { params: Params }) => {
@@ -212,6 +212,7 @@ const activites = async ({ params }: { params: Params }) => {
   const filteredTreks: TPackageDetails[] = packages.filter((pkg) =>
     popularTreks.includes(pkg.slug)
   );
+
   const navigations = [
     { id: "overview", label: "Overview", icon: "LucideEye" },
     { id: "itenary", label: "Itinerary", icon: "LucideList" },
@@ -238,7 +239,7 @@ const activites = async ({ params }: { params: Params }) => {
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "5",
-        reviewCount: "113",
+        reviewCount: "115",
       },
     };
   }
@@ -578,12 +579,8 @@ const activites = async ({ params }: { params: Params }) => {
 
             {/* Faqs */}
             {details.goodtoknow && <FAQSection html={details.goodtoknow} />}
-            {/* {details.goodtoknow && (
-              <div
-                dangerouslySetInnerHTML={{ __html: details.goodtoknow }}
-                className="prose max-w-none marker:text-black marker:!text-xl "
-              ></div>
-            )} */}
+
+            {/* Reviews */}
             <ReviewsGroup />
 
             {/* Gallery */}

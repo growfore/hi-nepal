@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Search } from "lucide-react";
+import { url } from "inspector";
 
 export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,7 +38,7 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
     <section className="relative p-2 mt-16 md:mt-[94px] flex flex-col items-center justify-center text-center text-white h-[60vh] md:h-[80vh] overflow-hidden">
       {/* <Image src="/mount-everest.webp" height={1000} width={1500} alt="Mount everest" /> */}
       <div className="absolute inset-0 -z-10 h-full w-full overflow-hidden">
-        <iframe
+        {/* <iframe
           src="https://www.youtube.com/embed/nZmO8B9rRik?autoplay=1&start=1046&end=1056&mute=1&loop=1&playlist=nZmO8B9rRik&t&controls=0&showinfo=0&modestbranding=1"
           title="Nepal Video Background"
           allow="autoplay; fullscreen"
@@ -45,13 +46,23 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
           loading="lazy"
           referrerPolicy="no-referrer"
           className="absolute top-1/2 left-1/2 w-[177.78vh] h-[100vh] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover"
-        ></iframe>
+        ></iframe> */}
+        <Image
+          src={"/assets/mount-everest.webp"}
+          // width={1920}
+          // height={720}
+          alt="mount everest"
+          fill
+          className="object-cover"
+        />
 
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Hero Content */}
-      <div className="max-w-5xl px-4">
+      <div
+        className="max-w-5xl px-4"
+      >
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold  leading-tight">
           Find your adventure in the heart of Himalayas
         </h1>

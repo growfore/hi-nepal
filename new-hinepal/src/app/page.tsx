@@ -2,7 +2,6 @@ import endpoints from "@/constant/endpoints";
 import { TPackages, TSiteInformation } from "@/types/types";
 import { get } from "@/utils/request-hander";
 import siteStore from "@/zustand/store";
-import { Hero } from "@/components/organisms/hero";
 import { Partners } from "@/components/organisms/partners";
 import Numbers from "@/components/organisms/numbers";
 import Gallery from "@/components/Gallery";
@@ -93,7 +92,6 @@ export default async function Home() {
             More about Us
           </Link>
         </div>
-
         <HomeFAQs />
       </main>
     </>

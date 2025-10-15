@@ -23,7 +23,7 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
     backgroundRepeat: "no-repeat",
   };
 
-  const sectionStyle = isMobile ? mobileBgStyle : {};
+  // const sectionStyle = isMobile ? mobileBgStyle : {};
 
   useEffect(() => {
     const delay = setTimeout(() => {
@@ -49,7 +49,7 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
       {/* Video Background */}
       <div className="absolute inset-0 -z-10 h-full w-full overflow-hidden">
         <iframe
-          src="https://www.youtube.com/embed/0uoXfh6SD9Y?autoplay=1&mute=1&loop=1&playlist=0uoXfh6SD9Y&controls=0&showinfo=0&modestbranding=1"
+          src="https://www.youtube.com/embed/nZmO8B9rRik&t?autoplay=1&start=1046&mute=1&loop=1&playlist=nZmO8B9rRik&t&controls=0&showinfo=0&modestbranding=1"
           title="Nepal Video Background"
           allow="autoplay; fullscreen"
           allowFullScreen
@@ -64,7 +64,7 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
 
       {/* Hero Content */}
       <div className="max-w-5xl px-4">
-        <h1 className="font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold  leading-tight">
           Find your adventure in the heart of Himalayas
         </h1>
         <p className="mt-3 text-base sm:text-lg md:text-xl opacity-90">
@@ -78,7 +78,7 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
         <Input
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full bg-white px-6 py-6 md:py-8 text-black text-base md:text-lg shadow-lg placeholder:text-gray-400 focus-visible:ring-green-600 rounded-full"
+          className="w-full bg-white opacity-65 px-6 py-6 md:py-8 text-black text-base md:text-lg shadow-lg placeholder:text-gray-400 focus-visible:ring-green-600 rounded-full"
           placeholder="Search for destinations..."
         />
         <div className="bg-orange-500 rounded-full p-2 md:p-4 text-white absolute top-[4px] md:top-[5px] right-2">

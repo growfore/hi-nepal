@@ -24,7 +24,7 @@ const AdventureCard = ({ image, text, link }: { image: string, text: string, but
                     </Link>
                 </figure>
                 <div className=''>
-                    <div className='p-6'>
+                    <div className='p-4'>
                         <h3 className='text-2xl font-bold text-dark-blue-900 mb-2'>
                             <Link
                                 title={text}

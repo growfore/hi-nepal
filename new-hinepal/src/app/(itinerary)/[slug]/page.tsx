@@ -11,7 +11,6 @@ import { formatSlug } from "@/helper/formatSlug";
 import { ItineraryPage } from "@/components/pages/itinerary-page";
 import { getBlogSingle } from "@/helper/getBlog";
 import { BlogPage } from "@/components/pages/blog-page-single";
-import { usePopularPackages } from "@/zustand/store";
 
 export async function generateMetadata({
   params,
@@ -32,7 +31,6 @@ export async function generateMetadata({
       robots: {
         index: true,
         follow: true,
-        nocache: true,
         googleBot: {
           index: true,
           follow: true,
@@ -75,7 +73,6 @@ export async function generateMetadata({
     robots: {
       index: true,
       follow: true,
-      nocache: true,
       googleBot: {
         index: true,
         follow: true,
@@ -224,8 +221,6 @@ const activites = async ({ params }: { params: Params }) => {
   const pacakgesToPass: TPackageDetails[] = params.slug.includes("trek")
     ? filteredTreks
     : filteredTours;
-  usePopularPackages.getState().setTreks(filteredTreks);
-  usePopularPackages.getState().setTours(filteredTours);
   relatedProducts = destinationPackages.filter(
     (pkg: any) => pkg.id !== details.id
   );

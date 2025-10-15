@@ -123,16 +123,16 @@
   }
 
   .active {
-    background-color: #00A63E;
+    background-color: #00a63e;
   }
 }
 
 #packing > div > ul {
-  background: #00A63E20;
-  border: 2px dashed #00A63E87;
-  border-radius: 12px;
+  background: #00a63e20;
+  border: 2px dashed #00a63e87;
+  border-radius: 4px;
   padding: 1rem;
-  color:white !important;
+  color: white !important;
 }
 #packing > div > ul > li {
   list-style-type: disc !important;
@@ -144,3 +144,22 @@
 #packing > div > ul > li::marker {
   color: white !important;
 } */
+
+h1,
+h2 {
+  font-family: var(--font-cormorant), serif;
+  font-weight: bold;
+}
+
+body {
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.prose, .prose * {
+  font-family: var(--font-montserrat), sans-serif !important;
+}
+.prose h1,
+.prose h2,
+.prose h3 {
+  font-family: var(--font-cormorant), serif !important;
+}

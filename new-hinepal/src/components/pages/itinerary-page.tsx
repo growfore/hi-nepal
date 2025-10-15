@@ -1,7 +1,5 @@
 "use client";
-
 import { TPackageDetails } from "@/types/types";
-import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import {
@@ -17,14 +15,15 @@ import {
 import { DataIcon } from "@/components/molecules/data-icon";
 import { SectionNav } from "@/components/organisms/SectionNav";
 import TrustBadge from "@/components/molecules/trust-badge";
-import PopularCard from "../molecules/popular-card";
+import PopularCard from "@/components/molecules/popular-card";
 import { getProxyUrl } from "@/utils/imageProxy";
 import ReviewsGroup from "@/components/organisms/reviews";
-import FAQSection from "../organisms/itinerary-faq";
-import TalkToExpertCard from "../organisms/talk-to-expert-card";
-import GallerySlider from "../gallery-slider";
+import FAQSection from "@/components/organisms/itinerary-faq";
+import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";
+import GallerySlider from "@/components/gallery-slider";
+import React, { useState, useEffect } from "react";
 
-export function ItineraryPage({
+export async function ItineraryPage({
   details,
   relatedProducts,
   popularPackages,
@@ -52,21 +51,9 @@ export function ItineraryPage({
     { id: "faqs", label: "FAQs", icon: "LucideMessageCircleQuestion" },
   ];
 
-  const sectionStyle =
-    "scroll-mt-42 mb-12 p-6 bg-white rounded-lg shadow-md border-dashed border-2 border-orange-400";
+  const sectionStyle = "scroll-mt-42 mb-12 p-6  border-b border-gray-300";
   return (
     <div className="">
-      {/* <div
-        className="bg-no-repeat relative h-[56vh] md:h-[80vh] bg-center bg-contain md:bg-cover flex items-end justify-center 
-                 text-white  mb-4 mt-24  mx-auto pb-8 md:pb-0"
-        style={{
-          backgroundImage: `url(${
-            isMobile ? details.thumbnail : details.banner
-          })`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black/10"></div>
-      </div> */}
       {/* Section Navigation */}
       <div className="container mx-auto px-4 md:px-6">
         <div className="container py-4 text-left mt-24">
@@ -339,15 +326,9 @@ export function ItineraryPage({
           </div>
 
           {/* Faqs */}
-          {details.goodtoknow && (
+          {/* {details.goodtoknow && (
             <FAQSection html={details.goodtoknow} />
-            // <div id="faqs" className={sectionStyle}>
-            //   <div
-            //     dangerouslySetInnerHTML={{ __html: details.goodtoknow }}
-            //     className="prose max-w-none marker:text-black marker:!text-xl "
-            //   ></div>
-            // </div>
-          )}
+          )} */}
           <Link
             target="_blank"
             href="https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"

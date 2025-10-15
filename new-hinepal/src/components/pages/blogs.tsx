@@ -1,13 +1,16 @@
-import BlogCard from "@/components/molecules/blog-card"
+import BlogCard from "@/components/molecules/blog-card";
 import Link from "next/link";
 
 const BlogHome = async () => {
   const getBlogs = async () => {
-    const res = await fetch('https://blogs.hinepaltreks.com/wp-json/wp/v2/posts?_embed', {
-      next: { revalidate: 60 },
-    });
+    const res = await fetch(
+      "https://blogs.hinepaltreks.com/wp-json/wp/v2/posts?_embed",
+      {
+        next: { revalidate: 60 },
+      }
+    );
     return res.json();
-  }
+  };
   const posts = await getBlogs();
 
   return (
@@ -20,26 +23,38 @@ const BlogHome = async () => {
                 from our blog
               </p>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">OUR RECENT POSTS</h2>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold  leading-tight">
+              Our Recent Posts
+            </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Latest news and updates from our blog. Check out our blog for insights and stories.
+              Latest news and updates from our blog. Check out our blog for
+              insights and stories.
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post: any, index: number) => (
-            <BlogCard key={index} title={post.title.rendered} excerpt={post.excerpt.rendered} image={post._embedded?.['wp:featuredmedia']?.[0]?.source_url} slug={post.slug} />
+            <BlogCard
+              key={index}
+              title={post.title.rendered}
+              excerpt={post.excerpt.rendered}
+              image={post._embedded?.["wp:featuredmedia"]?.[0]?.source_url}
+              slug={post.slug}
+            />
           ))}
         </div>
-        <div className='text-center mt-12'>
-          <Link href='/blogs' className='inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300'>
-          View All
+        <div className="text-center mt-12">
+          <Link
+            href="/blogs"
+            className="inline-flex items-center justify-center px-8 py-4 bg-orange-400 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
+          >
+            View All
           </Link>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default BlogHome
+export default BlogHome;

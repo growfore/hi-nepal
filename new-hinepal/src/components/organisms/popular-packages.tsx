@@ -24,9 +24,17 @@ const PopularPackages = async ({ packages }: { packages: TPackages }) => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-left md:text-center mb-12 md:mb-16">
           <div className="mt-12">
-            <h1 className='text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
+            {/* <h1 className='text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
               NEPAL TRAVEL PACKAGES
-            </h1>
+            </h1> */}
+            {/* <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight">
+              Nepal Travel Packages
+            </h2> */}
+
+            {/* <h2 className='mt-12 text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
+              Popular Treks in Nepal
+            </h2> */}
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight">Popular Treks in Nepal</h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
               Are you looking for Premium Trekking or Tour packages with a
               Reliable trekking agency in Nepal? Get the best Nepal Tour package
@@ -34,12 +42,6 @@ const PopularPackages = async ({ packages }: { packages: TPackages }) => {
               Travels and Treks Pvt. Ltd. is one of the reputed Nepal trekking
               companies offering high-quality services in trekking and
               travelling fields for more than 20 years.
-            </p>
-
-            <h2 className='mt-12 text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
-              Popular Treks in Nepal
-            </h2>
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
               Nepal is a heaven on Earth offering some of the most popular treks
               in the world, including Everest Base Camp, Annapurna Base Camp,
               and Manaslu Circuit treks. Enhance your trekking experience with
@@ -70,7 +72,7 @@ const PopularPackages = async ({ packages }: { packages: TPackages }) => {
             <div className="text-center flex flex-col md:flex-row items-center gap-4 justify-center">
               <Link
                 href="/activities/trekking"
-                className="uppercase inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
+                className="uppercase inline-flex items-center justify-center px-8 py-4 bg-orange-400 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
               >
                 Popular Trekking Packages
               </Link>

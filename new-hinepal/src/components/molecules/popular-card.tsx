@@ -17,7 +17,7 @@ export default async function PopularCard({
 }: TCardProps) {
   return (
     <Link href={slug}>
-      <div className="bg-slate-100 p-4 shadow-sm md:h-[340px] rounded-md flex flex-col items-start gap-2">
+      <div className=" w-[380px] h-[542px] bg-slate-100 p-4 shadow-sm  rounded-md flex flex-col items-start gap-2">
         <div className="max-h-[240px] overflow-hidden rounded-md">
           <img
             src={image}
@@ -28,14 +28,14 @@ export default async function PopularCard({
           />
         </div>
         <div className="mt-4">
-          <Badge className="bg-green-700">
+          {/* <Badge className="bg-green-700">
             <LucideTimer /> {days} Day(s)
-          </Badge>
-          <p className="font-bold text-xl">
+          </Badge> */}
+          <h3 className="font-bold text-xl">
             {title.split(":")[0].length > 30
               ? title.split(":")[0].substring(0, 30) + "..."
               : title.split(":")[0]}
-          </p>
+          </h3>
         </div>
       </div>
     </Link>

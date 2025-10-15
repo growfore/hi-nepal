@@ -130,7 +130,7 @@ const PopularDestinations = async () => {
                     className="block"
                     href={"/activities/trekking/" + d.slug}
                   >
-                    <div className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="relative rounded-md hover:-translate-y-1 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
                       <figure className="w-full h-64">
                         <img
                           src={getProxyUrl(d.image)}
@@ -146,7 +146,7 @@ const PopularDestinations = async () => {
                         {d.activity.name}
                       </div> */}
                       <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white">
-                        <h3 className="text-xl font-bold">{d.name}</h3>
+                        <h3 className="text-2xl font-bold">{d.name}</h3>
                       </div>
                     </div>
                   </Link>
@@ -160,7 +160,7 @@ const PopularDestinations = async () => {
           <div className="text-center flex flex-col md:flex-row items-center gap-4 justify-center">
             <Link
               href="/activities/trekking"
-              className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
+              className="inline-flex items-center justify-center px-8 py-4 bg-orange-400 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
             >
               TREKKING DESTINATIONS
             </Link>

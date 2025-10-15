@@ -1,4 +1,3 @@
-import { Playfair } from "next/font/google";
 import "./globals.css";
 import endpoints from "@/constant/endpoints";
 import { TSiteInformation } from "@/types/types";
@@ -9,12 +8,8 @@ import CustomLayout from "@/components/layouts/custom-layout";
 import { Navbar } from "@/common/navbar";
 import Script from "next/script";
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { cormorant, montserrat } from "@/utils/fonts";
 
-const playfair = Playfair({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
 
 export default async function RootLayout({
   children,
@@ -34,7 +29,7 @@ export default async function RootLayout({
     },
   });
   return (
-    <html lang="en">
+    <html lang="en" className={`${montserrat.variable} ${cormorant.variable} antialiased`}>
       <head>
         {/*  */}
         <Script id="microsoft-clarity" strategy="afterInteractive">
@@ -59,7 +54,7 @@ export default async function RootLayout({
   `}
         </Script> */}
       </head>
-      <body className={`${playfair.variable} antialiased`}>
+      <body>
         <CustomLayout footer={<Footer />} header={<Navbar />}>
           {children}
             <GoogleAnalytics gaId="G-E1QTRNT388"/>

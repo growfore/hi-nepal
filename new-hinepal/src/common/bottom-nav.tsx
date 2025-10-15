@@ -156,7 +156,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                 </Link>
 
                 <div className="hidden group-hover:grid absolute top-[60px] left-0 w-[100vw] py-8 px-0 z-[999]">
-                  <div className="pb-8 bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container px-12 mx-auto flex-wrap w-[100vw] rounded-md">
+                  <div className="pb-8 bg-white shadow-md  border-b border-gray-300 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container px-12 mx-auto flex-wrap w-[100vw] rounded-md">
                     {sortDestinations(activity.destinations).map(
                       (destination, idx) => (
                         <div key={idx}>
@@ -218,7 +218,7 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
         {/* Mobile menu */}
         <div className="flex gap-2 self-center">
           <Link href={`/booking?destination=${destination}`}>
-            <Button size="lg" className="md:p-8 text-lg p-4">
+            <Button size="lg" className="md:p-8 text-lg p-4 bg-orange-400 hover:bg-orane-600 cursor-pointer rounded-lg hover:bg-ornage-600">
               Book Now
             </Button>
           </Link>
@@ -243,12 +243,12 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                             <Accordion key={dIdx} type="single" collapsible>
                               <AccordionItem value={`item-${dIdx}`}>
                                 <AccordionTrigger className="font-semibold text-xl p-0 py-2">
-                                  <a
+                                  <Link
                                     href={`/activities/${activity.slug}/${destination.slug}`}
-                                    className="flex gap-1 items-center"
+                                    className="flex gap-1 items-center text-orange-600"
                                   >
                                     {destination.name}
-                                  </a>
+                                  </Link>
                                 </AccordionTrigger>
                                 <AccordionContent>
                                   <ul className="flex flex-col gap-2">
@@ -257,14 +257,14 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                                       destination.packages
                                     ).map((pkg, pIdx) => (
                                       <li key={pIdx}>
-                                        <a
+                                        <Link
                                           href={`/${pkg.slug}`}
                                           className="hover:border-b-2 border-dashed border-[#EF5922] hover:text-[#EF5922] font-bold text-lg"
                                         >
                                           {pkg.title.includes(":")
                                             ? pkg.title.split(":")[0].trim()
                                             : pkg.title.trim()}
-                                        </a>
+                                        </Link>
                                       </li>
                                     ))}
                                   </ul>
@@ -277,21 +277,21 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                     </AccordionItem>
                   </Accordion>
                 ))}
-                <a
+                <Link
                   href={"/adventure"}
                   className="uppercase font-bold text-xl"
                 >
                   Adventures
-                </a>
-                <a
+                </Link>
+                <Link
                   href={"/about-us"}
                   className="uppercase font-bold text-xl"
                 >
                   About us
-                </a>
-                <a href={"/blogs"} className="uppercase font-bold text-xl">
+                </Link>
+                <Link href={"/blogs"} className="uppercase font-bold text-xl">
                   Blogs
-                </a>
+                </Link>
               </SheetContent>
             </Sheet>
           </div>

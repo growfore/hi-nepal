@@ -1,3 +1,4 @@
+import PackageCard from "@/components/molecules/package-card";
 import TrekkingCard from "@/components/molecules/TrekkingCard";
 import endpoints from "@/constant/endpoints";
 import { formatSlug } from "@/helper/formatSlug";
@@ -454,8 +455,10 @@ export default async function RegionPage({
           /* @ts-ignore */
           data?.map((d, idx) => {
             return (
+              // <PackageCard destination={d.destination.name} slug={d.slug} image={} />
               <Link key={idx} href={`/${d.slug}`}>
                 <TrekkingCard
+                  // destination={d.destinatin.title}
                   slug={d.slug}
                   title={d.title.split(":")[0]}
                   image={d.thumbnail}

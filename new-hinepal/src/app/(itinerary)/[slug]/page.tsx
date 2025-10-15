@@ -578,13 +578,13 @@ const activites = async ({ params }: { params: Params }) => {
             </div>
 
             {/* Faqs */}
-            {/* {details.goodtoknow && <FAQSection html={details.goodtoknow} />} */}
-            {details.goodtoknow && (
+            {details.goodtoknow && <FAQSection html={details.goodtoknow} />}
+            {/* {details.goodtoknow && (
               <div
                 dangerouslySetInnerHTML={{ __html: details.goodtoknow }}
                 className="prose max-w-none marker:text-black marker:!text-xl "
               ></div>
-            )}
+            )} */}
             <ReviewsGroup />
 
             {/* Gallery */}

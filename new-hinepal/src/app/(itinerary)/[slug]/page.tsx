@@ -50,13 +50,16 @@ export async function generateMetadata({
       robots: {
         index: true,
         follow: true,
-        googleBot: {
-          index: true,
-          follow: true,
-          "max-video-preview": -1,
-          "max-image-preview": "large",
-          "max-snippet": -1,
-        },
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+        // googleBot: {
+        //   index: true,
+        //   follow: true,
+        //   "max-video-preview": -1,
+        //   "max-image-preview": "large",
+        //   "max-snippet": -1,
+        // },
       },
       openGraph: {
         title: blog.title,
@@ -91,13 +94,17 @@ export async function generateMetadata({
       robots: {
         index: true,
         follow: true,
-        googleBot: {
-          index: true,
-          follow: true,
-          "max-video-preview": -1,
-          "max-image-preview": "large",
-          "max-snippet": -1,
-        },
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+
+        // googleBot: {
+        //   index: true,
+        //   follow: true,
+        //   "max-video-preview": -1,
+        //   "max-image-preview": "large",
+        //   "max-snippet": -1,
+        // },
       },
       referrer: "origin-when-cross-origin",
       openGraph: {

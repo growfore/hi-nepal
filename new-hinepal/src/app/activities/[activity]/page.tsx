@@ -10,7 +10,8 @@ export async function generateMetadata({ params }: any): Promise<any> {
     title:
       params.activity == "tours"
         ? "Nepal Tour Packages: Explore Nepal with Multi-day and Nature Tour - Hi Nepal Travel and Treks"
-        : "Trekking in Nepal: Itinerary, Season & All Important Details" + "| Hi Nepal Travels & Treks",
+        : "Trekking in Nepal: Itinerary, Season & All Important Details" +
+          "| Hi Nepal Travels & Treks",
     description:
       params.activity == "tours"
         ? "Explore the best Nepal Tour Packages. Book now for customized itineraries, Himalayan adventures, cultural tours, and unforgettable experiences in Nepal."
@@ -28,13 +29,9 @@ export async function generateMetadata({ params }: any): Promise<any> {
       index: true,
       follow: true,
       nocache: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-      },
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   };
 }

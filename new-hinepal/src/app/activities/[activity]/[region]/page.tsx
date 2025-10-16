@@ -1,4 +1,3 @@
-import PackageCard from "@/components/molecules/package-card";
 import TrekkingCard from "@/components/molecules/TrekkingCard";
 import endpoints from "@/constant/endpoints";
 import { formatSlug } from "@/helper/formatSlug";
@@ -46,18 +45,6 @@ export async function generateMetadata({ params }: any): Promise<any> {
       "Experience the Dolpo Region Trek with remote trails, rich culture, and stunning landscapes. Book now to explore Nepal’s hidden Himalayan paradise!";
     keywords = "dolpo region, travel agency in nepal, trekking agency in nepal";
   }
-  if (region.includes("nature-wildlife")) {
-    title = "Nature and Wildlife Tours in Nepal: Itinerary, Safari & Best Time";
-    description =
-      "Experience Nature and Wildlife Tours in Nepal with safaris, jungle walks, and ideal seasons. Book now to explore Nepal’s rich biodiversity and wild beauty!";
-    keywords = "trekking agency in nepal";
-  }
-  if (region.includes("day-tours")) {
-    (description =
-      "Hi Nepal Travels and Treks offers exciting day tours in Nepal, exploring cultural sites, natural beauty, and adventure sports with the best travel and tour agency."),
-      (keywords = "day tours in nepal, travel and trekking agency");
-  }
-
   if (region.includes("langtang-region")) {
     title = "Langtang Region Nepal Trekking Itinerary Breakdown";
     description =
@@ -75,15 +62,17 @@ export async function generateMetadata({ params }: any): Promise<any> {
     title = "Day tours in Nepal: Perfect itinerary and Best Season";
     description =
       "Discover the best Day Tours in Nepal with perfect itineraries and ideal seasons. Book now to explore culture, heritage, and scenic wonders in a single day!";
+    keywords = "day tours in nepal, travel and trekking agency";
   }
   if (region.includes("nature-wildlife")) {
     title = "Nature and Wildlife Tours in Nepal: Itinerary, Safari & Best Time";
     description =
       "Experience Nature and Wildlife Tours in Nepal with safaris, jungle walks, and ideal seasons. Book now to explore Nepal’s rich biodiversity and wild beauty!";
+    keywords = "trekking agency in nepal";
   }
 
   return {
-    title: formatSlug(params.region) + " - Hi Nepal Travel and Treks",
+    title: title || formatSlug(params.region) + " - Hi Nepal Travel and Treks",
     description: description || undefined,
     keywords: keywords || undefined,
     alternates: {

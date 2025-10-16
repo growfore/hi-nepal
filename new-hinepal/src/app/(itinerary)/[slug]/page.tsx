@@ -87,7 +87,7 @@ export async function generateMetadata({
           "/" +
           destination?.package?.slug,
       },
-      keywords: destination?.package?.seo?.keywords,
+      keywords: destination?.package?.seo?.metaKeywords,
       robots: {
         index: true,
         follow: true,

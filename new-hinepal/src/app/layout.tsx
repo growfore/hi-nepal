@@ -7,9 +7,8 @@ import { Footer } from "@/common";
 import CustomLayout from "@/components/layouts/custom-layout";
 import { Navbar } from "@/common/navbar";
 import Script from "next/script";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { cormorant, montserrat } from "@/utils/fonts";
-
 
 export default async function RootLayout({
   children,
@@ -29,7 +28,10 @@ export default async function RootLayout({
     },
   });
   return (
-    <html lang="en" className={`${montserrat.variable} ${cormorant.variable} antialiased`}>
+    <html
+      lang="en"
+      className={`${montserrat.variable} ${cormorant.variable} antialiased`}
+    >
       <head>
         {/*  */}
         <Script id="microsoft-clarity" strategy="afterInteractive">
@@ -41,23 +43,11 @@ export default async function RootLayout({
     })(window, document, "clarity", "script", "srgj9d5fel");
             `}
         </Script>
-        {/* <Script
-          strategy="afterInteractive"
-          src="⁦https://www.googletagmanager.com/gtag/js?id=G-E1QTRNT388⁩"
-        ></Script>
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-E1QTRNT388');
-  `}
-        </Script> */}
       </head>
       <body>
         <CustomLayout footer={<Footer />} header={<Navbar />}>
           {children}
-            <GoogleAnalytics gaId="G-E1QTRNT388"/>
+          <GoogleAnalytics gaId="G-E1QTRNT388" />
         </CustomLayout>
       </body>
     </html>

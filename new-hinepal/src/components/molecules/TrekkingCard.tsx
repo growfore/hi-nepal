@@ -19,7 +19,7 @@ const TrekkingCard = (props: TCardProps) => {
 
   return (
     <div className="w-full">
-      <div className="w-[380px] pb-4 h-[440px] bg-white rounded-md shadow-sm  hover:-translate-y-0.5 overflow-hidden hover:shadow-md transition-all duration-300 relative flex flex-col justify-between">
+      <div className="w-[340px] md:w-[380px] pb-4 h-[440px] bg-white rounded-md shadow-sm  hover:-translate-y-0.5 overflow-hidden hover:shadow-md transition-all duration-300 relative flex flex-col justify-between">
         <figure className="w-full h-56 relative">
           <Link
             aria-label={title}

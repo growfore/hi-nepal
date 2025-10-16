@@ -30,7 +30,7 @@ export default function AdventurePage() {
                 <h1 className="font-bold text-6xl lg:text-9xl">Adventures</h1>
                 <p className="text-left italic text-xl">Experience the adventure sport of a lifetime amidst the Himalayas, where every thrill comes with breathtaking views.</p>
             </div>
-            <div className="p-4 md:p-12 container mx-auto flex flex-col gap-8">
+            <div className="p-2 md:p-12 container mx-auto flex flex-col gap-8">
                 <div id="paragliding" className="scroll-mt-42">
                     <ImageCard />
                 </div>
@@ -69,7 +69,7 @@ export default function AdventurePage() {
 
 
                 {/* Zipline */}
-                <div id="zipline" className="scroll-mt-44 scroll-smooth flex flex-col md:flex-row gap-2 md:gap-4 items-start justify-between rounded-md p-2  md:p-8">
+                <div id="zipline" className="scroll-mt-44 scroll-smooth flex flex-col-reverse md:flex-row gap-2 md:gap-4 items-start justify-between rounded-md p-2  md:p-8">
                     <div className='md:max-w-[40vw]'>
                         <h2 className='font-bold text-xl'>
                             Zipline
@@ -102,7 +102,7 @@ export default function AdventurePage() {
 
                 {/* Ultra light flights */}
 
-                <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start justify-between rounded-md p-2  md:p-8">
+                <div className="flex flex-col-reverse md:flex-row gap-2 md:gap-4 items-start justify-between rounded-md p-2  md:p-8">
                     <div className='md:max-w-[40vw]'>
                         <h2 className='font-bold text-xl'>
                             Ultralight Flights
@@ -151,7 +151,7 @@ export default function AdventurePage() {
 
 
                 {/* hot air balloon */}
-                <div className="flex md:flex-row gap-2 md:gap-4 items-start justify-between rounded-md p-2  md:p-8 flex-row-reverse">
+                <div className="flex  md:flex-row gap-2 md:gap-4 items-start justify-between rounded-md p-2  md:p-8  flex-col-reverse">
                     <div className='md:max-w-[40vw]'>
                         <h2 className='font-bold text-xl'>
                             Hot Air Balloon Rides

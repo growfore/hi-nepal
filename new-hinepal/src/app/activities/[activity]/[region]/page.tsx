@@ -8,9 +8,11 @@ import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: any): Promise<any> {
   const { region, activity } = params;
-  let title = `${formatSlug(region)} + | Hi Nepal Travels & Treks`;
-  let description = "";
-  let keywords = "";
+  let title =
+    region?.seo?.metaTitle ||
+    `${formatSlug(region)} | Hi Nepal Travels & Treks`;
+  let description = region?.seo?.metaDescription || "";
+  let keywords = region?.seo?.metaKeywords || "";
 
   if (region.includes("annapurna-region")) {
     title = "Explore the Annapurna Region Nepal Trekking Itinerary";
@@ -70,6 +72,18 @@ export async function generateMetadata({ params }: any): Promise<any> {
       "Experience Nature and Wildlife Tours in Nepal with safaris, jungle walks, and ideal seasons. Book now to explore Nepal’s rich biodiversity and wild beauty!";
     keywords = "trekking agency in nepal";
   }
+  if (region.includes("tibet")) {
+    title = "Tibet: Discovering the Lesser-Known Treasures";
+    description =
+      "Discover the untouched beauty of Tibet with our guide to its lesser-known treasures. From monasteries to breathtaking vistas, embark on an unforgettable adventure.";
+    keywords = "Tibet";
+  }
+  if (region.includes("heli-tour")) {
+    (title = "Helicopter Tour"),
+      (description =
+        "Take an unforgettable Heli Tour over the Himalayas. See Mount Everest, Annapurna, and stunning peaks from the bird’s eye view from the sky — book your adventure now!");
+    keywords = "Heli Tour, Helicopter Tour";
+  }
 
   return {
     title: title || formatSlug(params.region) + " - Hi Nepal Travel and Treks",
@@ -117,7 +131,7 @@ export default async function RegionPage({
 
   return (
     <div className="mt-24 flex flex-col gap-4 p-4">
-      <div className="md:min-h-[40vh] mt-12  flex flex-col p-4  md:p-8 md:items-center border-b-2 border-black">
+      <div className="md:min-h-[40vh] mt-12  flex flex-col p-1  md:p-8 md:items-center border-b-2 border-black">
         <h1 className="font-bold md:text-center text-6xl lg:text-9xl">
           {region.includes("wildlife")
             ? "Nature and Wildlife Tours"
@@ -464,7 +478,7 @@ export default async function RegionPage({
      ***
      ***
     *****/}
-      <div className="p-2 md:px-12 lg:px-24">
+      <div className="p-1 md:px-12 lg:px-24">
         {region.includes("everest") && (
           <p className="text-justify text-xl">
             Home to the world’s highest peak, Mount Everest, the Everest region

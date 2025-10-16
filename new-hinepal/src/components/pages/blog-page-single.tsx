@@ -47,7 +47,6 @@ export function BlogPage({ blog }: { blog: TBlog }) {
                             <article
                                 dangerouslySetInnerHTML={{ __html: blog.content }}
                                 className="
-                                text-justify
   prose prose-lg max-w-none
   prose-headings:text-gray-900 prose-headings:font-[700]
 

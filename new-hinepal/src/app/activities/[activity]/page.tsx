@@ -58,7 +58,7 @@ export default async function ActivitySingle({
     },
   });
   return (
-    <div className="mt-24 p-4 flex flex-col gap-4">
+    <div className="mt-24 p-2 flex flex-col gap-4">
       {activity == "tours" ? (
         <div>
           <div className="md:min-h-[40vh] mt-24  md:mt-8 flex flex-col p-4  md:p-8 md:items-center border-b-2 border-black">
@@ -102,7 +102,7 @@ export default async function ActivitySingle({
           </div>
         </div>
       ) : (
-        <div className="md:min-h-[40vh] mt-24  md:mt-8 flex flex-col p-4  md:p-8 md:items-center border-b-2 border-black">
+        <div className="md:min-h-[40vh] mt-24  md:mt-8 flex flex-col p-2  md:p-8 md:items-center border-b-2 border-black">
           <h1 className="font-bold text-6xl lg:text-9xl">
             {activity.charAt(0).toUpperCase() + activity.slice(1)}
           </h1>
@@ -149,7 +149,7 @@ export default async function ActivitySingle({
           </div>
         </div>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 lg:px-24 p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 lg:px-24 p-2">
         {data &&
           /*@ts-ignore*/
           data?.length > 0 &&
@@ -164,7 +164,7 @@ export default async function ActivitySingle({
       </div>
       <div>
         {activity == "tours" ? (
-          <div className="container mx-auto  text-justify p-8 text-xl">
+          <div className="container mx-auto  text-justify p-2 md:p-8 text-xl">
             Nepal is a stunning place located in South Asia. Situated between
             two giant countries, China and India, this heavenly country offers
             various tour packages from{" "}
@@ -304,7 +304,7 @@ export default async function ActivitySingle({
             everything to first-time travelers as well as repeat visitors.
           </div>
         ) : (
-          <p className="container mx-auto text-justify p-8 text-xl">
+          <p className="container mx-auto text-justify p-2 md:p-8 text-xl">
             Nepal is home to some of the stunning and popular trekking routes
             offering unique and diverse natural landscapes and mountain views,
             along with raw cultural and traditional significance. Whether you

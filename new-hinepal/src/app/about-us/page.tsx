@@ -59,7 +59,7 @@ const About = () => {
                     ABOUT US
                   </h5>
                   <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight mt-2">
-                    YOUR TRUSTED PARTNER FOR UNFORGETABLE NEPAL ADVENTURES
+                    Your Trusted Partner for Unforgotable Nepal Adventures
                   </h2>
                 </div>
                 <div className="text-gray-600 text-base md:text-lg leading-relaxed space-y-4">
@@ -82,42 +82,42 @@ const About = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               <ServiceCard
-                title="TREK AND HILLS"
+                title="Trek and Hills"
                 icon={DollarSign}
                 description="Explore the iconic and thrilling treks such as Everest Base Camp, Annapurna Base Camp Trek, Langtang Gosaikunda Trek, and more, with us. If you are booking for short hikes, then we offer you the Sarangkot Hike, Thulakot Hike, Peace Pagoda Hike, etc."
               />
 
               <ServiceCard
-                title="ADVENTURE SPORTS"
+                title="Adventure Sports"
                 icon={MapPin}
                 description="For the adventure sport enthusiasts, we provide exciting options such as paragliding, bungee, rafting, ziplining, and more. Each activity is guided by experts, ensuring your safety."
               />
               <ServiceCard
-                title="CUSTOM ITINERARIES"
+                title="Custom Itineraries"
                 icon={User}
                 description="We understand that every traveler is unique. Our team works closely with you to design a perfect itinerary according to your time and your preferences."
               />
 
               <ServiceCard
-                title="PERSONAL SERVICE"
+                title="Personal Service"
                 icon={User}
                 description="Discover Nepal’s unique places full of historical and cultural significances. We offer planned tours like the Ghandruk Tour, Tilicho Lake Tour, Muktinath Tour, and many."
               />
 
               <ServiceCard
-                title="HOTEL BOOKING"
+                title="Hotel Booking"
                 icon={Hotel}
                 description="Hotel Booking: We look after your stay ranging from the local tea house during trek to cozy lodges to luxurious hotels, ensuring your comfort and convenience."
               />
 
               <ServiceCard
-                title="AIRPORT PICKUP AND DROP"
+                title="Airport Pickup & Drop"
                 description="Our team makes sure you have a hassle-free travel throughout your journey. So, we arrange your pickup and drop-off services in a comfortable vehicle."
                 icon={Plane}
               />
 
               <ServiceCard
-                title="PERMIT"
+                title="Permits"
                 description="We handle all the necessary permits for your trek and travel to provide you a smooth experiences."
                 icon={Ticket}
               />
@@ -147,12 +147,12 @@ const About = () => {
         {/* Mission */}
         <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="text-center mb-12 md:mb-16">
+            <div className="text-left md:text-center mb-12 md:mb-16">
               <div className="max-w-3xl mx-auto">
                 <h5 className='text-orange-500 text-sm font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
                   OUR MISSION
                 </h5>
-                <h2 className="text-xl md:text-2xl lg:text-4xl font-extrabold text-dark-blue-900 leading-tight mt-2 uppercase">
+                <h2 className="text-xl md:text-2xl lg:text-4xl font-extrabold text-dark-blue-900 leading-tight mt-2">
                   Crafting Stories of Adventure, Joy, and Growth
                 </h2>
                 <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">

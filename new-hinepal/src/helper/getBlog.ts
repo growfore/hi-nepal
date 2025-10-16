@@ -50,7 +50,7 @@ export async function getBlogSingle(slug: string) {
     date: post.date,
     updatedAt: post.modified,
     slug: post.slug,
-    keywords: post.rank_math_meta?.kewords,
+    keywords: post.rank_math_meta?.keywords,
     image: post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "",
   };
 }

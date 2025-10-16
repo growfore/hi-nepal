@@ -53,7 +53,7 @@ export function HomeFAQs() {
       <div className="mb-4">
         <h2 className="text-5xl font-bold">Frequently Asked Questions</h2>
       </div>
-      <div className="bg-slate-100 p-4  rounded-[32px] w-full">
+      <div className="bg-slate-100 p-4  rounded-sm w-full">
         <Accordion
           type="single"
           collapsible

@@ -30,6 +30,7 @@ import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";
 import GallerySlider from "@/components/gallery-slider";
 import Image from "next/image";
 import TrekkingCard from "@/components/molecules/TrekkingCard";
+import CustomizeTrip from "@/components/organisms/customize-my-trip";
 
 export async function generateMetadata({
   params,
@@ -443,6 +444,9 @@ const activites = async ({ params }: { params: Params }) => {
                 ></div>
               </div>
             )}
+
+            {/* Customize Trip */}
+            <CustomizeTrip packageName={details.title.split(":")[0]} />
 
             {/* Packing Details */}
             {details.packing && (

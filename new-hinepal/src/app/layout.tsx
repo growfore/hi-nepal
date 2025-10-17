@@ -9,6 +9,7 @@ import { Navbar } from "@/common/navbar";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { cormorant, montserrat } from "@/utils/fonts";
+import { Toaster } from "react-hot-toast";
 
 export default async function RootLayout({
   children,
@@ -48,6 +49,30 @@ export default async function RootLayout({
         <CustomLayout footer={<Footer />} header={<Navbar />}>
           {children}
           <GoogleAnalytics gaId="G-E1QTRNT388" />
+          <Toaster 
+            position="top-right"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                background: '#363636',
+                color: '#fff',
+              },
+              success: {
+                duration: 4000,
+                iconTheme: {
+                  primary: '#10B981',
+                  secondary: '#fff',
+                },
+              },
+              error: {
+                duration: 4000,
+                iconTheme: {
+                  primary: '#EF4444',
+                  secondary: '#fff',
+                },
+              },
+            }}
+          />
         </CustomLayout>
       </body>
     </html>

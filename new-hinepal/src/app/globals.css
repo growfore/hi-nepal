@@ -127,17 +127,19 @@
   }
 }
 
-#packing > div > ul {
+#packing>div>ul {
   background: #00a63e20;
   border: 2px dashed #00a63e87;
   border-radius: 4px;
   padding: 1rem;
   color: white !important;
 }
-#packing > div > ul > li {
+
+#packing>div>ul>li {
   list-style-type: disc !important;
   margin-left: 1.5rem;
 }
+
 /* #packing > div > ul > li > span {
   color: white !important;
 }
@@ -155,11 +157,18 @@ body {
   font-family: var(--font-montserrat), sans-serif;
 }
 
-.prose, .prose * {
+.prose,
+.prose * {
   font-family: var(--font-montserrat), sans-serif !important;
 }
+
 .prose h1,
 .prose h2,
 .prose h3 {
   font-family: var(--font-cormorant), serif !important;
+}
+
+.link-style {
+  color: green;
+  text-decoration: underline;
 }

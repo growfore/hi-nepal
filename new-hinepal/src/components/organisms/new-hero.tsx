@@ -26,7 +26,6 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
           poster="/mount-everest.webp"
         >
           <source src="/assets/videos/hinepal-hero.webm" type="video/webm" />
-          <source src="/assets/videos/hinepal-hero.mp4" type="video/mp4" />
         </video>
 
         {/* tablet */}

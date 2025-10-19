@@ -22,6 +22,8 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
           muted
           playsInline
           className="w-full h-full object-cover"
+          preload="none"
+          poster="/mount-everest.webp"
         >
           <source src="/assets/videos/hinepal-hero.webm" type="video/webm" />
           <source src="/assets/videos/hinepal-hero.mp4" type="video/mp4" />

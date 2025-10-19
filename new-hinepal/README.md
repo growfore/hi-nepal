@@ -1,4 +1,4 @@
 # Hi Nepal Treks
 
--[ ] Enable whatsapp button
--[ ] resolve meta robots conflict 
+-[x] Enable whatsapp button
+-[x] resolve meta robots conflict 

@@ -55,13 +55,13 @@ const PackageCard = (props: TProps) => {
               <div className="flex flex-col">
                 <p>115+ Reviews</p>
                 <p className="flex gap-1 items-center">
-                  {Array.from({ length: 5 }).map((_, idx) => {
+                  {/* {Array.from({ length: 5 }).map((_, idx) => {
                     return (
                       <span>
                         <LucideStar size={16} fill="#18A44A" stroke="#18A44A" />
                       </span>
                     );
-                  })}
+                  })} */}
                 </p>
                 <p className="font-bold text-green-600">5.0 Ratings</p>
               </div>

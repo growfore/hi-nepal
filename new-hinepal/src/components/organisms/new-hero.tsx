@@ -5,7 +5,6 @@ import SearchBox from "../molecules/search-box";
 export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
   return (
     <section className="relative p-2 mt-16 md:mt-[94px] flex flex-col items-center justify-center text-center text-white h-[60vh] md:h-[80vh] overflow-hidden">
-      {/* <Image src="/mount-everest.webp" height={1000} width={1500} alt="Mount everest" /> */}
       <div className="absolute inset-0 -z-10 h-full w-full overflow-hidden">
         {/* <iframe
           src="https://www.youtube.com/embed/nZmO8B9rRik?autoplay=1&start=1046&end=1056&mute=1&loop=1&playlist=nZmO8B9rRik&t&controls=0&showinfo=0&modestbranding=1"
@@ -16,7 +15,7 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
           referrerPolicy="no-referrer"
           className="absolute top-1/2 left-1/2 w-[177.78vh] h-[100vh] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover"
         ></iframe> */}
-        <video
+        {/* <video
           autoPlay
           loop
           muted
@@ -26,7 +25,7 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
           poster="/mount-everest.webp"
         >
           <source src="/assets/videos/hinepal-hero.webm" type="video/webm" />
-        </video>
+        </video> */}
 
         {/* tablet */}
         {/* <video className="hidden sm:block md:hidden">
@@ -45,6 +44,12 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
           fill
           className="object-cover"
         /> */}
+        <Image
+          src="/assets/mount-everest.webp"
+          height={1000}
+          width={1500}
+          alt="Mount everest"
+        />
 
         <div className="absolute inset-0 bg-black/40" />
       </div>

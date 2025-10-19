@@ -39,10 +39,10 @@ jobs:
             cd ../hinepal-adminpanel
             npm ci
             npm run build
-            pm2 restart admin
+            pm2 restart admin.hinepaltreks
 
             # Frontend
             cd ../new-hinepal
             npm ci
             npm run build
-            pm2 restart frontend 
+            pm2 restart hinepaltreks 

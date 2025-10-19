@@ -21,7 +21,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/ubuntu/projects/hinepal/frontend
-            git pull origin main  # Pull latest changes
-            npm ci  # Install dependencies (if needed)
-            npm run build  # Build project (if applicable)
-            pm2 restart frontend # Restart the app if using PM2
+            git pull origin main  
+            npm ci  # Install dependencies 
+            npm run build   
+            pm2 restart frontend 

@@ -15,7 +15,7 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
           referrerPolicy="no-referrer"
           className="absolute top-1/2 left-1/2 w-[177.78vh] h-[100vh] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover"
         ></iframe> */}
-        {/* <video
+        <video
           autoPlay
           loop
           muted
@@ -25,7 +25,7 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
           poster="/mount-everest.webp"
         >
           <source src="/assets/videos/hinepal-hero.webm" type="video/webm" />
-        </video> */}
+        </video>
 
         {/* tablet */}
         {/* <video className="hidden sm:block md:hidden">
@@ -44,12 +44,11 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
           fill
           className="object-cover"
         /> */}
-        <Image
-          src="/assets/mount-everest.webp"
+        {/* <Image src="/assets/mount-everest.webp"
           height={1000}
           width={1500}
           alt="Mount everest"
-        />
+        /> */}
 
         <div className="absolute inset-0 bg-black/40" />
       </div>

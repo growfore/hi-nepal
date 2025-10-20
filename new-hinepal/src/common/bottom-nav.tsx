@@ -3,11 +3,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronRight, ChevronUp, LucideMenu } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
 import {
   Accordion,
@@ -18,12 +14,13 @@ import {
 import { TNavBar } from "@/types/types";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export function BottomNav({ navBar }: { navBar: TNavBar }) {
   const [topValue, setTopValue] = useState(60);
   const [disableHover, setDisableHover] = useState(false);
   const path = usePathname();
+  const router = useRouter();
 
   const destination = path.split("/")[1] || "";
 
@@ -145,6 +142,10 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
               >
                 <Link
                   href={`/activities/${activity.slug}`}
+                  prefetch={false}
+                  onMouseEnter={() =>
+                    router.prefetch(`/activities/${activity.slug}`)
+                  }
                   className="font-bold uppercase flex gap-1 cursor-pointer"
                 >
                   {activity.name} <ChevronDown className="group-hover:hidden" />
@@ -158,7 +159,13 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                         <div key={idx}>
                           <Link
                             className="font-semibold text-lg"
+                            prefetch={false}
                             href={`/activities/${activity.slug}/${destination.slug}`}
+                            onMouseEnter={() =>
+                              router.prefetch(
+                                `/activities/${activity.slug}/${destination.slug}`
+                              )
+                            }
                           >
                             <div className="flex gap-1 items-center mb-2 text-[#F05A24] hover:text-green-700">
                               <span>{destination.name}</span>
@@ -173,6 +180,10 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                               <li key={pIdx}>
                                 <Link
                                   href={`/${pkg.slug}`}
+                                  prefetch={false}
+                                  onMouseEnter={() =>
+                                    router.prefetch(`/${pkg.slug}`)
+                                  }
                                   className="hover:border-b-2 border-dashed border-green-700 hover:text-green-700"
                                 >
                                   {pkg.title.includes(":")
@@ -214,7 +225,10 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
         {/* Mobile menu */}
         <div className="flex gap-2 self-center">
           <Link href={`/booking?destination=${destination}`}>
-            <Button size="lg" className="md:p-8 text-lg p-4 bg-green-700 hover:bg-orane-600 cursor-pointer rounded-lg hover:bg-orange-400">
+            <Button
+              size="lg"
+              className="md:p-8 text-lg p-4 bg-green-700 hover:bg-orane-600 cursor-pointer rounded-lg hover:bg-orange-400"
+            >
               Book Now
             </Button>
           </Link>
@@ -229,9 +243,9 @@ export function BottomNav({ navBar }: { navBar: TNavBar }) {
                   <Accordion key={idx} type="single" collapsible>
                     <AccordionItem value={`item-${idx}`}>
                       <AccordionTrigger className="font-bold text-xl uppercase flex p-0">
-                        <a href={`/activities/${activity.slug}`}>
+                        <Link href={`/activities/${activity.slug}`}>
                           {activity.name}
-                        </a>
+                        </Link>
                       </AccordionTrigger>
                       <AccordionContent>
                         {sortDestinations(activity.destinations).map(

@@ -1,7 +1,7 @@
 import PackageCard from "@/components/molecules/package-card";
 import endpoints from "@/constant/endpoints";
 import { TPackageDetails, TPackages } from "@/types/types";
-import { get } from "@/utils/request-hander";
+import { get } from "@/utils/request-handler";
 import { usePopularPackages } from "@/zustand/store";
 import Link from "next/link";
 import React from "react";

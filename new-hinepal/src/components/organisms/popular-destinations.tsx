@@ -1,6 +1,6 @@
 import endpoints from "@/constant/endpoints";
 import { TDestination, TPackage } from "@/types/types";
-import { get } from "@/utils/request-hander";
+import { get } from "@/utils/request-handler";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";

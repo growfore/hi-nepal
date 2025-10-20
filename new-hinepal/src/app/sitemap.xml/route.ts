@@ -2,7 +2,7 @@ import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "stream";
 import { NextResponse } from "next/server";
 import { TNavBar } from "@/types/types";
-import { get } from "@/utils/request-hander";
+import { get } from "@/utils/request-handler";
 import { getBlogs } from "@/helper/getBlog";
 
 export async function GET() {

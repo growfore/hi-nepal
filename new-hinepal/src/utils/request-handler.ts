@@ -11,7 +11,6 @@ async function get(request: TRequest): Promise<void> {
 
   try {
     const response = await fetch(url, {
-      cache: 'no-cache',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
@@ -33,7 +32,6 @@ async function post(request: TRequest): Promise<void> {
   const { endPoint, token, params, data, success, failure } = request;
   try {
     const response: TpostResponse = await fetch(endPoint, {
-      cache: 'no-cache',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
@@ -54,7 +52,6 @@ async function patch(request: TRequest) {
   const { endPoint, token, params, data, success, failure } = request;
   try {
     const response: TpatchResponse = await fetch(endPoint, {
-      cache: 'no-cache',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
@@ -75,7 +72,6 @@ async function del(request: TRequest): Promise<void> {
   const { endPoint, token, success, failure } = request;
   try {
     const response: TdeleteResponse = await fetch(endPoint, {
-      cache: 'no-cache',
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -95,7 +91,6 @@ async function postWithFile(request: TRequest) {
   const { endPoint, token, params, data, success, failure } = request;
   try {
     const response: TpostWithFileResponse = await fetch(endPoint, {
-      cache: 'no-cache',
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -115,7 +110,6 @@ async function patchWithFile(request: TRequest) {
   const { endPoint, token, params, data, success, failure } = request;
   try {
     const response: TpostWithFileResponse = await fetch(endPoint, {
-      cache: 'no-cache',
       headers: {
         Authorization: `Bearer ${token}`,
       },

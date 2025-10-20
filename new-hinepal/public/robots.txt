@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /*?s=
 Disallow: /cms/
-Disallow: /booking
+Disallow: /booking?*
+Allow: /cms/wp-content/uploads/
 
 Sitemap: https://hinepaltreks.com/sitemap.xml

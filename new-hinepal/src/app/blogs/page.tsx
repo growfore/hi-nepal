@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import BlogCard from "@/components/molecules/blog-card";
 import { getBlogs } from "@/helper/getBlog";
 import { Metadata } from "next";
@@ -19,7 +21,6 @@ export const metadata: Metadata = {
     "max-snippet": -1,
   },
 };
-export const dynamic = "force-dynamic";
 
 export default async function BlogsPage({
   searchParams,
@@ -27,7 +28,7 @@ export default async function BlogsPage({
   searchParams: { page?: string };
 }) {
   const page = Number(searchParams.page) || 1;
-  const { posts, totalPages } = await getBlogs(page, 6);
+  const { posts, totalPages } = await getBlogs(page, 12);
 
   return (
     <main className="py-10 container mx-auto">

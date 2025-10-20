@@ -48,16 +48,13 @@ export function ReviewCard({
   };
 
   return (
-    <Card className={cn("w-full ", className)}>
+    <Card className={cn("w-full rounded-sm shadow-none", className)}>
       <CardContent className="p-6">
         {/* Header with user info and actions */}
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-3">
             <Avatar className="w-12 h-12">
-              <AvatarImage
-                src={user.avatar || "/placeholder.svg"}
-                alt={user.name}
-              />
+              <AvatarImage src={user.avatar} alt={user.name} />
               <AvatarFallback className="bg-gray-600 text-white font-medium">
                 {user.name
                   .split(" ")
@@ -66,9 +63,7 @@ export function ReviewCard({
                   .slice(0, 2)}
               </AvatarFallback>
             </Avatar>
-            <div>
-              <h3 className="font-semibold text-gray-900">{user.name}</h3>
-            </div>
+            <h3 className="font-semibold text-gray-900">{user.name}</h3>
           </div>
         </div>
 

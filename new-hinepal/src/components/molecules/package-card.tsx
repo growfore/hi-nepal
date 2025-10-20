@@ -28,13 +28,13 @@ const PackageCard = (props: TProps) => {
               width={300}
               height={300}
               className="w-full h-full object-cover rounded-t-md"
-              src={(item?.thumbnail)}
+              src={item?.thumbnail}
               alt={item.title || "Package thumbnail"}
             />
           </Link>
         </figure>
         <div className="p-4">
-          <div className="">
+          <>
             <h3 className="text-2xl font-bold text-dark-blue-900 mb-2">
               <Link title={item.title} href={`/${item.slug}`}>
                 {item.title.split(":")[0]}
@@ -52,32 +52,17 @@ const PackageCard = (props: TProps) => {
                   </span>
                 </p>
               </div>
-              <div className="flex flex-col">
-                <p>115+ Reviews</p>
-                <p className="flex gap-1 items-center">
-                  {/* {Array.from({ length: 5 }).map((_, idx) => {
-                    return (
-                      <span>
-                        <LucideStar size={16} fill="#18A44A" stroke="#18A44A" />
-                      </span>
-                    );
-                  })} */}
-                </p>
-                <p className="font-bold text-green-600">5.0 Ratings</p>
-              </div>
+
+              <Link href={`/booking?destination=${item?.slug}`}>
+                <Button
+                  size={"lg"}
+                  className="rounded-full bg-orange-400 hover:bg-orange-600 cursor-pointer mt-4"
+                >
+                  Book Now
+                </Button>
+              </Link>
             </div>
-          </div>
-          <div className="flex ">
-            <Link href={`/booking?destination=${item?.slug}`}>
-              <Button
-                size={"lg"}
-                className="rounded-full bg-orange-400 hover:bg-orange-600 cursor-pointer mt-4"
-              >
-                {" "}
-                Book Now
-              </Button>
-            </Link>
-          </div>
+          </>
         </div>
       </div>
     </div>

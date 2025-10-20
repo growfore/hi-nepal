@@ -3,12 +3,12 @@ export async function getBlogs(page?: number, perPage?: number) {
   if (page || perPage) {
     res = await fetch(
       `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?per_page=${perPage}&page=${page}&_embed`,
-      { cache: "no-store" }
+      { cache: "default" }
     );
   } else {
     res = await fetch(
       `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?_embed`,
-      { cache: "no-store" }
+      { cache: "default" }
     );
   }
   const total = res.headers.get("X-WP-Total");
@@ -35,7 +35,7 @@ export async function getBlogs(page?: number, perPage?: number) {
 export async function getBlogSingle(slug: string) {
   const res = await fetch(
     `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?slug=${slug}&_embed`,
-    { cache: "no-store" }
+    { cache: "default" }
   );
   const data = await res.json();
   const post = data[0];

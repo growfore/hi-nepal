@@ -1,10 +1,10 @@
 import TrekkingCard from "@/components/molecules/TrekkingCard";
 import endpoints from "@/constant/endpoints";
 import { formatSlug } from "@/helper/formatSlug";
-import { get } from "@/utils/request-hander";
+import { get } from "@/utils/request-handler";
 import { LucideChevronRight } from "lucide-react";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import Image from "next/image";
 
 export async function generateMetadata({ params }: any): Promise<any> {
   const { region, activity } = params;
@@ -120,7 +120,7 @@ export default async function RegionPage({
       data = res.data?.packages;
     },
     failure: (message) => {
-      notFound();
+      return message;
     },
   });
 
@@ -453,10 +453,8 @@ export default async function RegionPage({
           /* @ts-ignore */
           data?.map((d, idx) => {
             return (
-              // <PackageCard destination={d.destination.name} slug={d.slug} image={} />
               <Link key={idx} href={`/${d.slug}`}>
                 <TrekkingCard
-                  // destination={d.destinatin.title}
                   slug={d.slug}
                   title={d.title.split(":")[0]}
                   image={d.thumbnail}
@@ -474,6 +472,9 @@ export default async function RegionPage({
      ***
     *****/}
       <div className="p-1 md:px-12 lg:px-24">
+        {region.includes("destination") && (
+          <p></p>
+        )}
         {region.includes("everest") && (
           <p className="text-justify text-xl">
             Home to the world’s highest peak, Mount Everest, the Everest region

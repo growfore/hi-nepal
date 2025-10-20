@@ -1,6 +1,6 @@
 import endpoints from '@/constant/endpoints';
 import { TActivity } from '@/types/types';
-import { get } from '@/utils/request-hander';
+import { get } from '@/utils/request-handler';
 import React from 'react';
 import Link from 'next/link';
 import { Mountain, Tent, Camera, Compass, Ship, Users, Globe } from 'lucide-react';

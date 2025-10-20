@@ -1,7 +1,7 @@
 import "./globals.css";
 import endpoints from "@/constant/endpoints";
 import { TSiteInformation } from "@/types/types";
-import { get } from "@/utils/request-hander";
+import { get } from "@/utils/request-handler";
 import siteStore from "@/zustand/store";
 import { Footer } from "@/common";
 import CustomLayout from "@/components/layouts/custom-layout";

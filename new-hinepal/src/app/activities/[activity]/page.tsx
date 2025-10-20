@@ -1,25 +1,36 @@
 import endpoints from "@/constant/endpoints";
-import { get } from "@/utils/request-hander";
-import { notFound } from "next/navigation";
+import { get } from "@/utils/request-handler";
 import TrekkingCard from "@/components/molecules/TrekkingCard";
 import Link from "next/link";
 import { ChevronRight, LucideChevronRight } from "lucide-react";
+import PackageCard from "@/components/molecules/package-card";
 
 export async function generateMetadata({ params }: any): Promise<any> {
+  let activity = params.activity;
+  let title = "";
+  let description = "";
+
+  if (params.activity == "tours") {
+    title =
+      "Nepal Tour Packages: Explore Nepal with Multi-day and Nature Tour - Hi Nepal Travel and Treks";
+    description =
+      "Explore the best Nepal Tour Packages. Book now for customized itineraries, Himalayan adventures, cultural tours, and unforgettable experiences in Nepal.";
+  }
+  if (activity == "trekking") {
+    title =
+      "Trekking in Nepal: Itinerary, Season & All Important Details | Hi Nepal Travels & Treks";
+    description =
+      "Discover Trekking in Nepal with detailed itineraries, best seasons, and key tips. Book your adventure today to explore the Himalayas and Nepal’s natural beauty!";
+  }
+  if (activity == "destination") {
+    (title =
+      "Unforgettable Travel Experience in Nepal - Hi Nepal Travel & Treks"),
+      (description =
+        "Discover the beauty, culture and adventure of Nepal - from serene landscapes to authentic local experiences. Start planning a memorable journey today.");
+  }
   return {
-    title:
-      params.activity == "tours"
-        ? "Nepal Tour Packages: Explore Nepal with Multi-day and Nature Tour - Hi Nepal Travel and Treks"
-        : "Trekking in Nepal: Itinerary, Season & All Important Details" +
-          "| Hi Nepal Travels & Treks",
-    description:
-      params.activity == "tours"
-        ? "Explore the best Nepal Tour Packages. Book now for customized itineraries, Himalayan adventures, cultural tours, and unforgettable experiences in Nepal."
-        : "Discover Trekking in Nepal with detailed itineraries, best seasons, and key tips. Book your adventure today to explore the Himalayas and Nepal’s natural beauty!",
-    keywords:
-      params.activity == "tours"
-        ? "multi-day and day tours "
-        : "trekking, trekking agency in nepal",
+    title: title,
+    description: description,
     alternates: {
       canonical:
         process.env.NEXT_PUBLIC_FRONTEND_BASE_URL +
@@ -51,12 +62,12 @@ export default async function ActivitySingle({
       data = res.data?.destinations;
     },
     failure: (message) => {
-      notFound();
+      return;
     },
   });
   return (
     <div className="mt-24 p-2 flex flex-col gap-4">
-      {activity == "tours" ? (
+      {activity == "tours" && (
         <div>
           <div className="md:min-h-[40vh] mt-24  md:mt-8 flex flex-col p-4  md:p-8 md:items-center border-b-2 border-black">
             <h1 className="font-bold text-6xl lg:text-9xl">
@@ -98,7 +109,8 @@ export default async function ActivitySingle({
             </div>
           </div>
         </div>
-      ) : (
+      )}
+      {activity == "trekking" && (
         <div className="md:min-h-[40vh] mt-24  md:mt-8 flex flex-col p-2  md:p-8 md:items-center border-b-2 border-black">
           <h1 className="font-bold text-6xl lg:text-9xl">
             {activity.charAt(0).toUpperCase() + activity.slice(1)}
@@ -146,6 +158,13 @@ export default async function ActivitySingle({
           </div>
         </div>
       )}
+      {activity == "destination" && (
+        <div className="md:min-h-[40vh] mt-24  md:mt-8 flex flex-col p-2  md:p-8 md:items-center border-b-2 border-black">
+          <h1 className="font-bold text-6xl lg:text-9xl">
+            {activity.charAt(0).toUpperCase() + activity.slice(1)}
+          </h1>
+        </div>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 lg:px-24 p-2">
         {data &&
           /*@ts-ignore*/
@@ -154,13 +173,13 @@ export default async function ActivitySingle({
           data.map((d: any, idx: number) => {
             return (
               <Link key={idx} href={`${activity}/${d.slug}`}>
-                <TrekkingCard slug={d.slug} title={d.name} image={d.image} />
+                <TrekkingCard activity={false} slug={d.slug} title={d.name} image={d.image} />
               </Link>
             );
           })}
       </div>
       <div>
-        {activity == "tours" ? (
+        {activity == "tours" && (
           <div className="container mx-auto  text-justify p-2 md:p-8 text-xl">
             Nepal is a stunning place located in South Asia. Situated between
             two giant countries, China and India, this heavenly country offers
@@ -300,7 +319,8 @@ export default async function ActivitySingle({
             picturesque Himalayan vistas in Pokhara, Nepal tour packages offer
             everything to first-time travelers as well as repeat visitors.
           </div>
-        ) : (
+        )}
+        {activity == "trekking" && (
           <p className="container mx-auto text-justify p-2 md:p-8 text-xl">
             Nepal is home to some of the stunning and popular trekking routes
             offering unique and diverse natural landscapes and mountain views,

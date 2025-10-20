@@ -130,7 +130,7 @@ export default function CustomizeTrip({
             </DialogDescription>
           </DialogHeader>
 
-          <div>
+          <>
             <div className="grid gap-4">
               <div className="grid gap-3">
                 <Label htmlFor="name">Name *</Label>
@@ -178,7 +178,7 @@ export default function CustomizeTrip({
                 {errors.message && <span className="text-red-500 text-sm">{errors.message}</span>}
               </div>
             </div>
-          </div>
+          </>
           
           <DialogFooter className="mt-6">
             <DialogClose asChild>

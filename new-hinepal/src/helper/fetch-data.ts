@@ -1,6 +1,6 @@
 import endpoints from '@/constant/endpoints';
 import { getCookie } from '@/lib/cookie-handler';
-import { get } from '@/utils/request-hander';
+import { get } from '@/utils/request-handler';
 
 async function fetchData(endPoint: string) {
   let data: any = undefined;

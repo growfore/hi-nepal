@@ -1,6 +1,6 @@
 import endpoints from "@/constant/endpoints";
 import { TPackages, TSiteInformation } from "@/types/types";
-import { get } from "@/utils/request-hander";
+import { get } from "@/utils/request-handler";
 import siteStore from "@/zustand/store";
 import { Partners } from "@/components/organisms/partners";
 import Numbers from "@/components/organisms/numbers";
@@ -34,44 +34,22 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   let siteInformation: TSiteInformation = {} as TSiteInformation;
   siteInformation = siteStore.getState() as TSiteInformation;
-  let carousels: {
-    title: string;
-    description: string;
-    image: string;
-    link: string;
-  }[] = [];
-
-  await get({
-    endPoint: endpoints.CAROUSELS + "/home",
-    token: "",
-    success: (message, res) => {
-      carousels = res.data.map((item: any) => ({
-        ...item,
-        image: item.image,
-      }));
-    },
-    failure: (message) => {
-      console.log("Carousel Error:", message);
-    },
-  });
-
   let packages: TPackages = [];
+
   await get({
     endPoint: endpoints.PACKAGES,
     token: "",
-    success: (message, res) => {
+    success: (msg, res) => {
       packages.push(...res.data.packages);
     },
-    failure: (message) => {
-      console.log(message);
+    failure: (msg) => {
+      return msg;
     },
   });
 
   return (
-    <>
       <main id="content" className="site-main">
-        <NewHero packages={packages}/>
-        {/* <Hero carousels={carousels} /> */}
+        <NewHero packages={packages} />
         <PopularPackages packages={packages} />
         <BestShortTreks packages={packages} />
         <TenDaysPlusTreks packages={packages} />
@@ -94,6 +72,5 @@ export default async function Home() {
         </div>
         <HomeFAQs />
       </main>
-    </>
   );
 }

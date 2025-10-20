@@ -1,7 +1,7 @@
 import React from 'react';
 import siteStore from '@/zustand/store';
 import { TNavBar, TSiteInformation } from '@/types/types';
-import { get } from '@/utils/request-hander';
+import { get } from '@/utils/request-handler';
 import endpoints from '@/constant/endpoints';
 import Topbar from './topbar';
 import { BottomNav } from './bottom-nav';

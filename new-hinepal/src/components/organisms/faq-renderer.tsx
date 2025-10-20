@@ -17,7 +17,7 @@ export default function FAQRenderer({ faqs }: { faqs: FAQItem[] }) {
   return (
     <section
       id="faqs"
-      className="scroll-mt-42 mb-12 p-6 rounded-sm border-y border-gray-300"
+      className="scroll-mt-42 mb-12 p-6 border-y border-gray-300"
     >
       <h2 className="text-2xl font-bold text-green-700 mb-4">FAQs</h2>
 

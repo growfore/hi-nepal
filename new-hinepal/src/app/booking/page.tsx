@@ -1,8 +1,7 @@
 import ContactForm from "@/components/pages/contact-page"
 import endpoints from "@/constant/endpoints";
 import { TPackageDetails } from "@/types/types";
-import { get } from "@/utils/request-hander";
-import { notFound } from "next/navigation";
+import { get } from "@/utils/request-handler";
 
 export const metadata = {
   title: "Plan Your Adventure | Hi Nepal Travels & Treks",
@@ -26,7 +25,7 @@ export default async function BookingPage() {
       packages.push(...res.data.packages);
     },
     failure: (message) => {
-      notFound();
+      return message;
     },
   });
 

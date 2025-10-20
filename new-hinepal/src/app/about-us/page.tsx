@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: true,
+    nocache: false,
     "max-video-preview": -1,
     "max-image-preview": "large",
     "max-snippet": -1,

@@ -94,11 +94,10 @@ export async function generateMetadata({ params }: any): Promise<any> {
         process.env.NEXT_PUBLIC_FRONTEND_BASE_URL +
           `/activities/${params.activity}/${params.region}` || " ",
     },
-
     robots: {
       index: true,
       follow: true,
-      nocache: true,
+      nocache: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,

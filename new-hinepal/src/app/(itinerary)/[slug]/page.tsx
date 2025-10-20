@@ -429,7 +429,7 @@ const activites = async ({ params }: { params: Params }) => {
             )}
 
             {/* Customize Trip */}
-            <CustomizeTrip packageName={details.title.split(":")[0]} />
+            <CustomizeTrip packageName={details?.title?.split(":")[0]} />
 
             {/* Packing Details */}
             {details.packing && (

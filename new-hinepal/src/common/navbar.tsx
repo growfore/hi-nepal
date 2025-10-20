@@ -4,7 +4,7 @@ import { TNavBar, TSiteInformation } from '@/types/types';
 import { get } from '@/utils/request-handler';
 import endpoints from '@/constant/endpoints';
 import Topbar from './topbar';
-import { BottomNav } from './bottom-nav';
+import  BottomNav from './bottom-nav';
 
 export const Navbar = async () => {
   let siteInformation: TSiteInformation | undefined = undefined;

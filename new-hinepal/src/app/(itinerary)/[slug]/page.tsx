@@ -283,7 +283,7 @@ const activites = async ({ params }: { params: Params }) => {
         {/* Section Navigation */}
         <div className="container mx-auto px-4 md:px-6">
           <div className="container py-4 text-left mt-24">
-            <h1 className="text-2xl md:text-3xl lg:4xl font-extrabold leading-tight text-shadow-lg drop-shadow-2xl">
+            <h1 className="text-2xl md:text-3xl lg:4xl font-extrabold leading-tight">
               {details.title}
             </h1>
             <TrustBadge />
@@ -291,6 +291,7 @@ const activites = async ({ params }: { params: Params }) => {
           <Image
             className="md:hidden rounded-sm"
             src={details?.thumbnail}
+            priority
             height={720}
             width={1080}
             alt={details?.title}
@@ -298,6 +299,7 @@ const activites = async ({ params }: { params: Params }) => {
           <Image
             className="hidden md:block rounded-sm"
             src={details?.banner}
+            priority
             height={720}
             width={1920}
             alt={details?.title}
@@ -659,9 +661,9 @@ const activites = async ({ params }: { params: Params }) => {
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-left px-4">
             Popular{" "}
-            {details.slug.includes("trek")
+            {details?.slug?.includes("trek")
               ? "Treks"
-              : details.slug.includes("tour")
+              : details?.slug?.includes("tour")
               ? "Tours"
               : "Destinations"}
           </h2>

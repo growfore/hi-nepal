@@ -25,7 +25,6 @@ import TrustBadge from "@/components/molecules/trust-badge";
 import ReviewsGroup from "@/components/organisms/reviews";
 import FAQSection from "@/components/organisms/itinerary-faq";
 import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";
-import GallerySlider from "@/components/gallery-slider";
 import Image from "next/image";
 import TrekkingCard from "@/components/molecules/TrekkingCard";
 import CustomizeTrip from "@/components/organisms/customize-my-trip";
@@ -115,7 +114,7 @@ export async function generateMetadata({
   }
 }
 
-const activites = async ({ params }: { params: Params }) => {
+const Activities = async ({ params }: { params: Params }) => {
   let details: TPackageDetails = {} as TPackageDetails;
   let relatedProducts: TPackageDetails[] = [] as TPackageDetails[];
   const packages: TPackageDetails[] = [];
@@ -288,22 +287,22 @@ const activites = async ({ params }: { params: Params }) => {
             </h1>
             <TrustBadge />
           </div>
-          <Image
-            className="md:hidden rounded-sm"
-            src={details?.thumbnail}
-            priority
-            height={720}
-            width={1080}
-            alt={details?.title}
-          />
-          <Image
-            className="hidden md:block rounded-sm"
-            src={details?.banner}
-            priority
-            height={720}
-            width={1920}
-            alt={details?.title}
-          />
+          <div className="relative w-full max-w-[1920px] mx-auto overflow-hidden rounded-sm">
+            <Image
+              src={details?.banner}
+              alt={details?.title}
+              width={1920}
+              height={1080}
+              className="w-full h-auto rounded-sm object-contain"
+              sizes="
+      (max-width: 640px) 100vw,
+      (max-width: 1024px) 90vw,
+      (max-width: 1536px) 80vw,
+      70vw
+    "
+              priority
+            />
+          </div>
         </div>
         {/* @ts-ignore */}
         <SectionNav navigations={navigations} />
@@ -687,4 +686,4 @@ const activites = async ({ params }: { params: Params }) => {
   );
 };
 
-export default activites;
+export default Activities;

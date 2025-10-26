@@ -14,13 +14,12 @@ import {
 import { TNavBar } from "@/types/types";
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation"; // router removed, no prefetching
 
 export default function BottomNav({ navBar }: { navBar: TNavBar }) {
   const [topValue, setTopValue] = useState(60);
   const [disableHover, setDisableHover] = useState(false);
   const path = usePathname();
-  const router = useRouter();
   const destination = path.split("/")[1] || "";
 
   const destinationOrder = useMemo(
@@ -113,13 +112,6 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
     setTimeout(() => setDisableHover(false), 500);
   }, []);
 
-  const handlePrefetch = useCallback(
-    (url: string) => {
-      requestIdleCallback(() => router.prefetch(url));
-    },
-    [router]
-  );
-
   useEffect(() => {
     const handleScroll = () => {
       setTopValue(Math.max(60 - window.scrollY, 0));
@@ -150,7 +142,7 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
         </Link>
 
         <div className="flex gap-4 items-center">
-          {navBar.map((activity, index) => (
+          {navBar.map((activity) => (
             <div key={activity.slug}>
               <div
                 onClick={handleClick}
@@ -159,9 +151,6 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
                 <Link
                   href={`/activities/${activity.slug}`}
                   prefetch={false}
-                  onMouseEnter={() =>
-                    handlePrefetch(`/activities/${activity.slug}`)
-                  }
                   className="font-bold uppercase flex gap-1 cursor-pointer"
                 >
                   {activity.name}
@@ -175,21 +164,16 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
                     {sortDestinations(activity.destinations).map(
                       (destination) => (
                         <div key={destination.slug}>
-                          <Link
+                          {/* a tag instead of Link */}
+                          <a
                             className="font-semibold text-lg"
                             href={`/activities/${activity.slug}/${destination.slug}`}
-                            prefetch={false}
-                            onMouseEnter={() =>
-                              handlePrefetch(
-                                `/activities/${activity.slug}/${destination.slug}`
-                              )
-                            }
                           >
                             <div className="flex gap-1 items-center mb-2 text-[#F05A24] hover:text-green-700">
                               <span>{destination.name}</span>
                               <ChevronRight className="size-4" />
                             </div>
-                          </Link>
+                          </a>
 
                           <ul className="flex flex-col gap-2">
                             {sortPackages(
@@ -197,16 +181,12 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
                               destination.packages
                             ).map((pkg) => (
                               <li key={pkg.slug}>
-                                <Link
+                                <a
                                   href={`/${pkg.slug}`}
-                                  prefetch={false}
-                                  onMouseEnter={() =>
-                                    handlePrefetch(`/${pkg.slug}`)
-                                  }
                                   className="hover:border-b-2 border-dashed border-green-700 hover:text-green-700"
                                 >
                                   {pkg.title.split(":")[0].trim()}
-                                </Link>
+                                </a>
                               </li>
                             ))}
                           </ul>
@@ -219,6 +199,7 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
             </div>
           ))}
 
+          {/* Keep these as Links (SPA feel) */}
           <Link
             href="/adventure"
             className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
@@ -260,9 +241,9 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
                   <Accordion key={activity.slug} type="single" collapsible>
                     <AccordionItem value={`item-${activity.slug}`}>
                       <AccordionTrigger className="font-bold text-xl uppercase flex p-0">
-                        <Link href={`/activities/${activity.slug}`}>
+                        <a href={`/activities/${activity.slug}`}>
                           {activity.name}
-                        </Link>
+                        </a>
                       </AccordionTrigger>
                       <AccordionContent>
                         {sortDestinations(activity.destinations).map(
@@ -274,12 +255,12 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
                             >
                               <AccordionItem value={`item-${destination.slug}`}>
                                 <AccordionTrigger className="font-semibold text-xl p-0 py-2">
-                                  <Link
+                                  <a
                                     href={`/activities/${activity.slug}/${destination.slug}`}
                                     className="flex gap-1 items-center text-orange-600"
                                   >
                                     {destination.name}
-                                  </Link>
+                                  </a>
                                 </AccordionTrigger>
                                 <AccordionContent>
                                   <ul className="flex flex-col gap-2">
@@ -288,12 +269,12 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
                                       destination.packages
                                     ).map((pkg) => (
                                       <li key={pkg.slug}>
-                                        <Link
+                                        <a
                                           href={`/${pkg.slug}`}
                                           className="hover:border-b-2 border-dashed border-[#EF5922] hover:text-[#EF5922] font-bold text-lg"
                                         >
                                           {pkg.title.split(":")[0].trim()}
-                                        </Link>
+                                        </a>
                                       </li>
                                     ))}
                                   </ul>

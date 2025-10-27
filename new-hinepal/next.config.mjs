@@ -605,6 +605,72 @@ const nextConfig = {
         permanent: true,
         statusCode: 301,
       },
+      {
+        source: "/tibet",
+        destination: "/activities/destination/tibet",
+        permanent: true,
+        statusCode: 301,
+      },
+      {
+        source: "/multi-days-tour",
+        destination: "/activities/tours/multi-days-tour",
+        permanent: true,
+        statusCode: 301,
+      },
+      {
+        source: "/nature-wildlife",
+        destination: "/activities/tours/nature-wildlife",
+        permanent: true,
+        statusCode: 301,
+      },
+      {
+        source: "/nature-wildlife",
+        destination: "/activities/tours/nature-wildlife",
+        permanent: true,
+        statusCode: 301,
+      },
+      {
+        source: "/day-tours",
+        destination: "/activities/tours/day-tours",
+        permanent: true,
+        statusCode: 301,
+      },
+      {
+        source: "/dolpo-region",
+        destination: "/activities/trekking/dolpo-region",
+        permanent: true,
+        statusCode: 301,
+      },
+      {
+        source: "/everest-region",
+        destination: "/activities/trekking/everest-region",
+        permanent: true,
+        statusCode: 301,
+      },
+      {
+        source: "/langtang-region",
+        destination: "/activities/trekking/langtang-region",
+        permanent: true,
+        statusCode: 301,
+      },
+      {
+        source: "/annapurna-region",
+        destination: "/activities/trekking/annapurna-region",
+        permanent: true,
+        statusCode: 301,
+      },
+      {
+        source: "/kanchenjunga-region",
+        destination: "/activities/trekking/kanchenjunga-region",
+        permanent: true,
+        statusCode: 301,
+      },
+      {
+        source: "/manaslu-region",
+        destination: "/activities/trekking/manaslu-region",
+        permanent: true,
+        statusCode: 301,
+      },
     ];
   },
 };

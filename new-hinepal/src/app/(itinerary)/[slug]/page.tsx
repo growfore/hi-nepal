@@ -29,6 +29,7 @@ import Image from "next/image";
 import TrekkingCard from "@/components/molecules/TrekkingCard";
 import CustomizeTrip from "@/components/organisms/customize-my-trip";
 import { cn } from "@/lib/utils";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
@@ -173,7 +174,7 @@ const Activities = async ({ params }: { params: Params }) => {
         destinationSlug = res.data.package.destination.slug;
       },
       failure: (message) => {
-        console.log("Not found!");
+        return notFound();
       },
     });
 
@@ -185,7 +186,7 @@ const Activities = async ({ params }: { params: Params }) => {
         packages.push(...res.data.packages);
       },
       failure: (message) => {
-        console.log(message);
+        return notFound();
       },
     });
 

@@ -11,8 +11,11 @@ export const metadata = {
     canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/booking"
   },
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
+    "max-video-preview": -1,
+    "max-image-preview": "large",
+    "max-snippet": -1,
   },
 }
 

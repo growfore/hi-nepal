@@ -41,7 +41,7 @@ export async function generateMetadata({
   const blog = await getBlogSingle(slug);
   if (blog) {
     return {
-      title: blog.title,
+      title: blog.metaTitle,
       description: blog.description,
       alternates: {
         canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/" + blog.slug,

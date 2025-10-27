@@ -44,7 +44,8 @@ export async function getBlogSingle(slug: string) {
 
   return {
     id: post.id,
-    title: post.rank_math_meta.title || post.title?.rendered || "",
+    title: post.title?.rendered || post.rank_math_meta.title || "",
+    metaTitle: post.rank_math_meta.title || "",
     content: post.content?.rendered || "",
     description: post.rank_math_meta?.description || "",
     date: post.date,

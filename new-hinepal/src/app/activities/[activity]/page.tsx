@@ -3,7 +3,6 @@ import { get } from "@/utils/request-handler";
 import TrekkingCard from "@/components/molecules/TrekkingCard";
 import Link from "next/link";
 import { ChevronRight, LucideChevronRight } from "lucide-react";
-import PackageCard from "@/components/molecules/package-card";
 
 export async function generateMetadata({ params }: any): Promise<any> {
   let activity = params.activity;
@@ -11,22 +10,17 @@ export async function generateMetadata({ params }: any): Promise<any> {
   let description = "";
 
   if (params.activity == "tours") {
-    title =
-      "Nepal Tour Packages: Explore Nepal with Multi-day and Nature Tour - Hi Nepal Travel and Treks";
-    description =
-      "Explore the best Nepal Tour Packages. Book now for customized itineraries, Himalayan adventures, cultural tours, and unforgettable experiences in Nepal.";
+    title = "Nepal Tour Packages 2025: Culture, Multi-Day & Safari Tours";
+    description ="Book the best Nepal Tour Packages for 2025. Discover Kathmandu, Pokhara, & Chitwan Safari with custom multi-day and nature itineraries. Best prices.";
   }
   if (activity == "trekking") {
-    title =
-      "Trekking in Nepal: Itinerary, Season & All Important Details | Hi Nepal Travels & Treks";
-    description =
-      "Discover Trekking in Nepal with detailed itineraries, best seasons, and key tips. Book your adventure today to explore the Himalayas and Nepal’s natural beauty!";
+    title ="Best Trekking Routes & Packages in Nepal (2025)";
+    description = "Explore the best trekking packages in Nepal, including Everest Base Camp, Annapurna Circuit, and Manaslu. Find short treks, challenging routes, and beginner guides.";
   }
   if (activity == "destination") {
-    (title =
-      "Unforgettable Travel Experience in Nepal - Hi Nepal Travel & Treks"),
+    (title = "Nepal Tours, Tibet Travel & Kailash Mansarovar Yatra Packages"),
       (description =
-        "Discover the beauty, culture and adventure of Nepal - from serene landscapes to authentic local experiences. Start planning a memorable journey today.");
+        "Plan your next journey with Hi Nepal Treks. Discover profound cultural experiences in Nepal, thrilling travel to Tibet, and the spiritual Kailash Mansarovar Yatra.");
   }
   return {
     title: title,
@@ -173,7 +167,12 @@ export default async function ActivitySingle({
           data.map((d: any, idx: number) => {
             return (
               <Link key={idx} href={`${activity}/${d.slug}`}>
-                <TrekkingCard activity={false} slug={d.slug} title={d.name} image={d.image} />
+                <TrekkingCard
+                  activity={false}
+                  slug={d.slug}
+                  title={d.name}
+                  image={d.image}
+                />
               </Link>
             );
           })}

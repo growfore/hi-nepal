@@ -56,12 +56,12 @@ export default async function BlogsPage({
       {/* Pagination */}
       <div className="flex justify-center items-center gap-2 mt-8">
         {page > 1 && (
-          <Link
+          <a
             href={`/blogs?page=${page - 1}`}
             className="px-4 py-2 rounded bg-green-200 hover:bg-green-300"
           >
             Previous
-          </Link>
+          </a>
         )}
 
         <span className="px-4 py-2 border rounded bg-white">
@@ -69,12 +69,12 @@ export default async function BlogsPage({
         </span>
 
         {page < totalPages && (
-          <Link
+          <a
             href={`/blogs?page=${page + 1}`}
             className="px-4 py-2 rounded bg-green-200 hover:bg-green-300"
           >
             Next
-          </Link>
+          </a>
         )}
       </div>
     </main>

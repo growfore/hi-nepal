@@ -20,9 +20,8 @@ export default function BlogCard({
   const router = useRouter();
   return (
     <div>
-      <Link
+      <a
         href={`/${slug}`}
-        prefetch={false}
         onMouseEnter={() => router.prefetch(`/${slug}`)}
         className="flex flex-col bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 h-[420px]"
       >
@@ -46,7 +45,7 @@ export default function BlogCard({
             dangerouslySetInnerHTML={{ __html: excerpt }}
           />
         </div>
-      </Link>
+      </a>
     </div>
   );
 }

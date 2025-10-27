@@ -28,6 +28,13 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/",
     },
+    robots: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   };
 }
 
@@ -48,29 +55,29 @@ export default async function Home() {
   });
 
   return (
-      <main id="content" className="site-main">
-        <NewHero packages={packages} />
-        <PopularPackages packages={packages} />
-        <BestShortTreks packages={packages} />
-        <TenDaysPlusTreks packages={packages} />
-        <PopularTours packages={packages} />
-        <OneDayTours packages={packages} />
-        <PopularDestinations />
-        <AdventureSection />
-        <Numbers />
-        <Gallery siteInformation={siteInformation} />
-        <Partners />
-        <BlogHome />
-        <Team />
-        <div className="flex justify-center items-center flex-col  md:-mt-16 mb-8">
-          <Link
-            href="/about-us"
-            className="inline-flex items-center justify-center px-8 py-4 bg-orange-400 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
-          >
-            More about Us
-          </Link>
-        </div>
-        <HomeFAQs />
-      </main>
+    <main id="content" className="site-main">
+      <NewHero packages={packages} />
+      <PopularPackages packages={packages} />
+      <BestShortTreks packages={packages} />
+      <TenDaysPlusTreks packages={packages} />
+      <PopularTours packages={packages} />
+      <OneDayTours packages={packages} />
+      <PopularDestinations />
+      <AdventureSection />
+      <Numbers />
+      <Gallery siteInformation={siteInformation} />
+      <Partners />
+      <BlogHome />
+      <Team />
+      <div className="flex justify-center items-center flex-col  md:-mt-16 mb-8">
+        <Link
+          href="/about-us"
+          className="inline-flex items-center justify-center px-8 py-4 bg-orange-400 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
+        >
+          More about Us
+        </Link>
+      </div>
+      <HomeFAQs />
+    </main>
   );
 }

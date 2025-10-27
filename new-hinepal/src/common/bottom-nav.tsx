@@ -126,7 +126,7 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
       className="fixed px-4 py-4 z-[999] bg-white w-full shadow-sm"
     >
       <div className="flex items-center justify-between container mx-auto gap-4 md:max-w-[75vw]">
-        <Link
+        <a
           href="/"
           title="Go to homepage"
           className="flex-shrink-0 min-w-[50px]"
@@ -139,7 +139,7 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
             alt="hinepal logo"
             className="h-auto w-[100px] md:w-[130px]"
           />
-        </Link>
+        </a>
 
         <div className="flex gap-4 items-center">
           {navBar.map((activity) => (
@@ -200,36 +200,36 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
           ))}
 
           {/* Keep these as Links (SPA feel) */}
-          <Link
+          <a
             href="/adventure"
             className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
           >
             Adventure
-          </Link>
-          <Link
+          </a>
+          <a
             href="/about-us"
             className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
           >
             About Us
-          </Link>
-          <Link
+          </a>
+          <a
             href="/blogs"
             className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
           >
             Blogs
-          </Link>
+          </a>
         </div>
 
         {/* Mobile */}
         <div className="flex gap-2 self-center">
-          <Link href={`/booking?destination=${destination}`}>
+          <a href={`/booking?destination=${destination}`}>
             <Button
               size="lg"
               className="md:p-8 text-lg p-4 bg-green-700 cursor-pointer rounded-lg hover:bg-orange-400"
             >
               Book Now
             </Button>
-          </Link>
+          </a>
 
           <div className="lg:hidden">
             <Sheet>
@@ -287,15 +287,15 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
                     </AccordionItem>
                   </Accordion>
                 ))}
-                <Link href="/adventure" className="uppercase font-bold text-xl">
+                <a href="/adventure" className="uppercase font-bold text-xl">
                   Adventures
-                </Link>
-                <Link href="/about-us" className="uppercase font-bold text-xl">
+                </a>
+                <a href="/about-us" className="uppercase font-bold text-xl">
                   About Us
-                </Link>
-                <Link href="/blogs" className="uppercase font-bold text-xl">
+                </a>
+                <a href="/blogs" className="uppercase font-bold text-xl">
                   Blogs
-                </Link>
+                </a>
               </SheetContent>
             </Sheet>
           </div>

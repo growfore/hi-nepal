@@ -9,6 +9,10 @@ export class CreateActivityDto {
   slug: string;
   @ApiProperty()
   image: string;
+
+  @ApiProperty()
+  imageAlt?: string;
+
   @ApiProperty()
   seo: any | {};
 }

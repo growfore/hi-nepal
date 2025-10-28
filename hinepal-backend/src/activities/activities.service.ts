@@ -27,6 +27,7 @@ export class ActivitiesService {
         description: createActivityDto.description,
         slug: createActivityDto.slug,
         image: createActivityDto.image,
+        imageAlt: createActivityDto?.imageAlt,
         seo: {
           create: {
             ...createActivityDto.seo,
@@ -61,7 +62,7 @@ export class ActivitiesService {
 
   async findAll() {
     const activities = await this.prisma.activity.findMany({
-      // for update activites seos
+      // for update activities seo
       include: {
         _count: true,
       },
@@ -81,6 +82,7 @@ export class ActivitiesService {
             name: true,
             slug: true,
             image: true,
+            imageAlt: true,
           },
         },
       },
@@ -109,6 +111,7 @@ export class ActivitiesService {
         description: updateActivityDto.description,
         slug: updateActivityDto.slug,
         image: updateActivityDto.image,
+        imageAlt: updateActivityDto?.imageAlt,
         seo: {
           update: {
             ...updateActivityDto.seo,

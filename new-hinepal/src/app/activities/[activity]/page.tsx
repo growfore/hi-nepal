@@ -11,11 +11,13 @@ export async function generateMetadata({ params }: any): Promise<any> {
 
   if (params.activity == "tours") {
     title = "Nepal Tour Packages 2025: Culture, Multi-Day & Safari Tours";
-    description ="Book the best Nepal Tour Packages for 2025. Discover Kathmandu, Pokhara, & Chitwan Safari with custom multi-day and nature itineraries. Best prices.";
+    description =
+      "Book the best Nepal Tour Packages for 2025. Discover Kathmandu, Pokhara, & Chitwan Safari with custom multi-day and nature itineraries. Best prices.";
   }
   if (activity == "trekking") {
-    title ="Best Trekking Routes & Packages in Nepal (2025)";
-    description = "Explore the best trekking packages in Nepal, including Everest Base Camp, Annapurna Circuit, and Manaslu. Find short treks, challenging routes, and beginner guides.";
+    title = "Best Trekking Routes & Packages in Nepal (2025)";
+    description =
+      "Explore the best trekking packages in Nepal, including Everest Base Camp, Annapurna Circuit, and Manaslu. Find short treks, challenging routes, and beginner guides.";
   }
   if (activity == "destination") {
     (title = "Nepal Tours, Tibet Travel & Kailash Mansarovar Yatra Packages"),
@@ -157,6 +159,13 @@ export default async function ActivitySingle({
           <h1 className="font-bold text-6xl lg:text-9xl">
             {activity.charAt(0).toUpperCase() + activity.slice(1)}
           </h1>
+          <p className="text-left md:text-center  mt-4 italic text-xl">
+            Discover the spiritual and cultural wonders of the Himalayas with
+            itineraries to Kailash Mansarovar Yatra, Bhutan, and Tibet. From
+            sacred pilgrimages and serene monasteries to breathtaking landscapes
+            and vibrant traditions, these destinations offer an unforgettable
+            journey of peace and adventure.
+          </p>
         </div>
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 lg:px-24 p-2">

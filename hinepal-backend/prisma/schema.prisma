@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -149,7 +143,10 @@ model Activity {
   createdAt    DateTime      @default(now()) @map("created_at")
   destinations Destination[]
   seo          Seo?          @relation(fields: [seoId], references: [id])
+
   image        String?
+  imageAlt     String?
+
   seoId        Int?          @unique @map("seo_id")
 
   @@map("activity")
@@ -167,59 +164,65 @@ model Destination {
   seo         Seo?      @relation(fields: [seoId], references: [id])
 
   image String?
+  imageAlt String?
+
   seoId Int?    @unique @map("seo_id")
 
   @@map("destination")
 }
 
 model Package {
-  id            Int         @id @default(autoincrement())
+  id            Int     @id @default(autoincrement())
   title         String?
-  description   String?     @db.LongText
-  content       String?     @db.LongText
+  description   String? @db.LongText
+  content       String? @db.LongText
   banner        String?
+  bannerImageAlt  String?
+
   thumbnail     String?
-  slug          String      @unique
+  thumbnailImageAlt  String?
+
+  slug          String  @unique
   subtitle      String?
-  introduction  String?     @db.LongText
-  goodtoknow    String?     @db.LongText
+  introduction  String? @db.LongText
+  goodtoknow    String? @db.LongText
   price         String?
   discount      String?
   duration      String?
   link          String?
-  bestSeason    String?     @map("best_season")
-  videoLink     String?     @map("video_link")
+  bestSeason    String? @map("best_season")
+  videoLink     String? @map("video_link")
   rating        String?
   altitude      String?
-  startFrom     String?     @map("start_from")
-  endAt         String?     @map("end_at")
+  startFrom     String? @map("start_from")
+  endAt         String? @map("end_at")
   culture       String?
   attractions   String?
   accommodation String?
-  groupSize     String?     @map("group_size")
-  groupAge      String?     @map("group_age")
+  groupSize     String? @map("group_size")
+  groupAge      String? @map("group_age")
   map           String?
-  
+
   // extra fields added by Growfore
-  transportation String?
-  permits        String?
-  tripGrade     String?     @map("trip_grade")
-  overview      String?    @db.LongText
-  highlights    String?    @db.LongText
-  altitudeInfo   String?    @map("altitude_info") @db.LongText
-  itenary       String?     @db.LongText
-  packing      String?     @db.LongText 
-  bestSeasonInfo String? @map("best_season_info") @db.LongText
-  routeOverview String? @map("route_overview") @db.LongText
-  includes      String?     @db.LongText
-  excludes      String?     @db.LongText
-  sicknessAndSaftey String? @map("sickness_and_safety") @db.LongText
+  transportation        String?
+  permits               String?
+  tripGrade             String? @map("trip_grade")
+  overview              String? @db.LongText
+  highlights            String? @db.LongText
+  altitudeInfo          String? @map("altitude_info") @db.LongText
+  itenary               String? @db.LongText
+  packing               String? @db.LongText
+  bestSeasonInfo        String? @map("best_season_info") @db.LongText
+  routeOverview         String? @map("route_overview") @db.LongText
+  includes              String? @db.LongText
+  excludes              String? @db.LongText
+  sicknessAndSaftey     String? @map("sickness_and_safety") @db.LongText
   insuranceAndEmergency String? @map("insurance_and_emergency") @db.LongText
   permitsAndRegulations String? @map("permits_and_regulations") @db.LongText
-  shortTrekInfo String? @map("short_trek_info") @db.LongText
-  whyChooseThisPackage String? @map("why_choose_this_package") @db.LongText
-  priceBreakDown String? @map("price_breakdown") @db.LongText
-  bookingInfo String? @map("booking_information") @db.LongText
+  shortTrekInfo         String? @map("short_trek_info") @db.LongText
+  whyChooseThisPackage  String? @map("why_choose_this_package") @db.LongText
+  priceBreakDown        String? @map("price_breakdown") @db.LongText
+  bookingInfo           String? @map("booking_information") @db.LongText
   //extra fields added ends
 
   createdAt     DateTime    @default(now()) @map("created_at")
@@ -350,7 +353,7 @@ model Media {
 }
 
 model Author {
-  id             Int   @id @default(autoincrement())
+  id             Int      @id @default(autoincrement())
   name           String
   username       String
   email          String   @unique

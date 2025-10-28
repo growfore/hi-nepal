@@ -9,11 +9,16 @@ export class CreateDestinationDto {
   @ApiProperty()
   @IsString()
   slug: string;
+
   @ApiProperty()
   image: string;
+
   @ApiProperty()
- 
+  imageAlt?: string;
+
+  @ApiProperty()
   activityId: number;
+
   @ApiProperty()
   seo: any;
 }

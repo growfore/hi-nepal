@@ -23,6 +23,7 @@ export const activitySchema = z.object({
   description: z.string().min(1, 'Description is required'),
   slug: z.string().min(1, 'Slug is required'),
   image: z.any(),
+  imageAlt: z.any().optional(),
   seo: seoSchema,
 });
 export const destinationSchema = z.object({
@@ -31,9 +32,11 @@ export const destinationSchema = z.object({
   description: z.string().min(1, 'Description is required'),
   slug: z.string().min(1, 'Slug is required'),
   image: z.any(),
+  imageAlt: z.any().optional(),
   activityId: z.number(),
   seo: seoSchema,
 });
+
 export const packageSchema = z.object({
   id: z.number().optional(),
   name: z.string().min(1, 'Name is required'),

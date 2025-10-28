@@ -19,7 +19,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from '@/components/ui/dialog';
 import {
   Form,
@@ -51,6 +50,7 @@ const ActivityForm = ({ activities }: { activities: Activity[] }) => {
       description: '',
       slug: '',
       image: [],
+      imageAlt: '',
       seo: {
         metaTitle: '',
         metaDescription: '',
@@ -76,6 +76,7 @@ const ActivityForm = ({ activities }: { activities: Activity[] }) => {
       description: activity.description || '',
       slug: activity.slug || '',
       image: activity.image || '',
+      imageAlt: activity?.imageAlt || '',
       seo: {
         metaTitle: activity.seo?.metaTitle || '',
         metaDescription: activity.seo?.metaDescription || '',
@@ -107,6 +108,7 @@ const ActivityForm = ({ activities }: { activities: Activity[] }) => {
         description: '',
         slug: '',
         image: [],
+        imageAlt: '',
         seo: {
           metaTitle: '',
           metaDescription: '',
@@ -137,6 +139,7 @@ const ActivityForm = ({ activities }: { activities: Activity[] }) => {
       formData.append('description', data.description);
       formData.append('slug', data.slug);
       formData.append('image', data?.image);
+      formData.append('imageAlt', data?.imageAlt);
       formData.append('seo', JSON.stringify(data.seo));
       formData.append(
         'seo.metaImage',
@@ -287,6 +290,19 @@ const ActivityForm = ({ activities }: { activities: Activity[] }) => {
                   className='max-w-full h-auto'
                 />
               </div>
+              <FormField
+                control={form.control}
+                name='imageAlt'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Image Alt Text</FormLabel>
+                    <FormControl>
+                      <Textarea {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
               {/* SEO */}
               <FormField

@@ -46,8 +46,13 @@ export type TPackage = {
   title: string | null;
   description: string | null;
   slug: string;
+
   thumbnail: any;
+  thumbnailImageAlt?: string,
+
   banner: any;
+  bannerImageAlt?: string,
+
   duration: string | null;
   link: string | null;
   page: string | null;

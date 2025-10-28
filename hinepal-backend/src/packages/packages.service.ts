@@ -35,7 +35,9 @@ export class PackagesService {
         title: createPackageDto?.title,
         description: createPackageDto?.description,
         banner: createPackageDto?.banner || '',
+        bannerImageAlt: createPackageDto?.bannerImageAlt || '',
         thumbnail: createPackageDto?.thumbnail || '',
+        thumbnailImageAlt: createPackageDto?.thumbnailImageAlt || '', 
         link: createPackageDto?.link,
         slug: createPackageDto?.slug,
         duration: createPackageDto?.duration,
@@ -134,7 +136,10 @@ export class PackagesService {
         description: true,
         duration: true,
         thumbnail: true,
+        thumbnailImageAlt: true,
         link: true,
+        banner: true,
+        bannerImageAlt: true,
         slug: true,
         price: true,
         discount: true,
@@ -142,6 +147,7 @@ export class PackagesService {
         media: {
           select: {
             url: true,
+            alt: true,
           },
         },
         destination: {
@@ -271,7 +277,10 @@ export class PackagesService {
           description: updatePackageDto.description,
           duration: updatePackageDto.duration,
           thumbnail: updatePackageDto?.thumbnail || undefined,
+          thumbnailImageAlt: updatePackageDto?.thumbnailImageAlt, 
+
           banner: updatePackageDto?.banner || undefined,
+          bannerImageAlt: updatePackageDto?.bannerImageAlt,
           link: updatePackageDto.link,
           slug: updatePackageDto.slug,
           content: updatePackageDto.content,

@@ -17,6 +17,7 @@ export class DestinationsService {
         description: createDestinationDto.description,
         slug: createDestinationDto.slug,
         image: createDestinationDto.image,
+        imageAlt: createDestinationDto?.imageAlt,
         activity: {
           connect: {
             id: Number(createDestinationDto.activityId),
@@ -39,6 +40,8 @@ export class DestinationsService {
           select: {
             name: true,
             slug: true,
+            image: true,
+            imageAlt: true, 
           },
         },
         _count: {
@@ -62,6 +65,8 @@ export class DestinationsService {
           select: {
             name: true,
             slug: true,
+            image: true,
+            imageAlt: true,
           },
         },
         seo: true,
@@ -72,6 +77,7 @@ export class DestinationsService {
             description: true,
             duration: true,
             thumbnail: true,
+            thumbnailImageAlt: true,
             link: true,
             slug: true,
             price: true,
@@ -139,6 +145,7 @@ export class DestinationsService {
         description: updateDestinationDto.description,
         slug: updateDestinationDto.slug || undefined,
         image: updateDestinationDto.image,
+        imageAlt: updateDestinationDto?.imageAlt,
         activity: {
           connect: {
             id: Number(updateDestinationDto.activityId),

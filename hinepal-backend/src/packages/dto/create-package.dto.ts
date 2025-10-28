@@ -21,18 +21,34 @@ export class CreatePackageDto {
   })
   @IsString()
   slug: string;
+  
   @ApiProperty({
     type: String,
     example: 'thumbnail',
     description: 'image',
   })
   thumbnail?: string;
+
+  @ApiProperty({
+    type: String,
+    example: 'thumbnailImageAlt',
+    description: 'thumbnailImageAlt',
+  })
+  thumbnailImageAlt?: string;
+
   @ApiProperty({
     type: String,
     example: 'banner',
     description: 'image',
   })
   banner?: string;
+
+  @ApiProperty({
+    type: String,
+    example: 'bannerImageAlt',
+    description: 'bannerImageAlt',
+  })
+  bannerImageAlt?: string;
 
   @IsString()
   @ApiProperty({

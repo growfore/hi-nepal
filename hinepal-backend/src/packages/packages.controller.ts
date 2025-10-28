@@ -46,6 +46,8 @@ export class PackagesController {
   ) {
     createPackageDto = {
       ...createPackageDto,
+      thumbnailImageAlt: createPackageDto.thumbnailImageAlt,
+      bannerImageAlt: createPackageDto.bannerImageAlt,
       seo: JSON.parse(createPackageDto.seo || '{}'),
     };
     //   check if there is no files then return
@@ -76,7 +78,7 @@ export class PackagesController {
         'packages',
       );
     }
-    // for thumnail
+    // for thumbnail
     if (files?.thumbnail) {
       createPackageDto.thumbnail = this.UploadService.saveFile(
         files.thumbnail[0],
@@ -139,6 +141,8 @@ export class PackagesController {
   ) {
     updatePackageDto = {
       ...updatePackageDto,
+      thumbnailImageAlt: updatePackageDto.thumbnailImageAlt,
+      bannerImageAlt: updatePackageDto.bannerImageAlt,
       seo: JSON.parse(updatePackageDto.seo || '{}'),
     };
     // Handle regular images

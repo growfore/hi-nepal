@@ -29,7 +29,7 @@ const PackageCard = (props: TProps) => {
               height={300}
               className="w-full h-full object-cover rounded-t-md"
               src={item?.thumbnail}
-              alt={item.title || "Package thumbnail"}
+              alt={item?.thumbnailImageAlt || item.title || "Package thumbnail"}
             />
           </Link>
         </figure>

@@ -4,7 +4,6 @@ import { formatSlug } from "@/helper/formatSlug";
 import { get } from "@/utils/request-handler";
 import { LucideChevronRight } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 export async function generateMetadata({ params }: any): Promise<any> {
   const { region, activity } = params;
@@ -92,7 +91,7 @@ export async function generateMetadata({ params }: any): Promise<any> {
     alternates: {
       canonical:
         process.env.NEXT_PUBLIC_FRONTEND_BASE_URL +
-          `/activities/${params.activity}/${params.region}` || " ",
+        `/activities/${params.activity}/${params.region}` || " ",
     },
     robots: {
       index: true,
@@ -438,9 +437,9 @@ export default async function RegionPage({
             <Link href={`/activities/${activity}/${region}`}>
               {region
                 ? region
-                    .split("-")
-                    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-                    .join(" ")
+                  .split("-")
+                  .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+                  .join(" ")
                 : ""}
             </Link>
           </div>
@@ -459,6 +458,7 @@ export default async function RegionPage({
                   title={d.title.split(":")[0]}
                   image={d.thumbnail}
                   days={d.duration}
+                  imageAlt={d.imageAlt}
                 />
               </Link>
             );

@@ -14,7 +14,7 @@ export function BlogPage({ blog }: { blog: TBlog }) {
               <div className="mb-8 rounded-md">
                 <Image
                   src={blog.image}
-                  alt={blog.title}
+                  alt={blog?.imageAlt || blog.title || ""}
                   width={1920}
                   height={1080}
                   className="w-full h-auto rounded-sm object-contain"

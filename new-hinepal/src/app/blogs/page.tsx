@@ -48,6 +48,7 @@ export default async function BlogsPage({
             title={post.title}
             key={post.id}
             image={post.image}
+            imageAlt={post.imageAlt}
             excerpt={post.excerpt}
           />
         ))}

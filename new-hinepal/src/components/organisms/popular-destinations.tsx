@@ -138,7 +138,7 @@ const PopularDestinations = async () => {
                           width={600}
                           height={400}
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 366px"
-                          alt={d.name}
+                          alt={d?.imageAlt || d.name}
                           className="w-full h-full object-cover"
                         />
                       </figure>

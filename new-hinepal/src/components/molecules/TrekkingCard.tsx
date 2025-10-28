@@ -14,10 +14,11 @@ type TCardProps = {
   days?: string | null;
   destination?: string;
   activity?: boolean;
+  imageAlt?: string;
 };
 
 const TrekkingCard = (props: TCardProps) => {
-  const { slug, image, title, days, destination, activity } = props;
+  const { slug, image, title, days, destination, activity, imageAlt } = props;
 
   return (
     <div

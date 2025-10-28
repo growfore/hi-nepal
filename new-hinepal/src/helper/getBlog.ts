@@ -3,12 +3,12 @@ export async function getBlogs(page?: number, perPage?: number) {
   if (page || perPage) {
     res = await fetch(
       `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?per_page=${perPage}&page=${page}&_embed`,
-      { cache: "default" }
+      { cache: "no-cache" }
     );
   } else {
     res = await fetch(
       `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?_embed`,
-      { cache: "default" }
+      { cache: "no-cache" }
     );
   }
   const total = res.headers.get("X-WP-Total");
@@ -23,6 +23,7 @@ export async function getBlogs(page?: number, perPage?: number) {
     excerpt: post.excerpt.rendered,
     date: post.date,
     image: post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null,
+    imageAlt: post?._embedded?.["wp:featuredmedia"]?.[0]?.alt_text || null,
   }));
 
   return {
@@ -53,5 +54,6 @@ export async function getBlogSingle(slug: string) {
     slug: post.slug,
     keywords: post.rank_math_meta?.keywords,
     image: post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "",
+    imageAlt: post?._embedded?.["wp:featuredmedia"]?.[0]?.alt_text || "",
   };
 }

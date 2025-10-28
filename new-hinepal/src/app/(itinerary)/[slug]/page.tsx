@@ -291,7 +291,8 @@ const Activities = async ({ params }: { params: Params }) => {
           <div className="relative w-full max-w-[1920px] mx-auto overflow-hidden rounded-sm">
             <Image
               src={details?.banner}
-              alt={details?.title}
+              alt={details?.bannerImageAlt || details?.title}
+              title={details?.bannerImageAlt}
               width={1920}
               height={1080}
               className="w-full h-auto rounded-sm object-contain"
@@ -664,8 +665,8 @@ const Activities = async ({ params }: { params: Params }) => {
             {details?.slug?.includes("trek")
               ? "Treks"
               : details?.slug?.includes("tour")
-              ? "Tours"
-              : "Destinations"}
+                ? "Tours"
+                : "Destinations"}
           </h2>
           <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  p-4">
             {filteredTreks.map((p, k) => {

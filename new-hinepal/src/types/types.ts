@@ -58,6 +58,7 @@ export type TDestination = {
   activityId: number;
   createdAt: string;
   image: string;
+  imageAlt: string;
   seoId: number;
   activity: {
     name: string;
@@ -123,6 +124,8 @@ export type TPackages = {
   description: string;
   duration: string;
   thumbnail: string;
+  thumbnailImageAlt?: string;
+
   groupSize: number;
   destination: {
     name: string;
@@ -141,7 +144,9 @@ export type TPackageDetails = {
   description: string;
   content: string;
   banner: string;
+  bannerImageAlt?: string;
   thumbnail: string;
+  thumbnailImageAlt?: string;
   slug: string;
   subtitle: string | null;
   itenary: string;
@@ -224,5 +229,6 @@ export type TBlog = {
   date: string,
   updatedAt: string,
   slug: string,
-  image?: any
+  image?: any,
+  imageAlt?:string
 }

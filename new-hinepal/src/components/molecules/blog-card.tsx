@@ -9,6 +9,7 @@ type TBlogCardProps = {
   excerpt: string;
   image: string;
   slug: string;
+  imageAlt?: string;
 };
 
 export default function BlogCard({
@@ -16,6 +17,7 @@ export default function BlogCard({
   excerpt,
   image,
   slug,
+  imageAlt
 }: TBlogCardProps) {
   const router = useRouter();
   return (

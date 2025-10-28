@@ -6,8 +6,11 @@ import { ChevronRight, LucideChevronRight } from "lucide-react";
 
 export async function generateMetadata({ params }: any): Promise<any> {
   let activity = params.activity;
-  let title = "";
-  let description = "";
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/activities/${activity}`)
+  const responseData = await response.json();
+
+  let title = responseData?.data?.seo?.metaTitle || "";
+  let description = responseData?.data?.seo?.metaDescription || "";
 
   if (params.activity == "tours") {
     title = "Nepal Tour Packages 2025: Culture, Multi-Day & Safari Tours";
@@ -25,12 +28,13 @@ export async function generateMetadata({ params }: any): Promise<any> {
         "Plan your next journey with Hi Nepal Treks. Discover profound cultural experiences in Nepal, thrilling travel to Tibet, and the spiritual Kailash Mansarovar Yatra.");
   }
   return {
-    title: title,
-    description: description,
+    title: responseData?.data?.seo?.metaTitle || title,
+    description: responseData?.data?.seo?.metaDescription || description,
+    keywords: responseData?.data?.seo?.metaKeywords,
     alternates: {
       canonical:
         process.env.NEXT_PUBLIC_FRONTEND_BASE_URL +
-          `/activities/${params.activity}` || " ",
+        `/activities/${params.activity}` || " ",
     },
     robots: {
       index: true,

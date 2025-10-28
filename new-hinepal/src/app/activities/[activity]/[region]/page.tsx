@@ -7,8 +7,11 @@ import Link from "next/link";
 
 export async function generateMetadata({ params }: any): Promise<any> {
   const { region, activity } = params;
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/destinations/${region}`)
+  const regionDetails = await response.json();
+
   let title =
-    region?.seo?.metaTitle ||
+    regionDetails?.seo?.metaTitle ||
     `${formatSlug(region)} | Hi Nepal Travels & Treks`;
   let description = region?.seo?.metaDescription || "";
   let keywords = region?.seo?.metaKeywords || "";
@@ -85,9 +88,9 @@ export async function generateMetadata({ params }: any): Promise<any> {
   }
 
   return {
-    title: title || formatSlug(params.region) + " - Hi Nepal Travel and Treks",
-    description: description || undefined,
-    keywords: keywords || undefined,
+    title: regionDetails?.data?.seo?.metaTitle || title || formatSlug(params.region) + " - Hi Nepal Travel and Treks",
+    description: regionDetails?.data?.seo?.metaDescription || description || undefined,
+    keywords: regionDetails?.data?.seo?.metaKeywords || keywords || undefined,
     alternates: {
       canonical:
         process.env.NEXT_PUBLIC_FRONTEND_BASE_URL +
@@ -429,7 +432,7 @@ export default async function RegionPage({
         <div className="lg:px-32 flex flex-col gap-2 mt-4 text-green-700">
           <div className="flex gap-1">
             <Link href={"/"}>Home</Link>
-            <LucideChevronRight />{" "}
+            <LucideChevronRight />
             <Link href={`/activities/${activity}`}>
               {activity?.charAt(0).toUpperCase() + activity.slice(1)}{" "}
             </Link>{" "}

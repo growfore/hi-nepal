@@ -6,7 +6,10 @@ import { ChevronRight, LucideChevronRight } from "lucide-react";
 
 export async function generateMetadata({ params }: any): Promise<any> {
   let activity = params.activity;
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/activities/${activity}`)
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/activities/${activity}`,
+    { cache: "no-store" }
+  );
   const responseData = await response.json();
 
   let title = responseData?.data?.seo?.metaTitle || "";
@@ -34,7 +37,7 @@ export async function generateMetadata({ params }: any): Promise<any> {
     alternates: {
       canonical:
         process.env.NEXT_PUBLIC_FRONTEND_BASE_URL +
-        `/activities/${params.activity}` || " ",
+          `/activities/${params.activity}` || " ",
     },
     robots: {
       index: true,

@@ -7,14 +7,17 @@ import Link from "next/link";
 
 export async function generateMetadata({ params }: any): Promise<any> {
   const { region, activity } = params;
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/destinations/${region}`)
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/destinations/${region}`,
+    { cache: "no-store" }
+  );
   const regionDetails = await response.json();
 
   let title =
     regionDetails?.seo?.metaTitle ||
     `${formatSlug(region)} | Hi Nepal Travels & Treks`;
-  let description = region?.seo?.metaDescription || "";
-  let keywords = region?.seo?.metaKeywords || "";
+  let description = regionDetails?.data?.seo?.metaDescription || "";
+  let keywords = regionDetails?.data?.seo?.metaKeywords || "";
 
   if (region.includes("annapurna-region")) {
     title = "Explore the Annapurna Region Nepal Trekking Itinerary";
@@ -88,13 +91,14 @@ export async function generateMetadata({ params }: any): Promise<any> {
   }
 
   return {
-    title: regionDetails?.data?.seo?.metaTitle || title || formatSlug(params.region) + " - Hi Nepal Travel and Treks",
-    description: regionDetails?.data?.seo?.metaDescription || description || undefined,
+    title: regionDetails?.data?.seo?.metaTitle || " ",
+    description:
+      regionDetails?.data?.seo?.metaDescription || description || undefined,
     keywords: regionDetails?.data?.seo?.metaKeywords || keywords || undefined,
     alternates: {
       canonical:
         process.env.NEXT_PUBLIC_FRONTEND_BASE_URL +
-        `/activities/${params.activity}/${params.region}` || " ",
+          `/activities/${params.activity}/${params.region}` || " ",
     },
     robots: {
       index: true,
@@ -440,9 +444,9 @@ export default async function RegionPage({
             <Link href={`/activities/${activity}/${region}`}>
               {region
                 ? region
-                  .split("-")
-                  .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-                  .join(" ")
+                    .split("-")
+                    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+                    .join(" ")
                 : ""}
             </Link>
           </div>
@@ -475,9 +479,7 @@ export default async function RegionPage({
      ***
     *****/}
       <div className="p-1 md:px-12 lg:px-24">
-        {region.includes("destination") && (
-          <p></p>
-        )}
+        {region.includes("destination") && <p></p>}
         {region.includes("everest") && (
           <p className="text-justify text-xl">
             Home to the world’s highest peak, Mount Everest, the Everest region

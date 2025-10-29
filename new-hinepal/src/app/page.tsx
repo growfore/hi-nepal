@@ -22,7 +22,7 @@ import NewHero from "@/components/organisms/new-hero";
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Best Tours and Travels | Nepal Trekking, Tours & Adventure",
-    description: "Plan your dream Nepal trip with our local experts (20+ yrs). We offer guided Himalayan treks, cultural tours in Kathmandu & Pokhara, and thrilling adventure sports.",
+    description: "Plan your dream Nepal trip with our experts (20+ yrs). We offer guided Himalayan treks, cultural tours in Kathmandu & Pokhara, & thrilling adventure sports."
     keywords: "trekking agency in nepal, travel agency in nepal",
     alternates: {
       canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/",

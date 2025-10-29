@@ -5,8 +5,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Adventures | Hi Nepal Travels & Treks",
-  description:
-    "Hi Nepal Travels and Treks, a top travel and trekking agency in Nepal, offers thrilling adventure sports like paragliding and bungee jumping across the Himalayas.",
+  description: "Hi Nepal Travels & Treks, a top travel & trekking agency in Nepal, offers thrilling adventure sports like paragliding & bungee jumping across the Himalayas.",
   keywords: "adventure sports, travel and trekking agency in nepal",
   alternates: {
     canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/adventure",

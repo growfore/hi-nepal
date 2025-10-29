@@ -17,8 +17,7 @@ import Team from "@/components/organisms/team";
 
 export const metadata: Metadata = {
   title: "About | Hi Nepal Travels & Treks",
-  description:
-    "Hi Nepal Travels and Treks is a certified travel and trekking agency in Nepal, offering personalized trekking, tours, and adventure sports with years of experience.",
+  description: "Hi Nepal Travels & Treks is a certified travel & trekking agency in Nepal, offering personalized trekking, tours, & adventure sports with years of experience.",
   keywords:
     "trekking, tours, adventure sports, travel and trekking agency in nepal",
   alternates: {

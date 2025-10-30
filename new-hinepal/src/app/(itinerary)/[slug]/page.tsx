@@ -309,7 +309,12 @@ const Activities = async ({ params }: { params: Params }) => {
         {/* @ts-ignore */}
         <SectionNav navigations={navigations} />
 
-        <main className="container mx-auto px-4 md:px-6 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <main className="
+  prose-headings:text-gray-900 prose-headings:font-[700]
+  prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8 prose-h1:text-red-500
+  prose-h2:text-3xl prose-h2:mt-6 prose-h2:mb-2 prose-h2:font-[700] prose-h2:text-[#008000]!
+  prose-h3:text-xl prose-h3:mt-4 prose-h3:mb-1
+        container mx-auto px-4 md:px-6 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Main Content Area */}
           <section className="lg:col-span-2">
             <div className="lg:hidden">

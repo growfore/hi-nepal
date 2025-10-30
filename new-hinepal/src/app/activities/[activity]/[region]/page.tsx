@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: any): Promise<any> {
 
   let title =
     regionDetails?.seo?.metaTitle ||
-    `${formatSlug(region)} | Hi Nepal Travels & Treks`;
+    `${formatSlug(region)} - Hi Nepal Travels & Treks`;
   let description = regionDetails?.data?.seo?.metaDescription || "";
   let keywords = regionDetails?.data?.seo?.metaKeywords || "";
 

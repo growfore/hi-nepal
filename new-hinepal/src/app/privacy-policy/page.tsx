@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Hi Nepal Travels & Treks",
+  title: "Privacy Policy - Hi Nepal Travels & Treks",
   description:
     "Read Hi Nepal Travel and Treks’ Privacy Policy to learn how our travel and trekking agency in Nepal collects, uses, and protects your personal information.",
   keywords: "privacy policy, travel and trekking agency in nepal",

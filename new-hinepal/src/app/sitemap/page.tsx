@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Sitemap | Hi Nepal Travels & Treks",
+  title: "Sitemap - Hi Nepal Travels & Treks",
   description:
     "Discover all Hi Nepal Travels and Treks' trek routes, adventures, tours, and useful pages in one place, explore Nepal with our travel and trekking agency in Nepal.",
   alternates: {

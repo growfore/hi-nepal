@@ -4,7 +4,7 @@ import { TPackageDetails } from "@/types/types";
 import { get } from "@/utils/request-handler";
 
 export const metadata = {
-  title: "Plan Your Adventure | Hi Nepal Travels & Treks",
+  title: "Plan Your Adventure - Hi Nepal Travels & Treks",
   description: "Plan your Himalayan adventure with Hi Nepal Travels and Treks. Booking trekking, tours, and adventure sports in Nepal through our easy online inquiry form.",
   keywords: "trekking, tour, adventure sports, bookings, travel and trekking agency in nepal",
   alternates: {

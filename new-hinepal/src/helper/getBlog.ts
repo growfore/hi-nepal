@@ -36,7 +36,7 @@ export async function getBlogs(page?: number, perPage?: number) {
 export async function getBlogSingle(slug: string) {
   const res = await fetch(
     `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?slug=${slug}&_embed`,
-    { cache: "default" }
+    { cache: "no-store" }
   );
   const data = await res.json();
   const post = data[0];

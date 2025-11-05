@@ -1,30 +1,44 @@
-export async function getBlogs(page?: number, perPage?: number) {
-  let res;
-  if (page || perPage) {
-    res = await fetch(
-      `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?per_page=${perPage}&page=${page}&_embed`,
-      { cache: "no-cache" }
-    );
-  } else {
-    res = await fetch(
-      `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?_embed`,
-      { cache: "no-cache" }
-    );
-  }
+export async function getBlogs(page = 1, perPage = 10) {
+  const res = await fetch(
+    `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?per_page=${perPage}&page=${page}&_fields=id,title,slug,excerpt,date,featured_media`,
+    { cache: "no-cache" }
+  );
+
   const total = res.headers.get("X-WP-Total");
   const totalPages = res.headers.get("X-WP-TotalPages");
 
   const data = await res.json();
 
-  const posts = data.map((post: any) => ({
-    id: post.id,
-    title: post.title.rendered,
-    slug: post.slug,
-    excerpt: post.excerpt.rendered,
-    date: post.date,
-    image: post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null,
-    imageAlt: post?._embedded?.["wp:featuredmedia"]?.[0]?.alt_text || null,
-  }));
+  const posts = await Promise.all(
+    data.map(async (post: any) => {
+      let image: string | null = null;
+      let imageAlt: string | null = null;
+
+      if (post.featured_media) {
+        try {
+          const imgRes = await fetch(
+            `https://hinepaltreks.com/cms/wp-json/wp/v2/media/${post.featured_media}`,
+            { cache: "no-cache" }
+          );
+          const imgData = await imgRes.json();
+          image = imgData.source_url || null;
+          imageAlt = imgData.alt_text || null;
+        } catch (e) {
+          console.warn("Failed to fetch featured media for post", post.id);
+        }
+      }
+
+      return {
+        id: post.id,
+        title: post.title.rendered,
+        slug: post.slug,
+        excerpt: post.excerpt.rendered,
+        date: post.date,
+        image,
+        imageAlt,
+      };
+    })
+  );
 
   return {
     posts,
@@ -35,25 +49,40 @@ export async function getBlogs(page?: number, perPage?: number) {
 
 export async function getBlogSingle(slug: string) {
   const res = await fetch(
-    `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?slug=${slug}&_embed`,
+    `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?slug=${slug}&_fields=id,title,content,slug,date,modified,featured_media,rank_math_meta`,
     { cache: "no-store" }
   );
   const data = await res.json();
   const post = data[0];
-
   if (!post) return null;
+
+  let image = "";
+  let imageAlt = "";
+  if (post.featured_media) {
+    try {
+      const imgRes = await fetch(
+        `https://hinepaltreks.com/cms/wp-json/wp/v2/media/${post.featured_media}`,
+        { cache: "no-store" }
+      );
+      const imgData = await imgRes.json();
+      image = imgData.source_url || "";
+      imageAlt = imgData.alt_text || "";
+    } catch (e) {
+      console.warn("Failed to fetch featured media for post", post.id);
+    }
+  }
 
   return {
     id: post.id,
-    title: post.title?.rendered || post.rank_math_meta.title || "",
-    metaTitle: post.rank_math_meta.title || "",
+    title: post.title?.rendered || post.rank_math_meta?.title || "",
+    metaTitle: post.rank_math_meta?.title || "",
     content: post.content?.rendered || "",
     description: post.rank_math_meta?.description || "",
     date: post.date,
     updatedAt: post.modified,
     slug: post.slug,
     keywords: post.rank_math_meta?.keywords,
-    image: post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "",
-    imageAlt: post?._embedded?.["wp:featuredmedia"]?.[0]?.alt_text || "",
+    image,
+    imageAlt,
   };
 }

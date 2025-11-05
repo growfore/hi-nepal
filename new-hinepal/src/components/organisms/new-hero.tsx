@@ -1,11 +1,11 @@
 import { TPackage } from "@/types/types";
-import Image from "next/image";
 import SearchBox from "../molecules/search-box";
 
 export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
   return (
     <section className="relative p-2 mt-16 md:mt-[94px] flex flex-col items-center justify-center text-center text-white h-[60vh] md:h-[80vh] overflow-hidden">
       <div className="absolute inset-0 -z-10 h-full w-full overflow-hidden">
+        <img  src={"/assets/mount-everest.webp"} alt="" className="object-cover h-[720px] md:hidden"/>
         <video
           autoPlay
           loop
@@ -13,10 +13,11 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
           playsInline
           className="w-full h-full object-cover"
           preload="none"
-          poster="/mount-everest.webp"
+          poster="/assets/mount-everest.webp"
         >
           <source src="/assets/videos/optimized.webm" type="video/webm" />
         </video>
+
 
         {/* tablet */}
         {/* <video className="hidden sm:block md:hidden">

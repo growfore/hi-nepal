@@ -88,7 +88,7 @@ export function Form({ packages }: { packages: TPackageDetails[] }) {
                       <SelectTrigger className="w-full">
                         <SelectValue placeholder="Select Destinations" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="z-[999]">
                         {packages.map((pkg) => (
                           <SelectItem key={pkg.slug} value={pkg.slug}>
                             {pkg.title.split(":")[0]}

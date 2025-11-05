@@ -2,8 +2,6 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Heart, MoreHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface ReviewCardProps {

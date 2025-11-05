@@ -234,7 +234,7 @@ const Activities = async ({ params }: { params: Params }) => {
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "5",
-        reviewCount: "115",
+        reviewCount: "118",
       },
     };
   }

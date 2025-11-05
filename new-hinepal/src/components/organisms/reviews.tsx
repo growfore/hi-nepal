@@ -73,7 +73,6 @@ After some travel issues I experienced with my airplane, Hi Nepal also worked wi
             onLike={() => handleLike(index)}
           />
         ))}
-
         <Link
           target="_blank"
           href="https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"

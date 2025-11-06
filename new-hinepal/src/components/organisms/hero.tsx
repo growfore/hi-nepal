@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Head from "next/head";
-import { HeroCarousel } from "@/components/hero-carousel";
 export async function Hero({
   carousels,
 }: {
@@ -21,7 +20,7 @@ export async function Hero({
             <link rel="preload" href={carousels[0].image} as="image" />
           )}
         </Head>
-        <HeroCarousel carousels={carousels} />
+        {/* <HeroCarousel carousels={carousels} /> */}
       </section>
     )
   );

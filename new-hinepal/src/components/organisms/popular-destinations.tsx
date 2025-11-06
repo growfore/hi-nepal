@@ -34,7 +34,7 @@ const PopularDestinations = async () => {
   return (
     <section className="py-8 bg-white">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-end mb-12 md:mb-16">
+        <div className="grid gap-8 md:gap-4 items-end mb-12 md:mb-16">
           <div className="">
             <p className='text-orange-500 text-sm font-semibold uppercase relative pl-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500'>
               POPULAR DESTINATIONS

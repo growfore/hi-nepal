@@ -18,7 +18,7 @@ const OneDayTours = async ({packages}: {packages: TPackages}) => {
     );
 
   return (
-    <section className="py-8 bg-white">
+    <section className="bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-justify md:text-center md:mb-16">
           <div className="max-w-4xl mx-auto">

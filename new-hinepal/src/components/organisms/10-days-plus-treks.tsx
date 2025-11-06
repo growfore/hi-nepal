@@ -20,7 +20,7 @@ const TenDaysPlusTreks = async ({packages}: {packages: TPackages}) => {
     );
 
   return (
-    <section className="py-8  bg-white">
+    <section className="bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-left md:text-center mb-12 md:mb-16">
           <div className="max-w-4xl mx-auto mt-12">
@@ -68,7 +68,7 @@ const TenDaysPlusTreks = async ({packages}: {packages: TPackages}) => {
             <div className="text-center flex flex-col md:flex-row items-center gap-4 justify-center">
               <Link
                 href="/activities/trekking"
-                className="uppercase inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
+                className="uppercase inline-flex items-center justify-center py-4 px-8 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
               >
                 More Trekking Trails
               </Link>

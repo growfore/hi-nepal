@@ -98,7 +98,7 @@ export async function generateMetadata({ params }: any): Promise<any> {
     alternates: {
       canonical:
         process.env.NEXT_PUBLIC_FRONTEND_BASE_URL +
-          `/activities/${params.activity}/${params.region}` || " ",
+        `/activities/${params.activity}/${params.region}` || " ",
     },
     robots: {
       index: true,
@@ -133,7 +133,7 @@ export default async function RegionPage({
   return (
     <div className="mt-24 flex flex-col gap-4 p-4">
       <div className="md:min-h-[40vh] mt-12  flex flex-col p-1  md:p-8 md:items-center border-b-2 border-black">
-        <h1 className="font-bold md:text-center text-6xl lg:text-9xl">
+        <h1 className="font-bold text-4xl lg:text-6xl">
           {region.includes("wildlife")
             ? "Nature and Wildlife Tours"
             : formatSlug(region)}
@@ -444,9 +444,9 @@ export default async function RegionPage({
             <Link href={`/activities/${activity}/${region}`}>
               {region
                 ? region
-                    .split("-")
-                    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-                    .join(" ")
+                  .split("-")
+                  .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+                  .join(" ")
                 : ""}
             </Link>
           </div>

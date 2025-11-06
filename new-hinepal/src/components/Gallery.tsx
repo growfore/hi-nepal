@@ -16,19 +16,9 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                 {siteInformation?.about?.title || 'Explore Our Gallery'}
                             </h2>
                             <p className='text-gray-600 text-base md:text-lg leading-relaxed mt-4'>
-                                {siteInformation?.description || ''}
+                                Hi Nepal Travels & Treks Pvt. Ltd. is the best trekking company in Nepal, specializing in offering unforgettable trekking, tours, and adventure sports experiences across the country. From breathtaking mountain trails to rich cultural journeys, our trekking and travel agency in Nepal offers expertly guided treks, customized tours, and seamless travel services. Trekking to the stunning Everest and Annapurna regions to tour around Pokhara and Kathmandu valleys, Hi Nepal Travels and Treks, a reliable travel agency in Nepal, Pokhara, offers tons of heavenly traveling and trekking destinations in Nepal.
                             </p>
                         </div>
-                        <figure className='rounded-xl overflow-hidden shadow-lg h-[400px] md:h-[500px]'>
-                            <Image
-                                height={500}
-                                width={400}
-                                // @ts-ignore
-                                src={(siteInformation?.about?.image1) || ''}
-                                alt='home page gallery image'
-                                className='w-full h-full object-cover'
-                            />
-                        </figure>
                     </div>
 
                     {/* Right Column: Grid of Smaller Images */}

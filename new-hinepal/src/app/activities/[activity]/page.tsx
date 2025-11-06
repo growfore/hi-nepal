@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: any): Promise<any> {
     alternates: {
       canonical:
         process.env.NEXT_PUBLIC_FRONTEND_BASE_URL +
-          `/activities/${params.activity}` || " ",
+        `/activities/${params.activity}` || " ",
     },
     robots: {
       index: true,
@@ -72,11 +72,11 @@ export default async function ActivitySingle({
     <div className="mt-24 p-2 flex flex-col gap-4">
       {activity == "tours" && (
         <div>
-          <div className="md:min-h-[40vh] mt-24  md:mt-8 flex flex-col p-4  md:p-8 md:items-center border-b-2 border-black">
-            <h1 className="font-bold text-6xl lg:text-9xl">
+          <div className="p-4 relative bg-cover bg-center flex items-start md:items-center  md:justify-center  mt-24 md:mt-32 border-b border-black flex-col">
+            <h1 className="font-bold text-4xl lg:text-6xl">
               {activity.charAt(0).toUpperCase() + activity.slice(1)}
             </h1>
-            <p className="text-left md:text-center  mt-4 italic text-xl">
+            <p className="text-left md:text-center  mt-4 italic text-xl py-4">
               Enhance your journey with one of the best Nepal tour packages.
               Learn about Nepal's unique culture, traditional rituals, friendly
               people, and stunning natural and manmade attractions with a
@@ -114,8 +114,8 @@ export default async function ActivitySingle({
         </div>
       )}
       {activity == "trekking" && (
-        <div className="md:min-h-[40vh] mt-24  md:mt-8 flex flex-col p-2  md:p-8 md:items-center border-b-2 border-black">
-          <h1 className="font-bold text-6xl lg:text-9xl">
+        <div className="p-4 relative bg-cover bg-center flex md:items-center md:justify-center  mt-24 md:mt-32 border-b border-black flex-col">
+          <h1 className="font-bold text-4xl lg:text-6xl">
             {activity.charAt(0).toUpperCase() + activity.slice(1)}
           </h1>
           <p className="text-left md:text-center  mt-4 italic text-xl">
@@ -162,8 +162,8 @@ export default async function ActivitySingle({
         </div>
       )}
       {activity == "destination" && (
-        <div className="md:min-h-[40vh] mt-24  md:mt-8 flex flex-col p-2  md:p-8 md:items-center border-b-2 border-black">
-          <h1 className="font-bold text-6xl lg:text-9xl">
+        <div className="p-4 relative bg-cover bg-center flex md:items-center md:justify-center  mt-24 md:mt-32 border-b border-black flex-col">
+          <h1 className="font-bold text-4xl lg:text-6xl">
             {activity.charAt(0).toUpperCase() + activity.slice(1)}
           </h1>
           <p className="text-left md:text-center  mt-4 italic text-xl">

@@ -37,9 +37,9 @@ const About = () => {
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow">
         {/* Inner Banner Section */}
-        <section className="relative h-96 bg-cover bg-center flex items-center justify-center ">
-          <div className="min-h-[20vh] md:min-h-[40vh] mt-42 flex flex-col p-4  md:p-8 md:items-center border-b-2 border-black">
-            <h1 className="font-bold text-6xl lg:text-9xl">About Us</h1>
+        <section className="p-4 relative bg-cover bg-center flex items-center md:justify-center  mt-24 md:mt-32">
+          <div className="flex flex-col md:items-center">
+            <h1 className="font-bold text-4xl lg:text-7xl">About Us</h1>
             {/* <p className="text-left italic text-xl">Experience the adventure sport of a lifetime amidst the Himalayas, where every thrill comes with breathtaking views.</p> */}
           </div>
         </section>

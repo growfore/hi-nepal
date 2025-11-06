@@ -3,7 +3,7 @@ import AdventureCard from "@/components/molecules/adventure-card";
 
 export default function AdventureSection() {
   return (
-    <section className="py-8  bg-white">
+    <section className="bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-left md:text-center mb-12 md:mb-16">
           <div className="max-w-4xl mx-auto">

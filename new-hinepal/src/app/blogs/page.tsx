@@ -31,15 +31,17 @@ export default async function BlogsPage({
 
   return (
     <main className="py-10 container mx-auto">
-      <div className="min-h-[40vh] mt-42 flex flex-col p-4  md:items-center border-b-2 border-black mb-4">
-        <h1 className="font-bold text-6xl lg:text-9xl">Blogs</h1>
-        <p className="text-left md:text-center italic text-xl mt-8">
-          Welcome to the Hi Nepal Travels and Treks Blog, where you can discover
-          the amazing trekking stories, adventures, and guidelines. If you are
-          looking to explore various corners of Nepal, our blogs will help you
-          enhance your journey.
-        </p>
-      </div>
+      <section className="p-4 relative bg-cover bg-center flex items-center md:justify-center  mt-24 md:mt-32 border-b border-black">
+        <div className="flex flex-col md:items-center">
+          <h1 className="font-bold text-4xl lg:text-7xl mb-4">Blogs</h1>
+          <p className="text-left md:text-center italic text-xl mt-8">
+            Welcome to the Hi Nepal Travels and Treks Blog, where you can discover
+            the amazing trekking stories, adventures, and guidelines. If you are
+            looking to explore various corners of Nepal, our blogs will help you
+            enhance your journey.
+          </p>
+        </div>
+      </section>
       <div className="grid md:grid-cols-3 gap-6 container mx-auto p-4">
         {posts.map((post: any) => (
           <BlogCard

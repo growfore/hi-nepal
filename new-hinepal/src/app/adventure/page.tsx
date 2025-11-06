@@ -21,13 +21,15 @@ export const metadata: Metadata = {
 export default function AdventurePage() {
   return (
     <div className="min-h-[100vh] flex flex-col items-center">
-      <div className="md:min-h-[40vh] mt-24  md:mt-42 flex flex-col p-4  md:p-8 md:items-center border-b-2 border-black">
-        <h1 className="font-bold text-6xl lg:text-9xl">Adventures</h1>
-        <p className="text-left italic text-xl">
-          Experience the adventure sport of a lifetime amidst the Himalayas,
-          where every thrill comes with breathtaking views.
-        </p>
-      </div>
+      <section className="p-4 relative bg-cover bg-center flex items-center md:justify-center  mt-24 md:mt-32">
+        <div className="flex flex-col md:items-center">
+          <h1 className="font-bold text-4xl lg:text-7xl mb-4">Adventures</h1>
+          <p className="text-left italic text-xl">
+            Experience the adventure sport of a lifetime amidst the Himalayas,
+            where every thrill comes with breathtaking views.
+          </p>
+        </div>
+      </section>
       <div className="p-2 md:p-12 container mx-auto flex flex-col gap-8">
         <div id="paragliding" className="scroll-mt-42">
           <ImageCard />

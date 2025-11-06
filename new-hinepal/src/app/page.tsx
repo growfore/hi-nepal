@@ -18,6 +18,7 @@ import PopularTours from "@/components/organisms/popular-tours";
 import OneDayTours from "@/components/organisms/one-day-hiking";
 import { HomeFAQs } from "@/components/organisms/home-faqs";
 import NewHero from "@/components/organisms/new-hero";
+import {  ReviewCarousel } from "@/components/hero-carousel";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -76,6 +77,7 @@ export default async function Home() {
           More about Us
         </Link>
       </div>
+      <ReviewCarousel />
       <HomeFAQs />
     </main>
   );

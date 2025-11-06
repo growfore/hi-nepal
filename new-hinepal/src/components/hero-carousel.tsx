@@ -1,5 +1,6 @@
 "use client";
-
+import * as React from "react";
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
@@ -7,78 +8,46 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { ReviewCard } from "./molecules/review-card";
+import { reviews } from "@/constant/reviews";
+import { Button } from "./ui/button";
+import { LucideChevronLeft, LucideChevronRight } from "lucide-react";
 
-type TCarouselItemType = {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-};
+export function ReviewCarousel() {
+  const [count, setCount] = React.useState(0);
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCount((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
+    }, 5000);
 
-export function HeroCarousel({
-  carousels,
-}: {
-  carousels: TCarouselItemType[];
-}) {
+    return () => clearInterval(interval);
+  }, [reviews.length]);
+
   return (
-    <Carousel
-      opts={{
-        align: "start",
-        loop: true,
-      }}
-      plugins={[
-        // @ts-ignore
-        Autoplay({
-          delay: 3000,
-        }),
-      ]}
-    >
-      <CarouselContent className="mt-16 md:mt-[96px]">
-        {carousels?.map((carousel, index) => (
-          <CarouselItem
-            key={index}
-            className="relative h-[60vh] md:h-[80vh] w-full"
-          >
-            <div className="flex flex-col">
-              <Image
-                src={carousel.image}
-                alt={carousel.title}
-                fill
-                className="object-cover md:object-fit"
-              />
-              <Link
-                className="absolute bottom-[10vh] md:px-36 mx-4"
-                href={carousel.link}
-              >
-                <div className="flex flex-col">
-                  <h2 className="mb-8 md:mb-4 font-black text-white text-4xl md:text-7xl text-shadow-2xs">
-                    {carousel.title}
-                  </h2>
-                  <p className="hidden md:flex text-white text-shadow-xs text-xl max-w-3xl mb-4">
-                    {carousel.description}
-                  </p>
-                  <Button className="p-8 w-fit font-bold uppercase bg-green-700 hover:bg-green-900 hover:cursor-pointer">
-                    {" "}
-                    Continue Reading{" "}
-                  </Button>
-                </div>
-              </Link>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious
-        className="absolute  md:top-[50vh] left-8 opacity-70 md:opacity-100"
-        size={"lg"}
-      />
-      <CarouselNext
-        className="absolute  md:top-[50vh] right-8 opacity-70 md:opacity-100"
-        size={"lg"}
-      />
-    </Carousel>
+    <div className="p-8">
+      <h4 className="font-bold text-3xl md:text-5xl text-center mb-4">
+        What our Customers Say About Us
+      </h4>
+      <div className="md:px-12">
+        <ReviewCard
+          user={reviews[count].user}
+          rating={5}
+          title={reviews[count].title}
+          date={reviews[count].date}
+          tripType={reviews[count].tripType}
+          content={reviews[count].content}
+          likesCount={reviews[count].likesCount}
+          isLiked
+        />
+      </div>
+      <div className="flex justify-center items-center gap-4 p-8">
+        <Button variant={'outline'} className="cursor-pointer" disabled={count == 0} onClick={() => setCount(count - 1)}>
+          <LucideChevronLeft />
+        </Button>
+        <Button variant={'outline'} className="cursor-pointer" disabled={count === reviews.length - 1} onClick={() => setCount(count + 1)}>
+          <LucideChevronRight />
+        </Button>
+      </div>
+    </div>
   );
 }

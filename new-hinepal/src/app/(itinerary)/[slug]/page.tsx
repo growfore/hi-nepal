@@ -282,7 +282,7 @@ const Activities = async ({ params }: { params: Params }) => {
       <>
         {/* Section Navigation */}
         <div className="container mx-auto px-4 md:px-6">
-          <div className="container py-4 text-left mt-24">
+          <div className="container py-4 text-left mt-42">
             <h1 className="text-2xl md:text-3xl lg:4xl font-extrabold leading-tight">
               {details.title}
             </h1>

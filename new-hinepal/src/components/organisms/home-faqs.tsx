@@ -9,9 +9,9 @@ import Link from "next/link";
 export function HomeFAQs() {
   return (
     <div className="p-4 flex flex-col md:flex-row justify-between gap-4 container mx-auto my-24">
-      <div className="mb-4">
-        <h2 className="text-5xl font-bold">Frequently Asked Questions</h2>
-      </div>
+        <h2 className="font-bold text-3xl md:text-5xl text-center md:text-left mb-4">
+          Frequently Asked Questions
+        </h2>
       <div className="bg-slate-100 p-4  rounded-sm w-full">
         <Accordion
           type="single"
@@ -47,7 +47,7 @@ export function HomeFAQs() {
             </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
               <p className="text-lg">
-              Yes, <Link className="link-style" href={"https://hinepaltreks.com/pokhara-valley-tour"}>Pokhara</Link> is a tourism hub, famous for natural wonders and thrilling adventures. To promote tourism in this stunning city, there are tons of local as well as international agencies. If you are looking for one, then <Link className="link-style" href={"https://hinepaltreks.com/about-us"}>Hi Nepal Travels and Treks Pvt. Ltd.</Link> can be one of the best options.
+                Yes, <Link className="link-style" href={"https://hinepaltreks.com/pokhara-valley-tour"}>Pokhara</Link> is a tourism hub, famous for natural wonders and thrilling adventures. To promote tourism in this stunning city, there are tons of local as well as international agencies. If you are looking for one, then <Link className="link-style" href={"https://hinepaltreks.com/about-us"}>Hi Nepal Travels and Treks Pvt. Ltd.</Link> can be one of the best options.
               </p>
             </AccordionContent>
           </AccordionItem>
@@ -100,7 +100,7 @@ export function HomeFAQs() {
             </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
               <p className="text-lg">
-              Nepal’s flag is the most unique flag in the world. It’s a red two-rectangle flag with a blue border, with a white sun and a mix of half sun and moon in the middle of each triangle.
+                Nepal’s flag is the most unique flag in the world. It’s a red two-rectangle flag with a blue border, with a white sun and a mix of half sun and moon in the middle of each triangle.
               </p>
             </AccordionContent>
           </AccordionItem>

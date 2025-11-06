@@ -47,7 +47,7 @@ export function ReviewCard({
 
   return (
     <Card className={cn("w-full rounded-sm shadow-none", className)}>
-      <CardContent className="p-6">
+      <CardContent className="p-2 md:p-6">
         {/* Header with user info and actions */}
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-3">

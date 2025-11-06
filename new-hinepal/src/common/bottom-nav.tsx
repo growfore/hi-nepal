@@ -14,10 +14,11 @@ import {
 import { TNavBar } from "@/types/types";
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation"; // router removed, no prefetching
+import { usePathname } from "next/navigation"; 
+import Topbar from "./topbar";
 
 export default function BottomNav({ navBar }: { navBar: TNavBar }) {
-  const [topValue, setTopValue] = useState(60);
+  const [topValue, setTopValue] = useState(0);
   const [disableHover, setDisableHover] = useState(false);
   const path = usePathname();
   const destination = path.split("/")[1] || "";
@@ -112,20 +113,21 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
     setTimeout(() => setDisableHover(false), 500);
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setTopValue(Math.max(60 - window.scrollY, 0));
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setTopValue(Math.max(60 - window.scrollY, 0));
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
     <nav
       style={{ top: topValue }}
-      className="fixed px-4 py-4 z-[999] bg-white w-full shadow-sm"
+      className="fixed z-[999] bg-white w-full shadow-sm top-0"
     >
-      <div className="flex items-center justify-between container mx-auto gap-4 md:max-w-[75vw]">
+      <Topbar/>
+      <div className="flex items-center justify-between container mx-auto gap-4 md:max-w-[75vw] p-2">
         <a
           href="/"
           title="Go to homepage"
@@ -159,7 +161,7 @@ export default function BottomNav({ navBar }: { navBar: TNavBar }) {
                 </Link>
 
                 {/* Dropdown */}
-                <div className="hidden group-hover:grid absolute top-[60px] left-0 w-[100vw] py-8 px-0 z-[999]">
+                <div className="hidden group-hover:grid absolute top-[120px] left-0 w-[100vw] py-8 px-0 z-[999]">
                   <div className="pb-8 bg-white shadow-md border-b border-gray-300 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container px-12 mx-auto rounded-md">
                     {sortDestinations(activity.destinations).map(
                       (destination) => (

@@ -24,7 +24,6 @@ export const Navbar = async () => {
 
   return (
     <div className='bg-green-600 z-[999] min-w-[100vw] '>
-      <Topbar siteInformation={siteInformation} />
       <BottomNav navBar={navBar} />
     </div>
   )

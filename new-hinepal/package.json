@@ -48,7 +48,14 @@
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.11",
     "zod": "^4.1.12",
-    "zustand": "^5.0.3"
+    "zustand": "^5.0.3",
+    "next-google-translate-widget": "^1.0.1"
+  },
+  "overrides": {
+    "next-google-translate-widget": {
+      "react": "^18",
+      "react-dom": "^18"
+    }
   },
   "devDependencies": {
     "@types/jquery": "^3.5.32",

@@ -22,6 +22,6 @@ jobs:
           script: |
             cd /home/ubuntu/projects/hinepal/frontend
             git pull origin main  
-            npm ci  # Install dependencies 
+            npm ci --legacy-peer-deps # Install dependencies 
             npm run build   
-            pm2 restart frontend 
+            pm2 restart frontend

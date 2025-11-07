@@ -98,7 +98,7 @@ export async function generateMetadata({ params }: any): Promise<any> {
     alternates: {
       canonical:
         process.env.NEXT_PUBLIC_FRONTEND_BASE_URL +
-        `/activities/${params.activity}/${params.region}` || " ",
+          `/activities/${params.activity}/${params.region}` || " ",
     },
     robots: {
       index: true,
@@ -138,6 +138,36 @@ export default async function RegionPage({
             ? "Nature and Wildlife Tours"
             : formatSlug(region)}
         </h1>
+        {region.includes("heli-tour") && (
+          <p className="text-left md:text-center md:mt-4 italic text-xl">
+            Experience the thrill of helicopter tours in Nepal. Fly over{" "}
+            <Link
+              className="text-green-700 underline"
+              href={"https://hinepaltreks.com/jomsom-muktinath-trek"}
+            >
+              Muktinath
+            </Link>
+            ,{" "}
+            <Link
+              className="text-green-700 underline"
+              href={"https://hinepaltreks.com/annapurna-base-camp-trek"}
+            >
+              Annapurna Base Camp
+            </Link>
+            ,{" "}
+            <Link
+              href={
+                "https://hinepaltreks.com/everest-base-camp-helicopter-tour"
+              }
+              className="text-green-700 underline"
+            >
+              Everest Base Camp
+            </Link>
+            , Mardi Himal and other iconic Himalayan wonders. Enjoy the views of
+            mountain vistas, serene valleys, and pristine landscapes for an
+            unforgettable high-altitude adventure.
+          </p>
+        )}
         {region.includes("everest") && (
           <p className="text-left md:text-center md:mt-4 italic text-xl">
             Experience an opportunity to witness the world’s highest mountain,
@@ -444,9 +474,9 @@ export default async function RegionPage({
             <Link href={`/activities/${activity}/${region}`}>
               {region
                 ? region
-                  .split("-")
-                  .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-                  .join(" ")
+                    .split("-")
+                    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+                    .join(" ")
                 : ""}
             </Link>
           </div>
@@ -479,7 +509,66 @@ export default async function RegionPage({
      ***
     *****/}
       <div className="p-1 md:px-12 lg:px-24">
-        {region.includes("destination") && <p></p>}
+        {region.includes("tibet") && (
+          <p>
+            Tibet is known as the “Roof of the world” for its Tibetan plateaus
+            and this autonomous region of China is the spiritual heart of
+            Tibetan Buddhism and sacred pilgrimage sites like Mount Kailash and
+            its capital, Lhasa featuring the UNESCO-listed Potala Palace,
+            Jokhang Temple and monastery. The journey reaches the spiritual
+            pinnacle at{" "}
+            <Link
+              className="text-green-700 underline"
+              href={"https://hinepaltreks.com/kailash-mansarovar-yatra"}
+            >
+              Mount Kailash{" "}
+            </Link>{" "}
+            and Lake Mansarovar, revered by Buddhists, Hindus, Jains, and Bon
+            followers as the ultimate pilgrimage site, a place believed to
+            purify the soul and connect heaven with earth.
+            <br />
+            Tibet is where silence sounds louder than words, from the clinging
+            monasteries in the mountain sides to the architectural marvels
+            embodying centuries of devotion, meditation and mystery. Each sacred
+            site offers a glimpse into a timeless spiritual world, where monks
+            chant in candle-lit halls, prayer flags dancing in the wind and
+            mountain echoes with serenity. Experience this high-altitude journey
+            that reflects the true essence of Tibetan culture, spirituality and
+            the Himalayan adventure.
+          </p>
+        )}
+        {region.includes("heli-tour") && (
+          <p className="text-justify text-xl">
+            Explore the majestic landscapes of Nepal from the sky. This
+            breathtaking aerial perspective via a helicopter tour offers bird
+            eye-view of stunning peaks and iconic destinations like Mount
+            Everest, Annapurna, Muktinath,{" "}
+            <Link
+              className="text-green-700 underline"
+              href={"https://hinepaltreks.com/annapurna-base-camp-trek"}
+            >
+              Annapurna Base Camp
+            </Link>
+            ,{" "}
+            <Link
+              className="text-green-700 underline"
+              href={"https://hinepaltreks.com/mardi-himal-trek"}
+            >
+              Mardi Himal
+            </Link>
+            . You can also witness glacial lakes such as Tilicho and Kapauche.
+            <br />
+            Be it the spiritual journey to the sacred sites or a chance to
+            witness panoramic mountain views, Our heli tour services offers
+            luxury, convenience and unforgettable aerial adventures. Our heli
+            tours allow you to skip the lengthy treks and offer VIP access to
+            the roof of the world.
+            <br />
+            We recommend heli tours for those with limited time, seeking luxury
+            because you can see in hours, what takes trekkers weeks in luxury,
+            convenience, safety and the guarantee of unforgettable views.
+          </p>
+        )}
         {region.includes("everest") && (
           <p className="text-justify text-xl">
             Home to the world’s highest peak, Mount Everest, the Everest region

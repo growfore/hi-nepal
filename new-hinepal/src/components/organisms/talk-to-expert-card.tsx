@@ -2,6 +2,7 @@ import { CheckCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import TripAdvisorBadge from "@/components/molecules/trip-advisor-badge";
+import { Button } from "../ui/button";
 
 const expertServices = [
   "Hassle Free Booking",
@@ -41,17 +42,17 @@ export default function TalkToExpertCard({ details }: { details: any }) {
         })}
       </ul>
       <Link
-        href="https://wa.me/9779856035091"
-        target="_blank"
-        className="w-full mb-2 hover:pointer-cursor flex gap-2 items-center justify-start py-1 px-4 border border-gray-300 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 font-bold"
+        // href="https://wa.me/9779856035091"
+        href={"/booking"}
+        className="w-full mb-2 hover:pointer-cursor flex gap-2 items-center justify-start py-1  rounded-xl transition-shadow duration-300 font-bold"
       >
-        <Image
+        {/* <Image
           height={42}
           width={42}
           src="/assets/whatsapp-logo.webp"
           alt="WhatsApp"
-        />
-        <span className="">Chat on Whatsapp</span>
+        /> */}
+        <Button className="w-full" size={'lg'}>Send a message</Button>
       </Link>
       <TripAdvisorBadge />
     </div>

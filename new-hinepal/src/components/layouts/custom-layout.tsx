@@ -1,7 +1,7 @@
 "use server";
 
 import { ReactNode } from "react";
-import WhatsAppButton from "../molecules/whatsapp-button";
+// import WhatsAppButton from "../molecules/whatsapp-button";
 
 const CustomLayout = ({
   children,
@@ -17,7 +17,7 @@ const CustomLayout = ({
       <div>
         {header}
         <main>{children}</main>
-        <WhatsAppButton />
+        {/* <WhatsAppButton /> */}
         {footer}
       </div>
     </>

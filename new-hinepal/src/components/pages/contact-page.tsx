@@ -325,7 +325,7 @@ export function Form_Component({ packages, selectedPackage }: { packages: TPacka
             {/* Right Column - Contact Info Cards */}
             <div className="lg:col-span-4">
               <div className="grid grid-cols-1 gap-4">
-                <div className="bg-green-600 text-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                {/* <div className="bg-green-600 text-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
                   <div className="w-16 h-16 rounded-full bg-white/25 flex items-center justify-center mb-4">
                     <LucidePhone color="white" className="w-8 h-8" />
                   </div>
@@ -339,11 +339,11 @@ export function Form_Component({ packages, selectedPackage }: { packages: TPacka
                   <small className="opacity-75 text-lg font-bold italic">
                     We are open 7 Days a Week <br /> 07.30am - 09.30pm
                   </small>
-                </div>
+                </div> */}
 
                 <div className="bg-white rounded-xl shadow-lg p-6">
                   <h5 className="font-bold text-xl mb-4">
-                    Other Ways to Reach Us
+                    Reach Us
                   </h5>
 
                   {/* Email Section */}

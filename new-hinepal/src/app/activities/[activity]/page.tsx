@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: any): Promise<any> {
     alternates: {
       canonical:
         process.env.NEXT_PUBLIC_FRONTEND_BASE_URL +
-        `/activities/${params.activity}` || " ",
+          `/activities/${params.activity}` || " ",
     },
     robots: {
       index: true,
@@ -167,11 +167,11 @@ export default async function ActivitySingle({
             {activity.charAt(0).toUpperCase() + activity.slice(1)}
           </h1>
           <p className="text-left md:text-center  mt-4 italic text-xl">
-            Discover the spiritual and cultural wonders of the Himalayas with
-            itineraries to Kailash Mansarovar Yatra, Bhutan, and Tibet. From
-            sacred pilgrimages and serene monasteries to breathtaking landscapes
-            and vibrant traditions, these destinations offer an unforgettable
-            journey of peace and adventure.
+            Experience the spiritual and cultural wonders of the Himalayas with
+            journeys to Kailash Mansarovar, Tibet, and Bhutan. The sacred
+            pilgrimages, serene Buddhist monasteries, breathtaking Himalayan
+            landscapes, and vibrant local traditions are waiting for an
+            unforgettable adventure.
           </p>
         </div>
       )}
@@ -335,6 +335,33 @@ export default async function ActivitySingle({
             picturesque Himalayan vistas in Pokhara, Nepal tour packages offer
             everything to first-time travelers as well as repeat visitors.
           </div>
+        )}
+        {activity == "destination" && (
+          <p className="container mx-auto text-justify p-2 md:p-8 text-xl">
+            Explore the mystical beauty of the Himalayas beyond the borders of
+            Nepal with a{" "}
+            <Link
+              className="text-green-700 underline"
+              href={"https://hinepaltreks.com/"}
+            >
+              travel agency
+            </Link>{" "}
+            trusted by many. From the sacred monasteries and{" "}
+            <Link
+              className="text-green-700 underline"
+              href={"https://hinepaltreks.com/kailash-mansarovar-yatra"}
+            >
+              Kailash Mansarovar Yatra
+            </Link>{" "}
+            in Tibet to the magical valleys and Dzongs of Bhutan, your ultimate
+            Himalayan journey awaits.
+            <br />
+            The iconic destinations in the Himalayas are waiting, each offering
+            unique experiences from thrilling mountain adventures to spiritual
+            encounters. Whether you are seeking hiking experiences, cultural
+            immersion, pilgrimage tours or wildlife adventures, our iconic
+            himalayan destinations are waiting for you!
+          </p>
         )}
         {activity == "trekking" && (
           <p className="container mx-auto text-justify p-2 md:p-8 text-xl">

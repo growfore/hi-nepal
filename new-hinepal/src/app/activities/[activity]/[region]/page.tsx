@@ -138,6 +138,21 @@ export default async function RegionPage({
             ? "Nature and Wildlife Tours"
             : formatSlug(region)}
         </h1>
+        {region.includes("tibet") && (
+          <p className="text-left md:text-center md:mt-4 italic text-xl">
+            Embark on a journey to the mystical land ‘Tibet’, where the snow
+            capped peaks reflect the height of spirituality. Embark on journeys
+            to{" "}
+            <Link
+              className="text-green-700 underline"
+              href={"https://hinepaltreks.com/kailash-mansarovar-yatra"}
+            >
+              Mount Kailash
+            </Link>
+            , Lake Mansarovar, and Lhasa, embracing Tibetan culture, ancient
+            traditions, and breathtaking mountain landscapes.
+          </p>
+        )}
         {region.includes("heli-tour") && (
           <p className="text-left md:text-center md:mt-4 italic text-xl">
             Experience the thrill of helicopter tours in Nepal. Fly over{" "}
@@ -510,7 +525,7 @@ export default async function RegionPage({
     *****/}
       <div className="p-1 md:px-12 lg:px-24">
         {region.includes("tibet") && (
-          <p>
+          <p className="text-justify text-xl">
             Tibet is known as the “Roof of the world” for its Tibetan plateaus
             and this autonomous region of China is the spiritual heart of
             Tibetan Buddhism and sacred pilgrimage sites like Mount Kailash and
@@ -521,7 +536,7 @@ export default async function RegionPage({
               className="text-green-700 underline"
               href={"https://hinepaltreks.com/kailash-mansarovar-yatra"}
             >
-              Mount Kailash{" "}
+              Mount Kailash
             </Link>{" "}
             and Lake Mansarovar, revered by Buddhists, Hindus, Jains, and Bon
             followers as the ultimate pilgrimage site, a place believed to

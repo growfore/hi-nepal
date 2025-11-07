@@ -14,6 +14,7 @@ import {
 import { ServiceCard } from "@/components/molecules/service-card";
 import { Metadata } from "next";
 import Team from "@/components/organisms/team";
+import { ReviewCarousel } from "@/components/hero-carousel";
 
 export const metadata: Metadata = {
   title: "About - Hi Nepal Travels & Treks",
@@ -37,7 +38,7 @@ const About = () => {
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow">
         {/* Inner Banner Section */}
-        <section className="p-4 relative bg-cover bg-center flex items-center md:justify-center  mt-24 md:mt-32">
+        <section className="p-4 relative bg-cover bg-center flex items-center md:justify-center  mt-24 md:mt-42">
           <div className="flex flex-col md:items-center">
             <h1 className="font-bold text-4xl lg:text-7xl">About Us</h1>
             {/* <p className="text-left italic text-xl">Experience the adventure sport of a lifetime amidst the Himalayas, where every thrill comes with breathtaking views.</p> */}
@@ -166,8 +167,8 @@ const About = () => {
             </div>
           </div>
         </section>
-
         <Team />
+        <ReviewCarousel/>
       </main>
     </div>
   );

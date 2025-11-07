@@ -43,17 +43,23 @@ const contactFormSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-const ContactForm = ({ packages }: { packages: TPackageDetails[] }) => {
+const ContactForm = ({
+  packages,
+  selectedPackage,
+}: {
+  packages: TPackageDetails[];
+  selectedPackage?: string;
+}) => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Form_Component packages={packages} />
+      <Form_Component packages={packages} selectedPackage={selectedPackage} />
     </Suspense>
   );
 };
 
 export default ContactForm;
 
-export function Form_Component({ packages }: { packages: TPackageDetails[] }) {
+export function Form_Component({ packages, selectedPackage }: { packages: TPackageDetails[], selectedPackage?: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
@@ -61,7 +67,7 @@ export function Form_Component({ packages }: { packages: TPackageDetails[] }) {
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
       fullName: "",
-      destination: "",
+      destination: selectedPackage || "",
       groupSize: "",
       experienceLevel: "",
       email: "",
@@ -149,7 +155,7 @@ export function Form_Component({ packages }: { packages: TPackageDetails[] }) {
                           <FormLabel>Desired Destination *</FormLabel>
                           <Select
                             onValueChange={field.onChange}
-                            defaultValue={field.value}
+                            defaultValue={selectedPackage || field.value}
                           >
                             <FormControl className="w-full">
                               <SelectTrigger>

@@ -18,12 +18,13 @@ import PopularTours from "@/components/organisms/popular-tours";
 import OneDayTours from "@/components/organisms/one-day-hiking";
 import { HomeFAQs } from "@/components/organisms/home-faqs";
 import NewHero from "@/components/organisms/new-hero";
-import {  ReviewCarousel } from "@/components/hero-carousel";
+import { ReviewCarousel } from "@/components/hero-carousel";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Best Tours & Travels Agency in Nepal - Trekking & Adventure",
-    description: "Plan your dream Nepal trip with our experts (20+ yrs). We offer guided Himalayan treks, cultural tours in Kathmandu & Pokhara, & thrilling adventure sports.",
+    description:
+      "Plan your dream Nepal trip with our experts (20+ yrs). We offer guided Himalayan treks, cultural tours in Kathmandu & Pokhara, & thrilling adventure sports.",
     keywords: "trekking agency in nepal, travel agency in nepal",
     alternates: {
       canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/",

@@ -172,3 +172,12 @@ body {
   color: green;
   text-decoration: underline;
 }
+
+.goog-te-gadget {
+  font-family: inherit !important;
+  font-size: 0.9rem !important;
+}
+.goog-logo-link,
+.goog-te-gadget span {
+  display: none !important;
+}

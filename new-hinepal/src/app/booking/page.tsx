@@ -1,14 +1,16 @@
-import ContactForm from "@/components/pages/contact-page"
+import ContactForm from "@/components/pages/contact-page";
 import endpoints from "@/constant/endpoints";
 import { TPackageDetails } from "@/types/types";
 import { get } from "@/utils/request-handler";
 
 export const metadata = {
   title: "Plan Your Adventure - Hi Nepal Travels & Treks",
-  description: "Plan your Himalayan adventure with Hi Nepal Travels and Treks. Booking trekking, tours, and adventure sports in Nepal through our easy online inquiry form.",
-  keywords: "trekking, tour, adventure sports, bookings, travel and trekking agency in nepal",
+  description:
+    "Plan your Himalayan adventure with Hi Nepal Travels and Treks. Booking trekking, tours, and adventure sports in Nepal through our easy online inquiry form.",
+  keywords:
+    "trekking, tour, adventure sports, bookings, travel and trekking agency in nepal",
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/booking"
+    canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/booking",
   },
   robots: {
     index: true,
@@ -17,13 +19,19 @@ export const metadata = {
     "max-image-preview": "large",
     "max-snippet": -1,
   },
-}
+};
 
-export default async function BookingPage() {
+export default async function BookingPage({
+  searchParams,
+}: {
+  searchParams: { destination: string };
+}) {
+  const selectedPackage = await searchParams.destination;
+
   let packages: TPackageDetails[] = [];
   await get({
     endPoint: endpoints.PACKAGES,
-    token: '',
+    token: "",
     success: (_, res) => {
       packages.push(...res.data.packages);
     },
@@ -32,11 +40,13 @@ export default async function BookingPage() {
     },
   });
 
-  const sortedPackges = packages.sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()))
+  const sortedPackges = packages.sort((a, b) =>
+    a.title.toLowerCase().localeCompare(b.title.toLowerCase())
+  );
 
   return (
     <>
-      <ContactForm packages={sortedPackges} />
+      <ContactForm selectedPackage={selectedPackage} packages={sortedPackges} />
     </>
-  )
+  );
 }

@@ -86,6 +86,9 @@ importers:
       next:
         specifier: 14.2.5
         version: 14.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next-google-translate-widget:
+        specifier: ^1.0.1
+        version: 1.0.1(react@18.3.1)
       postcss:
         specifier: ^8.5.6
         version: 8.5.6
@@ -1237,6 +1240,11 @@ packages:
     resolution: {integrity: sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  next-google-translate-widget@1.0.1:
+    resolution: {integrity: sha512-56RMXg86U3ybh6TtB0MB/wjql2niM35cMZqnzqaDRwRJjRcqXWmk1lm8e0MkZJjLT58eUZgh94+yP+FrGG5+vQ==}
+    peerDependencies:
+      react: ^19.0.0
 
   next@14.2.5:
     resolution: {integrity: sha512-0f8aRfBVL+mpzfBjYfQuLWh2WyAwtJXCRfkPF4UJ5qd2YwrHczsrSzXU4tRMV0OAxR8ZJZWPFn6uhSC56UTsLA==}
@@ -2555,6 +2563,10 @@ snapshots:
       minipass: 7.1.2
 
   nanoid@3.3.11: {}
+
+  next-google-translate-widget@1.0.1(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   next@14.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

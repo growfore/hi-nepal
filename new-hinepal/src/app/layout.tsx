@@ -9,6 +9,7 @@ import { Navbar } from "@/common/navbar";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "react-hot-toast";
+import TranslateWidget from "@/components/translate-widget";
 
 export default async function RootLayout({
   children,
@@ -28,10 +29,7 @@ export default async function RootLayout({
     },
   });
   return (
-    <html
-      lang="en"
-      className={`antialiased`}
-    >
+    <html lang="en" className={`antialiased`}>
       <head>
         {/*  */}
         <Script id="microsoft-clarity" strategy="afterInteractive">
@@ -48,6 +46,7 @@ export default async function RootLayout({
         <CustomLayout footer={<Footer />} header={<Navbar />}>
           {children}
           <GoogleAnalytics gaId="G-E1QTRNT388" />
+          <TranslateWidget />
           <Toaster position="top-center" />
         </CustomLayout>
       </body>

@@ -412,7 +412,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* Altitude Section */}
             {details.altitudeInfo && (
               <div

@@ -138,6 +138,15 @@ export default async function RegionPage({
             ? "Nature and Wildlife Tours"
             : formatSlug(region)}
         </h1>
+        {region.includes("bhutan") && (
+          <p className="text-left md:text-center md:mt-4 italic text-xl">
+            Discover the hidden monasteries, colorful festivals and beautiful
+            hiking trails of the mystical Buddhist Kingdom of Bhutan. From
+            Tiger’s Nest Monastery to the serene valleys of Paro and Thimphu,
+            experience Bhutan’s spiritual traditions, breathtaking scenery, and
+            the philosophy of Gross National Happiness.
+          </p>
+        )}
         {region.includes("tibet") && (
           <p className="text-left md:text-center md:mt-4 italic text-xl">
             Embark on a journey to the mystical land ‘Tibet’, where the snow
@@ -524,6 +533,27 @@ export default async function RegionPage({
      ***
     *****/}
       <div className="p-1 md:px-12 lg:px-24">
+        {region.includes("bhutan") && (
+          <p className="text-justify text-xl">
+            Step into Bhutan, the last Himalayan Kingdom, where ancient
+            traditions, Buddhist monasteries and pristine nature exist in
+            perfect harmony. Situated high in the Eastern Himalayas, Bhutan is
+            the land of smiling monks, fluttering prayer flags and breathtaking
+            landscapes ranging from the lush valleys to the snow draped peaks.{" "}
+            <br />
+            The iconic Tiger’s Nest Monastery(Paro Taktsang) clinging
+            dramatically to the cliffside with deep spiritual roots and timeless
+            allure of Bhutan. Guided by the philosophy of{" "}
+            <Link
+              href={"https://ophi.org.uk/gross-national-happiness"}
+              className="text-green-700 underline"
+            >
+              Gross National Happiness
+            </Link>
+            , Bhutan lets you experience the authentic journey into mindful
+            living, cultural richness and natural wonder.
+          </p>
+        )}
         {region.includes("tibet") && (
           <p className="text-justify text-xl">
             Tibet is known as the “Roof of the world” for its Tibetan plateaus

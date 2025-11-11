@@ -521,7 +521,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:text-xl!"
                 )}
               ></div>
             )}

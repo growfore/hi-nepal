@@ -311,9 +311,9 @@ const Activities = async ({ params }: { params: Params }) => {
         <SectionNav navigations={navigations} />
 
         <main className="
-  prose-headings:text-gray-900 prose-headings:font-[700]
+  prose-headings:text-gray-900 prose-headings:font-bold
   prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8 prose-h1:text-red-500
-  prose-h2:text-3xl prose-h2:mt-6 prose-h2:mb-2 prose-h2:font-[700] prose-h2:text-[#008000]!
+  prose-h2:text-3xl prose-h2:mt-6 prose-h2:mb-2 prose-h2:font-bold prose-h2:text-[#008000]!
   prose-h3:text-xl prose-h3:mt-4 prose-h3:mb-1
         container mx-auto px-4 md:px-6 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Main Content Area */}
@@ -395,7 +395,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 id="overview"
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:text-xl!"
                 )}
                 dangerouslySetInnerHTML={{ __html: details.overview }}
               ></div>
@@ -408,7 +408,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.highlights }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl -mt-8"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-8"
                 )}
               ></div>
             )}
@@ -419,7 +419,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.altitudeInfo }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:text-xl!"
                 )}
               ></div>
             )}
@@ -431,7 +431,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.itenary }}
                 className={cn(
                   sectionStyle,
-                  "prose marker:text-black marker:!text-xl max-w-none"
+                  "prose marker:text-black marker:text-xl! max-w-none"
                 )}
               ></div>
             )}
@@ -446,7 +446,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.packing }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:text-xl!"
                 )}
               ></div>
             )}
@@ -458,7 +458,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.bestSeasonInfo }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:text-xl!"
                 )}
               ></div>
             )}
@@ -470,7 +470,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.routeOverview }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:text-xl!"
                 )}
               ></div>
             )}
@@ -482,7 +482,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.includes }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:text-xl!"
                 )}
               ></div>
             )}
@@ -493,7 +493,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 id="excludes"
                 dangerouslySetInnerHTML={{ __html: details.excludes }}
                 className={cn(
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:text-xl!"
                 )}
               ></div>
             )}
@@ -507,7 +507,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 id="sicknessAndSafety"
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:text-xl!"
                 )}
               ></div>
             )}
@@ -535,7 +535,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:text-xl!"
                 )}
               ></div>
             )}
@@ -547,7 +547,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.shortTrekInfo }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:text-xl!"
                 )}
               ></div>
             )}
@@ -561,7 +561,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:text-xl!"
                 )}
               ></div>
             )}
@@ -573,7 +573,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.priceBreakDown }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:text-xl!"
                 )}
               ></div>
             )}
@@ -585,18 +585,18 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.bookingInfo }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:text-xl!"
                 )}
               ></div>
             )}
 
             {/* Call to Action */}
-            <div className="flex flex-col bg-green-700 p-4 text-white p-4 rounded-sm gap-4">
+            <div className="flex flex-col bg-green-700  text-white p-4 rounded-sm gap-4">
               <div>
                 <p className="text-xl font-bold">
                   Interested in this package?
                 </p>
-                <p>Tell us a bit about your plan, and we’ll send you the best offer available.</p>
+                <p>Tell us a bit about your plan, and we&apos;ll send you the best offer available.</p>
               </div>
               <Link href={"/booking"} className="cursor-pointer">
                 <Button>Ask for the Cost Now</Button>

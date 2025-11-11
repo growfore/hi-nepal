@@ -30,6 +30,7 @@ import TrekkingCard from "@/components/molecules/TrekkingCard";
 import CustomizeTrip from "@/components/organisms/customize-my-trip";
 import { cn } from "@/lib/utils";
 import { notFound } from "next/navigation";
+import { Button } from "@/components/ui/button";
 
 export async function generateMetadata({
   params,
@@ -407,7 +408,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.highlights }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:!text-xl"
+                  "prose max-w-none marker:text-black marker:!text-xl -mt-8"
                 )}
               ></div>
             )}
@@ -591,16 +592,15 @@ const Activities = async ({ params }: { params: Params }) => {
             )}
 
             {/* Call to Action */}
-            <div className="bg-orange-500 text-white p-8 rounded-lg shadow-md text-center mb-12">
-              <h2 className="text-3xl font-bold mb-6">
-                Interested in this package?
-              </h2>
-              <Link
-                href={"tel:+977 9856035091"}
-                id="ask-for-cost-btn"
-                className="bg-white text-orange-600 hover:bg-gray-100 px-6 py-4 text-sm font-semibold rounded-full"
-              >
-                Ask for the Cost Now
+            <div className="flex flex-col bg-green-700 p-4 text-white p-4 rounded-sm gap-4">
+              <div>
+                <p className="text-xl font-bold">
+                  Interested in this package?
+                </p>
+                <p>Tell us a bit about your plan, and we’ll send you the best offer available.</p>
+              </div>
+              <Link href={"/booking"} className="cursor-pointer">
+                <Button>Ask for the Cost Now</Button>
               </Link>
             </div>
 

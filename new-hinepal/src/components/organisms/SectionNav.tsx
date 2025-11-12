@@ -16,7 +16,7 @@ export function SectionNav({ navigations }: Props) {
   const ignoreScrollUpdate = useRef(false);
 
   useEffect(() => {
-    const NAVBAR_HEIGHT = 56;
+    const NAVBAR_HEIGHT = 100;
 
     const handleScroll = () => {
       if (ignoreScrollUpdate.current) return;
@@ -59,7 +59,7 @@ export function SectionNav({ navigations }: Props) {
   if (!visible) return null;
 
   return (
-    <div className="z-[99] fixed top-[30px] mt-12 md:mt-16  flex justify-center  bg-orange-500  w-[100vw]">
+    <div className="z-[99] fixed top-[90px] mt-12 md:mt-16  flex justify-center  bg-orange-500  w-[100vw]">
       <div className="container z-[99] section-nav  flex justify-center  bg-orange-500  w-full  overflow-auto whitespace-nowrap">
         {navigations.map((nav, index) => {
           const Icon = Icons[nav.icon];

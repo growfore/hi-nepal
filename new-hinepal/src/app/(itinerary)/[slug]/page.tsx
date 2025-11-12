@@ -283,7 +283,7 @@ const Activities = async ({ params }: { params: Params }) => {
       <>
         {/* Section Navigation */}
         <div className="container mx-auto px-4 md:px-6">
-          <div className="container py-4 text-left mt-42">
+          <div className="container py-1 md:py-4 text-left mt-42">
             <h1 className="text-2xl md:text-3xl lg:4xl font-extrabold leading-tight">
               {details.title}
             </h1>
@@ -622,7 +622,7 @@ const Activities = async ({ params }: { params: Params }) => {
 
           {/* RIGHT SIDEBAR */}
           <aside className="lg:col-span-1">
-            <div className="lg:col-span-1 sticky top-32 px-2 pt-6">
+            <div className="lg:col-span-1 sticky top-52 px-2 pt-6">
               <div className="hidden lg:block">
                 <TalkToExpertCard details={details} />
               </div>

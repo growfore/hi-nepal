@@ -16,7 +16,7 @@ export function SectionNav({ navigations }: Props) {
   const ignoreScrollUpdate = useRef(false);
 
   useEffect(() => {
-    const NAVBAR_HEIGHT = 100;
+    const NAVBAR_HEIGHT = 56;
 
     const handleScroll = () => {
       if (ignoreScrollUpdate.current) return;

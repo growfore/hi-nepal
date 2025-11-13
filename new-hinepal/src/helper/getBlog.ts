@@ -1,7 +1,7 @@
 export async function getBlogs(page = 1, perPage = 10) {
   const res = await fetch(
     `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?per_page=${perPage}&page=${page}&_fields=id,title,slug,excerpt,date,featured_media`,
-    { cache: "no-cache" }
+    { next: { revalidate: 3600 } }
   );
 
   const total = res.headers.get("X-WP-Total");
@@ -18,7 +18,7 @@ export async function getBlogs(page = 1, perPage = 10) {
         try {
           const imgRes = await fetch(
             `https://hinepaltreks.com/cms/wp-json/wp/v2/media/${post.featured_media}`,
-            { cache: "no-cache" }
+            { next: { revalidate: 3600 } }
           );
           const imgData = await imgRes.json();
           image = imgData.source_url || null;
@@ -50,7 +50,7 @@ export async function getBlogs(page = 1, perPage = 10) {
 export async function getBlogSingle(slug: string) {
   const res = await fetch(
     `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?slug=${slug}&_fields=id,title,content,slug,date,modified,featured_media,rank_math_meta`,
-    { cache: "no-store" }
+    { next: { revalidate: 3600 } }
   );
   const data = await res.json();
   const post = data[0];
@@ -62,7 +62,7 @@ export async function getBlogSingle(slug: string) {
     try {
       const imgRes = await fetch(
         `https://hinepaltreks.com/cms/wp-json/wp/v2/media/${post.featured_media}`,
-        { cache: "no-store" }
+        { next: { revalidate: 3600 } }
       );
       const imgData = await imgRes.json();
       image = imgData.source_url || "";

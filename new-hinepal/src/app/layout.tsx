@@ -46,7 +46,6 @@ export default async function RootLayout({
         <CustomLayout footer={<Footer />} header={<Navbar />}>
           {children}
           <GoogleAnalytics gaId="G-E1QTRNT388" />
-          <TranslateWidget />
           <Toaster position="top-center" />
         </CustomLayout>
       </body>

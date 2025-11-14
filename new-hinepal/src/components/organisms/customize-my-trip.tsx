@@ -19,9 +19,9 @@ import { toast } from "react-hot-toast";
 
 export default function CustomizeTrip({
   packageName,
-}: {
+}: Readonly<{
   packageName: string;
-}) {
+}>) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,29 +29,31 @@ export default function CustomizeTrip({
     contactNumber: "",
   });
 
-  const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isOpen, setIsOpen] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: "" }));
+      setErrors((prev) => ({ ...prev, [field]: "" }));
     }
   };
 
   const validateForm = () => {
-    const newErrors: {[key: string]: string} = {};
-    
+    const newErrors: { [key: string]: string } = {};
+
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
     }
-    
+
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)
+    ) {
       newErrors.email = "Invalid email address";
     }
-    
+
     const messageWordCount = formData.message
       .trim()
       .split(/\s+/)
@@ -61,7 +63,7 @@ export default function CustomizeTrip({
     } else if (messageWordCount < 50) {
       newErrors.message = `Message must be at least 50 words (current: ${messageWordCount}).`;
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -77,14 +79,21 @@ export default function CustomizeTrip({
       const result = await res.json();
 
       if (res.ok && result.success) {
-        toast.success("Your inquiry has been sent successfully! We will get back to you soon.");
+        toast.success(
+          "Your inquiry has been sent successfully! We will get back to you soon."
+        );
         resetForm();
         setIsOpen(false);
       } else {
-        toast.error(result.error || "Failed to send your inquiry. Please try again.");
+        toast.error(
+          result.error || "Failed to send your inquiry. Please try again."
+        );
       }
-    } catch (error) {
-      toast.error("Network error. Please check your connection and try again.");
+    } catch (error: any) {
+      throw new Error(
+        "Network erro. Please check your connection and try again.",
+        error
+      );
     }
   }
 
@@ -130,56 +139,62 @@ export default function CustomizeTrip({
             </DialogDescription>
           </DialogHeader>
 
-          <>
-            <div className="grid gap-4">
-              <div className="grid gap-3">
-                <Label htmlFor="name">Name *</Label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={(e) => handleInputChange("name", e.target.value)}
-                  placeholder="Your full name"
-                />
-                {errors.name && <span className="text-red-500 text-sm">{errors.name}</span>}
-              </div>
-              <div className="grid gap-3">
-                <Label htmlFor="contact-number">Contact Number</Label>
-                <Input
-                  id="contact-number"
-                  name="contact-number"
-                  value={formData.contactNumber}
-                  onChange={(e) => handleInputChange("contactNumber", e.target.value)}
-                  placeholder="Your phone number"
-                />
-              </div>
-              <div className="grid gap-3">
-                <Label htmlFor="email">Email *</Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => handleInputChange("email", e.target.value)}
-                  placeholder="your.email@example.com"
-                />
-                {errors.email && <span className="text-red-500 text-sm">{errors.email}</span>}
-              </div>
-              <div className="grid gap-3">
-                <Label htmlFor="message">Message *</Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  rows={6}
-                  value={formData.message}
-                  onChange={(e) => handleInputChange("message", e.target.value)}
-                  placeholder="Tell us about your ideal trip, preferred dates, group size, special requirements, etc."
-                />
-                {errors.message && <span className="text-red-500 text-sm">{errors.message}</span>}
-              </div>
+          <div className="grid gap-4">
+            <div className="grid gap-3">
+              <Label htmlFor="name">Name *</Label>
+              <Input
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={(e) => handleInputChange("name", e.target.value)}
+                placeholder="Your full name"
+              />
+              {errors.name && (
+                <span className="text-red-500 text-sm">{errors.name}</span>
+              )}
             </div>
-          </>
-          
+            <div className="grid gap-3">
+              <Label htmlFor="contact-number">Contact Number</Label>
+              <Input
+                id="contact-number"
+                name="contact-number"
+                value={formData.contactNumber}
+                onChange={(e) =>
+                  handleInputChange("contactNumber", e.target.value)
+                }
+                placeholder="Your phone number"
+              />
+            </div>
+            <div className="grid gap-3">
+              <Label htmlFor="email">Email *</Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={(e) => handleInputChange("email", e.target.value)}
+                placeholder="your.email@example.com"
+              />
+              {errors.email && (
+                <span className="text-red-500 text-sm">{errors.email}</span>
+              )}
+            </div>
+            <div className="grid gap-3">
+              <Label htmlFor="message">Message *</Label>
+              <Textarea
+                id="message"
+                name="message"
+                rows={6}
+                value={formData.message}
+                onChange={(e) => handleInputChange("message", e.target.value)}
+                placeholder="Tell us about your ideal trip, preferred dates, group size, special requirements, etc."
+              />
+              {errors.message && (
+                <span className="text-red-500 text-sm">{errors.message}</span>
+              )}
+            </div>
+          </div>
+
           <DialogFooter className="mt-6">
             <DialogClose asChild>
               <Button variant="outline" type="button">

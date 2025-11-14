@@ -1,9 +1,8 @@
 "use server";
 
 import Link from "next/link";
-import React from "react";
 import { LucideClock } from "lucide-react";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
@@ -14,11 +13,10 @@ type TCardProps = {
   days?: string | null;
   destination?: string;
   activity?: boolean;
-  imageAlt?: string;
 };
 
 const TrekkingCard = (props: TCardProps) => {
-  const { slug, image, title, days, destination, activity, imageAlt } = props;
+  const { slug, image, title, days, destination, activity } = props;
 
   return (
     <div
@@ -43,55 +41,34 @@ const TrekkingCard = (props: TCardProps) => {
         </Link>
       </figure>
       <div className="p-4">
-        <>
-          <h3 className="text-2xl font-bold text-dark-blue-900 mb-2">
-            <Link title={title} href={`/${slug}`}>
-              {title.split(":")[0]}
-            </Link>
-          </h3>
-          <div
+        <h3 className="text-2xl font-bold text-dark-blue-900 mb-2">
+          <Link title={title} href={`/${slug}`}>
+            {title.split(":")[0]}
+          </Link>
+        </h3>
+        <div
+          className={cn(activity ? "flex" : "hidden", "gap-1 justify-between")}
+        >
+          <div className="flex gap-1 flex-col">
+            <p>{destination}</p>
+            <p className="flex gap-1 items-center">
+              <LucideClock strokeWidth={1} />
+              <span>{days} Day(s)</span>
+            </p>
+          </div>
+        </div>
+        <Link href={`/booking?destination=${slug}`}>
+          <Button
+            size={"lg"}
             className={cn(
-              activity ? "flex" : "hidden",
-              "gap-1 justify-between"
+              activity ? "" : "hidden",
+              "rounded-full bg-orange-400 hover:bg-orange-600 cursor-pointer mt-4"
             )}
           >
-            <div className="flex gap-1 flex-col">
-              <p>{destination && destination}</p>
-              <p className="flex gap-1 items-center">
-                <LucideClock strokeWidth={1} />
-                <span>{days && days} Day(s)</span>
-              </p>
-            </div>
-            {/* <div className="flex flex-col">
-                <p>115+ Reviews</p>
-                <p className="flex gap-1 items-center">
-                  {Array.from({ length: 5 }).map((_, idx) => {
-                    return (
-                      <span>
-                        <LucideStar size={16} fill="#18A44A" stroke="#18A44A" />
-                      </span>
-                    );
-                  })}
-                </p>
-                <p className="font-bold text-green-600">5.0 Ratings</p>
-              </div> */}
-          </div>
-        </>
-
-        <>
-          <Link href={`/booking?destination=${slug}`}>
-            <Button
-              size={"lg"}
-              className={cn(
-                activity ? "" : "hidden",
-                "rounded-full bg-orange-400 hover:bg-orange-600 cursor-pointer mt-4"
-              )}
-            >
-              {" "}
-              Book Now
-            </Button>
-          </Link>
-        </>
+            {" "}
+            Book Now
+          </Button>
+        </Link>
       </div>
     </div>
   );

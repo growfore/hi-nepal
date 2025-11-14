@@ -20,10 +20,10 @@ export default function TripAdvisorBadge() {
       <div className="border-l pl-2 border-gray-300 h-8 flex justify-center  flex-col">
         <div className="flex justify-center items-center gap-1">
           <span className="ml-2 font-semibold text-sm flex">5.0</span>
-          {Array.from({ length: 5 }).map((_arr, index) => {
+          {new Array(5).fill(null).map((_arr) => {
             return (
               <div
-                key={index}
+                key={_arr}
                 className="bg-green-700 rounded-full w-4 h-4"
               ></div>
             );
@@ -31,7 +31,11 @@ export default function TripAdvisorBadge() {
         </div>
         <p className="ml-2 text-xs">115+ Reviews</p>
       </div>
-      <Button size={'sm'} variant={"secondary"} className="cursor-pointer rounded-3xl text-xs md:justify-self-end sm:ml-8 md:ml-0">
+      <Button
+        size={"sm"}
+        variant={"secondary"}
+        className="cursor-pointer rounded-3xl text-xs md:justify-self-end sm:ml-8 md:ml-0"
+      >
         Read Reviews
       </Button>
     </Link>

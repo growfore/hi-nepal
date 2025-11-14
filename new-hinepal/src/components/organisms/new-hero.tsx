@@ -1,11 +1,17 @@
 import { TPackage } from "@/types/types";
 import SearchBox from "../molecules/search-box";
 
-export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
+export default function NewHero({
+  packages = [],
+}: Readonly<{ packages?: TPackage[] }>) {
   return (
     <section className="relative p-2 mt-16 md:mt-[94px] flex flex-col items-center justify-center text-center text-white h-[60vh] md:h-[80vh] overflow-hidden">
       <div className="absolute inset-0 -z-10 h-full w-full overflow-hidden">
-        <img  src={"/assets/mount-everest.webp"} alt="" className="object-cover h-[720px] md:hidden"/>
+        <img
+          src={"/assets/mount-everest.webp"}
+          alt=""
+          className="object-cover h-[720px] md:hidden"
+        />
         <video
           autoPlay
           loop
@@ -18,29 +24,6 @@ export default function NewHero({ packages = [] }: { packages?: TPackage[] }) {
           <source src="/assets/videos/optimized.webm" type="video/webm" />
         </video>
 
-
-        {/* tablet */}
-        {/* <video className="hidden sm:block md:hidden">
-          <source src="/assets/videos/hinepal-hero-tablet.mp4" type="video/mp4" />
-        </video> */}
-
-        {/* mobile  */}
-        {/* <video className="sm:hidden">
-          <source src="/assets/videos/hinepal-hero-mobile.mp4" type="video/mp4" />
-        </video> */}
-        {/* <Image
-          src={"/assets/mount-everest.webp"}
-          // width={1920}
-          // height={720}
-          alt="mount everest"
-          fill
-          className="object-cover"
-        /> */}
-        {/* <Image src="/assets/mount-everest.webp"
-          height={1000}
-          width={1500}
-          alt="Mount everest"
-        /> */}
         <div className="absolute inset-0 bg-black/50" />
       </div>
 

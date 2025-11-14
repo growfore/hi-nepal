@@ -200,7 +200,6 @@ export default async function ActivitySingle({
                     slug={d.slug}
                     title={d.name}
                     image={d.image}
-                    imageAlt={d.imageAlt}
                   />
                 </Link>
               );

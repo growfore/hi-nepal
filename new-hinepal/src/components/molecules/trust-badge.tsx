@@ -1,6 +1,5 @@
 "use client";
 
-import { LucideStar } from "lucide-react";
 import Link from "next/link";
 
 export default function TrustBadge() {
@@ -15,14 +14,13 @@ export default function TrustBadge() {
       <div className="flex gap-1">
         5.0
         <div className="flex gap-0.5 items-center justify-center mx-2">
-          {Array.from({ length: 5 }).map((arr, index) => {
+          {new Array(5).fill(null).map((arr) => {
             return (
               <div
-                key={index}
+                key={arr}
                 className="bg-green-700 rounded-full w-4 h-4"
               ></div>
             );
-            // return <LucideStar color="orange" fill="orange" />;
           })}
         </div>
       </div>

@@ -1,72 +1,72 @@
 async function get(request: TRequest): Promise<void> {
-  const { endPoint, token, params, data, success, failure } = request;
+  const { endPoint, token, params, success, failure } = request;
   //  convert params to query string
-  let queryString = '';
+  let queryString = "";
   if (params) {
     queryString = Object.keys(params)
       .map((key) => `${key}=${params[key]}`)
-      .join('&');
+      .join("&");
   }
   const url = `${endPoint}?${queryString}`;
 
   try {
     const response = await fetch(url, {
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      method: 'GET',
+      method: "GET",
       cache: "no-cache",
     });
     if (!response.ok) {
-      throw new Error(response.statusText || 'error');
+      throw new Error(response.statusText || "error");
     }
     const data = await response.json();
 
-    if (response.ok) success(data?.message || 'success', data);
+    if (response.ok) success(data?.message || "success", data);
   } catch (error: any) {
-    failure(error || 'error');
+    failure(error || "error");
   }
 }
 
 async function post(request: TRequest): Promise<void> {
-  const { endPoint, token, params, data, success, failure } = request;
+  const { endPoint, token, success, failure } = request;
   try {
     const response: TpostResponse = await fetch(endPoint, {
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(request.data || {}),
     });
     const data = await response.json();
     if (!response.ok) {
-      failure(data?.message || 'error');
+      failure(data?.message || "error");
     }
-    if (response.ok) success(data?.message || 'success', data);
+    if (response.ok) success(data?.message || "success", data);
   } catch (error: any) {
-    failure(error?.message || 'error');
+    failure(error?.message || "error");
   }
 }
 async function patch(request: TRequest) {
-  const { endPoint, token, params, data, success, failure } = request;
+  const { endPoint, token, success, failure } = request;
   try {
     const response: TpatchResponse = await fetch(endPoint, {
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      method: 'PATCH',
+      method: "PATCH",
       body: JSON.stringify(request.data || {}),
     });
     const data = await response.json();
     if (!response.ok) {
-      failure(data?.message || 'error');
+      failure(data?.message || "error");
     }
-    if (response.ok) success(data?.message || 'success', data);
+    if (response.ok) success(data?.message || "success", data);
   } catch (error: any) {
-    failure(error?.message || 'error');
+    failure(error?.message || "error");
   }
 }
 async function del(request: TRequest): Promise<void> {
@@ -76,54 +76,54 @@ async function del(request: TRequest): Promise<void> {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      method: 'DELETE',
+      method: "DELETE",
     });
     const data = await response.json();
     if (!response.ok) {
-      failure(data?.message || 'error');
+      failure(data?.message || "error");
     }
-    if (response.ok) success(data?.message || 'success', data);
+    if (response.ok) success(data?.message || "success", data);
   } catch (error: any) {
-    failure(error?.message || 'error');
+    failure(error?.message || "error");
   }
 }
 
 async function postWithFile(request: TRequest) {
-  const { endPoint, token, params, data, success, failure } = request;
+  const { endPoint, token, success, failure } = request;
   try {
     const response: TpostWithFileResponse = await fetch(endPoint, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      method: 'POST',
+      method: "POST",
       body: request.data,
     });
     const data = await response.json();
     if (!response.ok) {
-      failure(data?.message || 'error');
+      failure(data?.message || "error");
     }
-    if (response.ok) success(data?.message || 'success', data);
+    if (response.ok) success(data?.message || "success", data);
   } catch (error: any) {
-    failure(error?.message || 'error');
+    failure(error?.message || "error");
   }
 }
 async function patchWithFile(request: TRequest) {
-  const { endPoint, token, params, data, success, failure } = request;
+  const { endPoint, token, success, failure } = request;
   try {
     const response: TpostWithFileResponse = await fetch(endPoint, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      method: 'PATCH',
+      method: "PATCH",
       body: request.data,
     });
     const data = await response.json();
     if (!response.ok) {
-      failure(data?.message || 'error');
+      failure(data?.message || "error");
     }
-    if (response.ok) success(data?.message || 'success', data);
+    if (response.ok) success(data?.message || "success", data);
   } catch (error: any) {
-    failure(error?.message || 'error');
+    failure(error?.message || "error");
   }
 }
 export { get, post, patch, del, postWithFile, patchWithFile };

@@ -18,7 +18,7 @@ export function EmailTemplate({
   groupSize,
   contactNumber,
   experienceLevel,
-}: EmailTemplateProps) {
+}: Readonly<EmailTemplateProps>) {
   return (
     <div
       style={{

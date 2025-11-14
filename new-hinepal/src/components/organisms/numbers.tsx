@@ -75,7 +75,7 @@ const Numbers = () => {
             </div>
 
             <div className='bg-white rounded-xl shadow-lg p-6 flex items-center gap-4 mt-12 max-w-sm mx-auto lg:mx-0 lg:absolute lg:-bottom-16 lg:left-16'>
-              <div className='flex-shrink-0'>
+              <div className='shrink-0'>
                 <Headset color='green' size={40} />
               </div>
               <div className=''>

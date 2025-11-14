@@ -23,8 +23,11 @@ export async function getBlogs(page = 1, perPage = 10) {
           const imgData = await imgRes.json();
           image = imgData.source_url || null;
           imageAlt = imgData.alt_text || null;
-        } catch (e) {
-          console.warn("Failed to fetch featured media for post", post.id);
+        } catch (e: any) {
+          throw new Error(
+            `Failed to fetch featured media for post:${post.id} `,
+            e
+          );
         }
       }
 
@@ -67,8 +70,8 @@ export async function getBlogSingle(slug: string) {
       const imgData = await imgRes.json();
       image = imgData.source_url || "";
       imageAlt = imgData.alt_text || "";
-    } catch (e) {
-      console.warn("Failed to fetch featured media for post", post.id);
+    } catch (e: any) {
+      throw new Error(`Failed to fetch featured media for post ${post.id}`, e);
     }
   }
 

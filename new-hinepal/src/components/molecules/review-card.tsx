@@ -28,11 +28,8 @@ export function ReviewCard({
   date,
   tripType,
   content,
-  likesCount,
-  isLiked = false,
-  onLike,
   className,
-}: ReviewCardProps) {
+}: Readonly<ReviewCardProps>) {
   const renderStars = () => {
     return Array.from({ length: 5 }, (_, i) => (
       <div
@@ -78,8 +75,8 @@ export function ReviewCard({
 
         {/* Review content */}
         <div className="text-gray-700 leading-relaxed space-y-4">
-          {content.split("\n\n").map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
+          {content.split("\n\n").map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
       </CardContent>

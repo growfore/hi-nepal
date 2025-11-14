@@ -48,7 +48,7 @@ const Activities = async () => {
         </div>
         <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 '>
           {activities.map((activity, index) => (
-            <div key={index} className='flex flex-col items-center text-center'>
+            <div key={activity.id} className='flex flex-col items-center text-center'>
               <div className='w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mb-4 shadow-md'>
                 <Link aria-label={activity.name} href={`/activities/${activity.slug}`}>
                   {activityIcons[index % activityIcons.length] || <Mountain className="w-12 h-12 text-gray-700" />}

@@ -15,35 +15,30 @@ const Team = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8">
-          {teamData.map((item, index) => {
+          {teamData.map((item) => {
             return (
-              <>
-                <div key={index} className="flex justify-center">
-                  <article className="bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-sm">
-                    <figure className="w-full h-72 relative">
-                      <Image
-                        height={300}
-                        width={300}
-                        alt={item.name}
-                        loading="lazy"
-                        src={(item.image)}
-                        className="w-full h-full object-cover"
-                      />
-                    </figure>
-                    <div className="p-6 text-center">
-                      <h3 className="text-xl font-bold text-dark-blue-900 mb-1">
-                        {item.name}
-                      </h3>
-                      <div className="text-orange-500 font-semibold text-sm mb-3">
-                        {item.position}
-                      </div>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {/* {item.description} */}
-                      </p>
+              <div key={item.name} className="flex justify-center">
+                <article className="bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-sm">
+                  <figure className="w-full h-72 relative">
+                    <Image
+                      height={300}
+                      width={300}
+                      alt={item.name}
+                      loading="lazy"
+                      src={item.image}
+                      className="w-full h-full object-cover"
+                    />
+                  </figure>
+                  <div className="p-6 text-center">
+                    <h3 className="text-xl font-bold text-dark-blue-900 mb-1">
+                      {item.name}
+                    </h3>
+                    <div className="text-orange-500 font-semibold text-sm mb-3">
+                      {item.position}
                     </div>
-                  </article>
-                </div>
-              </>
+                  </div>
+                </article>
+              </div>
             );
           })}
         </div>

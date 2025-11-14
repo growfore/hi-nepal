@@ -531,7 +531,7 @@ export default async function RegionPage({
             /* @ts-ignore */
             data?.length > 0 &&
             /* @ts-ignore */
-            data?.map((d, idx) => {
+            data?.map((d) => {
               return (
                 <Link key={d.slug} href={`/${d.slug}`}>
                   <TrekkingCard
@@ -539,7 +539,6 @@ export default async function RegionPage({
                     title={d.title.split(":")[0]}
                     image={d.thumbnail}
                     days={d.duration}
-                    imageAlt={d.imageAlt}
                   />
                 </Link>
               );

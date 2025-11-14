@@ -11,7 +11,7 @@ type FAQItem = {
   answer: string;
 };
 
-export default function FAQRenderer({ faqs }: { faqs: FAQItem[] }) {
+export default function FAQRenderer({ faqs }: Readonly<{ faqs: FAQItem[] }>) {
   if (!faqs || faqs.length === 0) return null;
 
   return (
@@ -28,7 +28,7 @@ export default function FAQRenderer({ faqs }: { faqs: FAQItem[] }) {
         className="w-full"
       >
         {faqs.map((faq, i) => (
-          <AccordionItem key={i} value={`item-${i}`}>
+          <AccordionItem key={faq.question} value={`item-${i}`}>
             <AccordionTrigger className="text-left text-lg no-underline hover:no-underline hover:text-green-700 cursor-pointer font-semibold flex justify-between">
               {faq.question}
             </AccordionTrigger>

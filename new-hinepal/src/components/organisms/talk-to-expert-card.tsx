@@ -10,7 +10,9 @@ const expertServices = [
   "Secure Payments",
   "No Hidden Fees",
 ];
-export default function TalkToExpertCard({ details }: { details: any }) {
+export default function TalkToExpertCard({
+  details,
+}: Readonly<{ details: any }>) {
   return (
     <div className="px-4 py-1 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-30 border border-gray-300 flex flex-col mb-8">
       <strong className="font-bold text-2xl mb-2">
@@ -32,9 +34,9 @@ export default function TalkToExpertCard({ details }: { details: any }) {
         </p>
       </div>
       <ul className="flex flex-col justify-start mb-2 gap-2">
-        {expertServices.map((service, index) => {
+        {expertServices.map((service) => {
           return (
-            <li className="flex gap-1 items-center" key={index}>
+            <li className="flex gap-1 items-center" key={service}>
               <CheckCircle className="text-green-700" size={16} />
               {service}
             </li>
@@ -52,7 +54,9 @@ export default function TalkToExpertCard({ details }: { details: any }) {
           src="/assets/whatsapp-logo.webp"
           alt="WhatsApp"
         /> */}
-        <Button className="w-full" size={'lg'}>Send a message</Button>
+        <Button className="w-full" size={"lg"}>
+          Send a message
+        </Button>
       </Link>
       <TripAdvisorBadge />
     </div>

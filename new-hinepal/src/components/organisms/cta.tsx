@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function Cta() {
     return (
-        <div className="mt-12 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl p-8 text-center text-white">
+        <div className="mt-12 bg-linear-to-r from-green-500 to-green-600 rounded-2xl p-8 text-center text-white">
             <h3 className="text-2xl font-bold mb-4">Ready for Your Next Adventure?</h3>
             <p className="text-green-100 mb-6 max-w-2xl mx-auto">
                 Discover more amazing treks and expeditions in Nepal. Let us help you plan your perfect mountain

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useContext } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import * as Icons from "lucide-react";
 import Link from "next/link";
@@ -8,7 +8,7 @@ import Link from "next/link";
 type NavItem = { id: string; label: string; icon: keyof typeof Icons };
 type Props = { navigations: NavItem[] };
 
-export function SectionNav({ navigations }: Props) {
+export function SectionNav({ navigations }: Readonly<Props>) {
   const [activeId, setActiveId] = useState("");
   const [visible, setVisible] = useState(false);
 
@@ -29,7 +29,10 @@ export function SectionNav({ navigations }: Props) {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.offsetHeight;
 
-          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+          if (
+            scrollPos >= sectionTop &&
+            scrollPos < sectionTop + sectionHeight
+          ) {
             currentSection = nav.id;
             break;
           }
@@ -59,16 +62,18 @@ export function SectionNav({ navigations }: Props) {
   if (!visible) return null;
 
   return (
-    <div className="z-[99] fixed top-[90px] mt-12 md:mt-16  flex justify-center  bg-orange-500  w-[100vw]">
-      <div className="container z-[99] section-nav  flex justify-center  bg-orange-500  w-full  overflow-auto whitespace-nowrap">
+    <div className="z-99 fixed top-[90px] mt-12 md:mt-16  flex justify-center  bg-orange-500  w-screen">
+      <div className="container z-99 section-nav  flex justify-center  bg-orange-500  w-full  overflow-auto whitespace-nowrap">
         {navigations.map((nav, index) => {
           const Icon = Icons[nav.icon];
           return (
             <div
               // @ts-ignore
               ref={(el) => (itemRefs.current[nav.id] = el)}
-              className={`py-2 cursor-pointer container flex items-center justify-center mx-auto hover:bg-green-600 hover:opacity-80  hover:text-white text-white ${activeId === nav.id ? "active" : ""}`}
-              key={index}
+              className={`py-2 cursor-pointer container flex items-center justify-center mx-auto hover:bg-green-600 hover:opacity-80  hover:text-white text-white ${
+                activeId === nav.id ? "active" : ""
+              }`}
+              key={nav.id}
             >
               <Link href={`#${nav.id}`}>
                 <Button
@@ -86,7 +91,9 @@ export function SectionNav({ navigations }: Props) {
                       section.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
-                  variant={'ghost'} className="hover:bg-green-600 hover:text-white text-white rounded-none text-lg text-center">
+                  variant={"ghost"}
+                  className="hover:bg-green-600 hover:text-white text-white rounded-none text-lg text-center"
+                >
                   {/* @ts-ignore */}
                   {Icon && <Icon className="w-4 h-4 mr-2" />}
                   {nav.label}
@@ -95,7 +102,7 @@ export function SectionNav({ navigations }: Props) {
             </div>
           );
         })}
-      </div >
+      </div>
     </div>
   );
 }

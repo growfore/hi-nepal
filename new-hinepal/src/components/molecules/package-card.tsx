@@ -3,7 +3,7 @@
 import { TDestinationSingle, TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";
-import { LucideClock, LucideStar } from "lucide-react";
+import { LucideClock } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
@@ -34,35 +34,29 @@ const PackageCard = (props: TProps) => {
           </Link>
         </figure>
         <div className="p-4">
-          <>
-            <h3 className="text-2xl font-bold text-dark-blue-900 mb-2">
-              <Link title={item.title} href={`/${item.slug}`}>
-                {item.title.split(":")[0]}
-              </Link>
-            </h3>
-            <div className="flex gap-1 justify-between">
-              <div className="flex gap-1 flex-col">
-                <p>{item?.destination?.name}</p>
-                <p className="flex gap-1 items-center">
-                  <LucideClock strokeWidth={1} />
-                  <span>
-                    {item?.duration && item.duration.includes(":")
-                      ? item.duration
-                      : item.duration + " Day(s)"}
-                  </span>
-                </p>
-              </div>
-
-              <Link href={`/booking?destination=${item?.slug}`}>
-                <Button
-                  size={"lg"}
-                  className="rounded-full bg-orange-400 hover:bg-orange-600 cursor-pointer mt-4"
-                >
-                  Book Now
-                </Button>
-              </Link>
+          <h3 className="text-2xl font-bold text-dark-blue-900 mb-2">
+            <Link title={item.title} href={`/${item.slug}`}>
+              {item.title.split(":")[0]}
+            </Link>
+          </h3>
+          <div className="flex gap-1 justify-between">
+            <div className="flex gap-1 flex-col">
+              <p>{item?.destination?.name}</p>
+              <p className="flex gap-1 items-center">
+                <LucideClock strokeWidth={1} />
+                <span>{item?.duration ?? "-"} Day(s)</span>
+              </p>
             </div>
-          </>
+
+            <Link href={`/booking?destination=${item?.slug}`}>
+              <Button
+                size={"lg"}
+                className="rounded-full bg-orange-400 hover:bg-orange-600 cursor-pointer mt-4"
+              >
+                Book Now
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

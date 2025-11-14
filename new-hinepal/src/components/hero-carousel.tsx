@@ -1,13 +1,5 @@
 "use client";
 import * as React from "react";
-import Autoplay from "embla-carousel-autoplay";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { ReviewCard } from "./molecules/review-card";
 import { reviews } from "@/constant/reviews";
 import { Button } from "./ui/button";

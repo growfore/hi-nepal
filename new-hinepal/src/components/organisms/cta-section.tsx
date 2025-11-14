@@ -8,7 +8,7 @@ export default function CTASection() {
                             <h5 className='dash-style'>HOLIDAY PACKAGE OFFER</h5>
                             <h2>HOLIDAY SPECIAL 10% OFF!</h2>
                             <h4>
-                                Sign up now to recieve hot special offers and information
+                                Sign up now to receive hot special offers and information
                                 about the best tour packages, updates and discounts !!
                             </h4>
                             <div className='newsletter-form'>

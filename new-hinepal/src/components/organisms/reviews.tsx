@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { reviews } from "@/constant/reviews";
 
 export default function ReviewsGroup() {
-  
   const handleLike = (index: number) => {
     console.log(`Review ${index + 1} liked!`);
   };
@@ -18,7 +17,7 @@ export default function ReviewsGroup() {
       <div className="space-y-6">
         {reviews.map((review, index) => (
           <ReviewCard
-            key={index}
+            key={review.title}
             {...review}
             onLike={() => handleLike(index)}
           />

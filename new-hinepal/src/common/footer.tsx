@@ -1,10 +1,8 @@
 import { TSiteInformation } from "@/types/types";
 import siteStore from "@/zustand/store";
 import {
-  LucidePhone,
   LucideMail,
   LucideMapPin,
-  LucideCheck,
   LucideVerified,
 } from "lucide-react";
 import Link from "next/link";
@@ -117,9 +115,9 @@ export function Footer() {
                       />
                     </div>
                     <div className="flex font-bold items-center italic">
-                      {Array.from([0, 1, 2, 3, 4]).map((_, idx) => (
+                      {new Array(5).map((_, idx) => (
                         <div
-                          key={idx}
+                          key={_}
                           className="size-4 bg-green-500 rounded-full ml-1"
                         ></div>
                       ))}{" "}

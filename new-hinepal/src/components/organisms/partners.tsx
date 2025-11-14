@@ -17,14 +17,14 @@ export function Partners() {
       <div className="container grid grid-cols-2 md:grid-cols-5 px-8 justify-center items-center mx-auto">
         {images.map((image, index) => {
           return (
-            <div key={index} className="flex justify-center items-center p-4">
-              <Image
-                src={"/assets" + image}
-                alt={image}
-                height={200}
-                width={200}
-              />
-            </div>
+            <Image
+              key={image}
+              className="justify-center items-center p-4"
+              src={"/assets" + image}
+              alt={image}
+              height={200}
+              width={200}
+            />
           );
         })}
       </div>

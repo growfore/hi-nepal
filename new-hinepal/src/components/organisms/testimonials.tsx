@@ -9,7 +9,7 @@ const Testimonials = ({
 }: {
   reviews: { name: string; description: string; image: string; link: string }[];
 }) => {
-  var settings = {
+  let settings = {
     dots: true,
     infinite: true,
     speed: 500,

@@ -15,18 +15,9 @@ const GallerySlider = ({ details }: { details: TPackageDetails }) => {
   return (
     <div className='single-tour-gallery'>
       <h3>GALLERY / PHOTOS</h3>
-      {/* <div className='single-tour-slider'>
-        {details?.media?.map((item, index: number) => (
-          <div key={index} className='single-tour-item'>
-            <figure className='feature-image'>
-              <img src={item.url} alt={item.alt || 'feature image'} />
-            </figure>
-          </div>
-        ))}
-      </div> */}
       <Slider {...settings}>
         {details?.media?.map((item, index: number) => (
-          <div key={index} className='single-tour-item'>
+          <div key={item.id} className='single-tour-item'>
             <figure className='feature-image'>
               <Image src={item.url} alt={item.alt || 'feature image'} />
             </figure>

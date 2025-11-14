@@ -1,8 +1,5 @@
 import PackageCard from "@/components/molecules/package-card";
-import endpoints from "@/constant/endpoints";
-import { TPackageDetails, TPackages } from "@/types/types";
-import { get } from "@/utils/request-handler";
-import { usePopularPackages } from "@/zustand/store";
+import { TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";
 
@@ -64,7 +61,7 @@ const BestShortTreks = async ({ packages }: { packages: TPackages }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 place-items-center">
             {filteredPackages.map((item: any, index) => (
               <PackageCard
-                key={index}
+                key={item.id}
                 item={item}
                 destination={{
                   slug: item.destination.slug.split("/")[2],

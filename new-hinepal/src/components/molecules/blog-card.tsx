@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 type TBlogCardProps = {
@@ -17,8 +16,7 @@ export default function BlogCard({
   excerpt,
   image,
   slug,
-  imageAlt
-}: TBlogCardProps) {
+}: Readonly<TBlogCardProps>) {
   const router = useRouter();
   return (
     <div>

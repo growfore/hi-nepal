@@ -7,14 +7,12 @@ type TDataIconProps = {
   size?: number;
   color?: string;
 };
-export function DataIcon({ icon: Icon, k, v, size }: TDataIconProps) {
+export function DataIcon({ icon: Icon, k, v, size }: Readonly<TDataIconProps>) {
   return (
-    <div>
+    <>
       <Icon size={size} className="text-green-900 my-2" />
-      <>
-        <h5 className="font-bold">{k}</h5>
-        <p>{v}</p>
-      </>
-    </div>
+      <h5 className="font-bold">{k}</h5>
+      <p>{v}</p>
+    </>
   );
 }

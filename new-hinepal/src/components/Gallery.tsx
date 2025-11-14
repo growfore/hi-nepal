@@ -13,7 +13,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                 OUR TOUR GALLERY
                             </p>
                             <h2 className='text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight mt-2'>
-                                {siteInformation?.about?.title || 'Explore Our Gallery'}
+                                {siteInformation?.about?.title ?? 'Explore Our Gallery'}
                             </h2>
                             <p className='text-gray-600 text-base md:text-lg leading-relaxed mt-4'>
                                 Hi Nepal Travels & Treks Pvt. Ltd. is the best trekking company in Nepal, specializing in offering unforgettable trekking, tours, and adventure sports experiences across the country. From breathtaking mountain trails to rich cultural journeys, our trekking and travel agency in Nepal offers expertly guided treks, customized tours, and seamless travel services. Trekking to the stunning Everest and Annapurna regions to tour around Pokhara and Kathmandu valleys, Hi Nepal Travels and Treks, a reliable travel agency in Nepal, Pokhara, offers tons of heavenly traveling and trekking destinations in Nepal.
@@ -30,7 +30,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                     width={300}
                                     className='w-full h-full object-cover'
                                     // @ts-ignore
-                                    src={(siteInformation?.about?.image2) || ''}
+                                    src={(siteInformation?.about?.image2) ?? ''}
                                     alt='home page gallery image'
                                 />
                             </figure>
@@ -40,7 +40,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                     width={300}
 
                                     // @ts-ignore
-                                    src={(siteInformation?.about?.image3) || ''}
+                                    src={(siteInformation?.about?.image3) ?? ''}
                                     alt='home page gallery image'
                                     className='w-full h-full object-cover'
                                 />
@@ -54,7 +54,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                     className='w-full h-full object-cover'
 
                                     // @ts-ignore
-                                    src={(siteInformation?.about?.image4) || ''}
+                                    src={(siteInformation?.about?.image4) ?? ''}
                                     alt='home page gallery image'
                                 />
                             </figure>

@@ -117,31 +117,8 @@ export async function generateMetadata({
 }
 
 const Activities = async ({ params }: { params: Params }) => {
-  let details: TPackageDetails = {} as TPackageDetails;
-  let relatedProducts: TPackageDetails[] = [] as TPackageDetails[];
-  const packages: TPackageDetails[] = [];
-  let schema;
-  let destinationSlug = "";
-  let destinationPackages: any = [];
   let blog = await getBlogSingle(params.slug);
-
-  const popularTreks = [
-    "everest-base-camp-trek",
-    "annapurna-base-camp-trek",
-    "langtang",
-    "annapurna-circuit-trek",
-    "manaslu-circuit-trek",
-    "ghorepani-poon-hill-trek",
-    "mardi-himal-trek",
-  ];
-  const popularTours = [
-    "pokhara-valley-tour",
-    "chitwan-national-park-tour",
-    "kathmandu-tour-package",
-    "pokhara-australian-camp-hike",
-    "sarangkot-pokhara-tour",
-    "upper-mustang-tour",
-  ];
+  let schema;
 
   if (blog) {
     schema = {
@@ -164,6 +141,44 @@ const Activities = async ({ params }: { params: Params }) => {
       dateModified: blog.updatedAt,
     };
   }
+
+  if (blog) {
+    return (
+      <div id="content" className="site-main">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema),
+          }}
+        ></script>
+        <BlogPage blog={blog} />
+      </div>
+    );
+  }
+
+  let details: TPackageDetails = {} as TPackageDetails;
+  let relatedProducts: TPackageDetails[] = [] as TPackageDetails[];
+  const packages: TPackageDetails[] = [];
+  let destinationSlug = "";
+  let destinationPackages: any = [];
+
+  const popularTreks = [
+    "everest-base-camp-trek",
+    "annapurna-base-camp-trek",
+    "langtang",
+    "annapurna-circuit-trek",
+    "manaslu-circuit-trek",
+    "ghorepani-poon-hill-trek",
+    "mardi-himal-trek",
+  ];
+  const popularTours = [
+    "pokhara-valley-tour",
+    "chitwan-national-park-tour",
+    "kathmandu-tour-package",
+    "pokhara-australian-camp-hike",
+    "sarangkot-pokhara-tour",
+    "upper-mustang-tour",
+  ];
 
   if (!blog) {
     // get current itinerary details
@@ -251,17 +266,7 @@ const Activities = async ({ params }: { params: Params }) => {
   );
 
   const sectionStyle = "scroll-mt-42 mb-12 py-4 border-b border-gray-300";
-  return blog ? (
-    <div id="content" className="site-main">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(schema),
-        }}
-      ></script>
-      <BlogPage blog={blog} />
-    </div>
-  ) : (
+  return (
     <>
       {itinerarySchema ? (
         <script
@@ -310,12 +315,14 @@ const Activities = async ({ params }: { params: Params }) => {
         {/* @ts-ignore */}
         <SectionNav navigations={navigations} />
 
-        <main className="
+        <main
+          className="
   prose-headings:text-gray-900 prose-headings:font-bold
   prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8 prose-h1:text-red-500
   prose-h2:text-3xl prose-h2:mt-6 prose-h2:mb-2 prose-h2:font-bold prose-h2:text-[#008000]!
   prose-h3:text-xl prose-h3:mt-4 prose-h3:mb-1
-        container mx-auto px-4 md:px-6 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
+        container mx-auto px-4 md:px-6 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12"
+        >
           {/* Main Content Area */}
           <section className="lg:col-span-2">
             <div className="lg:hidden">
@@ -593,10 +600,11 @@ const Activities = async ({ params }: { params: Params }) => {
             {/* Call to Action */}
             <div className="flex flex-col bg-green-700  text-white p-4 rounded-sm gap-4">
               <div>
-                <p className="text-xl font-bold">
-                  Interested in this package?
+                <p className="text-xl font-bold">Interested in this package?</p>
+                <p>
+                  Tell us a bit about your plan, and we&apos;ll send you the
+                  best offer available.
                 </p>
-                <p>Tell us a bit about your plan, and we&apos;ll send you the best offer available.</p>
               </div>
               <Link href={"/booking"} className="cursor-pointer">
                 <Button>Ask for the Cost Now</Button>
@@ -669,8 +677,8 @@ const Activities = async ({ params }: { params: Params }) => {
             {details?.slug?.includes("trek")
               ? "Treks"
               : details?.slug?.includes("tour")
-                ? "Tours"
-                : "Destinations"}
+              ? "Tours"
+              : "Destinations"}
           </h2>
           <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  p-4">
             {filteredTreks.map((p, k) => {

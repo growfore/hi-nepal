@@ -4,7 +4,7 @@ export default function Loading() {
       {/* Hero Section Skeleton */}
       <div className="relative h-[600px] bg-gray-300 animate-pulse">
         {/* Hero Background Skeleton */}
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-400 to-gray-500" />
+        <div className="absolute inset-0 bg-linear-to-b from-gray-400 to-gray-500" />
 
         {/* Hero Content Skeleton */}
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
@@ -17,8 +17,11 @@ export default function Loading() {
           {/* Review Bar Skeleton */}
           <div className="bg-white/90 rounded-full px-6 py-3 flex items-center gap-4">
             <div className="flex gap-1">
-              {[...Array(5)].map((_, i) => (
-                <div key={i} className="w-3 h-3 bg-gray-300 rounded-full animate-pulse" />
+              {new Array(5).map((_, i) => (
+                <div
+                  key={i}
+                  className="w-3 h-3 bg-gray-300 rounded-full animate-pulse"
+                />
               ))}
             </div>
             <div className="h-4 bg-gray-300 rounded w-32 animate-pulse" />
@@ -35,8 +38,11 @@ export default function Loading() {
           <div className="lg:col-span-2 space-y-8">
             {/* Trek Info Cards Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="bg-white rounded-lg p-4 shadow-sm border animate-pulse">
+              {new Array(5).map((_, i) => (
+                <div
+                  key={i}
+                  className="bg-white rounded-lg p-4 shadow-sm border animate-pulse"
+                >
                   <div className="w-8 h-8 bg-green-200 rounded-full mb-3" />
                   <div className="h-4 bg-gray-300 rounded w-20 mb-2" />
                   <div className="h-3 bg-gray-200 rounded w-full mb-1" />
@@ -110,5 +116,5 @@ export default function Loading() {
         </div>
       </div>
     </div>
-  )
+  );
 }

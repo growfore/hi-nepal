@@ -145,9 +145,9 @@ export default async function SitemapPage() {
           </Link>
         </li>
         <li>
-          {blogs?.posts?.map((blog: any, index: number) => {
+          {blogs?.posts?.map((blog: any) => {
             return (
-              <li>
+              <li key={blog.slug}>
                 <Link
                   title={`Read more about ${blog.title}`}
                   className={hoverStyle}

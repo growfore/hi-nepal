@@ -157,12 +157,12 @@ const Activities = async ({ params }: { params: Params }) => {
   }
 
   let details: TPackageDetails = {} as TPackageDetails;
-  let relatedProducts: TPackageDetails[] = [] as TPackageDetails[];
+  let relatedProducts;
   const packages: TPackageDetails[] = [];
   let destinationSlug = "";
   let destinationPackages: any = [];
 
-  const popularTreks = [
+  const popularTreks: Set<string> = new Set([
     "everest-base-camp-trek",
     "annapurna-base-camp-trek",
     "langtang",
@@ -170,15 +170,7 @@ const Activities = async ({ params }: { params: Params }) => {
     "manaslu-circuit-trek",
     "ghorepani-poon-hill-trek",
     "mardi-himal-trek",
-  ];
-  const popularTours = [
-    "pokhara-valley-tour",
-    "chitwan-national-park-tour",
-    "kathmandu-tour-package",
-    "pokhara-australian-camp-hike",
-    "sarangkot-pokhara-tour",
-    "upper-mustang-tour",
-  ];
+  ]);
 
   if (!blog) {
     // get current itinerary details
@@ -220,7 +212,7 @@ const Activities = async ({ params }: { params: Params }) => {
   }
 
   const filteredTreks: TPackageDetails[] = packages.filter((pkg) =>
-    popularTreks.includes(pkg.slug)
+    popularTreks.has(pkg.slug)
   );
 
   const navigations = [
@@ -255,12 +247,6 @@ const Activities = async ({ params }: { params: Params }) => {
     };
   }
 
-  const filteredTours: TPackageDetails[] = packages.filter((pkg) =>
-    popularTours.includes(pkg.slug)
-  );
-  // const pacakgesToPass: TPackageDetails[] = params.slug.includes("trek")
-  //   ? filteredTeks
-  //   : filteredTours;
   relatedProducts = destinationPackages.filter(
     (pkg: any) => pkg.id !== details.id
   );
@@ -383,15 +369,13 @@ const Activities = async ({ params }: { params: Params }) => {
               {details?.permits && (
                 <div className="col-span-2 sm:col-span-3 lg:col-span-4 flex items-center gap-4 p-4 bg-white rounded-md border-gray-100">
                   <Ticket className="w-8 h-8 text-green-700" />
-                  <>
-                    <h5 className="text-base font-bold text-icon-bg-green mb-1">
-                      Permits
-                    </h5>
-                    <p className="text-sm text-gray-700 leading-snug">
-                      {details.permits ??
-                        "Manaslu Restricted Area Permit (MRAP), Annapurna Conservation Area Permit (ACAP), Manaslu Conservation Area Permit (MCAP)"}
-                    </p>
-                  </>
+                  <h5 className="text-base font-bold text-icon-bg-green mb-1">
+                    Permits
+                  </h5>
+                  <p className="text-sm text-gray-700 leading-snug">
+                    {details.permits ??
+                      "Manaslu Restricted Area Permit (MRAP), Annapurna Conservation Area Permit (ACAP), Manaslu Conservation Area Permit (MCAP)"}
+                  </p>
                 </div>
               )}
             </div>
@@ -616,16 +600,6 @@ const Activities = async ({ params }: { params: Params }) => {
 
             {/* Reviews */}
             <ReviewsGroup />
-
-            {/* Gallery */}
-            {/* {details?.media && details?.media.length > 0 && (
-              <div className="gallery mb-12 p-6 bg-white rounded-lg shadow-md">
-                <h2 className="text-3xl font-bold text-dark-blue-900 mb-6">
-                  Gallery
-                </h2>
-                <GallerySlider details={details} />
-              </div>
-            )} */}
           </section>
 
           {/* RIGHT SIDEBAR */}
@@ -647,7 +621,7 @@ const Activities = async ({ params }: { params: Params }) => {
                             No related packages found.
                           </li>
                         ))}
-                      {relatedProducts?.map((product) => (
+                      {relatedProducts?.map((product: any) => (
                         <li key={product.slug} className="mb-2">
                           <Link
                             href={`/${product.slug}`}
@@ -673,19 +647,15 @@ const Activities = async ({ params }: { params: Params }) => {
         </main>
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-left px-4">
-            Popular{" "}
-            {details?.slug?.includes("trek")
-              ? "Treks"
-              : details?.slug?.includes("tour")
-              ? "Tours"
-              : "Destinations"}
+            Popular {details?.slug?.includes("trek") && "Treks"}
+            {details?.slug?.includes("tour") ? "Tours" : "Destinations"}
           </h2>
           <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  p-4">
             {filteredTreks.map((p, k) => {
               return (
                 <TrekkingCard
                   activity={true}
-                  key={k}
+                  key={p.slug}
                   slug={p.slug}
                   image={p.thumbnail}
                   title={p.title}

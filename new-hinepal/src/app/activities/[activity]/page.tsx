@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: any): Promise<any> {
       "Explore the best trekking packages in Nepal, including Everest Base Camp, Annapurna Circuit, and Manaslu. Find short treks, challenging routes, and beginner guides.";
   }
   if (activity == "destination") {
-    (title = "Nepal Tours, Tibet Travel & Kailash Mansarovar Yatra Packages"),
+    (title = "Nepal Tours, Tibet Travel & Kailash Mansarovar Yatra Packages");
       (description =
         "Plan your next journey with Hi Nepal Treks. Discover profound cultural experiences in Nepal, thrilling travel to Tibet, and the spiritual Kailash Mansarovar Yatra.");
   }
@@ -192,9 +192,9 @@ export default async function ActivitySingle({
             /*@ts-ignore*/
             data?.length > 0 &&
             /* @ts-ignore */
-            data.map((d: any, idx: number) => {
+            data.map((d: any) => {
               return (
-                <Link key={idx} href={`${activity}/${d.slug}`}>
+                <Link key={d.slug} href={`${activity}/${d.slug}`}>
                   <TrekkingCard
                     activity={false}
                     slug={d.slug}

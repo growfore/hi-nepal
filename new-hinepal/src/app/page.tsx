@@ -40,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  let siteInformation: TSiteInformation = {} as TSiteInformation;
+  let siteInformation: TSiteInformation;
   siteInformation = siteStore.getState() as TSiteInformation;
   let packages: TPackages = [];
 

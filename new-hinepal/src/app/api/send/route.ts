@@ -32,14 +32,11 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      return Response.json(
-        { error: error || "Failed to send email" },
-        { status: 500 }
-      );
+      return Response.json({ error: error }, { status: 500 });
     }
 
     return Response.json({ success: true, data });
-  } catch (error) {
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+  } catch (error: any) {
+    throw new Error("Internal Server Error", error);
   }
 }

@@ -1,5 +1,5 @@
 import { SitemapStream, streamToPromise } from "sitemap";
-import { Readable } from "stream";
+import { Readable } from "node:stream";
 import { NextResponse } from "next/server";
 import { TNavBar } from "@/types/types";
 import { get } from "@/utils/request-handler";
@@ -18,57 +18,53 @@ export async function GET() {
       token: "",
       success: (message, res) => {
         navItems = res.data;
-        navItems.forEach((item) => {
+        for (const item of navItems) {
           links.push({
             url: `/activities/${item.slug}`,
             changefreq: "monthly",
             priority: 0.7,
           });
-          item.destinations.map((destination) => {
+
+          for (const destination of item.destinations) {
             links.push({
               url: `/activities/${item.slug}/${destination.slug}`,
               changefreq: "weekly",
               priority: 0.8,
             });
-            destination.packages.map((packageItem) => {
+
+            for (const packageItem of destination.packages) {
               links.push({
                 url: `${baseUrl}/${packageItem.slug}`,
                 changefreq: "daily",
-                priority: 1.0,
+                priority: 1,
               });
-            });
-          });
-        });
+            }
+          }
+        }
       },
       failure: (message) => {
         console.log(message, "error in sitemap");
       },
     });
 
-    blogs.posts.forEach((blog: any) => {
+    for (const { slug } of blogs.posts) {
       links.push({
-        url: blog.slug,
+        url: slug,
         changefreq: "weekly",
         priority: 0.9,
       });
-    });
+    }
 
     // Static URLs
-    links.push({ url: "/", changefreq: "daily", priority: 1.0 });
-    links.push({ url: "/about-us", changefreq: "monthly", priority: 0.7 });
-    links.push({ url: "/adventure", changefreq: "monthly", priority: 0.7 });
-    links.push({ url: "/blogs", changefreq: "daily", priority: 0.7 });
-    links.push({ url: "/booking", changefreq: "monthly", priority: 0.7 });
-    links.push({
-      url: "/privacy-policy",
-      changefreq: "monthly",
-      priority: 0.7,
-    });
-    links.push({
-      url: "/terms-and-conditions",
-      changefreq: "monthly",
-      priority: 0.7,
-    });
+    links.push(
+      { url: "/", changefreq: "daily", priority: 1 },
+      { url: "/about-us", changefreq: "monthly", priority: 0.7 },
+      { url: "/adventure", changefreq: "monthly", priority: 0.7 },
+      { url: "/blogs", changefreq: "daily", priority: 0.7 },
+      { url: "/booking", changefreq: "monthly", priority: 0.7 },
+      { url: "/privacy-policy", changefreq: "monthly", priority: 0.7 },
+      { url: "/terms-and-conditions", changefreq: "monthly", priority: 0.7 }
+    );
 
     // Create a stream to write the sitemap
     const stream = new SitemapStream({ hostname: baseUrl });
@@ -81,10 +77,7 @@ export async function GET() {
     // Return the sitemap as an XML response
     const responseHeaders = { "Content-Type": "application/xml" };
     return new NextResponse(sitemap, { headers: responseHeaders });
-  } catch (error) {
-    return new NextResponse(
-      JSON.stringify({ error: "Failed to generate sitemap" }),
-      { status: 500 }
-    );
+  } catch (error: any) {
+    throw new Error("Failed to generate Sitemap: ", error);
   }
 }

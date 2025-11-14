@@ -23,9 +23,9 @@ export const metadata: Metadata = {
 
 export default async function BlogsPage({
   searchParams,
-}: {
+}: Readonly<{
   searchParams: { page?: string };
-}) {
+}>) {
   const page = Number(searchParams.page) || 1;
   const { posts, totalPages } = await getBlogs(page, 12);
 
@@ -35,10 +35,10 @@ export default async function BlogsPage({
         <div className="flex flex-col md:items-center">
           <h1 className="font-bold text-4xl lg:text-7xl mb-4">Blogs</h1>
           <p className="text-left md:text-center italic text-xl mt-8">
-            Welcome to the Hi Nepal Travels and Treks Blog, where you can discover
-            the amazing trekking stories, adventures, and guidelines. If you are
-            looking to explore various corners of Nepal, our blogs will help you
-            enhance your journey.
+            Welcome to the Hi Nepal Travels and Treks Blog, where you can
+            discover the amazing trekking stories, adventures, and guidelines.
+            If you are looking to explore various corners of Nepal, our blogs
+            will help you enhance your journey.
           </p>
         </div>
       </section>

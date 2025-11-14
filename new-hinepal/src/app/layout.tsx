@@ -9,7 +9,6 @@ import { Navbar } from "@/common/navbar";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "react-hot-toast";
-import TranslateWidget from "@/components/translate-widget";
 
 export default async function RootLayout({
   children,

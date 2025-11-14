@@ -23,10 +23,10 @@ export const metadata = {
 
 export default async function BookingPage({
   searchParams,
-}: {
+}: Readonly<{
   searchParams: { destination: string };
-}) {
-  const selectedPackage = await searchParams.destination;
+}>) {
+  const selectedPackage = searchParams.destination;
 
   let packages: TPackageDetails[] = [];
   await get({
@@ -40,13 +40,11 @@ export default async function BookingPage({
     },
   });
 
-  const sortedPackges = packages.sort((a, b) =>
+  const sortedPackages = packages.toSorted((a, b) =>
     a.title.toLowerCase().localeCompare(b.title.toLowerCase())
   );
 
   return (
-    <>
-      <ContactForm selectedPackage={selectedPackage} packages={sortedPackges} />
-    </>
+    <ContactForm selectedPackage={selectedPackage} packages={sortedPackages} />
   );
 }

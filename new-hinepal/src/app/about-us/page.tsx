@@ -18,7 +18,8 @@ import { ReviewCarousel } from "@/components/hero-carousel";
 
 export const metadata: Metadata = {
   title: "About - Hi Nepal Travels & Treks",
-  description: "Hi Nepal Travels & Treks is a certified travel & trekking agency in Nepal, offering personalized trekking, tours, & adventure sports with years of experience.",
+  description:
+    "Hi Nepal Travels & Treks is a certified travel & trekking agency in Nepal, offering personalized trekking, tours, & adventure sports with years of experience.",
   keywords:
     "trekking, tours, adventure sports, travel and trekking agency in nepal",
   alternates: {
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
 const About = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-grow">
+      <main className="grow">
         {/* Inner Banner Section */}
         <section className="p-4 relative bg-cover bg-center flex items-center md:justify-center  mt-24 md:mt-42">
           <div className="flex flex-col md:items-center">
@@ -159,8 +160,8 @@ const About = () => {
                   desire to be a part of your happiness and excitement in every
                   step, guiding you through the breathtaking mountains,
                   thrilling adventures, and vibrant communities. Your journey
-                  with Hi Nepal Travels and Treks is not just a trip, it’s a
-                  story of adventure, joy, and growth, which we are honored to
+                  with Hi Nepal Travels and Treks is not just a trip, it&apos;s
+                  a story of adventure, joy, and growth, which we are honored to
                   help you write.
                 </p>
               </div>
@@ -168,7 +169,7 @@ const About = () => {
           </div>
         </section>
         <Team />
-        <ReviewCarousel/>
+        <ReviewCarousel />
       </main>
     </div>
   );

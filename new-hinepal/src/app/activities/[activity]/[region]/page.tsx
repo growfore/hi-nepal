@@ -6,7 +6,7 @@ import { LucideChevronRight } from "lucide-react";
 import Link from "next/link";
 
 export async function generateMetadata({ params }: any): Promise<any> {
-  const { region, activity } = params;
+  const { region } = params;
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/destinations/${region}`,
     { cache: "no-store" }
@@ -533,7 +533,7 @@ export default async function RegionPage({
             /* @ts-ignore */
             data?.map((d, idx) => {
               return (
-                <Link key={idx} href={`/${d.slug}`}>
+                <Link key={d.slug} href={`/${d.slug}`}>
                   <TrekkingCard
                     slug={d.slug}
                     title={d.title.split(":")[0]}

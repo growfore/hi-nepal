@@ -4,7 +4,7 @@ import { TBlog } from "@/types/types";
 import Image from "next/image";
 import { LucideUser } from "lucide-react";
 
-export function BlogPage({ blog }: { blog: TBlog }) {
+export function BlogPage({ blog }: Readonly<{ blog: TBlog }>) {
   return (
     <section className="pt-46 pb-12 ">
       <div className="container mx-auto px-4">

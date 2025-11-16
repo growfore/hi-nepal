@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     const body = await request.json();
 
     const { data, error } = await resend.emails.send({
-      from: "Hi Nepal Travel and Treks Private Limited <booking@hinepaltreks.com>",
+      from: "Hi Nepal Travel and Treks Private Limited <info@hinepaltreks.com>",
       to: ["info@hinepaltreks.com"],
       subject: `New Inquiry from Hi Nepal: ${
         body.data.fullName || "Unknown"

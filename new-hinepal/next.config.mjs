@@ -671,6 +671,12 @@ const nextConfig = {
         permanent: true,
         statusCode: 301,
       },
+      {
+        source: "/bhutan",
+        destination: "/activities/destination/bhutan",
+        permanent: true,
+        statusCode: 301,
+      },
     ];
   },
 };

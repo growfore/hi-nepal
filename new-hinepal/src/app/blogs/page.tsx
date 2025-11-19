@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 
+import InfiniteScrollingBlogs from "@/components/blogs-inifinite-scroll";
 import BlogCard from "@/components/molecules/blog-card";
 import { getBlogs } from "@/helper/getBlog";
 import { Metadata } from "next";
@@ -28,7 +29,6 @@ export default async function BlogsPage({
 }>) {
   const page = Number(searchParams.page) || 1;
   const { posts, totalPages } = await getBlogs(page, 12);
-
   return (
     <main className="py-10 container mx-auto">
       <section className="p-4 relative bg-cover bg-center flex items-center md:justify-center  mt-24 md:mt-32 border-b border-black">
@@ -42,43 +42,7 @@ export default async function BlogsPage({
           </p>
         </div>
       </section>
-      <div className="grid md:grid-cols-3 gap-6 container mx-auto p-4">
-        {posts.map((post: any) => (
-          <BlogCard
-            slug={post.slug}
-            title={post.title}
-            key={post.id}
-            image={post.image}
-            imageAlt={post.imageAlt}
-            excerpt={post.excerpt}
-          />
-        ))}
-      </div>
-
-      {/* Pagination */}
-      <div className="flex justify-center items-center gap-2 mt-8">
-        {page > 1 && (
-          <a
-            href={`/blogs?page=${page - 1}`}
-            className="px-4 py-2 rounded bg-green-200 hover:bg-green-300"
-          >
-            Previous
-          </a>
-        )}
-
-        <span className="px-4 py-2 border rounded bg-white">
-          Page {page} of {totalPages}
-        </span>
-
-        {page < totalPages && (
-          <a
-            href={`/blogs?page=${page + 1}`}
-            className="px-4 py-2 rounded bg-green-200 hover:bg-green-300"
-          >
-            Next
-          </a>
-        )}
-      </div>
+      <InfiniteScrollingBlogs items={posts} />
     </main>
   );
 }

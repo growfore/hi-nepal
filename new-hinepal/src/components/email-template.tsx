@@ -115,5 +115,4 @@ export function EmailTemplate({
         </p>
       </div>
     </div>
-  );
-}
+  );}

@@ -1,7 +1,7 @@
-export const revalidate = 86400;
 export async function getBlogs(page = 1, perPage = 10) {
   const res = await fetch(
     `https://hinepaltreks.com/cms/wp-json/wp/v2/posts?per_page=${perPage}&page=${page}&_fields=id,title,slug,excerpt,date,featured_media`,
+    { next: { revalidate: 3600 } }
   );
 
   const total = res.headers.get("X-WP-Total");
@@ -18,7 +18,7 @@ export async function getBlogs(page = 1, perPage = 10) {
         try {
           const imgRes = await fetch(
             `https://hinepaltreks.com/cms/wp-json/wp/v2/media/${post.featured_media}`,
-            { next: { revalidate: 86400 } }
+            { next: { revalidate: 3600 } }
           );
           const imgData = await imgRes.json();
           image = imgData.source_url || null;

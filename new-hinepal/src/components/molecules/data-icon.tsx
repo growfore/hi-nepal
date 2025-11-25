@@ -9,10 +9,10 @@ type TDataIconProps = {
 };
 export function DataIcon({ icon: Icon, k, v, size }: Readonly<TDataIconProps>) {
   return (
-    <>
+    <div className="flex flex-col">
       <Icon size={size} className="text-green-900 my-2" />
       <h5 className="font-bold">{k}</h5>
       <p>{v}</p>
-    </>
+    </div>
   );
 }

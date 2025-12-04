@@ -1,5 +1,5 @@
 async function get(request: TRequest): Promise<void> {
-  const { endPoint, token, params, success, failure } = request;
+  const { endPoint, token, params, success, failure, enableCaching } = request;
   //  convert params to query string
   let queryString = "";
   if (params) {
@@ -16,7 +16,7 @@ async function get(request: TRequest): Promise<void> {
         Authorization: `Bearer ${token}`,
       },
       method: "GET",
-      cache: "no-cache",
+      cache: enableCaching ? "default" : "no-cache",
     });
     if (!response.ok) {
       throw new Error(response.statusText || "error");
@@ -134,6 +134,7 @@ type TRequest = {
   token?: string;
   params?: any;
   data?: any;
+  enableCaching?:boolean;
   success: (message: string, data: any) => void;
   failure: (message: string) => void;
 };

@@ -38,7 +38,6 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                 <Image
                                     height={250}
                                     width={300}
-
                                     // @ts-ignore
                                     src={(siteInformation?.about?.image3) ?? ''}
                                     alt='home page gallery image'
@@ -52,7 +51,6 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                     height={400}
                                     width={700}
                                     className='w-full h-full object-cover'
-
                                     // @ts-ignore
                                     src={(siteInformation?.about?.image4) ?? ''}
                                     alt='home page gallery image'

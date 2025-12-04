@@ -1,7 +1,6 @@
 import endpoints from "@/constant/endpoints";
 import { TPackages, TSiteInformation } from "@/types/types";
 import { get } from "@/utils/request-handler";
-import siteStore from "@/zustand/store";
 import { Partners } from "@/components/organisms/partners";
 import Numbers from "@/components/organisms/numbers";
 import Gallery from "@/components/Gallery";
@@ -18,13 +17,11 @@ import PopularTours from "@/components/organisms/popular-tours";
 import OneDayTours from "@/components/organisms/one-day-hiking";
 import { HomeFAQs } from "@/components/organisms/home-faqs";
 import NewHero from "@/components/organisms/new-hero";
-import { ReviewCarousel } from "@/components/hero-carousel";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Best Tours & Travels Agency in Nepal - Trekking & Adventure",
-    description:
-      "Plan your dream Nepal trip with our experts (20+ yrs). We offer guided Himalayan treks, cultural tours in Kathmandu & Pokhara, & thrilling adventure sports.",
+    title: "Best Tours and Travels | Nepal Trekking, Tours & Adventure",
+    description: "Plan your dream Nepal trip with our experts (20+ yrs). We offer guided Himalayan treks, cultural tours in Kathmandu & Pokhara, & thrilling adventure sports.  (Meta Description)",
     keywords: "trekking agency in nepal, travel agency in nepal",
     alternates: {
       canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/",
@@ -40,8 +37,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  let siteInformation: TSiteInformation;
-  siteInformation = siteStore.getState() as TSiteInformation;
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/site-informations`, {
+    cache: "default"
+  });
+  const data = await res.json();
+
+  const siteInformation = data.data;
+
   let packages: TPackages = [];
 
   await get({
@@ -78,7 +80,6 @@ export default async function Home() {
           More about Us
         </Link>
       </div>
-      <ReviewCarousel />
       <HomeFAQs />
     </main>
   );

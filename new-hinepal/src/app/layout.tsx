@@ -1,8 +1,4 @@
 import "./globals.css";
-import endpoints from "@/constant/endpoints";
-import { TSiteInformation } from "@/types/types";
-import { get } from "@/utils/request-handler";
-import siteStore from "@/zustand/store";
 import { Footer } from "@/common";
 import CustomLayout from "@/components/layouts/custom-layout";
 import { Navbar } from "@/common/navbar";
@@ -15,18 +11,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  let siteInformation: TSiteInformation = {} as TSiteInformation;
-  await get({
-    endPoint: endpoints.SITE_INFORMATIONS,
-    token: "",
-    success: (message, res) => {
-      siteInformation = res.data;
-      siteStore.setState(siteInformation);
-    },
-    failure: (message) => {
-      console.log(message);
-    },
-  });
   return (
     <html lang="en" className={`antialiased`}>
       <head>

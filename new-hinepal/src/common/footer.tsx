@@ -1,5 +1,3 @@
-import { TSiteInformation } from "@/types/types";
-import siteStore from "@/zustand/store";
 import {
   LucideMail,
   LucideMapPin,
@@ -8,9 +6,13 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-export function Footer() {
-  let siteInformation: TSiteInformation | undefined = undefined;
-  siteInformation = siteStore.getState() as TSiteInformation;
+export async function Footer() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/site-informations`, {
+    cache: "default"
+  });
+  const data = await res.json();
+
+  const siteInformation = data.data;
 
   return (
     <div>

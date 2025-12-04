@@ -5,6 +5,7 @@ import { persist } from 'zustand/middleware';
 type PopularPackagesState = {
   treks: TPackageDetails[];
   tours: TPackageDetails[];
+
   setTreks: (packages: TPackageDetails[]) => void;
   setTours: (packages: TPackageDetails[]) => void;
   clear: () => void;

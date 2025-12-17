@@ -16,7 +16,7 @@ async function get(request: TRequest): Promise<void> {
         Authorization: `Bearer ${token}`,
       },
       method: "GET",
-      cache: enableCaching ? "default" : "no-cache",
+      cache: enableCaching ? "force-cache" : "no-cache",
     });
     if (!response.ok) {
       throw new Error(response.statusText || "error");

@@ -1,5 +1,5 @@
 import endpoints from "@/constant/endpoints";
-import { TPackages, TSiteInformation } from "@/types/types";
+import { TPackages} from "@/types/types";
 import { get } from "@/utils/request-handler";
 import { Partners } from "@/components/organisms/partners";
 import Numbers from "@/components/organisms/numbers";

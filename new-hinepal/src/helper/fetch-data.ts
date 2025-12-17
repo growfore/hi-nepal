@@ -9,6 +9,7 @@ async function fetchData(endPoint: string) {
     success: (_, response) => {
       data = response.data;
     },
+    enableCaching: true,
     token: (await getCookie('token')) || undefined,
     failure: (message) => {
       console.log(message);

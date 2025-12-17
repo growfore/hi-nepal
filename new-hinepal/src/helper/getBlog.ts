@@ -10,7 +10,7 @@ export async function getBlogs(page = 1, perPage = 10) {
   const data = await res.json();
 
   const posts = await Promise.all(
-    data.map(async (post: any) => {
+    data?.map(async (post: any) => {
       let image: string | null = null;
       let imageAlt: string | null = null;
 

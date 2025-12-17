@@ -28,7 +28,7 @@ export default async function BlogsPage({
   searchParams: { page?: string };
 }>) {
   const page = Number(searchParams.page) || 1;
-  const { posts, totalPages } = await getBlogs(page, 12);
+  const { posts, totalPages } = await getBlogs(page, 100);
   return (
     <main className="py-10 container mx-auto">
       <section className="p-4 relative bg-cover bg-center flex items-center md:justify-center  mt-24 md:mt-32 border-b border-black">
@@ -42,7 +42,19 @@ export default async function BlogsPage({
           </p>
         </div>
       </section>
-      <InfiniteScrollingBlogs items={posts} />
+      <div className="grid md:grid-cols-3 gap-6 container mx-auto p-4">
+        {posts.map((post: any) => (
+          <BlogCard
+            key={post.id}
+            slug={post.slug}
+            title={post.title}
+            excerpt={post.excerpt}
+            image={post.image}
+            imageAlt={post.imageAlt}
+          />
+        ))}
+      </div>
+      {/*<InfiniteScrollingBlogs items={posts} />*/}
     </main>
   );
 }

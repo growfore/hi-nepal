@@ -5,7 +5,7 @@ export default function NewHero({
   packages = [],
 }: Readonly<{ packages?: TPackage[] }>) {
   return (
-    <section className="relative p-2 mt-16 md:mt-[94px] flex flex-col items-center justify-center text-center text-white h-[60vh] md:h-[80vh] overflow-hidden">
+    <section className="relative p-2 mt-16 md:mt-[54px] flex flex-col items-center justify-center text-center text-white h-[60vh] md:h-[80vh] overflow-hidden">
       <div className="absolute inset-0 -z-10 h-full w-full overflow-hidden">
         <img
           src={"/assets/mount-everest.webp"}

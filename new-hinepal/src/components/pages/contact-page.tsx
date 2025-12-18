@@ -346,6 +346,18 @@ export function Form_Component({ packages, selectedPackage }: { packages: TPacka
                     Reach Us
                   </h5>
 
+                  {/* Phone Section */}
+                  <div className="flex items-center mb-4">
+                    <div className="bg-green-100 p-2 rounded-full mr-3">
+                      <LucidePhone color="green" className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-700 mb-1">Call us</p>
+                      <p className="text-gray-600 text-sm mb-0">
+                        +977 9856035091
+                      </p>
+                    </div>
+                  </div>
                   {/* Email Section */}
                   <div className="flex items-center mb-4">
                     <div className="bg-green-100 p-2 rounded-full mr-3">

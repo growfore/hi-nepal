@@ -1,6 +1,7 @@
 import {
   LucideMail,
   LucideMapPin,
+  LucidePhone,
   LucideVerified,
 } from "lucide-react";
 import Link from "next/link";
@@ -50,6 +51,15 @@ export async function Footer() {
                         className="hover:underline"
                       >
                         {siteInformation?.email1}
+                      </Link>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <LucidePhone color="#FF8A00" size={18} />{" "}
+                      <Link
+                        href={`tel:${siteInformation?.phone1 || siteInformation?.phone2 || "+977 9856035091"}`}
+                        className="hover:underline"
+                      >
+                        {siteInformation?.phone1 || siteInformation?.phone2 || "+977 9856035091"}
                       </Link>
                     </li>
                     <li className="flex items-start gap-2">

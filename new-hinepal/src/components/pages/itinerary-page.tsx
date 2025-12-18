@@ -45,7 +45,7 @@ export async function ItineraryPage({
     <div className="">
       {/* Section Navigation */}
       <div className="container mx-auto px-4 md:px-6">
-        <div className="container py-4 text-left mt-24">
+        <div className="container text-left">
           <h1 className="text-2xl md:text-3xl lg:4xl font-extrabold leading-tight text-shadow-lg drop-shadow-2xl">
             {details.title}
           </h1>
@@ -79,7 +79,7 @@ export async function ItineraryPage({
             <TalkToExpertCard details={details} />
           </div>
           {/* Data Icons Section */}
-          <div className="mt-4 bg-green-50 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-12 p-6 bg-light-blue-bg rounded-lg shadow-sm">
+          <div className="mt-4 bg-green-50 grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12 p-6 bg-light-blue-bg rounded-lg shadow-sm">
             {details?.title && (
               <DataIcon icon={MountainSnow} k="Destination" v={details.title} />
             )}
@@ -126,17 +126,16 @@ export async function ItineraryPage({
               />
             )}
             {details?.permits && (
-              <div className="col-span-2 sm:col-span-3 lg:col-span-4 flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+              <div className="flex flex-col items-center gap-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100">
                 <div className="flex-shrink-0 w-16 h-16 rounded-full bg-icon-bg-green flex items-center justify-center">
                   <Ticket className="w-8 h-8 text-green-700" />
                 </div>
-                <div>
+                <div className="flex! flex-col! gap-4">
                   <h5 className="text-base font-bold text-icon-bg-green mb-1">
                     Permits
                   </h5>
                   <p className="text-sm text-gray-700 leading-snug">
-                    {details.permits ??
-                      "Manaslu Restricted Area Permit (MRAP), Annapurna Conservation Area Permit (ACAP), Manaslu Conservation Area Permit (MCAP)"}
+                    {details.permits}
                   </p>
                 </div>
               </div>

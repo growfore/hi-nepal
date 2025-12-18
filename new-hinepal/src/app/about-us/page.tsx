@@ -48,7 +48,7 @@ const About = () => {
 
         {/* About Service Section */}
         <section className="py-16 md:py-24 lg:py-32 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
+          <div className="container mx-auto px-4">
             <div className="mb-12 md:mb-16">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
                 <div className="">

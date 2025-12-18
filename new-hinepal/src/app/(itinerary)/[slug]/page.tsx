@@ -273,8 +273,8 @@ const Activities = async ({ params }: { params: Params }) => {
       )}
       <>
         {/* Section Navigation */}
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="container py-1 md:py-4 text-left mt-42">
+        <div className="container mx-auto px-4">
+          <div className="container py-1 md:py-4 text-left mt-24">
             <h1 className="text-2xl md:text-3xl lg:4xl font-extrabold leading-tight">
               {details.title}
             </h1>
@@ -307,7 +307,7 @@ const Activities = async ({ params }: { params: Params }) => {
   prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8 prose-h1:text-red-500
   prose-h2:text-3xl prose-h2:mt-6 prose-h2:mb-2 prose-h2:font-bold prose-h2:text-[#008000]!
   prose-h3:text-xl prose-h3:mt-4 prose-h3:mb-1
-        container mx-auto px-4 md:px-6 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12"
+        container mx-auto px-4 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12"
         >
           {/* Main Content Area */}
           <section className="lg:col-span-2">

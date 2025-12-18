@@ -5,6 +5,7 @@ import { Navbar } from "@/common/navbar";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "react-hot-toast";
+import WhatsAppButton from "@/components/molecules/whatsapp-button";
 
 export default async function RootLayout({
   children,
@@ -30,6 +31,7 @@ export default async function RootLayout({
           {children}
           <GoogleAnalytics gaId="G-E1QTRNT388" />
           <Toaster position="top-center" />
+          <WhatsAppButton/>
         </CustomLayout>
       </body>
     </html>

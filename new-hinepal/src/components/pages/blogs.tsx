@@ -1,17 +1,10 @@
 import BlogCard from "@/components/molecules/blog-card";
+import { getBlogs } from "@/helper/getBlog";
 import Link from "next/link";
 
 const BlogHome = async () => {
-  const getBlogs = async () => {
-    const res = await fetch(
-      "https://blogs.hinepaltreks.com/wp-json/wp/v2/posts?_embed",
-      {
-        next: { revalidate: 60 },
-      }
-    );
-    return res.json();
-  };
-  const posts = await getBlogs();
+  const blogs = await getBlogs(1, 6);
+  const posts = blogs.posts;
 
   return (
     <section className="py-16 bg-background">
@@ -37,9 +30,9 @@ const BlogHome = async () => {
           {posts.map((post: any, index: number) => (
             <BlogCard
               key={index}
-              title={post.title.rendered}
-              excerpt={post.excerpt.rendered}
-              image={post._embedded?.["wp:featuredmedia"]?.[0]?.source_url}
+              title={post.title}
+              excerpt={post.excerpt}
+              image={post.image}
               slug={post.slug}
             />
           ))}

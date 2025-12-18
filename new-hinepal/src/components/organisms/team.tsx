@@ -51,7 +51,7 @@ export default Team;
 
 const teamData = [
   {
-    name: "YOG PRASAD SUBEDI",
+    name: "YOG PRASAD POUDEL",
     position: "Travel Guide",
     image: "/assets/yog-parsad-subedi.webp",
     description:

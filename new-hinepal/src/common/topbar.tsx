@@ -13,7 +13,7 @@ const Topbar = () => {
           <a href={`mailto:info@hinepaltreks.com`} className='hover:cursor-pointer font-bold hover:underline'>info@hinepaltreks.com</a>
         </div>
       </div>
-      <div className='flex items-center md:justify-end gap-2 container ml-2 md:mr-12  lg:mr-24'>
+      <div className='flex items-center md:justify-end gap-2 container ml-4 md:mr-12 lg:mr-24'>
         <div className='rounded-sm bg-white p-2'>
           <LucidePhone className='text-green-600' />
         </div>

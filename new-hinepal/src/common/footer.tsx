@@ -88,32 +88,32 @@ export async function Footer() {
                 <h3 className="text-xl font-bold mb-4 ">Useful Links</h3>
                 <ul className="flex flex-col justify-center md:justify-start gap-x-4 gap-y-2 text-sm mt-2 md:mt-0">
                   <li>
-                    <Link href="/air-ticket-booking-nepal" className="hover:underline">
+                    <a href="/air-ticket-booking-nepal" className="hover:underline">
                       Domestic and International Air Tickets
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link href="/vehicle-rent" className="hover:underline">
+                    <a href="/vehicle-rent" className="hover:underline">
                       Vehicle Rent
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link href="/privacy-policy" className="hover:underline">
+                    <a href="/privacy-policy" className="hover:underline">
                       Privacy Policy
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link
+                    <a
                       href="/terms-and-conditions"
                       className="hover:underline"
                     >
                       Terms &amp; Condition
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link href="/sitemap" className="hover:underline">
+                    <a href="/sitemap" className="hover:underline">
                       Sitemap
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </aside>

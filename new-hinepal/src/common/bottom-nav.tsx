@@ -21,6 +21,7 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
   const [disableHover, setDisableHover] = useState(false);
   const path = usePathname();
   const destination = path.split("/")[1] || "";
+  const [navDisplay, setNavDisplay] = useState(false);
 
   const destinationOrder = useMemo(
     () => ["Everest Region", "Annapurna Region", "Manaslu Region"],
@@ -201,6 +202,25 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
           >
             About Us
           </a>
+          <div
+            className="cursor-pointer relative hidden lg:flex  font-bold uppercase gap-1"
+          >
+            <p onClick={() => setNavDisplay(!navDisplay)}>Transport</p>
+            <div className={cn(navDisplay ? "flex" : "hidden", "absolute bg-white p-2 flex-col gap-1 min-w-[240px] mt-8 rounded-sm")}>
+              <a
+                href="/air-ticket-booking-nepal"
+                className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
+              >
+                Flight Tickets
+              </a>
+              <a
+                href="/vehicle-rent"
+                className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
+              >
+                Vehicle Rent
+              </a>
+            </div>
+          </div>
           <a
             href="/blogs"
             className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
@@ -281,6 +301,12 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
                 </a>
                 <a href="/about-us" className="uppercase font-bold text-xl">
                   About Us
+                </a>
+                <a href="/air-ticket-booking-nepal" className="uppercase font-bold text-xl">
+                  Flight Ticket
+                </a>
+                <a href="/vehicle-rent" className="uppercase font-bold text-xl">
+                Vehicle Rent
                 </a>
                 <a href="/blogs" className="uppercase font-bold text-xl">
                   Blogs

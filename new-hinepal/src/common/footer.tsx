@@ -8,9 +8,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 export async function Footer() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/site-informations`, {
-    cache: "default"
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/site-informations`,
+    {
+      cache: "default",
+    }
+  );
   const data = await res.json();
 
   const siteInformation = data.data;
@@ -56,10 +59,16 @@ export async function Footer() {
                     <li className="flex items-center gap-2">
                       <LucidePhone color="#FF8A00" size={18} />{" "}
                       <Link
-                        href={`tel:${siteInformation?.phone1 || siteInformation?.phone2 || "+977 9856035091"}`}
+                        href={`tel:${
+                          siteInformation?.phone1 ||
+                          siteInformation?.phone2 ||
+                          "+977 9856035091"
+                        }`}
                         className="hover:underline"
                       >
-                        {siteInformation?.phone1 || siteInformation?.phone2 || "+977 9856035091"}
+                        {siteInformation?.phone1 ||
+                          siteInformation?.phone2 ||
+                          "+977 9856035091"}
                       </Link>
                     </li>
                     <li className="flex items-start gap-2">
@@ -78,6 +87,16 @@ export async function Footer() {
               <aside>
                 <h3 className="text-xl font-bold mb-4 ">Useful Links</h3>
                 <ul className="flex flex-col justify-center md:justify-start gap-x-4 gap-y-2 text-sm mt-2 md:mt-0">
+                  <li>
+                    <Link href="/air-ticket-booking-nepal" className="hover:underline">
+                      Domestic and International Air Tickets
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/vehicle-rent" className="hover:underline">
+                      Vehicle Rent
+                    </Link>
+                  </li>
                   <li>
                     <Link href="/privacy-policy" className="hover:underline">
                       Privacy Policy

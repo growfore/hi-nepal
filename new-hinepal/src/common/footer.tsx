@@ -89,12 +89,17 @@ export async function Footer() {
                 <ul className="flex flex-col justify-center md:justify-start gap-x-4 gap-y-2 text-sm mt-2 md:mt-0">
                   <li>
                     <a href="/air-ticket-booking-nepal" className="hover:underline">
-                      Domestic and International Air Tickets
+                    Flight Tickets
                     </a>
                   </li>
                   <li>
                     <a href="/vehicle-rent" className="hover:underline">
                       Vehicle Rent
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/blogs" className="hover:underline">
+                    Blogs
                     </a>
                   </li>
                   <li>

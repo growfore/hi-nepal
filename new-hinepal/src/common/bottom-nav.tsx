@@ -164,7 +164,6 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
                               <ChevronRight className="size-4" />
                             </div>
                           </a>
-
                           <ul className="flex flex-col items-start text-left gap-2 font-medium">
                             {sortPackages(
                               destination.slug,
@@ -188,8 +187,39 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
               </button>
             </div>
           ))}
+          <div className="hidden lg:flex">
+            <button className="group font-bold uppercase flex gap-1 items-center">
+              <span>Transport</span>
+              <ChevronDown className="group-hover:hidden" />
+              <ChevronUp className="hidden group-hover:block" />
 
-          {/* Keep these as Links (SPA feel) */}
+              {/* Dropdown */}
+              <div className="hidden group-hover:grid absolute top-[120px] left-0 w-screen py-8 z-999">
+                <div className="bg-white shadow-md border-b border-gray-300 container mx-auto px-12 py-6 rounded-md">
+                  <ul className="flex flex-col gap-4 font-semibold text-lg">
+                    <li>
+                      <a
+                        href="/air-ticket-booking-nepal"
+                        className="flex items-center gap-2 text-[#F05A24] hover:text-green-700"
+                      >
+                        Flight Tickets
+                        <ChevronRight className="size-4" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/vehicle-rent"
+                        className="flex items-center gap-2 text-[#F05A24] hover:text-green-700"
+                      >
+                        Vehicle Rent
+                        <ChevronRight className="size-4" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </button>
+          </div>
           <a
             href="/adventure"
             className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
@@ -201,31 +231,6 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
             className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
           >
             About Us
-          </a>
-          <div
-            className="cursor-pointer relative hidden lg:flex  font-bold uppercase gap-1"
-          >
-            <p onClick={() => setNavDisplay(!navDisplay)}>Transport</p>
-            <div className={cn(navDisplay ? "flex" : "hidden", "absolute bg-white p-2 flex-col gap-1 min-w-[240px] mt-8 rounded-sm")}>
-              <a
-                href="/air-ticket-booking-nepal"
-                className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
-              >
-                Flight Tickets
-              </a>
-              <a
-                href="/vehicle-rent"
-                className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
-              >
-                Vehicle Rent
-              </a>
-            </div>
-          </div>
-          <a
-            href="/blogs"
-            className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
-          >
-            Blogs
           </a>
         </div>
 
@@ -306,7 +311,7 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
                   Flight Ticket
                 </a>
                 <a href="/vehicle-rent" className="uppercase font-bold text-xl">
-                Vehicle Rent
+                  Vehicle Rent
                 </a>
                 <a href="/blogs" className="uppercase font-bold text-xl">
                   Blogs

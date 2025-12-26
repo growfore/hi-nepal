@@ -316,6 +316,9 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
                 <a href="/air-ticket-booking-nepal" className="uppercase font-bold text-xl">
                   Flight Ticket
                 </a>
+                <a href="/helicopter-rescue-flights-nepal" className="uppercase font-bold text-xl">
+		Rescue Flights
+                </a>
                 <a href="/vehicle-rent" className="uppercase font-bold text-xl">
                   Vehicle Rent
                 </a>

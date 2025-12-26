@@ -203,7 +203,6 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
                         className="flex items-center gap-2 text-[#F05A24] hover:text-green-700"
                       >
                         Flight Tickets
-                        <ChevronRight className="size-4" />
                       </a>
                     </li>
                     <li>
@@ -212,7 +211,14 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
                         className="flex items-center gap-2 text-[#F05A24] hover:text-green-700"
                       >
                         Vehicle Rent
-                        <ChevronRight className="size-4" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/helicopter-rescue-flights-nepal"
+                        className="flex items-center gap-2 text-[#F05A24] hover:text-green-700"
+                      >
+                        Rescue Flights
                       </a>
                     </li>
                   </ul>

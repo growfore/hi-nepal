@@ -98,6 +98,11 @@ export async function Footer() {
                     </a>
                   </li>
                   <li>
+                    <a href="/helicopter-rescue-flights-nepal" className="hover:underline">
+                    Rescue Flights
+                    </a>
+                  </li>
+                  <li>
                     <a href="/blogs" className="hover:underline">
                     Blogs
                     </a>

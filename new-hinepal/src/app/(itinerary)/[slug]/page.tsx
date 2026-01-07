@@ -242,7 +242,7 @@ const Activities = async ({ params }: { params: Params }) => {
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "5",
-        reviewCount: "118",
+        reviewCount: "122",
       },
     };
   }

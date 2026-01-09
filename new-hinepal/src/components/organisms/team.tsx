@@ -24,7 +24,7 @@ const Team = () => {
                       height={300}
                       width={300}
                       alt={item.name}
-                      loading="lazy"
+                      loading="eager"
                       src={item.image}
                       className="w-full h-full object-cover"
                     />

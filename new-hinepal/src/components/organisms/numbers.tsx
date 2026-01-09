@@ -11,7 +11,7 @@ const Numbers = () => {
             <div className='w-full h-full flex items-center justify-center'>
               <iframe
                 className='w-full max-w-full min-h-[300px] md:min-h-[400px] lg:min-h-[600px] rounded-xl shadow-2xl'
-                loading='lazy'
+                loading='eager'
                 src='https://www.youtube.com/embed/1Wfki2o-adM?si=Noc1MXhDPOW7bDHk'
                 title='YouTube video player'
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'

@@ -27,6 +27,7 @@ const PackageCard = (props: TProps) => {
             <Image
               width={1200}
               height={300}
+              loading="eager"
               className="w-full h-full object-cover rounded-t-md"
               src={item?.thumbnail}
               alt={item?.thumbnailImageAlt || item.title || "Package thumbnail"}

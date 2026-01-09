@@ -32,7 +32,7 @@ export default function BlogCard({
             src={image || ""}
             alt={title}
             className="w-full h-full object-cover"
-            loading="lazy"
+            loading="eager"
           />
         </figure>
         <div className="p-6 flex flex-col gap-3">

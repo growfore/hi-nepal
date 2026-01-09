@@ -24,6 +24,7 @@ export default async function SitemapPage() {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
   const baseUrl = process.env.NEXT_PUBLIC_FRONTEND_BASE_URL;
 
+
   let navItems: TNavBar = [];
 
   await get({

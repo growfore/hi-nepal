@@ -1,13 +1,24 @@
 async function get(request: TRequest): Promise<void> {
   const { endPoint, token, params, success, failure, enableCaching } = request;
+
   //  convert params to query string
-  let queryString = "";
-  if (params) {
-    queryString = Object.keys(params)
-      .map((key) => `${key}=${params[key]}`)
+  // let queryString = "";
+  // if (params) {
+  //   queryString = Object.keys(params)
+  //     .map((key) => `${key}=${params[key]}`)
+  //     .join("&");
+  // }
+  // const url = `${endPoint}?${queryString}`;
+  let url = endPoint;
+  if (params && Object.keys(params).length > 0) {
+    const queryString = Object.keys(params)
+      .map(
+        (key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
+      )
       .join("&");
+    url = `${endPoint}?${queryString}`;
   }
-  const url = `${endPoint}?${queryString}`;
+  console.log("Fething endpoint: ", url);
 
   try {
     const response = await fetch(url, {
@@ -134,7 +145,7 @@ type TRequest = {
   token?: string;
   params?: any;
   data?: any;
-  enableCaching?:boolean;
+  enableCaching?: boolean;
   success: (message: string, data: any) => void;
   failure: (message: string) => void;
 };

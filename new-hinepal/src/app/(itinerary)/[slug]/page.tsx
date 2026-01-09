@@ -295,6 +295,7 @@ const Activities = async ({ params }: { params: Params }) => {
       70vw
     "
               priority
+              loading="eager"
             />
           </div>
         </div>

@@ -29,10 +29,20 @@ async function get(request: TRequest): Promise<void> {
       method: "GET",
       cache: enableCaching ? "force-cache" : "no-cache",
     });
+
+    let data: any;
+    try {
+      data = await response.json(); // try parse JSON
+    } catch (jsonError) {
+      // fallback to text if JSON fails
+      const text = await response.text();
+      data = { message: text || "Failed to parse JSON" };
+    }
+
     if (!response.ok) {
       throw new Error(response.statusText || "error");
     }
-    const data = await response.json();
+    // const data = await response.json();
 
     if (response.ok) success(data?.message || "success", data);
   } catch (error: any) {

@@ -1,9 +1,15 @@
 import { TPackage } from "@/types/types";
-import SearchBox from "../molecules/search-box";
+import dynamic from "next/dynamic";
+
+const SearchBox = dynamic(() => import("../molecules/search-box"), {
+  ssr: false,
+});
 
 export default function NewHero({
-  packages = [],
-}: Readonly<{ packages?: TPackage[] }>) {
+  minimalPackages = [],
+}: Readonly<{
+  minimalPackages: TPackage[];
+}>) {
   return (
     <section className="relative p-2 mt-16 md:mt-[54px] flex flex-col items-center justify-center text-center text-white h-[60vh] md:h-[80vh] overflow-hidden">
       <div className="absolute inset-0 -z-10 h-full w-full overflow-hidden">
@@ -38,8 +44,8 @@ export default function NewHero({
         </p>
       </div>
 
-      {/* Search */}
-      <SearchBox packages={packages} />
+      {/* Search (client-only) */}
+      <SearchBox packages={minimalPackages} />
     </section>
   );
 }

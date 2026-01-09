@@ -3,18 +3,8 @@ import { TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";
 
-const BestShortTreks = async ({ packages }: { packages: TPackages }) => {
-  const popularTreks = [
-    "mardi-himal-trek",
-    "ghorepani-poon-hill-trek",
-    "kori-trek",
-  ];
-
-  const filteredPackages = packages
-    .filter((pkg) => popularTreks.includes(pkg.slug))
-    .sort(
-      (a, b) => popularTreks.indexOf(a.slug) - popularTreks.indexOf(b.slug)
-    );
+const BestShortTreks = ({ packages }: { packages: any[] }) => {
+  const filteredPackages = packages || [];
 
   return (
     <section className="py-2 bg-white">

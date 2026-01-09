@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Search } from "lucide-react";
 import { TPackage } from "@/types/types";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 export default function SearchBox({
   packages = [],
@@ -15,16 +15,20 @@ export default function SearchBox({
   const [isSearching, setIsSearching] = useState(false);
   const [isLoading, setShowLoading] = useState(false);
 
+  const computedFiltered = useMemo(() => {
+    const term = searchTerm.trim().toLowerCase();
+    if (term.length > 2) {
+      return packages.filter((pkg) => pkg.title.toLowerCase().includes(term));
+    }
+    return [];
+  }, [searchTerm, packages]);
+
   useEffect(() => {
     const delay = setTimeout(() => {
       const term = searchTerm.trim().toLowerCase();
-
       if (term.length > 2) {
         setIsSearching(true);
-        const filtered = packages.filter((pkg) =>
-          pkg.title.toLowerCase().includes(term)
-        );
-        setFilteredPackages(filtered);
+        setFilteredPackages(computedFiltered);
       } else {
         setFilteredPackages([]);
         setIsSearching(false);
@@ -32,7 +36,7 @@ export default function SearchBox({
     }, 250);
 
     return () => clearTimeout(delay);
-  }, [searchTerm, packages]);
+  }, [computedFiltered, searchTerm]);
   return (
     <div className="mt-8 w-11/12 md:w-1/2 relative">
       <Input

@@ -3,19 +3,8 @@ import { TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";
 
-const OneDayTours = async ({packages}: {packages: TPackages}) => {
-
-  const popularTreks = [
-    "pokhara-valley-tour",
-    "sarangkot-pokhara-tour",
-    "world-peace-pagoda",
-  ];
-
-  const filteredPackages = packages
-    .filter((pkg) => popularTreks.includes(pkg.slug))
-    .sort(
-      (a, b) => popularTreks.indexOf(a.slug) - popularTreks.indexOf(b.slug)
-    );
+const OneDayTours = ({ packages }: { packages: any[] }) => {
+  const filteredPackages = packages || [];
 
   return (
     <section className="bg-white">

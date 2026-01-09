@@ -3,19 +3,8 @@ import { TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";
 
-const PopularTours = async ({packages}: {packages: TPackages}) => {
-
-  const popularTours = [
-    "kathmandu-tour-package",
-    "upper-mustang-tour",
-    "tilicho-lake-tour",
-  ];
-
-  const filteredPackages = packages
-    .filter((pkg) => popularTours.includes(pkg.slug))
-    .sort(
-      (a, b) => popularTours.indexOf(a.slug) - popularTours.indexOf(b.slug)
-    );
+const PopularTours = ({ packages }: { packages: any[] }) => {
+  const filteredPackages = packages || [];
 
   return (
     <section className="py-8  bg-white">

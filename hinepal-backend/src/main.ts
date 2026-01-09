@@ -12,7 +12,9 @@ async function bootstrap() {
     origin: [
       'http://localhost:3000',
       'http://localhost:3001',
+      'http://localhost:4007',
       'https://hinepaltreks.com',
+      'https://hinepaltreks.com:4007',
       'https://admin.hinepaltreks.com',
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed methods

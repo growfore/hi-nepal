@@ -4,6 +4,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
+const STARS = [0, 1, 2, 3, 4];
+
 export interface ReviewCardProps {
   user: {
     name: string;
@@ -31,7 +33,7 @@ export function ReviewCard({
   className,
 }: Readonly<ReviewCardProps>) {
   const renderStars = () => {
-    return Array.from({ length: 5 }, (_, i) => (
+    return STARS.map((i) => (
       <div
         key={i}
         className={cn(

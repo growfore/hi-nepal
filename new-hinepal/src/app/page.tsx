@@ -7,6 +7,7 @@ import Gallery from "@/components/Gallery";
 import PopularDestinations from "@/components/organisms/popular-destinations";
 import PopularPackages from "@/components/organisms/popular-packages";
 import BlogHome from "@/components/pages/blogs";
+import { getBlogs } from "@/helper/getBlog";
 import Team from "@/components/organisms/team";
 import AdventureSection from "@/components/organisms/adventure-section";
 import { Metadata } from "next";
@@ -30,32 +31,29 @@ export async function generateMetadata(): Promise<Metadata> {
       index: true,
       follow: true,
       "max-video-preview": -1,
-      "max-image-preview": "large",
+      "max-image-preview": "standard",
       "max-snippet": -1,
     },
   };
 }
 
 export default async function Home() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/site-informations`, {
-    cache: "default"
-  });
-  const data = await res.json();
+  // Start server fetches in parallel to reduce TTFB
+  const sitePromise = fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/site-informations`, {
+    cache: "default",
+  }).then((r) => r.json()).then(r => r.data).catch(() => null);
 
-  const siteInformation = data.data;
+  const packagesPromise = fetch(endpoints.PACKAGES).then((r) => r.json()).then(r => r.data?.packages || []).catch(() => []);
 
-  let packages: TPackages = [];
+  const blogsPromise = getBlogs(1, 6).catch(() => ({ posts: [] }));
 
-  await get({
-    endPoint: endpoints.PACKAGES,
-    token: "",
-    success: (msg, res) => {
-      packages.push(...res.data.packages);
-    },
-    failure: (msg) => {
-      return msg;
-    },
-  });
+  const [siteInformation, packages, blogsResp] = await Promise.all([
+    sitePromise,
+    packagesPromise,
+    blogsPromise,
+  ]);
+
+  const posts = blogsResp?.posts || [];
 
   return (
     <main id="content" className="site-main">
@@ -70,7 +68,7 @@ export default async function Home() {
       <Numbers />
       <Gallery siteInformation={siteInformation} />
       <Partners />
-      <BlogHome />
+      <BlogHome posts={posts} />
       <Team />
       <div className="flex justify-center items-center flex-col  md:-mt-16 mb-8">
         <Link

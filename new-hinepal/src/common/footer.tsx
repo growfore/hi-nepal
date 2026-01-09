@@ -7,6 +7,8 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
+const STARS = [0, 1, 2, 3, 4];
+
 export async function Footer() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/site-informations`,
@@ -145,7 +147,7 @@ export async function Footer() {
                   <div className="flex flex-col items-left gap-1">
                     <p className="font-bold flex items-center gap-1">
                       <LucideVerified className="text-white" /> Recommended by
-                      100% of Travellers
+                      100% of Travelers
                     </p>
                     <div className="bg-white p-2 w-fit rounded-md">
                       <Image
@@ -156,12 +158,12 @@ export async function Footer() {
                       />
                     </div>
                     <div className="flex font-bold items-center italic">
-                      {new Array(5).map((_, idx) => (
+                      {STARS.map((i) => (
                         <div
-                          key={_}
+                          key={i}
                           className="size-4 bg-green-500 rounded-full ml-1"
-                        ></div>
-                      ))}{" "}
+                        />
+                      ))}
                       <span className="ml-4"> Reviews: </span> 5/5 (122+
                       Reviews)
                     </div>

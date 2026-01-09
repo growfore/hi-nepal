@@ -1,3 +1,5 @@
+const STARS = [0, 1, 2, 3, 4];
+
 export default function Loading() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -17,13 +19,13 @@ export default function Loading() {
           {/* Review Bar Skeleton */}
           <div className="bg-white/90 rounded-full px-6 py-3 flex items-center gap-4">
             <div className="flex gap-1">
-              {new Array(5).fill(null).map((_, i) => (
-                <div
-                  key={_}
-                  className="w-3 h-3 bg-gray-300 rounded-full animate-pulse"
-                />
-              ))}
-            </div>
+                {STARS.map((i) => (
+                  <div
+                    key={i}
+                    className="w-3 h-3 bg-gray-300 rounded-full animate-pulse"
+                  />
+                ))}
+              </div>
             <div className="h-4 bg-gray-300 rounded w-32 animate-pulse" />
             <div className="w-6 h-6 bg-gray-300 rounded-full animate-pulse" />
             <div className="h-4 bg-gray-300 rounded w-40 animate-pulse" />
@@ -38,9 +40,9 @@ export default function Loading() {
           <div className="lg:col-span-2 space-y-8">
             {/* Trek Info Cards Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {new Array(5).fill(null).map((_, i) => (
+              {STARS.map((i) => (
                 <div
-                  key={_}
+                  key={i}
                   className="bg-white rounded-lg p-4 shadow-sm border animate-pulse"
                 >
                   <div className="w-8 h-8 bg-green-200 rounded-full mb-3" />

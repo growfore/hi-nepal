@@ -2,9 +2,8 @@ import BlogCard from "@/components/molecules/blog-card";
 import { getBlogs } from "@/helper/getBlog";
 import Link from "next/link";
 
-const BlogHome = async () => {
-  const blogs = await getBlogs(1, 6);
-  const posts = blogs.posts;
+const BlogHome = async ({ posts: postsProp }: { posts?: any[] } = {}) => {
+  const posts = postsProp ?? (await getBlogs(1, 6)).posts;
 
   return (
     <section className="py-16 bg-background">

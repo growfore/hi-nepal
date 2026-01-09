@@ -30,6 +30,7 @@ export async function Footer() {
                 <div className="flex mb-2">
                   <Link href="/" className="bg-white p-1 w-fit rounded-md">
                     <Image
+                    loading="eager"
                       height={200}
                       width={200}
                       className="p-2 rounded-md"

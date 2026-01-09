@@ -28,6 +28,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                 <Image
                                     height={250}
                                     width={300}
+                                    loading='eager'
                                     className='w-full h-full object-cover'
                                     // @ts-ignore
                                     src={(siteInformation?.about?.image2) ?? ''}
@@ -38,6 +39,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                 <Image
                                     height={250}
                                     width={300}
+                                    loading='eager'
                                     // @ts-ignore
                                     src={(siteInformation?.about?.image3) ?? ''}
                                     alt='home page gallery image'
@@ -50,6 +52,7 @@ const Gallery = ({ siteInformation }: { siteInformation?: TSiteInformation }) =>
                                 <Image
                                     height={400}
                                     width={700}
+                                    loading='eager'
                                     className='w-full h-full object-cover'
                                     // @ts-ignore
                                     src={(siteInformation?.about?.image4) ?? ''}

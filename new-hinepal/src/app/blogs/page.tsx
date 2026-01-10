@@ -1,6 +1,5 @@
 export const dynamic = "force-dynamic";
 
-import InfiniteScrollingBlogs from "@/components/blogs-inifinite-scroll";
 import BlogCard from "@/components/molecules/blog-card";
 import { getBlogs } from "@/helper/getBlog";
 import { Metadata } from "next";
@@ -54,7 +53,6 @@ export default async function BlogsPage({
           />
         ))}
       </div>
-      {/*<InfiniteScrollingBlogs items={posts} />*/}
     </main>
   );
 }

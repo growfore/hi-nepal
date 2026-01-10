@@ -1,5 +1,6 @@
 import { TPackage } from "@/types/types";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const SearchBox = dynamic(() => import("../molecules/search-box"), {
   ssr: false,
@@ -13,12 +14,21 @@ export default function NewHero({
   return (
     <section className="relative p-2 mt-16 md:mt-[54px] flex flex-col items-center justify-center text-center text-white h-[60vh] md:h-[80vh] overflow-hidden">
       <div className="absolute inset-0 -z-10 h-full w-full overflow-hidden">
-        <img
+        <Image
           src={"/assets/mount-everest.webp"}
-          alt=""
+          alt="Mount Everest"
           className="object-cover h-[720px] md:hidden"
+          height={720}
+          width={420}
         />
-        <img src="/assets/mount-everest.webp" className="w-full h-full object-cover"/>
+        <Image
+          height={700}
+          width={700}
+          src="/assets/mount-everest.webp"
+          alt="Mount Everest Image"
+          className="w-full h-full object-cover"
+          loading="eager"
+        />
         {/* <video
           autoPlay
           loop

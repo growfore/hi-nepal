@@ -134,7 +134,6 @@ const PopularDestinations = async () => {
                       <figure className="w-full h-64">
                         <Image
                           src={d.image}
-                          loading="eager"
                           width={600}
                           height={400}
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 366px"

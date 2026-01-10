@@ -21,7 +21,6 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
   const [disableHover, setDisableHover] = useState(false);
   const path = usePathname();
   const destination = path.split("/")[1] || "";
-  const [navDisplay, setNavDisplay] = useState(false);
 
   const destinationOrder = useMemo(
     () => ["Everest Region", "Annapurna Region", "Manaslu Region"],

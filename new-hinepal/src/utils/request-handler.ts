@@ -1,14 +1,6 @@
 async function get(request: TRequest): Promise<void> {
   const { endPoint, token, params, success, failure, enableCaching } = request;
 
-  //  convert params to query string
-  // let queryString = "";
-  // if (params) {
-  //   queryString = Object.keys(params)
-  //     .map((key) => `${key}=${params[key]}`)
-  //     .join("&");
-  // }
-  // const url = `${endPoint}?${queryString}`;
   let url = endPoint;
   if (params && Object.keys(params).length > 0) {
     const queryString = Object.keys(params)
@@ -18,7 +10,6 @@ async function get(request: TRequest): Promise<void> {
       .join("&");
     url = `${endPoint}?${queryString}`;
   }
-  console.log("Fething endpoint: ", url);
 
   try {
     const response = await fetch(url, {

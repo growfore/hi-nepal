@@ -18,7 +18,8 @@ export default function NewHero({
           alt=""
           className="object-cover h-[720px] md:hidden"
         />
-        <video
+        <img src="/assets/mount-everest.webp" className="w-full h-full object-cover"/>
+        {/* <video
           autoPlay
           loop
           muted
@@ -28,7 +29,7 @@ export default function NewHero({
           poster="/assets/mount-everest.webp"
         >
           <source src="/assets/videos/optimized.webm" type="video/webm" />
-        </video>
+        </video> */}
 
         <div className="absolute inset-0 bg-black/50" />
       </div>

@@ -5,7 +5,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Adventures - Hi Nepal Travels & Treks",
-  description: "Hi Nepal Travels & Treks, a top travel & trekking agency in Nepal, offers thrilling adventure sports like paragliding & bungee jumping across the Himalayas.",
+  description:
+    "Hi Nepal Travels & Treks, a top travel & trekking agency in Nepal, offers thrilling adventure sports like paragliding & bungee jumping across the Himalayas.",
   keywords: "adventure sports, travel and trekking agency in nepal",
   alternates: {
     canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/adventure",
@@ -58,6 +59,7 @@ export default function AdventurePage() {
               alt="bungee"
               height={500}
               width={500}
+              priority
             />
           </div>
         </div>
@@ -71,6 +73,7 @@ export default function AdventurePage() {
               alt="rock-climbing"
               height={500}
               width={500}
+              priority
             />
           </div>
           <div className="md:max-w-[40vw]">
@@ -94,7 +97,7 @@ export default function AdventurePage() {
         >
           <div className="md:max-w-[40vw]">
             <h2 className="font-bold text-xl">Zipline</h2>
-            <p className="text-justify">
+            <div className="text-justify">
               Zipline in Nepal offers a unique experience of the country's
               stunning landscapes and adrenaline-pumping adventures. One of the
               famous ziplines around the world, the Pokhara zipline in western
@@ -113,7 +116,7 @@ export default function AdventurePage() {
               professional safety precautions, trained guides, and a variety of
               ride styles, it's more than just a sport; it's an unforgettable
               journey through the skies.
-            </p>
+            </div>
           </div>
           <div className="">
             <Image
@@ -122,6 +125,7 @@ export default function AdventurePage() {
               alt="zipline"
               height={500}
               width={500}
+              priority
             />
           </div>
         </div>
@@ -139,7 +143,7 @@ export default function AdventurePage() {
           </div>
           <div className="md:max-w-[40vw]">
             <h2 className="font-bold text-xl">Cycling</h2>
-            <p className="text-justify">
+            <div className="text-justify">
               Cycling in Nepal offers a unique mixture of adventure, fitness,
               and cultural exploration. It offers smooth city rides and
               challenging mountain trails, allowing enthusiasts to experience
@@ -161,7 +165,7 @@ export default function AdventurePage() {
                 World Peace Pagoda Tour
               </Link>
               .
-            </p>
+            </div>
           </div>
         </div>
 
@@ -204,6 +208,7 @@ export default function AdventurePage() {
               alt="ultra-light-flight"
               height={500}
               width={500}
+              priority
             />
           </div>
         </div>
@@ -218,6 +223,7 @@ export default function AdventurePage() {
               alt="rafting"
               height={500}
               width={500}
+              priority
             />
           </div>
           <div className="md:max-w-[40vw]">
@@ -277,6 +283,7 @@ export default function AdventurePage() {
               alt="rafting"
               height={500}
               width={400}
+              priority
             />
           </div>
         </div>
@@ -290,6 +297,7 @@ export default function AdventurePage() {
               alt="rafting"
               height={500}
               width={400}
+              priority
             />
           </div>
           <div className="md:max-w-[40vw]">

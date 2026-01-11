@@ -1,5 +1,5 @@
 async function get(request: TRequest): Promise<void> {
-  const { endPoint, token, params, success, failure, enableCaching } = request;
+  const { endPoint, token, params, success, failure, enableCaching, nextOptions } = request;
 
   let url = endPoint;
   if (params && Object.keys(params).length > 0) {
@@ -12,14 +12,17 @@ async function get(request: TRequest): Promise<void> {
   }
 
   try {
-    const response = await fetch(url, {
+    const fetchOptions: any = {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       method: "GET",
-      cache: enableCaching ? "force-cache" : "no-cache",
-    });
+      cache: enableCaching ? "force-cache" : "default",
+    };
+    if (nextOptions) fetchOptions.next = nextOptions;
+
+    const response = await fetch(url, fetchOptions);
 
     let data: any;
     try {
@@ -147,6 +150,7 @@ type TRequest = {
   params?: any;
   data?: any;
   enableCaching?: boolean;
+  nextOptions?: any;
   success: (message: string, data: any) => void;
   failure: (message: string) => void;
 };

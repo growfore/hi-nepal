@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/form";
 import type { TPackageDetails } from "@/types/types";
 import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
 const contactFormSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters"),
@@ -43,31 +44,28 @@ const contactFormSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-const ContactForm = ({
-  packages,
-  selectedPackage,
-}: {
-  packages: TPackageDetails[];
-  selectedPackage?: string;
-}) => {
+const ContactForm = ({ packages }: { packages: TPackageDetails[] }) => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Form_Component packages={packages} selectedPackage={selectedPackage} />
+      <Form_Component packages={packages} />
     </Suspense>
   );
 };
 
 export default ContactForm;
 
-export function Form_Component({ packages, selectedPackage }: { packages: TPackageDetails[], selectedPackage?: string }) {
+export function Form_Component({ packages }: { packages: TPackageDetails[] }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const searchParams = useSearchParams();
+  const destinationParam = searchParams?.get("destination") ?? "";
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
       fullName: "",
-      destination: selectedPackage || "",
+      destination: destinationParam || "",
       groupSize: "",
       experienceLevel: "",
       email: "",
@@ -75,6 +73,11 @@ export function Form_Component({ packages, selectedPackage }: { packages: TPacka
       message: "",
     },
   });
+
+  useEffect(() => {
+    if (destinationParam) form.setValue("destination", destinationParam);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [destinationParam]);
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
@@ -155,7 +158,7 @@ export function Form_Component({ packages, selectedPackage }: { packages: TPacka
                           <FormLabel>Desired Destination *</FormLabel>
                           <Select
                             onValueChange={field.onChange}
-                            defaultValue={selectedPackage || field.value}
+                            defaultValue={field.value}
                           >
                             <FormControl className="w-full">
                               <SelectTrigger>

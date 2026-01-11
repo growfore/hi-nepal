@@ -1,4 +1,5 @@
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
+export const revalidate = 3600; // ISR: 1 hour
 import endpoints from "@/constant/endpoints";
 import { TPackageDetails } from "@/types/types";
 import { get } from "@/utils/request-handler";
@@ -6,7 +7,7 @@ import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { Metadata } from "next";
 import { fetchData } from "@/helper/fetch-data";
 import { formatSlug } from "@/helper/formatSlug";
-import { getBlogSingle } from "@/helper/getBlog";
+import { getBlogSingle, getBlogs } from "@/helper/getBlog";
 import { BlogPage } from "@/components/pages/blog-page-single";
 import Link from "next/link";
 import {
@@ -116,6 +117,39 @@ export async function generateMetadata({
   }
 }
 
+export async function generateStaticParams() {
+  try {
+    // fetch packages from backend
+    const res = await fetch(endpoints.PACKAGES, { next: { revalidate: 3600 } });
+    const packagesData = await res.json();
+    const packagesList = packagesData?.data?.packages || packagesData?.packages || [];
+
+    // fetch blog posts (wordpress)
+    const blogData = await getBlogs(1, 200);
+    const blogPosts = blogData?.posts || [];
+
+    const seen = new Set<string>();
+    const params: { slug: string }[] = [];
+
+    packagesList.forEach((p: any) => {
+      if (p?.slug && !seen.has(p.slug)) {
+        seen.add(p.slug);
+        params.push({ slug: p.slug });
+      }
+    });
+    blogPosts.forEach((b: any) => {
+      if (b?.slug && !seen.has(b.slug)) {
+        seen.add(b.slug);
+        params.push({ slug: b.slug });
+      }
+    });
+
+    return params;
+  } catch (e) {
+    return [];
+  }
+}
+
 const Activities = async ({ params }: { params: Params }) => {
   let blog = await getBlogSingle(params.slug);
   let schema;
@@ -177,6 +211,7 @@ const Activities = async ({ params }: { params: Params }) => {
     await get({
       endPoint: endpoints.PACKAGES + "/" + params.slug,
       token: "",
+      enableCaching: true,
       success: (_, res) => {
         details = res.data.package;
         destinationSlug = res.data.package.destination.slug;
@@ -190,6 +225,7 @@ const Activities = async ({ params }: { params: Params }) => {
     await get({
       endPoint: endpoints.PACKAGES,
       token: "",
+      enableCaching: true,
       success: (message, res) => {
         packages.push(...res.data.packages);
       },
@@ -202,6 +238,7 @@ const Activities = async ({ params }: { params: Params }) => {
     await get({
       endPoint: endpoints.DESTINATIONS + "/" + destinationSlug,
       token: "",
+      enableCaching: true,
       success: (mes, res) => {
         destinationPackages.push(...res.data.packages);
       },

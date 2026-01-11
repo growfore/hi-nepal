@@ -3,6 +3,9 @@ import endpoints from "@/constant/endpoints";
 import { TPackageDetails } from "@/types/types";
 import { get } from "@/utils/request-handler";
 
+export const dynamic = "force-static";
+export const revalidate = 3600; // ISR: 1 hour
+
 export const metadata = {
   title: "Plan Your Adventure - Hi Nepal Travels & Treks",
   description:
@@ -21,12 +24,7 @@ export const metadata = {
   },
 };
 
-export default async function BookingPage({
-  searchParams,
-}: Readonly<{
-  searchParams: { destination: string };
-}>) {
-  const selectedPackage = searchParams.destination;
+export default async function BookingPage() {
 
   let packages: TPackageDetails[] = [];
   await get({
@@ -35,6 +33,7 @@ export default async function BookingPage({
     success: (_, res) => {
       packages.push(...res.data.packages);
     },
+    enableCaching: true,
     failure: (message) => {
       return message;
     },
@@ -44,7 +43,5 @@ export default async function BookingPage({
     a.title.toLowerCase().localeCompare(b.title.toLowerCase())
   );
 
-  return (
-    <ContactForm selectedPackage={selectedPackage} packages={sortedPackages} />
-  );
+  return <ContactForm packages={sortedPackages} />;
 }

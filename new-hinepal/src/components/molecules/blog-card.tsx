@@ -1,7 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type TBlogCardProps = {
   title: string;
@@ -17,12 +15,10 @@ export default function BlogCard({
   image,
   slug,
 }: Readonly<TBlogCardProps>) {
-  const router = useRouter();
   return (
     <div>
-      <a
+      <Link
         href={`/${slug}`}
-        onMouseEnter={() => router.prefetch(`/${slug}`)}
         className="flex flex-col bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 h-[420px]"
       >
         <figure className="relative h-64 w-full">
@@ -36,16 +32,16 @@ export default function BlogCard({
           />
         </figure>
         <div className="p-6 flex flex-col gap-3">
-          <h2
-            className="text-xl font-bold text-gray-900 leading-tight line-clamp-2"
-            dangerouslySetInnerHTML={{ __html: title }}
-          />
-          <p
+          <h2 className="text-xl font-bold text-gray-900 leading-tight line-clamp-2">
+            {title}
+          </h2>
+
+          <div
             className="text-gray-600 text-sm leading-relaxed line-clamp-3"
             dangerouslySetInnerHTML={{ __html: excerpt }}
           />
         </div>
-      </a>
+      </Link>
     </div>
   );
 }

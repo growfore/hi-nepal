@@ -20,25 +20,35 @@ export const metadata: Metadata = {
     "max-snippet": -1,
   },
 };
+
 export default async function SitemapPage() {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
   const baseUrl = process.env.NEXT_PUBLIC_FRONTEND_BASE_URL;
 
+  // let navItems: TNavBar = [];
 
-  let navItems: TNavBar = [];
+  const res = await fetch(`${backendUrl}/api/activities/nav-items`);
 
-  await get({
-    endPoint: backendUrl + "/api/activities/nav-items",
-    token: "",
-    success: (message, res) => {
-      navItems = res.data;
-    },
-    failure: (message) => {
-      console.error(message, "error in link fetching");
-    },
-  });
+  if (!res.ok) {
+    return;
+  }
+  const response = await res.json();
+
+  const navItems:TNavBar = response?.data; 
+
+  // await get({
+  //   endPoint: backendUrl + "/api/activities/nav-items",
+  //   token: "",
+  //   success: (message, res) => {
+  //     navItems = res.data;
+  //   },
+  //   failure: (message) => {
+  //     console.error(message, "error in link fetching");
+  //   },
+  // });
 
   const blogs = await getBlogs(1, 100);
+
   const hoverStyle =
     "hover:border-b-2 hover:border-orange-400 hover:border-dashed w-fit mb-1 text-blue-400";
   return (

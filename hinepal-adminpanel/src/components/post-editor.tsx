@@ -413,76 +413,6 @@ export function PostEditorComponent({
                   </Button>
                   <Button
                     type="button"
-                    onClick={() => setWhichWriting("altitudeInfo")}
-                  >
-                    {" "}
-                    Altitude Info
-                  </Button>
-                  <Button
-                    type="button"
-                    onClick={() => setWhichWriting("itenary")}
-                  >
-                    {" "}
-                    Itinerary
-                  </Button>
-                  <Button
-                    type="button"
-                    onClick={() => setWhichWriting("packing")}
-                  >
-                    {" "}
-                    Packaging
-                  </Button>
-                  <Button
-                    type="button"
-                    onClick={() => setWhichWriting("bestSeasonInfo")}
-                  >
-                    {" "}
-                    Seasons Info
-                  </Button>
-                  <Button
-                    type="button"
-                    onClick={() => setWhichWriting("routeOverview")}
-                  >
-                    {" "}
-                    Route Overview
-                  </Button>
-                  <Button
-                    type="button"
-                    onClick={() => setWhichWriting("includes")}
-                  >
-                    {" "}
-                    Includes
-                  </Button>
-                  <Button
-                    type="button"
-                    onClick={() => setWhichWriting("excludes")}
-                  >
-                    {" "}
-                    Excludes
-                  </Button>
-                  <Button
-                    type="button"
-                    onClick={() => setWhichWriting("sicknessAndSaftey")}
-                  >
-                    {" "}
-                    Sickness and Safety
-                  </Button>
-                  <Button
-                    type="button"
-                    onClick={() => setWhichWriting("insuranceAndEmergency")}
-                  >
-                    {" "}
-                    Insurance & Emergency
-                  </Button>
-                  <Button
-                    type="button"
-                    onClick={() => setWhichWriting("permitsAndRegulations")}
-                  >
-                    {" "}
-                    Permits & Regulations
-                  </Button>
-                  <Button
-                    type="button"
                     onClick={() => setWhichWriting("shortTrekInfo")}
                   >
                     {" "}
@@ -492,28 +422,91 @@ export function PostEditorComponent({
                     type="button"
                     onClick={() => setWhichWriting("whyChooseThisPackage")}
                   >
-                    {" "}
-                    Why this Package{" "}
+                    Why this Package?
                   </Button>
+                  <Button
+                    type="button"
+                    onClick={() => setWhichWriting("includes")}
+                  >
+                    Inclusions
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={() => setWhichWriting("excludes")}
+                  >
+                    Exclusions
+                  </Button>
+
+                  <Button
+                    type="button"
+                    onClick={() => setWhichWriting("itenary")}
+                  >
+                    Detailed Itinerary
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={() => setWhichWriting("packing")}
+                  >
+                    Essentials Packaging
+                  </Button>
+
+                  <Button
+                    type="button"
+                    onClick={() => setWhichWriting("permitsAndRegulations")}
+                  >
+                    Permits & Regulations
+                  </Button>
+
+                  <Button
+                    type="button"
+                    onClick={() => setWhichWriting("sicknessAndSaftey")}
+                  >
+                    Guidelines and Safety
+                  </Button>
+
                   <Button
                     type="button"
                     onClick={() => setWhichWriting("priceBreakdown")}
                   >
-                    {" "}
-                    Price Breakdown
+                    Cost Breakdown
                   </Button>
+
                   <Button
                     type="button"
                     onClick={() => setWhichWriting("bookingInfo")}
                   >
-                    {" "}
-                    Info & Final Thoughts
+                    Final Thoughts
+                  </Button>
+
+                  <Button
+                    type="button"
+                    onClick={() => setWhichWriting("bestSeasonInfo")}
+                  >
+                    Seasons Info
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={() => setWhichWriting("altitudeInfo")}
+                  >
+                    Elevation and Altitude
+                  </Button>
+
+                  <Button
+                    type="button"
+                    onClick={() => setWhichWriting("routeOverview")}
+                  >
+                    Map/Route Overview
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={() => setWhichWriting("insuranceAndEmergency")}
+                  >
+                    Additional Info
                   </Button>
                   <Button
                     type="button"
                     onClick={() => setWhichWriting("goodtoknow")}
                   >
-                    {" "}
                     FAQs
                   </Button>
                 </div>

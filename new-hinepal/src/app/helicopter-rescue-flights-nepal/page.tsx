@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 
 export default function HelicopterRescuePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50 py-12 mt-16">
+    <div className="flex flex-col min-h-screen bg-slate-50 py-12">
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Header */}
         <header className="mb-12">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">
+          <h1 className="text-xl md:text-3xl font-bold mb-4 tracking-tight">
             Helicopter Rescue Flights in Nepal: Emergency Evacuation & Life-Saving Air Rescue
           </h1>
           <div className="flex flex-wrap gap-2 mb-6">

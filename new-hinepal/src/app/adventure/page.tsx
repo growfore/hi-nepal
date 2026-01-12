@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function AdventurePage() {
   return (
     <div className="min-h-screen flex flex-col items-center">
-      <section className="p-4 relative bg-cover bg-center flex items-center md:justify-center  mt-24 md:mt-42">
+      <section className="p-4 relative bg-cover bg-center flex items-center md:justify-center  mt-12">
         <div className="flex flex-col md:items-center">
           <h1 className="font-bold text-4xl lg:text-7xl mb-4">Adventures</h1>
           <p className="text-left italic text-xl">

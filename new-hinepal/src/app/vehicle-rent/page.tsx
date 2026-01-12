@@ -12,7 +12,7 @@ export default function VehicleRentalPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-[#008236] text-primary-foreground py-16 px-4 mt-12">
+      <section className="bg-[#008236] text-primary-foreground py-16 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex justify-center mb-4">
             <Car className="h-12 w-12" />

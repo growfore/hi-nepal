@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronRight, ChevronUp, LucideMenu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
+
 import {
   Accordion,
   AccordionContent,
@@ -12,13 +13,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { TNavBar } from "@/types/types";
-import { useMemo, useState, useCallback } from "react";
+import { useMemo, useState, useCallback, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import Topbar from "./topbar";
 
 export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
   const [disableHover, setDisableHover] = useState(false);
+  const [openActivity, setOpenActivity] = useState<string | null>(null);
   const path = usePathname();
   const destination = path.split("/")[1] || "";
 
@@ -81,35 +83,54 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
     []
   );
 
-  const sortDestinations = useCallback(
-    (destinations: any[]) =>
-      [...destinations].sort((a, b) => {
-        const aIndex = destinationOrder.indexOf(a.name);
-        const bIndex = destinationOrder.indexOf(b.name);
-        if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
-        if (aIndex !== -1) return -1;
-        if (bIndex !== -1) return 1;
-        return a.name.localeCompare(b.name);
-      }),
-    [destinationOrder]
-  );
+    // Precompute sorted nav data to avoid repeated sorts during render
+    const sortedNavBar = useMemo(() => {
+      const destIndexMap = new Map(destinationOrder.map((name, i) => [name, i]));
+      return navBar.map((activity) => {
+        const sortedDestinations = [...activity.destinations]
+          .map((d) => ({ ...d }))
+          .sort((a, b) => {
+            const aIdx = destIndexMap.has(a.name) ? (destIndexMap.get(a.name) as number) : Infinity;
+            const bIdx = destIndexMap.has(b.name) ? (destIndexMap.get(b.name) as number) : Infinity;
+            if (aIdx !== Infinity || bIdx !== Infinity) {
+              if (aIdx !== bIdx) return aIdx - bIdx;
+              return 0;
+            }
+            return a.name.localeCompare(b.name);
+          })
+          .map((dest) => {
+            // @ts-expect-error dynamic key
+            const order = packageOrders[dest.slug];
+            let sortedPackages = [...dest.packages];
+            if (order && Array.isArray(order)) {
+              const idxMap = new Map(order.map((s: string, i: number) => [s, i]));
+              sortedPackages = sortedPackages.sort((x: any, y: any) => {
+                const xi = idxMap.has(x.slug) ? (idxMap.get(x.slug) as number) : Infinity;
+                const yi = idxMap.has(y.slug) ? (idxMap.get(y.slug) as number) : Infinity;
+                if (xi === yi) return x.title.localeCompare(y.title);
+                return xi - yi;
+              });
+            } else {
+              sortedPackages = sortedPackages.sort((x: any, y: any) => x.title.localeCompare(y.title));
+            }
+            return { ...dest, packages: sortedPackages };
+          });
+        return { ...activity, destinations: sortedDestinations };
+      });
+    }, [navBar, destinationOrder, packageOrders]);
 
-  const sortPackages = useCallback(
-    (destinationSlug: string, packages: any[]) => {
-      // @ts-expect-error type error
-      const order = packageOrders[destinationSlug];
-      if (!order)
-        return [...packages].sort((a, b) => a.title.localeCompare(b.title));
-      return [...packages].sort(
-        (a, b) => order.indexOf(a.slug) - order.indexOf(b.slug)
-      );
-    },
-    [packageOrders]
-  );
+  const timerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) window.clearTimeout(timerRef.current);
+    };
+  }, []);
 
   const handleClick = useCallback(() => {
     setDisableHover(true);
-    setTimeout(() => setDisableHover(false), 500);
+    if (timerRef.current) window.clearTimeout(timerRef.current);
+    timerRef.current = window.setTimeout(() => setDisableHover(false), 500);
   }, []);
 
   return (
@@ -119,7 +140,7 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
     >
       <Topbar />
       <div className="flex items-center justify-between container mx-auto gap-4 md:max-w-[75vw] p-2">
-        <a href="/" title="Go to homepage" className="shrink-0 min-w-[50px]">
+        <Link href="/" title="Go to homepage" className="shrink-0 min-w-[50px]">
           <Image
             src="/assets/hinepal-logo.webp"
             priority
@@ -128,11 +149,15 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
             alt="hinepal logo"
             className="h-auto w-[100px] md:w-[130px]"
           />
-        </a>
+        </Link>
 
         <div className="flex gap-4 items-center">
-          {navBar.map((activity) => (
-            <div key={activity.slug}>
+          {sortedNavBar.map((activity) => (
+            <div
+              key={activity.slug}
+              onMouseEnter={() => setOpenActivity(activity.slug)}
+              onMouseLeave={() => setOpenActivity(null)}
+            >
               <button
                 onClick={handleClick}
                 className={cn(!disableHover && "group", "hidden lg:flex")}
@@ -147,14 +172,13 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
                   <ChevronUp className="hidden group-hover:block" />
                 </Link>
 
-                {/* Dropdown */}
-                <div className="hidden group-hover:grid absolute top-[120px] left-0 w-screen py-8 px-0 z-999">
-                  <div className="pb-8 bg-white shadow-md border-b border-gray-300 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container px-12 mx-auto rounded-md">
-                    {sortDestinations(activity.destinations).map(
-                      (destination) => (
+                {/* Dropdown - mounted lazily only when hovered/open */}
+                {openActivity === activity.slug && !disableHover && (
+                  <div className="grid absolute top-[120px] left-0 w-screen py-8 px-0 z-999">
+                    <div className="pb-8 bg-white shadow-md border-b border-gray-300 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 container px-12 mx-auto rounded-md">
+                      {activity.destinations.map((destination) => (
                         <div key={destination.slug}>
-                          {/* a tag instead of Link */}
-                          <a
+                          <Link
                             className="font-semibold text-lg"
                             href={`/activities/${activity.slug}/${destination.slug}`}
                           >
@@ -162,93 +186,96 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
                               <span>{destination.name}</span>
                               <ChevronRight className="size-4" />
                             </div>
-                          </a>
+                          </Link>
                           <ul className="flex flex-col items-start text-left gap-2 font-medium">
-                            {sortPackages(
-                              destination.slug,
-                              destination.packages
-                            ).map((pkg) => (
+                            {destination.packages.map((pkg) => (
                               <li key={pkg.slug}>
-                                <a
+                                <Link
                                   href={`/${pkg.slug}`}
                                   className="hover:border-b-2 border-dashed border-green-700 hover:text-green-700"
                                 >
                                   {pkg.title.split(":")[0].trim()}
-                                </a>
+                                </Link>
                               </li>
                             ))}
                           </ul>
                         </div>
-                      )
-                    )}
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </button>
             </div>
           ))}
           <div className="hidden lg:flex">
-            <button className="group font-bold uppercase flex gap-1 items-center">
+            <button
+              onMouseEnter={() => setOpenActivity("transport")}
+              onMouseLeave={() => setOpenActivity(null)}
+              className="group font-bold uppercase flex gap-1 items-center"
+            >
               <span>Transport</span>
               <ChevronDown className="group-hover:hidden" />
               <ChevronUp className="hidden group-hover:block" />
 
-              {/* Dropdown */}
-              <div className="hidden group-hover:grid absolute top-[120px] left-0 w-screen py-8 z-999">
-                <div className="bg-white shadow-md border-b border-gray-300 container mx-auto px-12 py-6 rounded-md">
-                  <ul className="flex flex-col gap-4 font-semibold text-lg">
-                    <li>
-                      <a
-                        href="/air-ticket-booking-nepal"
-                        className="flex items-center gap-2 text-[#F05A24] hover:text-green-700"
-                      >
-                        Flight Tickets
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/vehicle-rent"
-                        className="flex items-center gap-2 text-[#F05A24] hover:text-green-700"
-                      >
-                        Vehicle Rent
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/helicopter-rescue-flights-nepal"
-                        className="flex items-center gap-2 text-[#F05A24] hover:text-green-700"
-                      >
-                        Rescue Flights
-                      </a>
-                    </li>
-                  </ul>
+              {/* Dropdown - lazy mounted */}
+              {openActivity === "transport" && (
+                <div className="grid absolute top-[120px] left-0 w-screen py-8 z-999">
+                  <div className="bg-white shadow-md border-b border-gray-300 container mx-auto px-12 py-6 rounded-md">
+                    <ul className="flex flex-col gap-4 font-semibold text-lg">
+                      <li>
+                        <Link
+                          href="/air-ticket-booking-nepal"
+                          className="flex items-center gap-2 text-[#F05A24] hover:text-green-700"
+                        >
+                          Flight Tickets
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/vehicle-rent"
+                          className="flex items-center gap-2 text-[#F05A24] hover:text-green-700"
+                        >
+                          Vehicle Rent
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/helicopter-rescue-flights-nepal"
+                          className="flex items-center gap-2 text-[#F05A24] hover:text-green-700"
+                        >
+                          Rescue Flights
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
+              )}
             </button>
           </div>
-          <a
+          <Link
             href="/adventure"
             className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
           >
             Adventure
-          </a>
-          <a
+          </Link>
+          <Link
             href="/about-us"
             className="hidden lg:flex hover:text-green-700 font-bold uppercase gap-1"
           >
             About Us
-          </a>
+          </Link>
         </div>
 
         {/* Mobile */}
         <div className="flex gap-2 self-center">
-          <a href={`/booking?destination=${destination}`}>
+          <Link href={`/booking?destination=${destination}`}>
             <Button
               size="lg"
               className="md:p-8 text-lg p-4 bg-green-700 cursor-pointer rounded-lg hover:bg-orange-400"
             >
               Book Now
             </Button>
-          </a>
+          </Link>
 
           <div className="lg:hidden">
             <Sheet>
@@ -256,17 +283,14 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
                 <LucideMenu className="size-12 -mt-1 md:mt-0 md:size-16" />
               </SheetTrigger>
               <SheetContent className="flex flex-col gap-4 p-8 z-99999 overflow-y-auto">
-                {navBar.map((activity) => (
+                {sortedNavBar.map((activity) => (
                   <Accordion key={activity.slug} type="single" collapsible>
                     <AccordionItem value={`item-${activity.slug}`}>
                       <AccordionTrigger className="font-bold text-xl uppercase flex p-0">
-                        <a href={`/activities/${activity.slug}`}>
-                          {activity.name}
-                        </a>
+                        <Link href={`/activities/${activity.slug}`}>{activity.name}</Link>
                       </AccordionTrigger>
                       <AccordionContent>
-                        {sortDestinations(activity.destinations).map(
-                          (destination) => (
+                        {activity.destinations.map((destination) => (
                             <Accordion
                               key={destination.slug}
                               type="single"
@@ -274,56 +298,52 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
                             >
                               <AccordionItem value={`item-${destination.slug}`}>
                                 <AccordionTrigger className="font-semibold text-xl p-0 py-2">
-                                  <a
+                                  <Link
                                     href={`/activities/${activity.slug}/${destination.slug}`}
                                     className="flex gap-1 items-center text-orange-600"
                                   >
                                     {destination.name}
-                                  </a>
+                                  </Link>
                                 </AccordionTrigger>
                                 <AccordionContent>
                                   <ul className="flex flex-col gap-2">
-                                    {sortPackages(
-                                      destination.slug,
-                                      destination.packages
-                                    ).map((pkg) => (
+                                    {destination.packages.map((pkg) => (
                                       <li key={pkg.slug}>
-                                        <a
+                                        <Link
                                           href={`/${pkg.slug}`}
                                           className="hover:border-b-2 border-dashed border-[#EF5922] hover:text-[#EF5922] font-bold text-lg"
                                         >
                                           {pkg.title.split(":")[0].trim()}
-                                        </a>
+                                        </Link>
                                       </li>
                                     ))}
                                   </ul>
                                 </AccordionContent>
                               </AccordionItem>
                             </Accordion>
-                          )
-                        )}
+                        ))}
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
                 ))}
-                <a href="/adventure" className="uppercase font-bold text-xl">
+                <Link href="/adventure" className="uppercase font-bold text-xl">
                   Adventures
-                </a>
-                <a href="/about-us" className="uppercase font-bold text-xl">
+                </Link>
+                <Link href="/about-us" className="uppercase font-bold text-xl">
                   About Us
-                </a>
-                <a href="/air-ticket-booking-nepal" className="uppercase font-bold text-xl">
+                </Link>
+                <Link href="/air-ticket-booking-nepal" className="uppercase font-bold text-xl">
                   Flight Ticket
-                </a>
-                <a href="/helicopter-rescue-flights-nepal" className="uppercase font-bold text-xl">
-		Rescue Flights
-                </a>
-                <a href="/vehicle-rent" className="uppercase font-bold text-xl">
+                </Link>
+                <Link href="/helicopter-rescue-flights-nepal" className="uppercase font-bold text-xl">
+                  Rescue Flights
+                </Link>
+                <Link href="/vehicle-rent" className="uppercase font-bold text-xl">
                   Vehicle Rent
-                </a>
-                <a href="/blogs" className="uppercase font-bold text-xl">
+                </Link>
+                <Link href="/blogs" className="uppercase font-bold text-xl">
                   Blogs
-                </a>
+                </Link>
               </SheetContent>
             </Sheet>
           </div>

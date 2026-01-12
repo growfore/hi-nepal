@@ -119,12 +119,11 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   try {
-    // fetch packages from backend
     const res = await fetch(endpoints.PACKAGES, { next: { revalidate: 3600 } });
     const packagesData = await res.json();
-    const packagesList = packagesData?.data?.packages || packagesData?.packages || [];
+    const packagesList =
+      packagesData?.data?.packages || packagesData?.packages || [];
 
-    // fetch blog posts (wordpress)
     const blogData = await getBlogs(1, 200);
     const blogPosts = blogData?.posts || [];
 
@@ -254,11 +253,13 @@ const Activities = async ({ params }: { params: Params }) => {
 
   const navigations = [
     { id: "overview", label: "Overview", icon: "LucideEye" },
-    { id: "itenary", label: "Itinerary", icon: "LucideList" },
-    { id: "packing", label: "Packing", icon: "LucideBackpack" },
-    { id: "best-season", label: "Best Seasons", icon: "LucideCloudSunRain" },
+    { id: "highlights", label: "Highlights", icon: "Sparkles" },
     { id: "includes", label: "Includes", icon: "LucideCheck" },
     { id: "excludes", label: "Excludes", icon: "LucideX" },
+    { id: "itinerary", label: "Itinerary", icon: "LucideList" },
+    { id: "packing", label: "Packing", icon: "LucideBackpack" },
+    { id: "permitsAndRegulations", label: "Permits", icon: "LucideTicket" },
+    { id: "best-season", label: "Best Seasons", icon: "LucideCloudSunRain" },
     { id: "faqs", label: "FAQs", icon: "LucideMessageCircleQuestion" },
   ];
 
@@ -311,7 +312,7 @@ const Activities = async ({ params }: { params: Params }) => {
       <>
         {/* Section Navigation */}
         <div className="container mx-auto px-4">
-          <div className="container py-1 md:py-4 text-left mt-24">
+          <div className="container py-1 md:py-4 text-left">
             <h1 className="text-2xl md:text-3xl lg:4xl font-extrabold leading-tight">
               {details.title}
             </h1>
@@ -342,9 +343,9 @@ const Activities = async ({ params }: { params: Params }) => {
         <main
           className="
   prose-headings:text-gray-900 prose-headings:font-bold
-  prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8 
-  prose-h2:text-3xl prose-h2:mt-6 prose-h2:mb-2 prose-h2:font-bold prose-h2:text-[#008000]!
-  prose-h3:text-xl prose-h3:mt-4 prose-h3:mb-1
+  prose-h1:text-2xl md:prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8 
+  prose-h2:text-xl md:prose-h2:text-3xl prose-h2:mt-6 prose-h2:mb-2 prose-h2:font-bold prose-h2:text-[#008000]!
+  prose-h3:text-lg md:prose-h3:text-xl prose-h3:mt-4 prose-h3:mb-1
   prose-p:text-lg!
   container mx-auto px-4 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12"
         >
@@ -438,18 +439,56 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.highlights }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-8"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
                 )}
               ></div>
             )}
-            {/* Altitude Section */}
-            {details.altitudeInfo && (
+
+            {/* Short itinerary */}
+            {details.shortTrekInfo && (
               <div
-                id="altitude"
-                dangerouslySetInnerHTML={{ __html: details.altitudeInfo }}
+                id="shortTrekInfo"
+                dangerouslySetInnerHTML={{ __html: details.shortTrekInfo }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl!"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                )}
+              ></div>
+            )}
+
+            {/* Why trek */}
+            {details.whyChooseThisPackage && (
+              <div
+                id="whyChooseThisPackage"
+                dangerouslySetInnerHTML={{
+                  __html: details.whyChooseThisPackage,
+                }}
+                className={cn(
+                  sectionStyle,
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                )}
+              ></div>
+            )}
+
+            {/* Includes */}
+            {details.includes && (
+              <div
+                id="includes"
+                dangerouslySetInnerHTML={{ __html: details.includes }}
+                className={cn(
+                  sectionStyle,
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                )}
+              ></div>
+            )}
+
+            {/* Excludes */}
+            {details.excludes && (
+              <div
+                id="excludes"
+                dangerouslySetInnerHTML={{ __html: details.excludes }}
+                className={cn(
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
                 )}
               ></div>
             )}
@@ -461,7 +500,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.itenary }}
                 className={cn(
                   sectionStyle,
-                  "prose marker:text-black marker:text-xl! max-w-none"
+                  "prose marker:text-black marker:text-xl! max-w-none -mt-16"
                 )}
               ></div>
             )}
@@ -481,49 +520,16 @@ const Activities = async ({ params }: { params: Params }) => {
               ></div>
             )}
 
-            {/* Seasons */}
-            {details.bestSeasonInfo && (
+            {/* Permits and regulations */}
+            {details.permitsAndRegulations && (
               <div
-                id="best-season"
-                dangerouslySetInnerHTML={{ __html: details.bestSeasonInfo }}
+                id="permitsAndRegulations"
+                dangerouslySetInnerHTML={{
+                  __html: details.permitsAndRegulations,
+                }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl!"
-                )}
-              ></div>
-            )}
-
-            {/* Route Overview */}
-            {details.routeOverview && (
-              <div
-                id="route-overview"
-                dangerouslySetInnerHTML={{ __html: details.routeOverview }}
-                className={cn(
-                  sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl!"
-                )}
-              ></div>
-            )}
-
-            {/* Includes */}
-            {details.includes && (
-              <div
-                id="includes"
-                dangerouslySetInnerHTML={{ __html: details.includes }}
-                className={cn(
-                  sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl!"
-                )}
-              ></div>
-            )}
-
-            {/* Excludes */}
-            {details.excludes && (
-              <div
-                id="excludes"
-                dangerouslySetInnerHTML={{ __html: details.excludes }}
-                className={cn(
-                  "prose max-w-none marker:text-black marker:text-xl!"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
                 )}
               ></div>
             )}
@@ -537,61 +543,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 id="sicknessAndSafety"
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl!"
-                )}
-              ></div>
-            )}
-
-            {/* Travel insurance and regulations */}
-            {details.insuranceAndEmergency && (
-              <div
-                id="insuranceAndEmergency"
-                dangerouslySetInnerHTML={{
-                  __html: details.insuranceAndEmergency,
-                }}
-                className={cn(
-                  sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl!"
-                )}
-              ></div>
-            )}
-
-            {/* Permits and regulations */}
-            {details.permitsAndRegulations && (
-              <div
-                id="permitsAndRegulations"
-                dangerouslySetInnerHTML={{
-                  __html: details.permitsAndRegulations,
-                }}
-                className={cn(
-                  sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl!"
-                )}
-              ></div>
-            )}
-
-            {/* Short itinerary */}
-            {details.shortTrekInfo && (
-              <div
-                id="shortTrekInfo"
-                dangerouslySetInnerHTML={{ __html: details.shortTrekInfo }}
-                className={cn(
-                  sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl!"
-                )}
-              ></div>
-            )}
-
-            {/* Why trek */}
-            {details.whyChooseThisPackage && (
-              <div
-                id="whyChooseThisPackage"
-                dangerouslySetInnerHTML={{
-                  __html: details.whyChooseThisPackage,
-                }}
-                className={cn(
-                  sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl!"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
                 )}
               ></div>
             )}
@@ -603,12 +555,15 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.priceBreakDown }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl!"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
                 )}
               ></div>
             )}
 
-            {/* Booking Info */}
+            {/* REVIEWS */}
+            <ReviewsGroup />
+
+            {/* Final Thoughts */}
             {details.bookingInfo && (
               <div
                 id="bookingInfo"
@@ -616,6 +571,56 @@ const Activities = async ({ params }: { params: Params }) => {
                 className={cn(
                   sectionStyle,
                   "prose max-w-none marker:text-black marker:text-xl!"
+                )}
+              ></div>
+            )}
+
+            {/* Seasons */}
+            {details.bestSeasonInfo && (
+              <div
+                id="best-season"
+                dangerouslySetInnerHTML={{ __html: details.bestSeasonInfo }}
+                className={cn(
+                  sectionStyle,
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                )}
+              ></div>
+            )}
+
+            {/* Altitude Section */}
+            {details.altitudeInfo && (
+              <div
+                id="altitude"
+                dangerouslySetInnerHTML={{ __html: details.altitudeInfo }}
+                className={cn(
+                  sectionStyle,
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                )}
+              ></div>
+            )}
+
+            {/* Route Overview */}
+            {details.routeOverview && (
+              <div
+                id="route-overview"
+                dangerouslySetInnerHTML={{ __html: details.routeOverview }}
+                className={cn(
+                  sectionStyle,
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                )}
+              ></div>
+            )}
+
+            {/* ADDITIONAL INFO: Travel insurance and regulations */}
+            {details.insuranceAndEmergency && (
+              <div
+                id="insuranceAndEmergency"
+                dangerouslySetInnerHTML={{
+                  __html: details.insuranceAndEmergency,
+                }}
+                className={cn(
+                  sectionStyle,
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
                 )}
               ></div>
             )}
@@ -636,14 +641,11 @@ const Activities = async ({ params }: { params: Params }) => {
 
             {/* Faqs */}
             {details.goodtoknow && <FAQSection html={details.goodtoknow} />}
-
-            {/* Reviews */}
-            <ReviewsGroup />
           </section>
 
           {/* RIGHT SIDEBAR */}
           <aside className="lg:col-span-1">
-            <div className="lg:col-span-1 sticky top-52 px-2 pt-6">
+            <div className="lg:col-span-1 sticky top-12  px-2 pt-6">
               <div className="hidden lg:block">
                 <TalkToExpertCard details={details} />
               </div>
@@ -685,9 +687,9 @@ const Activities = async ({ params }: { params: Params }) => {
           </aside>
         </main>
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-left px-4">
+          <h2 className="text-xl md:text-3xl font-bold text-left px-4">
             Popular {details?.slug?.includes("trek") && "Treks"}
-            {details?.slug?.includes("tour") ? "Tours" : "Destinations"}
+            {details?.slug?.includes("tour") ? " Tours" : " Destinations"}
           </h2>
           <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  p-4">
             {filteredTreks.map((p, k) => {

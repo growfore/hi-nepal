@@ -135,10 +135,10 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
 
   return (
     <nav
-      style={{ top: 0 }}
-      className="fixed z-999 bg-white w-full shadow-sm top-0"
+      // style={{ top: 0 }}
+      className="z-999 bg-white w-full shadow-sm top-0"
     >
-      <Topbar />
+      {/* <Topbar /> */}
       <div className="flex items-center justify-between container mx-auto gap-4 md:max-w-[75vw] p-2">
         <Link href="/" title="Go to homepage" className="shrink-0 min-w-[50px]">
           <Image

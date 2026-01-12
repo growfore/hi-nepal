@@ -355,7 +355,7 @@ const Activities = async ({ params }: { params: Params }) => {
               <TalkToExpertCard details={details} />
             </div>
             {/* Data Icons Section */}
-            <div className="bg-green-50 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-12 p-6 bg-light-blue-bg rounded-lg shadow-sm">
+            <div className="bg-green-50 grid sm:grid-cols-2 lg:grid-cols-3  gap-4 mb-12 p-6 bg-light-blue-bg rounded-lg shadow-sm">
               {details?.title && (
                 <DataIcon
                   icon={MountainSnow}

@@ -6,9 +6,10 @@ import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "react-hot-toast";
 import WhatsAppButton from "@/components/molecules/whatsapp-button";
+import NextTopLoader from "nextjs-toploader";
 
 import { Rubik } from "next/font/google";
-const outfit = Rubik({subsets: ["latin"]});
+const outfit = Rubik({ subsets: ["latin"] });
 
 export default async function RootLayout({
   children,
@@ -30,6 +31,9 @@ export default async function RootLayout({
       </head>
       <body>
         <CustomLayout footer={<Footer />} header={<Navbar />}>
+          <NextTopLoader 
+          color="#FF6900"
+           />
           {children}
           <GoogleAnalytics gaId="G-E1QTRNT388" />
           <Toaster position="top-center" />

@@ -7,15 +7,17 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "react-hot-toast";
 import WhatsAppButton from "@/components/molecules/whatsapp-button";
 
+import { Rubik } from "next/font/google";
+const outfit = Rubik({subsets: ["latin"]});
+
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`antialiased`}>
+    <html lang="en" className={`${outfit.className} antialiased`}>
       <head>
-        {/*  */}
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
     (function(c,l,a,r,i,t,y){
@@ -31,7 +33,7 @@ export default async function RootLayout({
           {children}
           <GoogleAnalytics gaId="G-E1QTRNT388" />
           <Toaster position="top-center" />
-          <WhatsAppButton/>
+          <WhatsAppButton />
         </CustomLayout>
       </body>
     </html>

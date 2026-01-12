@@ -146,7 +146,7 @@ export async function ItineraryPage({
           {details.overview && (
             <div id="overview" className={sectionStyle}>
               <div
-                className="prose max-w-none marker:text-black marker:!text-xl "
+                className="prose max-w-none marker:text-black marker:text-xl!"
                 dangerouslySetInnerHTML={{ __html: details.overview }}
               ></div>
             </div>
@@ -157,7 +157,7 @@ export async function ItineraryPage({
             <div id="highlights" className={sectionStyle}>
               <div
                 dangerouslySetInnerHTML={{ __html: details.highlights }}
-                className="prose max-w-none marker:text-black marker:!text-xl "
+                className="prose max-w-none marker:text-black marker:text-xl!"
               ></div>
             </div>
           )}
@@ -167,7 +167,7 @@ export async function ItineraryPage({
             <div id="altitude" className="scroll-mt-42 mb-12 p-6  rounded-lg">
               <div
                 dangerouslySetInnerHTML={{ __html: details.altitudeInfo }}
-                className="prose max-w-none marker:text-black marker:!text-xl "
+                className="prose max-w-none marker:text-black marker:text-xl!"
               ></div>
             </div>
           )}
@@ -180,7 +180,7 @@ export async function ItineraryPage({
             >
               <div
                 dangerouslySetInnerHTML={{ __html: details.itenary }}
-                className="prose marker:text-black marker:!text-xl max-w-none"
+                className="prose marker:text-black marker:text-xl! max-w-none"
               ></div>
             </div>
           )}

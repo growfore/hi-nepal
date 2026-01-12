@@ -439,7 +439,11 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.highlights }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                  "prose max-w-none -mt-12",
+                  "prose-ul:list-none prose-ul:pl-0 prose-ul:ml-0",
+                  "prose-li:relative prose-li:pl-6 prose-li:ml-0",
+                  "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-0.1",
+                  "prose-li:before:content-['■'] prose-li:before:text-orange-600"
                 )}
               ></div>
             )}
@@ -477,7 +481,11 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.includes }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                  "prose max-w-none -mt-12",
+                  "prose-ul:list-none prose-ul:pl-0",
+                  "prose-li:pl-6 prose-li:relative",
+                  "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-1",
+                  "prose-li:before:content-['✔'] prose-li:before:text-green-600"
                 )}
               ></div>
             )}
@@ -488,7 +496,11 @@ const Activities = async ({ params }: { params: Params }) => {
                 id="excludes"
                 dangerouslySetInnerHTML={{ __html: details.excludes }}
                 className={cn(
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                  "prose max-w-none -mt-12",
+                  "prose-ul:list-none prose-ul:pl-0 prose-ul:ml-0",
+                  "prose-li:relative prose-li:pl-6 prose-li:ml-0",
+                  "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-0.2",
+                  "prose-li:before:content-['✕'] prose-li:before:text-red-500 prose-li:before:font-semibold"
                 )}
               ></div>
             )}
@@ -515,7 +527,11 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.packing }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl!"
+                  "prose max-w-none -mt-12",
+                  "prose-ul:list-none prose-ul:pl-0 prose-ul:ml-0",
+                  "prose-li:relative prose-li:pl-6 prose-li:ml-0",
+                  "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-0.2",
+                  "prose-li:before:content-['›'] prose-li:before:text-gray-700 prose-li:before:font-semibold"
                 )}
               ></div>
             )}

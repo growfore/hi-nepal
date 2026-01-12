@@ -52,7 +52,7 @@ export function ReviewCard({
           <div className="flex items-center gap-3">
             <Avatar className="w-12 h-12">
               <AvatarImage src={user.avatar} alt={user.name} />
-              <AvatarFallback className="bg-gray-600 text-white font-medium">
+              <AvatarFallback className="bg-gray-600 text-white">
                 {user.name
                   .split(" ")
                   .map((n) => n[0])
@@ -60,7 +60,7 @@ export function ReviewCard({
                   .slice(0, 2)}
               </AvatarFallback>
             </Avatar>
-            <h3 className="font-semibold text-gray-900">{user.name}</h3>
+            <p className="font-semibold text-gray-900">{user.name}</p>
           </div>
         </div>
 
@@ -68,7 +68,7 @@ export function ReviewCard({
         <div className="flex items-center gap-1 mb-3">{renderStars()}</div>
 
         {/* Review title */}
-        <h2 className="text-xl font-semibold text-gray-900 mb-2">{title}</h2>
+        <p className="font-semibold text-[#008001] mb-2">{title}</p>
 
         {/* Date and trip type */}
         <p className="text-gray-600 mb-4">

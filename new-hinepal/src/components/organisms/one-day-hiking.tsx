@@ -2,6 +2,7 @@ import PackageCard from "@/components/molecules/package-card";
 import { TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";
+import HLinkComp from "../atoms/link-component";
 
 const OneDayTours = ({ packages }: { packages: any[] }) => {
   const filteredPackages = packages || [];
@@ -14,14 +15,22 @@ const OneDayTours = ({ packages }: { packages: any[] }) => {
             {/* <h2 className='text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
               One Day Hiking in Nepal
             </h2> */}
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold  leading-tight">One Day Hiking in Nepal</h2>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold  leading-tight">
+              1 Day & Short Hiking Tours in Nepal
+            </h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
-              Limited on time but still want a trekking experience. Nepal hiking
-              company offers the best hiking places in Nepal, where you can gain
-              the experience of trekking in a limited time while enjoying the
-              beautiful vista of the Himalayas, cultural and natural beauties.
-              Hiking in Pokhara Nepal is offers one of the best hiking
-              experiences in Nepal.
+              Short on time but still want a trekking adventure? Hi Nepal
+              Travels & Treks offers the best day hikes and short trekking tours
+              in Nepal, perfect for travelers with limited time. Experience the
+              breathtaking Himalayas, scenic landscapes, and rich cultural
+              heritage while enjoying the most popular hikes around Pokhara,
+              Kathmandu, and the{" "}
+              <HLinkComp
+                text="Annapurna region"
+                href="https://hinepaltreks.com/activities/trekking/annapurna-region"
+              />
+              . Hiking in Pokhara Nepal provides one of the top trekking
+              experiences in the country.
             </p>
           </div>
         </div>

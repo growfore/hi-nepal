@@ -2,6 +2,7 @@ import PackageCard from "@/components/molecules/package-card";
 import { TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";
+import HLinkComp from "../atoms/link-component";
 
 const PopularTours = ({ packages }: { packages: any[] }) => {
   const filteredPackages = packages || [];
@@ -14,19 +15,22 @@ const PopularTours = ({ packages }: { packages: any[] }) => {
             {/* <h2 className='text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
               Popular Tours in Nepal
             </h2> */}
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold  leading-tight"> Popular Tours in Nepal</h2>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold  leading-tight">
+              {" "}
+              Popular Tours in Nepal
+            </h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
-              Nepal is not just about the Himalayan trekkings, with the best
-              planned and{" "}
+              Nepal is not just about the Himalayan trekking, with the best
+              planned{" "}
               <Link
                 className="text-green-700"
                 href={
                   "https://hinepaltreks.com/activities/tours/multi-days-tour"
                 }
               >
-                most popular multi-day tour
+                multi-day tours
               </Link>{" "}
-              with the best tour operator in Nepal, you can make your travels
+              from a top tour agency in Nepal, you can make your travels
               rewarding. Explore Nepal with the{" "}
               <Link
                 className="text-green-700"
@@ -34,28 +38,54 @@ const PopularTours = ({ packages }: { packages: any[] }) => {
               >
                 Upper Mustang
               </Link>
-              , { " "}
+              ,{" "}
               <Link
                 className="text-green-700"
                 href={"https://hinepaltreks.com/rara-lake-tour-nepal"}
               >
                 Rara Lake
               </Link>
-              , {" "}
+              ,{" "}
               <Link
                 className="text-green-700"
                 href={"https://hinepaltreks.com/tilicho-lake-tour"}
               >
                 Tilicho Lake
               </Link>
-              , and {" "}
+              , and{" "}
               <Link
                 className="text-green-700"
                 href={"https://hinepaltreks.com/kathmandu-tour-package"}
               >
-                Kathmandu Valley tour package
-              </Link>
-              , some of the best Nepal hiking tours
+                Kathmandu Valley tours
+              </Link>{" "}
+              or experience thrilling{" "}
+              <HLinkComp
+                href="https://hinepaltreks.com/activities/tours/heli-tour"
+                text="heli tours"
+              />
+              like
+              <HLinkComp
+                text="Annapurna Base Camp Heli Tour"
+                href="https://hinepaltreks.com/annapurna-base-camp-helicopter-tour"
+                comma={true}
+              />
+              <HLinkComp
+                text="Muktinath Heli Tour"
+                href="https://hinepaltreks.com/muktinath-helicopter-tour-from-pokhara"
+                comma={true}
+              />
+              and
+              <HLinkComp
+                text="Everest Base Camp Heli Tour"
+                href="https://hinepaltreks.com/everest-base-camp-helicopter-tour"
+              />
+              . Discover Nepal’s wildlife and nature with
+              <HLinkComp
+                text="Chitwan National Park Jungle Safaris"
+                href="https://hinepaltreks.com/chitwan-national-park-tour"
+              />
+              , and enjoy diverse multi-day adventure tours across the country.
             </p>
           </div>
         </div>
@@ -79,7 +109,7 @@ const PopularTours = ({ packages }: { packages: any[] }) => {
             <div className="text-center flex flex-col md:flex-row items-center gap-4 justify-center">
               <Link
                 href="/activities/tours"
-                className="uppercase inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
+                className="uppercase inline-flex items-center justify-center px-8 py-4 bg-black text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
               >
                 All Popular Tours
               </Link>

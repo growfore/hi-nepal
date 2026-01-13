@@ -40,7 +40,7 @@ const PopularDestinations = async () => {
               POPULAR DESTINATIONS
             </p>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight">
-              Nepal Travel Destinations
+              Trekking Regions in Nepal
             </h2>
           </div>
           <div className="text-gray-600 text-base md:text-lg leading-relaxed text-justify">

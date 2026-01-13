@@ -51,7 +51,7 @@ const PackageCard = (props: TProps) => {
             <Link href={`/booking?destination=${item?.slug}`}>
               <Button
                 size={"lg"}
-                className="rounded-full bg-orange-400 hover:bg-orange-600 cursor-pointer mt-4"
+                className="rounded-full  hover:bg-orange-600 cursor-pointer mt-4"
               >
                 Book Now
               </Button>

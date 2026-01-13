@@ -20,9 +20,9 @@ import { TPackage } from "@/types/types";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Best Tours & Trekking Agency in Nepal - Hi Nepal",
+    title: "Tours & Travel Agency Pokhara - Treks in Nepal, Bhutan, Tibet",
     description:
-      "Hi Nepal Travels & Treks offers expert trekking, tours, helicopter flights & adventure packages across Nepal. Book trusted local travel experts today.",
+      "At Hi Nepal, we provide unforgettable trekking & adventure in Nepal. Explore Everest Heli Tours, treks in Tibet & Bhutan, & more. Book local experts today!",
     keywords: "trekking agency in nepal, travel agency in nepal",
     alternates: {
       canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/",
@@ -82,8 +82,8 @@ export default async function Home() {
     "annapurna-base-camp-trek",
     "manaslu-circuit-trek",
     "mardi-himal-trek",
-    "kathmandu-tour-package",
-    "pokhara-valley-tour",
+    "annapurna-circuit-trek",
+    "kanchenjunga-circuit-trek",
   ];
   const bestShortSlugs = [
     "mardi-himal-trek",
@@ -147,6 +147,7 @@ export default async function Home() {
       <PopularPackages packages={filteredPopularPackages} />
       <BestShortTreks packages={filteredBestShort} />
       <TenDaysPlusTreks packages={filteredTenDaysPlus} />
+      {/* Travellers Review */}
       <PopularTours packages={filteredPopularTours} />
       <OneDayTours packages={filteredOneDay} />
       <PopularDestinations />

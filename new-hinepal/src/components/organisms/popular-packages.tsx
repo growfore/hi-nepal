@@ -9,18 +9,47 @@ const PopularPackages = async ({ packages }: { packages: TPackages }) => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-left md:text-center mb-12 md:mb-16">
           <div className="mt-12">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight">Popular Treks in Nepal</h2>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight">
+              Top 6 Treks in Nepal 2026
+            </h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
-              Are you looking for Premium Trekking or Tour packages with a
-              Reliable trekking agency in Nepal? Get the best Nepal Tour package
-              with the Best Travel and Trekking Company in Nepal. Hi Nepal
-              Travels and Treks Pvt. Ltd. is one of the reputed Nepal trekking
-              companies offering high-quality services in trekking and
-              travelling fields for more than 20 years.
-              Nepal is a heaven on Earth offering some of the most popular treks
-              in the world, including Everest Base Camp, Annapurna Base Camp,
-              and Manaslu Circuit treks. Enhance your trekking experience with
-              the best trekking company in Nepal while strolling between
+              Are you looking for premium trekking or tour packages with a
+              reliable trekking & travel agency in Pokhara, Nepal? Get the best
+              Nepal tour package with the best tour and travel company in Nepal.
+              Hi Nepal Travels and Treks Pvt. Ltd. is one of the reputed Nepal
+              trekking companies offering high-quality services in the trekking
+              and travelling fields for more than 20 years. Nepal is a heaven on
+              Earth, offering some of the most popular treks in the world,
+              including{" "}
+              <Link
+                href={"https://hinepaltreks.com/everest-base-camp-trek"}
+                className="text-green-700 underline"
+              >
+                Mount Everest Base Camp
+              </Link>
+              ,{" "}
+              <Link
+                href={"https://hinepaltreks.com/annapurna-base-camp-trek"}
+                className="text-green-700 underline"
+              >
+                Annapurna Base Camp
+              </Link>
+              ,{" "}
+              <Link
+                href={"https://hinepaltreks.com/annapurna-circuit-trek"}
+                className="text-green-700 underline"
+              >
+                Annapurna Circuit
+              </Link>
+              , and
+              <Link
+                href={"https://hinepaltreks.com/manaslu-circuit-trek"}
+                className="text-green-700 underline"
+              >
+                Manaslu Circuit
+              </Link>{" "}
+              treks. Enhance your trekking experience with the best trekking,
+              tours & travel agency in Nepal while strolling between
               high-standing snow-capped mountains and stunning natural and
               cultural beauties.
             </p>
@@ -47,7 +76,7 @@ const PopularPackages = async ({ packages }: { packages: TPackages }) => {
             <div className="text-center flex flex-col md:flex-row items-center gap-4 justify-center">
               <Link
                 href="/activities/trekking"
-                className="uppercase inline-flex items-center justify-center px-8 py-4 bg-orange-400 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
+                className="uppercase inline-flex items-center justify-center px-8 py-4 bg-black text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
               >
                 Popular Trekking Packages
               </Link>

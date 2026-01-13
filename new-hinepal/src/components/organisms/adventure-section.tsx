@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AdventureCard from "@/components/molecules/adventure-card";
+import HLinkComp from "../atoms/link-component";
 
 export default function AdventureSection() {
   return (
@@ -11,37 +12,18 @@ export default function AdventureSection() {
               EXPLORE THRILLING ADVENTURES
             </p>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight mt-2">
-              Nepal Adventure Sports
+              Thrilling Adventure Sports in Nepal
             </h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
-              Experience top-notch{" "}
-              <Link href={"https://hinepaltreks.com/adventure"}>
-                adventure sports
-              </Link>{" "}
-              with Hi Nepal Travels and Treks, one of the reputed Nepal trekking
-              companies. From heart-pounding activities like white-water
-              rafting, paragliding, and bungee jumping to iconic treks such as{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/everest-base-camp-trek"}
-              >
-                Everest Base Camp
-              </Link>
-              ,{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/annapurna-base-camp-trek"}
-              >
-                Annapurna Base Camp
-              </Link>
-              , and{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/langtang-valley-trek"}
-              >
-                Langtang Valley
-              </Link>
-              , we bring you the ultimate combination of thrill and exploration.
+              Experience heart-pounding{" "}
+              <HLinkComp
+                text="adventure activities in Nepal"
+                href="https://hinepaltreks.com/adventure"
+              />
+              with Hi Nepal Travels & Treks. From white-water rafting,
+              paragliding, and bungee jumping to zip-lining and rock climbing,
+              we bring you the ultimate thrill and excitement in the heart of
+              the Himalayas.
             </p>
           </div>
         </div>

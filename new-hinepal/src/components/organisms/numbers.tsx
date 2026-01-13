@@ -21,7 +21,6 @@ const Numbers = () => {
                 className="w-[720px] h-80 md:h-[520px]  rounded-sm"
                 src="https://www.youtube-nocookie.com/embed/1Wfki2o-adM?si=x-ijMwUilNjAFKPX&amp;controls=0"
                 title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>
             </div>
           </div>

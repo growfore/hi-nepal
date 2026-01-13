@@ -319,7 +319,8 @@ const Activities = async ({ params }: { params: Params }) => {
             <TrustBadge />
           </div>
           <div className="relative w-full max-w-[1920px] mx-auto overflow-hidden rounded-sm">
-            <Image
+            <img src={details?.banner} alt={details?.bannerImageAlt} width={1920} height={1080}/>
+            {/* <Image
               src={details?.banner}
               alt={details?.bannerImageAlt || details?.title}
               title={details?.bannerImageAlt}
@@ -334,7 +335,7 @@ const Activities = async ({ params }: { params: Params }) => {
     "
               priority
               loading="eager"
-            />
+            /> */}
           </div>
         </div>
         {/* @ts-ignore */}

@@ -6,7 +6,6 @@ import {
   LucideStar,
   Headset,
 } from "lucide-react";
-import "lite-youtube-embed/src/lite-yt-embed.css";
 import LazyYouTube from "../lazy-youtube";
 
 const Numbers = () => {

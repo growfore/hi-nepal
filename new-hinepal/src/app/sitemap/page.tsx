@@ -46,7 +46,7 @@ export default async function SitemapPage() {
   //   },
   // });
 
-  const blogs = await getBlogs(1, 100);
+  const blogs = await getBlogs(1, 100, false);
 
   const hoverStyle =
     "hover:border-b-2 hover:border-orange-400 hover:border-dashed w-fit mb-1 text-blue-400";

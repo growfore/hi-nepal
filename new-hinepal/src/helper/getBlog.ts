@@ -1,4 +1,4 @@
-export async function getBlogs(page = 1, perPage = 10) {
+export async function getBlogs(page = 1, perPage = 10, includeMedia = true) {
   const res = await fetch(
     `https://blogs.hinepaltreks.com/cms/wp-json/wp/v2/posts?per_page=${perPage}&page=${page}&_fields=id,title,slug,excerpt,date,featured_media`,
     { next: { revalidate: 3600 * 7 } }
@@ -14,20 +14,20 @@ export async function getBlogs(page = 1, perPage = 10) {
       let image: string | null = null;
       let imageAlt: string | null = null;
 
-      if (post.featured_media) {
+      // only fetch media details when explicitly requested
+      if (includeMedia && post.featured_media) {
         try {
           const imgRes = await fetch(
             `https://blogs.hinepaltreks.com/cms/wp-json/wp/v2/media/${post.featured_media}`,
-            { next: { revalidate: 3600 * 7} }
+            { next: { revalidate: 3600 * 7 } }
           );
           const imgData = await imgRes.json();
           image = imgData.source_url || null;
           imageAlt = imgData.alt_text || null;
         } catch (e: any) {
-          throw new Error(
-            `Failed to fetch featured media for post:${post.id} `,
-            e
-          );
+          // don't fail entire operation for a single media fetch
+          image = null;
+          imageAlt = null;
         }
       }
 

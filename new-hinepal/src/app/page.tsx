@@ -17,6 +17,8 @@ import OneDayTours from "@/components/organisms/one-day-hiking";
 import { HomeFAQs } from "@/components/organisms/home-faqs";
 import NewHero from "@/components/organisms/new-hero";
 import { TPackage } from "@/types/types";
+import WhyChooseUsSection from "@/components/organisms/why-choose-us";
+import ReviewSection from "@/components/organisms/review-section";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -145,9 +147,11 @@ export default async function Home() {
     <main id="content" className="site-main">
       <NewHero minimalPackages={minimalPackages} />
       <PopularPackages packages={filteredPopularPackages} />
+      <WhyChooseUsSection />
       <BestShortTreks packages={filteredBestShort} />
       <TenDaysPlusTreks packages={filteredTenDaysPlus} />
       {/* Travellers Review */}
+      <ReviewSection />
       <PopularTours packages={filteredPopularTours} />
       <OneDayTours packages={filteredOneDay} />
       <PopularDestinations />

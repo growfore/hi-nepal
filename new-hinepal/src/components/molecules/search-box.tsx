@@ -51,9 +51,9 @@ export default function SearchBox({
 
       {(isSearching || filteredPackages.length > 0) && (
         <div className="absolute left-0 right-0 mt-1 bg-white rounded-xl shadow-xl max-h-60 overflow-y-auto z-10 text-black">
-          {filteredPackages.length > 0 ? (
+            {filteredPackages.length > 0 ? (
             filteredPackages.map((pkg) => (
-              <Link key={pkg.slug} href={pkg.slug}>
+              <Link key={pkg.slug} href={pkg.slug} prefetch={false}>
                 <Button
                   variant="ghost"
                   className="w-full justify-start text-left p-4 md:p-6 cursor-pointer hover:bg-green-50"

@@ -54,6 +54,7 @@ const OneDayTours = ({ packages }: { packages: any[] }) => {
             <div className="text-center flex flex-col md:flex-row items-center gap-4 justify-center">
               <Link
                 href="/activities/tours/day-tours"
+                prefetch={false}
                 className="uppercase inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
               >
                 All one Day Hikes

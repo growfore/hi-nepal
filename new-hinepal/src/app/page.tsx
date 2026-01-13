@@ -1,12 +1,11 @@
 import endpoints from "@/constant/endpoints";
-import { Partners } from "@/components/organisms/partners";
-import Numbers from "@/components/organisms/numbers";
-import Gallery from "@/components/Gallery";
-import PopularDestinations from "@/components/organisms/popular-destinations";
+import dynamic from "next/dynamic";
+// dynamically loaded client components to reduce server render work
+// const PopularPackages = dynamic(() => import("@/components/organisms/popular-packages"), { ssr: false });
+// const PopularDestinations = dynamic(() => import("@/components/organisms/popular-destinations"), { ssr: false });
 import PopularPackages from "@/components/organisms/popular-packages";
-import BlogHome from "@/components/pages/blogs";
+import PopularDestinations from "@/components/organisms/popular-destinations";
 import { getBlogs } from "@/helper/getBlog";
-import Team from "@/components/organisms/team";
 import AdventureSection from "@/components/organisms/adventure-section";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -18,7 +17,18 @@ import { HomeFAQs } from "@/components/organisms/home-faqs";
 import NewHero from "@/components/organisms/new-hero";
 import { TPackage } from "@/types/types";
 import WhyChooseUsSection from "@/components/organisms/why-choose-us";
-import ReviewSection from "@/components/organisms/review-section";
+const ReviewSection = dynamic(import("@/components/organisms/review-section"));
+const Team = dynamic(() => import("@/components/organisms/team"));
+const Gallery = dynamic(() => import("@/components/Gallery"), { ssr: false });
+const Partners = dynamic(() => import("@/components/organisms/partners"), {
+  ssr: false,
+});
+const Numbers = dynamic(() => import("@/components/organisms/numbers"), {
+  ssr: false,
+});
+const BlogHome = dynamic(() => import("@/components/pages/blogs"), {
+  ssr: false,
+});
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -40,28 +50,35 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
+  const pageStart = Date.now();
   const sitePromise = fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/site-informations`,
     {
-      cache: "default",
+      // cache on the server for 1 hour to reduce repeated backend calls
+      next: { revalidate: 3600 },
     }
   )
     .then((r) => r.json())
     .then((r) => r.data)
     .catch(() => null);
 
-  const packagesPromise = fetch(endpoints.PACKAGES)
+  const packagesPromise = fetch(endpoints.PACKAGES, {
+    next: { revalidate: 3600 },
+  })
     .then((r) => r.json())
     .then((r) => r.data?.packages || [])
     .catch(() => []);
 
-  const blogsPromise = getBlogs(1, 6).catch(() => ({ posts: [] }));
+  // Avoid fetching per-post media during homepage render to reduce latency
+  const blogsPromise = getBlogs(1, 6, true).catch(() => ({ posts: [] }));
 
   const [siteInformation, fullPackages, blogsResp] = await Promise.all([
     sitePromise,
     packagesPromise,
     blogsPromise,
   ]);
+
+  const fetchDone = Date.now();
 
   const packages = fullPackages.map((p: any) => ({
     id: p.id,
@@ -142,6 +159,16 @@ export default async function Home() {
       (a: any, b: any) =>
         oneDaySlugs.indexOf(a.slug) - oneDaySlugs.indexOf(b.slug)
     );
+
+  // log simple metrics for homepage generation
+  console.log(
+    "home: fetch_ms",
+    fetchDone - pageStart,
+    "packages",
+    packages.length,
+    "posts",
+    posts.length
+  );
 
   return (
     <main id="content" className="site-main">

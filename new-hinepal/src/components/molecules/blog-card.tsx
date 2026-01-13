@@ -20,6 +20,7 @@ export default function BlogCard({
       <Link
         href={`/${slug}`}
         className="flex flex-col bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 h-[420px]"
+        prefetch={false}
       >
         <figure className="relative h-64 w-full">
           <Image
@@ -28,7 +29,7 @@ export default function BlogCard({
             src={image || ""}
             alt={title}
             className="w-full h-full object-cover"
-            loading="eager"
+            loading="lazy"
           />
         </figure>
         <div className="p-6 flex flex-col gap-3">

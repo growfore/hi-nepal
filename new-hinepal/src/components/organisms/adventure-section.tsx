@@ -48,6 +48,7 @@ export default function AdventureSection() {
           <div className="text-center mt-12">
             <Link
               href="/adventure"
+              prefetch={false}
               className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
             >
               Explore all Available Adventures

@@ -65,6 +65,7 @@ const BestShortTreks = ({ packages }: { packages: any[] }) => {
             <div className="text-center flex flex-col md:flex-row items-center gap-4 justify-center">
               <Link
                 href="/activities/trekking"
+                prefetch={false}
                 className="uppercase inline-flex items-center justify-center px-8 py-4 bg-orange-400 hover:bg-orange-600 text-white font-semibold rounded-full shadow-md  transition-colors duration-300"
               >
                 Best Treks in Nepal

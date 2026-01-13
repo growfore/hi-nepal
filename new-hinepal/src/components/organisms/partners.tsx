@@ -1,7 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
 
-export function Partners() {
+export default function Partners() {
   const images = [
     "/taan.webp",
     "/nepal-association-of-tour-and-travel-agents-logo.webp",

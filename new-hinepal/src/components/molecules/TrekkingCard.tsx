@@ -30,6 +30,7 @@ const TrekkingCard = (props: TCardProps) => {
           aria-label={title}
           href={`/${slug}`}
           className="block w-full h-full"
+          prefetch={false}
         >
           <Image
             width={300}
@@ -48,7 +49,7 @@ const TrekkingCard = (props: TCardProps) => {
       </figure>
       <div className="p-4">
         <h3 className="text-2xl font-bold text-dark-blue-900 mb-2">
-          <Link title={title} href={`/${slug}`}>
+          <Link title={title} href={`/${slug}`} prefetch={false}>
             {title.split(":")[0]}
           </Link>
         </h3>
@@ -63,7 +64,7 @@ const TrekkingCard = (props: TCardProps) => {
             </p>
           </div>
         </div>
-        <Link href={`/booking?destination=${slug}`}>
+        <Link href={`/booking?destination=${slug}`} prefetch={false}>
           <Button
             size={"lg"}
             className={cn(

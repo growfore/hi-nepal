@@ -17,6 +17,7 @@ export async function GET() {
 
   // return cached sitemap when valid
   if (cachedSitemap && Date.now() - cachedAt < SITEMAP_TTL_MS) {
+    console.log("sitemap: returning cached sitemap (age_ms)", Date.now() - cachedAt, "links", (cachedSitemap.match(/<url>/g) || []).length);
     return new NextResponse(cachedSitemap, {
       headers: { "Content-Type": "application/xml", "Cache-Control": `public, max-age=${SITEMAP_TTL_MS / 1000}` },
     });
@@ -98,6 +99,7 @@ export async function GET() {
       cachedSitemap = sitemap;
       cachedAt = Date.now();
       generatingPromise = null;
+      console.log("sitemap: generated", "links", links.length, "ms", Date.now() - cachedAt);
 
       return new NextResponse(sitemap, { headers: { "Content-Type": "application/xml", "Cache-Control": `public, max-age=${SITEMAP_TTL_MS / 1000}` } });
     } catch (error: any) {

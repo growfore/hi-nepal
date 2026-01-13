@@ -15,7 +15,7 @@ const AdventureCard = ({
     <div className="w-full">
       <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
         <figure className="w-full h-64 relative">
-          <Link href={link} className="block w-full h-full">
+          <Link href={link} className="block w-full h-full" prefetch={false}>
             <Image
               width={300}
               height={300}
@@ -27,8 +27,8 @@ const AdventureCard = ({
         </figure>
         <div className="">
           <div className="p-4">
-            <h3 className="text-2xl font-bold text-dark-blue-900 mb-2">
-              <Link title={text} href={link}>
+              <h3 className="text-2xl font-bold text-dark-blue-900 mb-2">
+              <Link title={text} href={link} prefetch={false}>
                 {text?.length > 50 ? text.slice(0, 47) + "  ..." : text}
               </Link>
             </h3>

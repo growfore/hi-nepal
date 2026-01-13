@@ -125,11 +125,12 @@ const PopularDestinations = async () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {sorted.slice(0, 5).map((d, index) => {
                 return (
-                  <Link
-                    key={d.slug}
-                    className="block"
-                    href={"/activities/trekking/" + d.slug}
-                  >
+                    <Link
+                      key={d.slug}
+                      className="block"
+                      href={"/activities/trekking/" + d.slug}
+                      prefetch={false}
+                    >
                     <div className="relative rounded-md hover:-translate-y-1 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
                       <figure className="w-full h-64">
                         <Image
@@ -159,12 +160,14 @@ const PopularDestinations = async () => {
           <div className="text-center flex flex-col md:flex-row items-center gap-4 justify-center">
             <Link
               href="/activities/trekking"
+              prefetch={false}
               className="inline-flex items-center justify-center px-8 py-4 bg-orange-400 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
             >
               TREKKING DESTINATIONS
             </Link>
             <Link
               href="/activities/tours"
+              prefetch={false}
               className="inline-flex items-center justify-center px-8 py-4 bg-green-700 text-white font-semibold rounded-full shadow-md hover:bg-green-500 transition-colors duration-300"
             >
               TOUR DESTINATIONS

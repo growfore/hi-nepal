@@ -19,10 +19,11 @@ const PackageCard = (props: TProps) => {
     <div className="">
       <div className="sm:w-full md:max-w-[380px] md:w-[380px] pb-4  bg-white rounded-md shadow-sm  hover:-translate-y-0.5 overflow-hidden hover:shadow-md transition-all duration-300 relative">
         <figure className="w-full h-56 relative">
-          <Link
+            <Link
             aria-label={item.title}
             href={`/${item.slug}`}
             className="block w-full h-full"
+            prefetch={false}
           >
             <Image
               width={1200}
@@ -35,7 +36,7 @@ const PackageCard = (props: TProps) => {
         </figure>
         <div className="p-4">
           <h3 className="text-2xl font-bold text-dark-blue-900 mb-2">
-            <Link title={item.title} href={`/${item.slug}`}>
+            <Link title={item.title} href={`/${item.slug}`} prefetch={false}>
               {item.title.split(":")[0]}
             </Link>
           </h3>
@@ -48,7 +49,7 @@ const PackageCard = (props: TProps) => {
               </p>
             </div>
 
-            <Link href={`/booking?destination=${item?.slug}`}>
+            <Link href={`/booking?destination=${item?.slug}`} prefetch={false}>
               <Button
                 size={"lg"}
                 className="rounded-full  hover:bg-orange-600 cursor-pointer mt-4"

@@ -1,5 +1,6 @@
 import endpoints from "@/constant/endpoints";
 import dynamic from "next/dynamic";
+import { cached } from "@/utils/serverCache";
 // dynamically loaded client components to reduce server render work
 // const PopularPackages = dynamic(() => import("@/components/organisms/popular-packages"), { ssr: false });
 // const PopularDestinations = dynamic(() => import("@/components/organisms/popular-destinations"), { ssr: false });
@@ -51,26 +52,38 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home() {
   const pageStart = Date.now();
-  const sitePromise = fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/site-informations`,
-    {
-      // cache on the server for 1 hour to reduce repeated backend calls
-      next: { revalidate: 3600 },
+  const sitePromise = cached("siteInformation", 3600, async () => {
+    try {
+      const r = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/site-informations`, { next: { revalidate: 3600 } });
+      const j = await r.json();
+      return j.data || null;
+    } catch (e) {
+      console.log("site fetch error", String(e));
+      return null;
     }
-  )
-    .then((r) => r.json())
-    .then((r) => r.data)
-    .catch(() => null);
+  });
 
-  const packagesPromise = fetch(endpoints.PACKAGES, {
-    next: { revalidate: 3600 },
-  })
-    .then((r) => r.json())
-    .then((r) => r.data?.packages || [])
-    .catch(() => []);
+  const packagesPromise = cached("packages", 3600, async () => {
+    try {
+      const r = await fetch(endpoints.PACKAGES, { next: { revalidate: 3600 } });
+      const j = await r.json();
+      return j.data?.packages || [];
+    } catch (e) {
+      console.log("packages fetch error", String(e));
+      return [];
+    }
+  });
 
   // Avoid fetching per-post media during homepage render to reduce latency
-  const blogsPromise = getBlogs(1, 6, true).catch(() => ({ posts: [] }));
+  const blogsPromise = cached("blogs:1:6:false", 3600, async () => {
+    try {
+      const b = await getBlogs(1, 6, false);
+      return b.posts || [];
+    } catch (e) {
+      console.log("blogs fetch error", String(e));
+      return [];
+    }
+  });
 
   const [siteInformation, fullPackages, blogsResp] = await Promise.all([
     sitePromise,

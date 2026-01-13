@@ -37,7 +37,7 @@ export async function getBlogs(page = 1, perPage = 10) {
         slug: post.slug,
         excerpt: post.excerpt.rendered,
         date: post.date,
-        image,
+        image: image?.replace("https://hinepaltreks.com", "https://blogs.hinepaltreks.com"),
         imageAlt,
       };
     })

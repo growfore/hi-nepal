@@ -388,7 +388,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 <DataIcon
                   icon={Calendar}
                   k="Start/End"
-                  v={details.startFrom + "/" + details.endAt}
+                  v={details.startFrom + "/ " + details.endAt}
                 />
               )}
               {details?.bestSeason && (

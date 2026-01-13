@@ -5,20 +5,10 @@ import React from "react";
 
 const PopularPackages = async ({ packages }: { packages: TPackages }) => {
   return (
-    <section className="py-2 bg-white">
+    <section className="py-2">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-left md:text-center mb-12 md:mb-16">
           <div className="mt-12">
-            {/* <h1 className='text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
-              NEPAL TRAVEL PACKAGES
-            </h1> */}
-            {/* <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight">
-              Nepal Travel Packages
-            </h2> */}
-
-            {/* <h2 className='mt-12 text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
-              Popular Treks in Nepal
-            </h2> */}
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight">Popular Treks in Nepal</h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
               Are you looking for Premium Trekking or Tour packages with a

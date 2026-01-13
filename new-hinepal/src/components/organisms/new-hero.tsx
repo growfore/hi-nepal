@@ -15,32 +15,14 @@ export default function NewHero({
     <section className="relative p-2   flex flex-col items-center justify-center text-center text-white h-[60vh] md:h-[80vh] overflow-hidden">
       <div className="absolute inset-0 -z-10 h-full w-full overflow-hidden">
         <Image
-          src={"/assets/mount-everest.webp"}
-          alt="Mount Everest"
-          className="object-cover h-[720px] md:hidden"
-          height={720}
-          width={420}
-        />
-        <Image
           height={700}
           width={700}
           src="/assets/mount-everest.webp"
           alt="Mount Everest Image"
           className="w-full h-full object-cover"
+          priority
           loading="eager"
         />
-        {/* <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-          preload="none"
-          poster="/assets/mount-everest.webp"
-        >
-          <source src="/assets/videos/optimized.webm" type="video/webm" />
-        </video> */}
-
         <div className="absolute inset-0 bg-black/50" />
       </div>
 

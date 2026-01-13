@@ -319,7 +319,12 @@ const Activities = async ({ params }: { params: Params }) => {
             <TrustBadge />
           </div>
           <div className="relative w-full max-w-[1920px] mx-auto overflow-hidden rounded-sm">
-            <img src={details?.banner} alt={details?.bannerImageAlt} width={1920} height={1080}/>
+            <img
+              src={details?.banner}
+              alt={details?.bannerImageAlt}
+              width={1920}
+              height={1080}
+            />
             {/* <Image
               src={details?.banner}
               alt={details?.bannerImageAlt || details?.title}
@@ -383,7 +388,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 <DataIcon
                   icon={Calendar}
                   k="Start/End"
-                  v={details.startFrom + "/" + details.endAt}
+                  v={details.startFrom + "/ " + details.endAt}
                 />
               )}
               {details?.bestSeason && (
@@ -528,7 +533,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.packing }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none -mt-12",
+                  "prose max-w-none ",
                   "prose-ul:list-none prose-ul:pl-0 prose-ul:ml-0",
                   "prose-li:relative prose-li:pl-6 prose-li:ml-0",
                   "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-0.2",
@@ -657,7 +662,11 @@ const Activities = async ({ params }: { params: Params }) => {
             </div>
 
             {/* Faqs */}
-            {details.goodtoknow && <FAQSection html={details.goodtoknow} />}
+            <div id="faqs">
+              {(details.goodtoknow && (
+                <FAQSection html={details.goodtoknow} />
+              )) }
+            </div>
           </section>
 
           {/* RIGHT SIDEBAR */}

@@ -6,6 +6,8 @@ import {
   LucideStar,
   Headset,
 } from "lucide-react";
+import "lite-youtube-embed/src/lite-yt-embed.css";
+import LazyYouTube from "../lazy-youtube";
 
 const Numbers = () => {
   return (
@@ -15,14 +17,10 @@ const Numbers = () => {
           {/* Left Column - Video */}
           <div className="relative z-10 lg:h-[600px] flex items-center justify-center p-4 lg:p-0">
             <div className="w-full h-full flex items-center justify-center">
-              <iframe
-                // width="560"
-                // height="315"
-                className="w-[720px] h-80 md:h-[520px]  rounded-sm"
-                src="https://www.youtube-nocookie.com/embed/1Wfki2o-adM?si=x-ijMwUilNjAFKPX&amp;controls=0"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              ></iframe>
+               <LazyYouTube
+                videoId="1Wfki2o-adM"
+                className="w-[720px] h-80 md:h-[520px]"
+              />
             </div>
           </div>
 

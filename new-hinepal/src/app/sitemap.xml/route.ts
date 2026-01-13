@@ -81,3 +81,4 @@ export async function GET() {
     throw new Error("Failed to generate Sitemap: ", error);
   }
 }
+

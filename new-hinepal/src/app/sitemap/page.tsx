@@ -1,6 +1,5 @@
 import { getBlogs } from "@/helper/getBlog";
 import { TNavBar } from "@/types/types";
-import { get } from "@/utils/request-handler";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -175,3 +174,4 @@ export default async function SitemapPage() {
     </div>
   );
 }
+

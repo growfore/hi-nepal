@@ -1,4 +1,3 @@
-"use client";
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -16,7 +15,6 @@ import { TNavBar } from "@/types/types";
 import { useMemo, useState, useCallback, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
-import Topbar from "./topbar";
 
 export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
   const [disableHover, setDisableHover] = useState(false);

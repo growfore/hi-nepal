@@ -1,5 +1,4 @@
 import { LucideMail, LucidePhone } from 'lucide-react';
-import React from 'react';
 
 const Topbar = () => {
   return (

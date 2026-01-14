@@ -21,11 +21,14 @@ const Team = () => {
                 <article className="bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-sm">
                   <figure className="w-full h-72 relative">
                     <Image
-                      height={300}
-                      width={300}
+                      placeholder="blur"
+                      blurDataURL="/assets/hinepal-image-placeholder.webp"
+                      height={280}
+                      width={320}
                       alt={item.name}
                       src={item.image}
                       className="w-full h-full object-cover"
+                      priority={false}
                     />
                   </figure>
                   <div className="p-6 text-center">

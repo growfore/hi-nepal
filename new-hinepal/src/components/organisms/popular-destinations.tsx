@@ -13,6 +13,7 @@ const PopularDestinations = async () => {
     success: (message, res) => {
       topDestinations.push(...res.data);
     },
+    enableCaching: true,
     failure: (message) => {
       console.log(message);
     },
@@ -125,26 +126,24 @@ const PopularDestinations = async () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {sorted.slice(0, 5).map((d, index) => {
                 return (
-                    <Link
-                      key={d.slug}
-                      className="block"
-                      href={"/activities/trekking/" + d.slug}
-                      prefetch={false}
-                    >
+                  <Link
+                    key={d.slug}
+                    className="block"
+                    href={"/activities/trekking/" + d.slug}
+                    prefetch={false}
+                  >
                     <div className="relative rounded-md hover:-translate-y-1 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
                       <figure className="w-full h-64">
                         <Image
+                          placeholder="blur"
+                          blurDataURL="/assets/hinepal-image-placeholder.webp"
                           src={d.image}
-                          width={600}
-                          height={400}
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 366px"
+                          width={420}
+                          height={320}
                           alt={d?.imageAlt || d.name}
                           className="w-full h-full object-cover"
                         />
                       </figure>
-                      {/* <div className='absolute top-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full z-10'>
-                        {d.activity.name}
-                      </div> */}
                       <div className="absolute inset-x-0 bottom-0 p-6 bg-linear-to-t from-black/70 to-transparent text-white">
                         <h3 className="text-2xl font-bold">{d.name}</h3>
                       </div>

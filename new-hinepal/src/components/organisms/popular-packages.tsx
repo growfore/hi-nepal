@@ -1,7 +1,8 @@
-import PackageCard from "@/components/molecules/package-card";
 import { TPackages } from "@/types/types";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
+const PackageCard = dynamic(() => import("@/components/molecules/package-card"), { ssr: false });
 
 const PopularPackages = async ({ packages }: { packages: TPackages }) => {
   return (

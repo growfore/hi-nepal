@@ -33,7 +33,7 @@ export function BlogPage({ blog }: Readonly<{ blog: TBlog }>) {
             {/* Content */}
             <div className="p-1 md:p-12">
               {/* Article Header */}
-              <header className="mb-8 pb-6 border-b border-gray-200">
+              <div className="mb-8 pb-6 border-b border-gray-200">
                 <h1
                   className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight"
                   dangerouslySetInnerHTML={{ __html: blog.title }}
@@ -50,7 +50,7 @@ export function BlogPage({ blog }: Readonly<{ blog: TBlog }>) {
                     {formatRevalidate(blog.date)}
                   </time>
                 </div>
-              </header>
+              </div>
 
               {/* Article Content */}
               <article

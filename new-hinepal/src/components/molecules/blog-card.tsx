@@ -24,12 +24,14 @@ export default function BlogCard({
       >
         <figure className="relative h-64 w-full">
           <Image
-            width={1920}
-            height={720}
+            placeholder="blur"
+            blurDataURL="/assets/hinepal-image-placeholder.webp"
+            width={420}
+            height={380}
             src={image || ""}
             alt={title}
             className="w-full h-full object-cover"
-            loading="lazy"
+            priority={false}
           />
         </figure>
         <div className="p-6 flex flex-col gap-3">

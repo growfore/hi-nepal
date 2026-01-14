@@ -1,7 +1,7 @@
-import PackageCard from "@/components/molecules/package-card";
-import { TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";
+import dynamic from "next/dynamic";
+const PackageCard = dynamic(() => import("@/components/molecules/package-card"), { ssr: false });
 
 const BestShortTreks = ({ packages }: { packages: any[] }) => {
   const filteredPackages = packages || [];

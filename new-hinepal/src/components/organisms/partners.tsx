@@ -18,6 +18,8 @@ export default function Partners() {
         {images.map((image, index) => {
           return (
             <Image
+              placeholder="blur"
+              blurDataURL="/assets/hinepal-image-placeholder.webp"
               key={image}
               className="justify-center items-center p-4"
               src={"/assets" + image}

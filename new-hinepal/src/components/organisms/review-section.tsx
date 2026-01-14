@@ -18,8 +18,15 @@ export default function ReviewSection() {
         </div>
         <div className="flex items-center gap-8">
           <div className="space-y-4">
-            <Link target="_blank" href={"https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"}>
+            <Link
+              target="_blank"
+              href={
+                "https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"
+              }
+            >
               <Image
+                placeholder="blur"
+                blurDataURL="/assets/hinepal-image-placeholder.webp"
                 width={200}
                 height={200}
                 className="w-40"
@@ -30,8 +37,13 @@ export default function ReviewSection() {
             </Link>
           </div>
           <div className="space-y-4">
-            <Link href={"https://share.google/BsBaEi8OL5JTsUmV8"} target="_blank">
+            <Link
+              href={"https://share.google/BsBaEi8OL5JTsUmV8"}
+              target="_blank"
+            >
               <Image
+                placeholder="blur"
+                blurDataURL="/assets/hinepal-image-placeholder.webp"
                 width={200}
                 height={200}
                 className="w-24"

@@ -13,15 +13,16 @@ export default function NewHero({
 }>) {
   return (
     <section className="relative p-2   flex flex-col items-center justify-center text-center text-white h-[60vh] md:h-[80vh] overflow-hidden">
-      <div className="absolute inset-0 -z-10 h-full w-full overflow-hidden">
+      <div className="absolute inset-0 -z-10  overflow-hidden">
         <Image
-          height={700}
-          width={700}
+          height={720}
+          width={480}
+          placeholder="blur"
+          blurDataURL="/assets/hinepal-image-placeholder.webp"
           src="/assets/mount-everest.webp"
           alt="Mount Everest Image"
           className="w-full h-full object-cover"
           priority
-          loading="eager"
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
@@ -37,7 +38,6 @@ export default function NewHero({
         </p>
       </div>
 
-      {/* Search (client-only) */}
       <SearchBox packages={minimalPackages} />
     </section>
   );

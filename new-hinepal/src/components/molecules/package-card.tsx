@@ -1,5 +1,3 @@
-"use server";
-
 import { TDestinationSingle, TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";
@@ -19,15 +17,17 @@ const PackageCard = (props: TProps) => {
     <div className="">
       <div className="sm:w-full md:max-w-[380px] md:w-[380px] pb-4  bg-white rounded-md shadow-sm  hover:-translate-y-0.5 overflow-hidden hover:shadow-md transition-all duration-300 relative">
         <figure className="w-full h-56 relative">
-            <Link
+          <Link
             aria-label={item.title}
             href={`/${item.slug}`}
             className="block w-full h-full"
             prefetch={false}
           >
             <Image
-              width={1200}
-              height={300}
+              width={380}
+              height={380}
+              placeholder="blur"
+              blurDataURL="/assets/hinepal-image-placeholder.webp"
               className="w-full h-full object-cover rounded-t-md"
               src={item?.thumbnail}
               alt={item?.thumbnailImageAlt || item.title || "Package thumbnail"}
@@ -52,7 +52,7 @@ const PackageCard = (props: TProps) => {
             <Link href={`/booking?destination=${item?.slug}`} prefetch={false}>
               <Button
                 size={"lg"}
-                className="rounded-full  hover:bg-orange-600 cursor-pointer mt-4"
+                className="rounded-full hover:bg-orange-600 cursor-pointer mt-4"
               >
                 Book Now
               </Button>

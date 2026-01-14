@@ -1,7 +1,6 @@
 import endpoints from "@/constant/endpoints";
 import dynamic from "next/dynamic";
 import { cached } from "@/utils/serverCache";
-// dynamically loaded client components to reduce server render work
 import PopularPackages from "@/components/organisms/popular-packages";
 import PopularDestinations from "@/components/organisms/popular-destinations";
 import { getBlogs } from "@/helper/getBlog";
@@ -49,7 +48,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const pageStart = Date.now();
   const sitePromise = cached("siteInformation", 3600, async () => {
     try {
       const r = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/site-informations`, { next: { revalidate: 3600 } });
@@ -72,24 +70,10 @@ export default async function Home() {
     }
   });
 
-  // Avoid fetching per-post media during homepage render to reduce latency
-  const blogsPromise = cached("blogs:1:6:true", 3600, async () => {
-    try {
-      const b = await getBlogs(1, 6, true);
-      return b.posts || [];
-    } catch (e) {
-      console.log("blogs fetch error", String(e));
-      return [];
-    }
-  });
-
-  const [siteInformation, fullPackages, blogsResp] = await Promise.all([
+  const [siteInformation, fullPackages] = await Promise.all([
     sitePromise,
     packagesPromise,
-    blogsPromise,
   ]);
-
-  const fetchDone = Date.now();
 
   const packages = fullPackages.map((p: any) => ({
     id: p.id,
@@ -100,7 +84,6 @@ export default async function Home() {
     slug: p.slug,
   }));
 
-  const posts = blogsResp?.posts || [];
 
   const minimalPackages: TPackage[] = packages.map((p: any) => ({
     slug: p.slug,
@@ -171,16 +154,6 @@ export default async function Home() {
         oneDaySlugs.indexOf(a.slug) - oneDaySlugs.indexOf(b.slug)
     );
 
-  // log simple metrics for homepage generation
-  console.log(
-    "home: fetch_ms",
-    fetchDone - pageStart,
-    "packages",
-    packages.length,
-    "posts",
-    posts.length
-  );
-
   return (
     <main id="content" className="site-main">
       <NewHero minimalPackages={minimalPackages} />
@@ -196,7 +169,7 @@ export default async function Home() {
       <Numbers />
       <Gallery siteInformation={siteInformation} />
       <Partners />
-      <BlogHome posts={posts} />
+      <BlogHome />
       <Team />
       <div className="flex justify-center items-center flex-col  md:-mt-16 mb-8">
         <Link

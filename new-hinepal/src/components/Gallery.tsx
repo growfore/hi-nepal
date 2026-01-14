@@ -26,8 +26,8 @@ const Gallery = ({
                 across the country. From Nepal Everest Base Camp and Annapurna
                 region treks to cultural tours around Pokhara and Kathmandu, our
                 expert guides ensure seamless and customized travel experiences.
-                <br/>
-                <br/>
+                <br />
+                <br />
                 As a trusted travel and trekking agency in Nepal, we provide
                 breathtaking mountain trails, adventure activities, and the best
                 sightseeing destinations, making your Nepal journey truly
@@ -41,9 +41,11 @@ const Gallery = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <figure className="rounded-xl overflow-hidden shadow-lg h-[250px]">
                 <Image
-                  height={250}
-                  width={300}
-                  className="w-full h-full object-cover"
+                  placeholder="blur"
+                  blurDataURL="/assets/hinepal-image-placeholder.webp"
+                  width={320}
+                  height={280}
+                  className="h-full w-full object-cover"
                   // @ts-ignore
                   src={siteInformation?.about?.image2 ?? ""}
                   alt="home page gallery image"
@@ -51,8 +53,10 @@ const Gallery = ({
               </figure>
               <figure className="rounded-xl overflow-hidden shadow-lg h-[250px]">
                 <Image
-                  height={250}
-                  width={300}
+                  placeholder="blur"
+                  blurDataURL="/assets/hinepal-image-placeholder.webp"
+                  width={320}
+                  height={280}
                   // @ts-ignore
                   src={siteInformation?.about?.image3 ?? ""}
                   alt="home page gallery image"
@@ -63,9 +67,11 @@ const Gallery = ({
             <div className="">
               <figure className="rounded-xl overflow-hidden shadow-lg h-[400px]">
                 <Image
-                  height={400}
-                  width={700}
-                  className="w-full h-full object-cover"
+                  placeholder="blur"
+                  blurDataURL="/assets/hinepal-image-placeholder.webp"
+                  width={480}
+                  height={320}
+                  className="object-cover h-full w-full"
                   // @ts-ignore
                   src={siteInformation?.about?.image4 ?? ""}
                   alt="home page gallery image"

@@ -1,13 +1,14 @@
 export const dynamic = "force-static";
-export const revalidate = 3600; // ISR: 1 hour
+import dynamicComp from "next/dynamic";
+export const revalidate = 3600;
 import endpoints from "@/constant/endpoints";
 import { TPackageDetails } from "@/types/types";
-import { get } from "@/utils/request-handler";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { Metadata } from "next";
 import { fetchData } from "@/helper/fetch-data";
-import { formatSlug } from "@/helper/formatSlug";
+import { get } from "@/utils/request-handler";
 import { getBlogSingle, getBlogs } from "@/helper/getBlog";
+import { formatSlug } from "@/helper/formatSlug";
 import { BlogPage } from "@/components/pages/blog-page-single";
 import Link from "next/link";
 import {
@@ -25,13 +26,25 @@ import { SectionNav } from "@/components/organisms/SectionNav";
 import TrustBadge from "@/components/molecules/trust-badge";
 import ReviewsGroup from "@/components/organisms/reviews";
 import FAQSection from "@/components/organisms/itinerary-faq";
-import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";
 import Image from "next/image";
 import TrekkingCard from "@/components/molecules/TrekkingCard";
 import CustomizeTrip from "@/components/organisms/customize-my-trip";
 import { cn } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import Script from "next/script";
+
+const TalkToExpertCard = dynamicComp(
+  import("@/components/organisms/talk-to-expert-card"),
+  { ssr: false }
+);
+
+import { headers } from "next/headers";
+
+function isMobileUA() {
+  const ua = headers().get("user-agent") || "";
+  return /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
+}
 
 export async function generateMetadata({
   params,
@@ -178,12 +191,15 @@ const Activities = async ({ params }: { params: Params }) => {
   if (blog) {
     return (
       <div id="content" className="site-main">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schema),
-          }}
-        ></script>
+        <header>
+          <Script
+            strategy="lazyOnload"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(schema),
+            }}
+          ></Script>
+        </header>
         <BlogPage blog={blog} />
       </div>
     );
@@ -290,24 +306,27 @@ const Activities = async ({ params }: { params: Params }) => {
   );
 
   const sectionStyle = "scroll-mt-42 mb-12 py-4 border-b border-gray-300";
+
   return (
     <>
       {itinerarySchema ? (
-        <script
+        <Script
+          strategy="lazyOnload"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             //  @ts-ignore
             __html: JSON.stringify(JSON.parse(itinerarySchema)),
           }}
-        ></script>
+        ></Script>
       ) : (
-        <script
+        <Script
+          strategy="lazyOnload"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             //  @ts-ignore
             __html: JSON.stringify(fallBackItinerarySchema),
           }}
-        ></script>
+        ></Script>
       )}
       <>
         {/* Section Navigation */}
@@ -319,13 +338,10 @@ const Activities = async ({ params }: { params: Params }) => {
             <TrustBadge />
           </div>
           <div className="relative w-full max-w-[1920px] mx-auto overflow-hidden rounded-sm">
-            <img
-              src={details?.banner}
-              alt={details?.bannerImageAlt}
-              width={1920}
-              height={1080}
-            />
-            {/* <Image
+            <Image
+              priority
+              placeholder="blur"
+              blurDataURL="/assets/hinepal-image-placeholder.webp"
               src={details?.banner}
               alt={details?.bannerImageAlt || details?.title}
               title={details?.bannerImageAlt}
@@ -338,9 +354,7 @@ const Activities = async ({ params }: { params: Params }) => {
       (max-width: 1536px) 80vw,
       70vw
     "
-              priority
-              loading="eager"
-            /> */}
+            />
           </div>
         </div>
         {/* @ts-ignore */}
@@ -359,7 +373,7 @@ const Activities = async ({ params }: { params: Params }) => {
           <section className="lg:col-span-2">
             <div className="lg:hidden">
               {/*** VISIBLE IN ALL SCREENS BESIDES LARGE****/}
-              <TalkToExpertCard details={details} />
+              {isMobileUA() && <TalkToExpertCard details={details} />}
             </div>
             {/* Data Icons Section */}
             <div className="bg-green-50 grid sm:grid-cols-2 lg:grid-cols-3  gap-4 mb-12 p-6 bg-light-blue-bg rounded-lg shadow-sm">
@@ -663,9 +677,7 @@ const Activities = async ({ params }: { params: Params }) => {
 
             {/* Faqs */}
             <div id="faqs">
-              {(details.goodtoknow && (
-                <FAQSection html={details.goodtoknow} />
-              )) }
+              {details.goodtoknow && <FAQSection html={details.goodtoknow} />}
             </div>
           </section>
 

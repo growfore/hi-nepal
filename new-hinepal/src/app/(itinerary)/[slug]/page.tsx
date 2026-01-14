@@ -39,13 +39,6 @@ const TalkToExpertCard = dynamicComp(
   { ssr: false }
 );
 
-import { headers } from "next/headers";
-
-function isMobileUA() {
-  const ua = headers().get("user-agent") || "";
-  return /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -373,7 +366,7 @@ const Activities = async ({ params }: { params: Params }) => {
           <section className="lg:col-span-2">
             <div className="lg:hidden">
               {/*** VISIBLE IN ALL SCREENS BESIDES LARGE****/}
-              {isMobileUA() && <TalkToExpertCard details={details} />}
+              <TalkToExpertCard details={details} />
             </div>
             {/* Data Icons Section */}
             <div className="bg-green-50 grid sm:grid-cols-2 lg:grid-cols-3  gap-4 mb-12 p-6 bg-light-blue-bg rounded-lg shadow-sm">

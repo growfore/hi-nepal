@@ -21,7 +21,7 @@ export default function NewHero({
           blurDataURL="/assets/hinepal-image-placeholder.webp"
           src="/assets/mount-everest.webp"
           alt="Mount Everest Image"
-          className="w-full h-full object-cover"
+          className="w-full h-full md:h-auto object-cover"
           priority
         />
         <div className="absolute inset-0 bg-black/50" />

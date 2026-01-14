@@ -18,7 +18,7 @@ import TrustBadge from "@/components/molecules/trust-badge";
 import PopularCard from "@/components/molecules/popular-card";
 import ReviewsGroup from "@/components/organisms/reviews";
 import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";
-import GallerySlider from "@/components/gallery-slider";
+import { ImageGallery } from "@/components/iti-gallery";
 import Image from "next/image";
 
 export async function ItineraryPage({
@@ -338,7 +338,7 @@ export async function ItineraryPage({
               <h2 className="text-3xl font-bold text-dark-blue-900 mb-6">
                 Gallery
               </h2>
-              <GallerySlider details={details} />
+              {/* <GallerySlider details={details} /> */}
             </div>
           )}
         </section>
@@ -369,7 +369,7 @@ export async function ItineraryPage({
                       className="text-green-600 hover:underline text-lg flex items-start gap-2 bg-gray-50 rounded-md p-2 "
                     >
                       <Image
-                        src={(product.thumbnail)}
+                        src={product.thumbnail}
                         className="rounded-md"
                         alt={product.title}
                         width={100}

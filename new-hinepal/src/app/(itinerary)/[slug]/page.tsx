@@ -34,6 +34,7 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Script from "next/script";
 import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";
+import { ImageGallery } from "@/components/iti-gallery";
 
 export async function generateMetadata({
   params,
@@ -294,6 +295,12 @@ const Activities = async ({ params }: { params: Params }) => {
     (pkg: any) => pkg.id !== details.id
   );
 
+  let allImages: string[] = [];
+  if (details?.media.length > 0) {
+    const galleryImages = details?.media?.map((m) => m.url);
+    allImages = [...galleryImages, details?.thumbnail];
+  }
+
   const sectionStyle = "scroll-mt-42 mb-12 py-4 border-b border-gray-300";
 
   return (
@@ -326,24 +333,27 @@ const Activities = async ({ params }: { params: Params }) => {
             </h1>
             <TrustBadge />
           </div>
+          {details?.media?.length > 1 && <ImageGallery images={allImages} />}
           <div className="relative w-full max-w-[1920px] mx-auto overflow-hidden rounded-sm">
-            <Image
-              priority
-              placeholder="blur"
-              blurDataURL="/assets/hinepal-image-placeholder.webp"
-              src={details?.banner}
-              alt={details?.bannerImageAlt || details?.title}
-              title={details?.bannerImageAlt}
-              width={1920}
-              height={1080}
-              className="w-full h-auto rounded-sm object-contain"
-              sizes="
+            {details?.media?.length < 1 && (
+              <Image
+                priority
+                placeholder="blur"
+                blurDataURL="/assets/hinepal-image-placeholder.webp"
+                src={details?.banner}
+                alt={details?.bannerImageAlt || details?.title}
+                title={details?.bannerImageAlt}
+                width={1920}
+                height={1080}
+                className="w-full h-auto rounded-sm object-contain"
+                sizes="
       (max-width: 640px) 100vw,
       (max-width: 1024px) 90vw,
       (max-width: 1536px) 80vw,
       70vw
     "
-            />
+              />
+            )}
           </div>
         </div>
         {/* @ts-ignore */}

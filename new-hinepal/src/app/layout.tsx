@@ -3,7 +3,7 @@ import { Footer } from "@/common";
 import CustomLayout from "@/components/layouts/custom-layout";
 import { Navbar } from "@/common/navbar";
 import Script from "next/script";
-import { GoogleAnalytics } from "@next/third-parties/google";
+// import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "react-hot-toast";
 import WhatsAppButton from "@/components/molecules/whatsapp-button";
 import NextTopLoader from "nextjs-toploader";
@@ -19,7 +19,8 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${outfit.className} antialiased`}>
       <head>
-        <Script id="microsoft-clarity" strategy="afterInteractive">
+        <Script id="microsoft-clarity" strategy="lazyOnload">
+          {" "}
           {`
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -28,14 +29,26 @@ export default async function RootLayout({
     })(window, document, "clarity", "script", "srgj9d5fel");
             `}
         </Script>
+        <Script
+          strategy="lazyOnload"
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-E1QTRNT388"
+        />
+        <Script id="gtag" strategy="lazyOnload">
+          {`
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1QTRNT388');
+  `}
+        </Script>
       </head>
       <body>
         <CustomLayout footer={<Footer />} header={<Navbar />}>
-          <NextTopLoader 
-          color="#FF6900"
-           />
+          <NextTopLoader color="#FF6900" />
           {children}
-          <GoogleAnalytics gaId="G-E1QTRNT388" />
+          {/* <GoogleAnalytics gaId="G-E1QTRNT388" /> */}
           <Toaster position="top-center" />
           <WhatsAppButton />
         </CustomLayout>

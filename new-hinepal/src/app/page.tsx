@@ -2,8 +2,6 @@ import endpoints from "@/constant/endpoints";
 import dynamic from "next/dynamic";
 import { cached } from "@/utils/serverCache";
 // dynamically loaded client components to reduce server render work
-// const PopularPackages = dynamic(() => import("@/components/organisms/popular-packages"), { ssr: false });
-// const PopularDestinations = dynamic(() => import("@/components/organisms/popular-destinations"), { ssr: false });
 import PopularPackages from "@/components/organisms/popular-packages";
 import PopularDestinations from "@/components/organisms/popular-destinations";
 import { getBlogs } from "@/helper/getBlog";
@@ -75,9 +73,9 @@ export default async function Home() {
   });
 
   // Avoid fetching per-post media during homepage render to reduce latency
-  const blogsPromise = cached("blogs:1:6:false", 3600, async () => {
+  const blogsPromise = cached("blogs:1:6:true", 3600, async () => {
     try {
-      const b = await getBlogs(1, 6, false);
+      const b = await getBlogs(1, 6, true);
       return b.posts || [];
     } catch (e) {
       console.log("blogs fetch error", String(e));
@@ -190,7 +188,6 @@ export default async function Home() {
       <WhyChooseUsSection />
       <BestShortTreks packages={filteredBestShort} />
       <TenDaysPlusTreks packages={filteredTenDaysPlus} />
-      {/* Travellers Review */}
       <ReviewSection />
       <PopularTours packages={filteredPopularTours} />
       <OneDayTours packages={filteredOneDay} />

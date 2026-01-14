@@ -33,11 +33,7 @@ import { cn } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Script from "next/script";
-
-const TalkToExpertCard = dynamicComp(
-  import("@/components/organisms/talk-to-expert-card"),
-  { ssr: false }
-);
+import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";
 
 export async function generateMetadata({
   params,

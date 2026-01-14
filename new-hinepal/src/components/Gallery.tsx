@@ -1,6 +1,7 @@
 import React from "react";
 import { TSiteInformation } from "@/types/types";
 import Image from "next/image";
+import { placeholderImage } from "@/utils/placeholder-image";
 
 const Gallery = ({
   siteInformation,
@@ -42,7 +43,7 @@ const Gallery = ({
               <figure className="rounded-xl overflow-hidden shadow-lg h-[250px]">
                 <Image
                   placeholder="blur"
-                  blurDataURL="/assets/hinepal-image-placeholder.webp"
+                  blurDataURL={placeholderImage}
                   width={320}
                   height={280}
                   className="h-full w-full object-cover"
@@ -54,7 +55,7 @@ const Gallery = ({
               <figure className="rounded-xl overflow-hidden shadow-lg h-[250px]">
                 <Image
                   placeholder="blur"
-                  blurDataURL="/assets/hinepal-image-placeholder.webp"
+                  blurDataURL={placeholderImage}
                   width={320}
                   height={280}
                   // @ts-ignore
@@ -68,7 +69,7 @@ const Gallery = ({
               <figure className="rounded-xl overflow-hidden shadow-lg h-[400px]">
                 <Image
                   placeholder="blur"
-                  blurDataURL="/assets/hinepal-image-placeholder.webp"
+                  blurDataURL={placeholderImage}
                   width={480}
                   height={320}
                   className="object-cover h-full w-full"

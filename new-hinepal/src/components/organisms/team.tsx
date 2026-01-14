@@ -1,3 +1,4 @@
+import { placeholderImage } from "@/utils/placeholder-image";
 import Image from "next/image";
 import React from "react";
 
@@ -22,7 +23,7 @@ const Team = () => {
                   <figure className="w-full h-72 relative">
                     <Image
                       placeholder="blur"
-                      blurDataURL="/assets/hinepal-image-placeholder.webp"
+                      blurDataURL={placeholderImage}
                       height={280}
                       width={320}
                       alt={item.name}

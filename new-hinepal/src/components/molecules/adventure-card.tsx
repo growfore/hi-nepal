@@ -1,3 +1,4 @@
+import { placeholderImage } from "@/utils/placeholder-image";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -18,7 +19,7 @@ const AdventureCard = ({
           <Link href={link} className="block w-full h-full" prefetch={false}>
             <Image
               placeholder="blur"
-              blurDataURL="/assets/hinepal-image-placeholder.webp"
+              blurDataURL={placeholderImage}
               width={320}
               height={280}
               className="w-full h-full object-cover rounded-t-xl"

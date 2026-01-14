@@ -1,6 +1,7 @@
 import { TPackage } from "@/types/types";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { placeholderImage } from "@/utils/placeholder-image";
 
 const SearchBox = dynamic(() => import("../molecules/search-box"), {
   ssr: false,
@@ -18,7 +19,7 @@ export default function NewHero({
           height={720}
           width={480}
           placeholder="blur"
-          blurDataURL="/assets/hinepal-image-placeholder.webp"
+          blurDataURL={placeholderImage}
           src="/assets/mount-everest.webp"
           alt="Mount Everest Image"
           className="w-full h-full md:h-auto object-cover"

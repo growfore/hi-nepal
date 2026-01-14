@@ -1,3 +1,4 @@
+import { placeholderImage } from "@/utils/placeholder-image";
 import { LucideVerified } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,7 +27,7 @@ export default function ReviewSection() {
             >
               <Image
                 placeholder="blur"
-                blurDataURL="/assets/hinepal-image-placeholder.webp"
+                blurDataURL={placeholderImage}
                 width={200}
                 height={200}
                 className="w-40"
@@ -43,7 +44,7 @@ export default function ReviewSection() {
             >
               <Image
                 placeholder="blur"
-                blurDataURL="/assets/hinepal-image-placeholder.webp"
+                blurDataURL={placeholderImage}
                 width={200}
                 height={200}
                 className="w-24"

@@ -4,6 +4,7 @@ import React from "react";
 import { LucideClock } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { placeholderImage } from "@/utils/placeholder-image";
 
 type TProps = {
   item: TPackages[0];
@@ -27,7 +28,7 @@ const PackageCard = (props: TProps) => {
               width={380}
               height={380}
               placeholder="blur"
-              blurDataURL="/assets/hinepal-image-placeholder.webp"
+              blurDataURL={placeholderImage}
               className="w-full h-full object-cover rounded-t-md"
               src={item?.thumbnail}
               alt={item?.thumbnailImageAlt || item.title || "Package thumbnail"}

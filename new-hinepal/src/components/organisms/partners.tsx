@@ -1,5 +1,6 @@
 import * as React from "react";
 import Image from "next/image";
+import { placeholderImage } from "@/utils/placeholder-image";
 
 export default function Partners() {
   const images = [
@@ -19,7 +20,7 @@ export default function Partners() {
           return (
             <Image
               placeholder="blur"
-              blurDataURL="/assets/hinepal-image-placeholder.webp"
+              blurDataURL={placeholderImage}
               key={image}
               className="justify-center items-center p-4"
               src={"/assets" + image}

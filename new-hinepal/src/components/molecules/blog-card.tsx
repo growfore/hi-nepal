@@ -1,3 +1,4 @@
+import { placeholderImage } from "@/utils/placeholder-image";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -25,7 +26,7 @@ export default function BlogCard({
         <figure className="relative h-64 w-full">
           <Image
             placeholder="blur"
-            blurDataURL="/assets/hinepal-image-placeholder.webp"
+            blurDataURL={placeholderImage}
             width={420}
             height={380}
             src={image || ""}

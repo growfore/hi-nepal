@@ -4,6 +4,7 @@ import { get } from "@/utils/request-handler";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import { placeholderImage } from "@/utils/placeholder-image";
 
 const PopularDestinations = async () => {
   const topDestinations: TDestination[] = [];
@@ -135,8 +136,8 @@ const PopularDestinations = async () => {
                     <div className="relative rounded-md hover:-translate-y-1 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
                       <figure className="w-full h-64">
                         <Image
+                          blurDataURL={placeholderImage}
                           placeholder="blur"
-                          blurDataURL="/assets/hinepal-image-placeholder.webp"
                           src={d.image}
                           width={420}
                           height={320}

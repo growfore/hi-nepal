@@ -1,7 +1,7 @@
 import { TNavBar } from "@/types/types";
 import { get } from "@/utils/request-handler";
 import endpoints from "@/constant/endpoints";
-// import BottomNav from "./bottom-nav";
+import BottomNav from "./bottom-nav";
 import Topbar from "./topbar";
 
 export const Navbar = async () => {
@@ -22,7 +22,7 @@ export const Navbar = async () => {
   return (
     <div className="bg-green-600 z-999 min-w-screen">
       <Topbar/>
-      {/* <BottomNav navBar={navBar} /> */}
+      <BottomNav navBar={navBar} />
     </div>
   );
 };

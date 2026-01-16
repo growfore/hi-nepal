@@ -24,8 +24,6 @@ export default async function SitemapPage() {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
   const baseUrl = process.env.NEXT_PUBLIC_FRONTEND_BASE_URL;
 
-  // let navItems: TNavBar = [];
-
   const res = await fetch(`${backendUrl}/api/activities/nav-items`);
 
   if (!res.ok) {
@@ -33,25 +31,14 @@ export default async function SitemapPage() {
   }
   const response = await res.json();
 
-  const navItems:TNavBar = response?.data; 
-
-  // await get({
-  //   endPoint: backendUrl + "/api/activities/nav-items",
-  //   token: "",
-  //   success: (message, res) => {
-  //     navItems = res.data;
-  //   },
-  //   failure: (message) => {
-  //     console.error(message, "error in link fetching");
-  //   },
-  // });
+  const navItems: TNavBar = response?.data;
 
   const blogs = await getBlogs(1, 100, false);
 
   const hoverStyle =
     "hover:border-b-2 hover:border-orange-400 hover:border-dashed w-fit mb-1 text-blue-400";
   return (
-    <div className="p-20 mt-24">
+    <div className="p-20">
       <h1 className="font-bold text-xl">Sitemap</h1>
       <ul>
         <li>
@@ -91,7 +78,7 @@ export default async function SitemapPage() {
           </Link>
         </li>
         {navItems.map((item) => (
-          <li key={item.slug}>
+          <div key={item.slug}>
             <Link
               title={`go to ${item.name} page`}
               className={hoverStyle}
@@ -101,7 +88,7 @@ export default async function SitemapPage() {
             </Link>
             <ul className="pl-4">
               {item.destinations.map((destination) => (
-                <li key={destination.slug}>
+                <div key={destination.slug}>
                   <Link
                     title={`go to ${destination.name} page`}
                     className={hoverStyle}
@@ -109,7 +96,7 @@ export default async function SitemapPage() {
                   >
                     {destination.name}
                   </Link>
-                  <ul className="pl-4">
+                  <div className="pl-4">
                     {destination.packages.map((pkg) => (
                       <li key={pkg.slug}>
                         <Link
@@ -121,11 +108,11 @@ export default async function SitemapPage() {
                         </Link>
                       </li>
                     ))}
-                  </ul>
-                </li>
+                  </div>
+                </div>
               ))}
             </ul>
-          </li>
+          </div>
         ))}
         <li>
           <Link
@@ -157,7 +144,7 @@ export default async function SitemapPage() {
         <li>
           {blogs?.posts?.map((blog: any) => {
             return (
-              <li key={blog.slug}>
+              <div key={blog.slug}>
                 <Link
                   title={`Read more about ${blog.title}`}
                   className={hoverStyle}
@@ -166,7 +153,7 @@ export default async function SitemapPage() {
                 >
                   {blog.title}
                 </Link>
-              </li>
+              </div>
             );
           })}
         </li>

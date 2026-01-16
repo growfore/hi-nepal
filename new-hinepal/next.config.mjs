@@ -679,6 +679,14 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/wp-content/:path*',
+        destination: 'https://blogs.hinepaltreks.com/cms/wp-content/:path*',
+      },
+    ];
+  },
 };
 
 export default nextConfig;

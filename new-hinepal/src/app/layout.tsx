@@ -1,15 +1,20 @@
-import "./globals.css";
-import { Footer } from "@/common";
+import dynamic from "next/dynamic";
 import CustomLayout from "@/components/layouts/custom-layout";
 import { Navbar } from "@/common/navbar";
+import { Footer } from "@/common/footer";
 import Script from "next/script";
 // import { GoogleAnalytics } from "@next/third-parties/google";
-import { Toaster } from "react-hot-toast";
-import WhatsAppButton from "@/components/molecules/whatsapp-button";
 import NextTopLoader from "nextjs-toploader";
+import { Toaster } from "@/components/ui/sonner";
+const WhatsAppButton = dynamic(
+  () => import("@/components/molecules/whatsapp-button"),
+  { ssr: false }
+);
 
 import { Rubik } from "next/font/google";
 const outfit = Rubik({ subsets: ["latin"] });
+
+import "./globals.css";
 
 export default async function RootLayout({
   children,

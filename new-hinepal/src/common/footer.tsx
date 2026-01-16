@@ -90,8 +90,11 @@ export async function Footer() {
                 <h3 className="text-xl font-bold mb-4 ">Useful Links</h3>
                 <ul className="flex flex-col justify-center md:justify-start gap-x-4 gap-y-2 text-sm mt-2 md:mt-0">
                   <li>
-                    <a href="/air-ticket-booking-nepal" className="hover:underline">
-                    Flight Tickets
+                    <a
+                      href="/air-ticket-booking-nepal"
+                      className="hover:underline"
+                    >
+                      Flight Tickets
                     </a>
                   </li>
                   <li>
@@ -100,13 +103,16 @@ export async function Footer() {
                     </a>
                   </li>
                   <li>
-                    <a href="/helicopter-rescue-flights-nepal" className="hover:underline">
-                    Rescue Flights
+                    <a
+                      href="/helicopter-rescue-flights-nepal"
+                      className="hover:underline"
+                    >
+                      Rescue Flights
                     </a>
                   </li>
                   <li>
                     <a href="/blogs" className="hover:underline">
-                    Blogs
+                      Blogs
                     </a>
                   </li>
                   <li>
@@ -115,10 +121,7 @@ export async function Footer() {
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="/terms-and-conditions"
-                      className="hover:underline"
-                    >
+                    <a href="/terms-and-conditions" className="hover:underline">
                       Terms &amp; Condition
                     </a>
                   </li>

@@ -1,5 +1,4 @@
 export const dynamic = "force-static";
-import dynamicComp from "next/dynamic";
 export const revalidate = 3600;
 import endpoints from "@/constant/endpoints";
 import { TPackageDetails } from "@/types/types";

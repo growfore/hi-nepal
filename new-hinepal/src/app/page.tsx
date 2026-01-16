@@ -174,7 +174,7 @@ export default async function Home() {
       <div className="flex justify-center items-center flex-col  md:-mt-16 mb-8">
         <Link
           href="/about-us"
-          className="inline-flex items-center justify-center px-8 py-4 bg-orange-400 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
+          className="inline-flex items-center justify-center px-8 py-4 bg-black text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
         >
           More about Us
         </Link>

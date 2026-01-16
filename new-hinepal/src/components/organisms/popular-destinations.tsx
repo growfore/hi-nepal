@@ -161,14 +161,14 @@ const PopularDestinations = async () => {
             <Link
               href="/activities/trekking"
               prefetch={false}
-              className="inline-flex items-center justify-center px-8 py-4 bg-orange-400 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
+              className="inline-flex items-center justify-center px-8 py-4 bg-black text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
             >
               TREKKING DESTINATIONS
             </Link>
             <Link
               href="/activities/tours"
               prefetch={false}
-              className="inline-flex items-center justify-center px-8 py-4 bg-green-700 text-white font-semibold rounded-full shadow-md hover:bg-green-500 transition-colors duration-300"
+              className="inline-flex items-center justify-center px-8 py-4 bg-green-700 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
             >
               TOUR DESTINATIONS
             </Link>

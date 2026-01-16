@@ -67,7 +67,7 @@ const TenDaysPlusTreks = ({ packages }: { packages: any[] }) => {
               <Link
                 href="/activities/trekking"
                 prefetch={false}
-                className="uppercase inline-flex items-center justify-center py-4 px-8 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
+                className="uppercase inline-flex items-center justify-center py-4 px-8 bg-black text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
               >
                 More Trekking Trails
               </Link>

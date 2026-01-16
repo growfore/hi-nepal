@@ -40,7 +40,7 @@ const BlogHome = async ({ posts: postsProp }: { posts?: any[] } = {}) => {
           <Link
             href="/blogs"
             prefetch={false}
-            className="inline-flex items-center justify-center px-8 py-4 bg-orange-400 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
+            className="inline-flex items-center justify-center px-8 py-4 bg-black text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
           >
             View All
           </Link>

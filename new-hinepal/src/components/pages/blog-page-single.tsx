@@ -6,7 +6,7 @@ import { LucideUser } from "lucide-react";
 
 export function BlogPage({ blog }: Readonly<{ blog: TBlog }>) {
   return (
-    <section className="pt-46 pb-12 ">
+    <section className="pt-4 pb-12 ">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="">

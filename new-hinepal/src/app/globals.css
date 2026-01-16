@@ -111,22 +111,7 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-    /* font-family: "Jost", sans-serif; */
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
-
-  .active {
-    background-color: #00a63e;
-  }
-}
-
-#packing>div>ul {
+/* #packing>div>ul {
   background: #00a63e20;
   border: 2px dashed #00a63e87;
   border-radius: 4px;
@@ -138,13 +123,6 @@
   list-style-type: disc !important;
   margin-left: 1.5rem;
 }
-
-/* #packing > div > ul > li > span {
-  color: white !important;
-}
-#packing > div > ul > li::marker {
-  color: white !important;
-} */
 
 h1,
 h2 {
@@ -170,7 +148,7 @@ body {
 .link-style {
   color: green;
   text-decoration: underline;
-}
+} */
 
 .goog-te-gadget {
   font-family: inherit !important;
@@ -180,6 +158,3 @@ body {
 .goog-te-gadget span {
   display: none !important;
 }
-/* *{
-  border: 1px solid red;
-} */

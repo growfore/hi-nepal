@@ -12,7 +12,7 @@ const WhatsAppButton = dynamic(
 );
 
 import { Rubik } from "next/font/google";
-const outfit = Rubik({ subsets: ["latin"] });
+export const outfit = Rubik({ subsets: ["latin"] });
 
 import "./globals.css";
 

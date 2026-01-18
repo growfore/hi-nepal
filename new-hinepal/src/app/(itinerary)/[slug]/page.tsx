@@ -34,6 +34,7 @@ import { Button } from "@/components/ui/button";
 import Script from "next/script";
 import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";
 import { ImageGallery } from "@/components/iti-gallery";
+import { outfit } from "@/app/layout";
 
 export async function generateMetadata({
   params,
@@ -444,7 +445,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 id="overview"
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl!"
+                  "prose max-w-none marker:text-black marker:text-xl!",
                 )}
                 dangerouslySetInnerHTML={{ __html: details.overview }}
               ></div>

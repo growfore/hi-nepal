@@ -531,7 +531,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.itenary }}
                 className={cn(
                   sectionStyle,
-                  "prose marker:text-black marker:text-xl! max-w-none -mt-16"
+                  "prose marker:text-black marker:text-xl! max-w-none -mt-4"
                 )}
               ></div>
             )}

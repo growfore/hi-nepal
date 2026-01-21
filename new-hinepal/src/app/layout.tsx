@@ -15,6 +15,7 @@ import { Rubik } from "next/font/google";
 export const outfit = Rubik({ subsets: ["latin"] });
 
 import "./globals.css";
+import BackToTop from "@/components/molecules/back-to-top";
 
 export default async function RootLayout({
   children,
@@ -56,6 +57,7 @@ export default async function RootLayout({
           {/* <GoogleAnalytics gaId="G-E1QTRNT388" /> */}
           <Toaster position="top-center" />
           <WhatsAppButton />
+          <BackToTop/>
         </CustomLayout>
       </body>
     </html>

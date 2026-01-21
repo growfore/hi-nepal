@@ -9,7 +9,7 @@ export default function BackToTop() {
 
     useEffect(() => {
         const handleScroll = () => {
-            setShow(window.scrollY > 900);
+            setShow(window.scrollY > 500);
         };
 
         window.addEventListener('scroll', handleScroll);

@@ -257,14 +257,14 @@ const Activities = async ({ params }: { params: Params }) => {
     popularTreks.has(pkg.slug)
   );
 
-  const navigations = [
+  const navigation = [
     { id: "overview", label: "Overview", icon: "LucideEye" },
     { id: "highlights", label: "Highlights", icon: "Sparkles" },
     { id: "includes", label: "Includes", icon: "LucideCheck" },
     { id: "excludes", label: "Excludes", icon: "LucideX" },
     { id: "itinerary", label: "Itinerary", icon: "LucideList" },
     { id: "packing", label: "Packing", icon: "LucideBackpack" },
-    { id: "permitsAndRegulations", label: "Permits", icon: "LucideTicket" },
+    // { id: "permitsAndRegulations", label: "Permits", icon: "LucideTicket" },
     { id: "best-season", label: "Best Seasons", icon: "LucideCloudSunRain" },
     { id: "faqs", label: "FAQs", icon: "LucideMessageCircleQuestion" },
   ];
@@ -357,7 +357,7 @@ const Activities = async ({ params }: { params: Params }) => {
           </div>
         </div>
         {/* @ts-ignore */}
-        <SectionNav navigations={navigations} />
+        <SectionNav navigation={navigation} />
 
         <main
           className="

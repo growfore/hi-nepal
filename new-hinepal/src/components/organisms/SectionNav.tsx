@@ -11,97 +11,89 @@ type NavItem = {
 };
 
 type Props = {
-  navigations: NavItem[];
+  navigation: NavItem[];
 };
 
-export function SectionNav({ navigations }: Props) {
-  const [activeId, setActiveId] = useState(navigations[0]?.id ?? "");
+export function SectionNav({ navigation }: Props) {
+  const [activeId, setActiveId] = useState(navigation[0]?.id ?? "");
   const [visible, setVisible] = useState(false);
 
-  const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
-  const didMount = useRef(false);
+  const sectionEls = useRef<Record<string, HTMLElement | null>>({});
 
   useEffect(() => {
+    const map: Record<string, HTMLElement | null> = {};
+    navigation.forEach(({ id }) => {
+      map[id] = document.getElementById(id);
+    });
+    sectionEls.current = map;
+  }, [navigation]);
+
+  // Scroll spy
+  useEffect(() => {
+    const NAV_OFFSET = 80; 
+
     const onScroll = () => {
-      setVisible(window.scrollY > 400);
+      const viewportTop = NAV_OFFSET;
+      const viewportBottom = window.innerHeight;
+
+      let nextActive = activeId;
+
+      for (const nav of navigation) {
+        const el = sectionEls.current[nav.id];
+        if (!el) continue;
+
+        const rect = el.getBoundingClientRect();
+
+        const isVisible =
+          rect.top < viewportBottom && rect.bottom > viewportTop;
+
+        if (isVisible) {
+          nextActive = nav.id;
+          break; 
+        }
+      }
+
+      setActiveId(nextActive);
+      setVisible(window.scrollY > 300); // show nav after 300px scroll
     };
 
     window.addEventListener("scroll", onScroll);
     onScroll();
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visibleSections[0]) {
-          setActiveId(visibleSections[0].target.id);
-        }
-      },
-      {
-        rootMargin: "-60px 0px -60% 0px",
-        threshold: [0.1, 0.25, 0.5],
-      }
-    );
-
-    navigations.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, [navigations]);
-
-  useEffect(() => {
-    if (!didMount.current) {
-      didMount.current = true;
-      return;
-    }
-
-    const el = itemRefs.current[activeId];
-    el?.scrollIntoView({
-      behavior: "smooth",
-      inline: "nearest",
-      block: "nearest",
-    });
-  }, [activeId]);
+  }, [navigation, activeId]);
 
   if (!visible) return null;
 
   return (
-    <div className="fixed top-0 z-50 w-full shadow-2xl bg-primary">
-      <div className="flex overflow-x-auto whitespace-nowrap no-scrollbar">
-        {navigations.map((nav) => {
+    <div className="fixed top-0 z-50 w-full bg-black">
+      <div className="flex overflow-x-auto whitespace-nowrap">
+        {navigation.map((nav) => {
           const Icon = Icons[nav.icon];
 
           return (
-            <div
+            <Button
               key={nav.id}
-              // @ts-expect-error some error
-              ref={(el) => (itemRefs.current[nav.id] = el)}
-              className={`shrink-0 px-3 py-2 ${
-                activeId === nav.id ? "bg-green-600" : ""
+              variant="ghost"
+              onClick={() => {
+                const el = sectionEls.current[nav.id];
+                if (!el) return;
+
+                window.scrollTo({
+                  top: el.offsetTop - 70, // adjust for sticky header
+                  behavior: "smooth",
+                });
+              }}
+              className={`shrink-0 px-4 py-3 rounded-none flex items-center gap-2 ${
+                activeId === nav.id
+                  ? "bg-green-600 text-white"
+                  : "text-white"
               }`}
             >
-              <Button
-                variant="ghost"
-                className="text-white rounded-none text-sm flex items-center gap-2"
-                onClick={() => {
-                  document
-                    .getElementById(nav.id)
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                {/* @ts-expect-error some error */}
-                {Icon && <Icon className="w-4 h-4" />}
-                {nav.label}
-              </Button>
-            </div>
+              {/* @ts-expect-error type error */}
+              {Icon && <Icon className="w-4 h-4" />}
+              {nav.label}
+            </Button>
           );
         })}
       </div>

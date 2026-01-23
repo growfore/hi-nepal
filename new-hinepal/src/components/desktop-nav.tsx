@@ -17,7 +17,7 @@ export function DesktopNav({ navBar }: { navBar: TNavBar }) {
             <ChevronDown className="size-4" />
           </Link>
 
-          <div className="hidden group-hover:block absolute top-full left-1/2 -translate-x-1/2 pt-4 z-50">
+          <div className="hidden group-hover:block absolute top-full  pt-4 z-50">
             <div className="bg-white shadow-lg border border-gray-200 rounded-md p-6 min-w-[800px]">
               <div className="grid grid-cols-3 gap-6">
                 {activity.destinations.map((destination) => (

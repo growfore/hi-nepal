@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import { cached } from "@/utils/serverCache";
 import PopularPackages from "@/components/organisms/popular-packages";
 import PopularDestinations from "@/components/organisms/popular-destinations";
-import { getBlogs } from "@/helper/getBlog";
 import AdventureSection from "@/components/organisms/adventure-section";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -30,7 +29,7 @@ const BlogHome = dynamic(() => import("@/components/pages/blogs"), {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Tours & Travel Agency Pokhara - Treks in Nepal, Bhutan, Tibet",
+    title: "Tours & Travel Agency Pokhara - Treks in Nepal,Bhutan,Tibet",
     description:
       "At Hi Nepal, we provide unforgettable trekking & adventure in Nepal. Explore Everest Heli Tours, treks in Tibet & Bhutan, & more. Book local experts today!",
     keywords: "trekking agency in nepal, travel agency in nepal",
@@ -44,6 +43,19 @@ export async function generateMetadata(): Promise<Metadata> {
       "max-image-preview": "standard",
       "max-snippet": -1,
     },
+    openGraph: {
+      title: "Tours & Travel Agency Pokhara - Treks in Nepal,Bhutan,Tibet",
+      description:
+        "At Hi Nepal, we provide unforgettable trekking & adventure in Nepal. Explore Everest Heli Tours, treks in Tibet & Bhutan, & more. Book local experts today!",
+      images: ['https://hinepaltreks.com/assets/mount-everest.webp'],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Tours & Travel Agency Pokhara - Treks in Nepal,Bhutan,Tibet",
+      description:
+        "At Hi Nepal, we provide unforgettable trekking & adventure in Nepal. Explore Everest Heli Tours, treks in Tibet & Bhutan, & more. Book local experts today!",
+      images: ['https://hinepaltreks.com/assets/mount-everest.webp'],
+    }
   };
 }
 

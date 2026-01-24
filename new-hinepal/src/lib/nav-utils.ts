@@ -82,7 +82,6 @@ export function sortNavBar(navBar: TNavBar): TNavBar {
         
         return { ...dest, packages: sortedPackages };
       });
-    
     return { ...activity, destinations: sortedDestinations };
   });
 }

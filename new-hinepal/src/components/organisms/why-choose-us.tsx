@@ -45,9 +45,9 @@ export default function WhyChooseUsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16 text-center">
-          <h1 className="text-balance text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+          <h2 className="text-balance text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
             Why Hi Nepal Travels & Treks?
-          </h1>
+          </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
             A trusted trekking and tour agency with 20+ years of experience, led by local experts in Nepal, Bhutan, and
             Tibet. We specialize in authentic trekking adventures and responsible, eco-friendly travel across the

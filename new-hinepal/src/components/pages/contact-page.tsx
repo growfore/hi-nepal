@@ -36,6 +36,7 @@ const contactFormSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters"),
   destination: z.string().min(1, "Please select a destination"),
   groupSize: z.string().min(1, "Please select a group size"),
+  startDate: z.string("Please choose your desired date for the activity."),
   experienceLevel: z.string().optional(),
   email: z.string().email("Invalid email address"),
   phone: z.string().optional(),
@@ -67,6 +68,7 @@ export function Form_Component({ packages }: { packages: TPackageDetails[] }) {
       fullName: "",
       destination: destinationParam || "",
       groupSize: "",
+      startDate: "",
       experienceLevel: "",
       email: "",
       phone: "",
@@ -214,7 +216,22 @@ export function Form_Component({ packages }: { packages: TPackageDetails[] }) {
                         </FormItem>
                       )}
                     />
-
+                    <FormField
+                      control={form.control}
+                      name="startDate"
+                      render={({ field }) => (
+                        <FormItem className="w-full">
+                          <FormLabel>Start Date *</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="date"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                     {/* Experience Level */}
                     <FormField
                       control={form.control}

@@ -23,6 +23,7 @@ export async function POST(request: Request) {
       react: EmailTemplate({
         firstName: body.data.fullName || "Customer",
         destination: body.data.destination || "",
+        startDate: body.data.startDate || "",
         groupSize: body.data.groupSize || "",
         experienceLevel: body.data.experienceLevel || "",
         email: body.data.email || "",

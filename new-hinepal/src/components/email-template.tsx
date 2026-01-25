@@ -4,6 +4,7 @@ interface EmailTemplateProps {
   destination: string;
   firstName: string;
   email?: string;
+  startDate: string;
   message?: string;
   groupSize?: string;
   contactNumber?: string;
@@ -15,6 +16,7 @@ export function EmailTemplate({
   firstName,
   email,
   message,
+  startDate,
   groupSize,
   contactNumber,
   experienceLevel,
@@ -68,6 +70,13 @@ export function EmailTemplate({
         )}
       </div>
       <div>
+        {startDate && (
+          <p style={{ margin: "5px 0", color: "#6b7280" }}>
+            <strong>Desired Date for the Activity:</strong> {startDate}
+          </p>
+        )}
+      </div>
+      <div>
         {experienceLevel && (
           <p style={{ margin: "5px 0", color: "#6b7280" }}>
             <strong>Previous Trekking Experience:</strong> {experienceLevel}
@@ -115,4 +124,5 @@ export function EmailTemplate({
         </p>
       </div>
     </div>
-  );}
+  );
+}

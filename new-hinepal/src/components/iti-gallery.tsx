@@ -7,7 +7,7 @@ import { useState } from "react"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import MyToolTip from "./my-tooltip";
 
-export function ImageGallery({ images }: { images: any[] }) {
+export default function ImageGallery({ images }: { images: any[] }) {
   const [open, setOpen] = useState(false)
   return (
     <div className="relative mb-8">

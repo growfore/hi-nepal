@@ -18,7 +18,6 @@ import TrustBadge from "@/components/molecules/trust-badge";
 import PopularCard from "@/components/molecules/popular-card";
 import ReviewsGroup from "@/components/organisms/reviews";
 import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";
-import { ImageGallery } from "@/components/iti-gallery";
 import Image from "next/image";
 
 export async function ItineraryPage({
@@ -390,8 +389,8 @@ export async function ItineraryPage({
           {details.slug.includes("trek")
             ? "Treks"
             : details.slug.includes("tour")
-            ? "Tours"
-            : "Destinations"}
+              ? "Tours"
+              : "Destinations"}
         </h2>
         <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  p-4">
           {popularPackages.map((p, k) => {

@@ -33,8 +33,9 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Script from "next/script";
 import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";
-import { ImageGallery } from "@/components/iti-gallery";
-import { outfit } from "@/app/layout";
+
+import dynamicImport from "next/dynamic";
+const ImageGallery = dynamicImport(() => import("@/components/iti-gallery"))
 
 export async function generateMetadata({
   params,

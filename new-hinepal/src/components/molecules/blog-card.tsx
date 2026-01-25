@@ -36,9 +36,9 @@ export default function BlogCard({
           />
         </figure>
         <div className="p-6 flex flex-col gap-3">
-          <h2 className="text-xl font-bold text-gray-900 leading-tight line-clamp-2">
+          <p className="text-xl font-bold text-gray-900 leading-tight line-clamp-2">
             {title}
-          </h2>
+          </p>
 
           <div
             className="text-gray-600 text-sm leading-relaxed line-clamp-3"

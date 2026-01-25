@@ -29,9 +29,9 @@ const Numbers = () => {
               <p className='text-orange-500 text-sm font-semibold uppercase relative pl-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500'>
                 CALLBACK FOR MORE
               </p>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mt-2">
+              <p className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mt-2">
                 GO TRAVEL. DISCOVER. REMEMBER US!!
-              </h2>
+              </p>
               <p className="text-white text-base md:text-lg leading-relaxed mt-4">
                 Discover Nepal with Ni Nepal Travels and Treks Pvt. Ltd.—where
                 every journey blends adventure, culture, and comfort. Explore

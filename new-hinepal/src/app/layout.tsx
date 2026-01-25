@@ -11,11 +11,9 @@ const WhatsAppButton = dynamic(
   { ssr: false }
 );
 
-import { Rubik } from "next/font/google";
-export const outfit = Rubik({ subsets: ["latin"] });
-
 import "./globals.css";
 import BackToTop from "@/components/molecules/back-to-top";
+import { rubik } from "@/utils/fonts";
 
 
 export default async function RootLayout({
@@ -24,7 +22,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.className} antialiased`}>
+    <html lang="en" className={`${rubik.className} antialiased`}>
       <head>
         <Script id="microsoft-clarity" strategy="lazyOnload">
           {" "}

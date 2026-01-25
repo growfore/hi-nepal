@@ -14,7 +14,7 @@ type Props = {
   navigation: NavItem[];
 };
 
-export function SectionNav({ navigation }: Props) {
+export default function SectionNav({ navigation }: Props) {
   const [activeId, setActiveId] = useState(navigation[0]?.id ?? "");
   const [visible, setVisible] = useState(false);
 

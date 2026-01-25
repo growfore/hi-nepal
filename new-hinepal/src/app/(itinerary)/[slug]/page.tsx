@@ -21,21 +21,21 @@ import {
   MountainSnow,
 } from "lucide-react";
 import { DataIcon } from "@/components/molecules/data-icon";
-import { SectionNav } from "@/components/organisms/SectionNav";
-import TrustBadge from "@/components/molecules/trust-badge";
-import ReviewsGroup from "@/components/organisms/reviews";
 import FAQSection from "@/components/organisms/itinerary-faq";
 import Image from "next/image";
 import TrekkingCard from "@/components/molecules/TrekkingCard";
-import CustomizeTrip from "@/components/organisms/customize-my-trip";
 import { cn } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Script from "next/script";
-import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";
-
 import dynamicImport from "next/dynamic";
 const ImageGallery = dynamicImport(() => import("@/components/iti-gallery"))
+const TalkToExpertCard = dynamicImport(() => import("@/components/organisms/talk-to-expert-card"))
+const CustomizeTrip = dynamicImport(() => import("@/components/organisms/customize-my-trip"))
+const SectionNav = dynamicImport(() => import("@/components/organisms/SectionNav"))
+const ReviewsGroup = dynamicImport(() => import("@/components/organisms/reviews"))
+const TrustBadge = dynamicImport(() => import("@/components/molecules/trust-badge"))
+
 
 export async function generateMetadata({
   params,

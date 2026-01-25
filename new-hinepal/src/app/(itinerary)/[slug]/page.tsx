@@ -428,9 +428,9 @@ const Activities = async ({ params }: { params: Params }) => {
               {details?.permits && (
                 <div className="col-span-2 sm:col-span-3 lg:col-span-4 flex items-center gap-4 p-4 bg-white rounded-md border-gray-100">
                   <Ticket className="w-8 h-8 text-green-700" />
-                  <h5 className="text-base font-bold text-icon-bg-green mb-1">
+                  <p className="text-base font-bold text-icon-bg-green mb-1">
                     Permits
-                  </h5>
+                  </p>
                   <p className="text-sm text-gray-700 leading-snug">
                     {details.permits ??
                       "Manaslu Restricted Area Permit (MRAP), Annapurna Conservation Area Permit (ACAP), Manaslu Conservation Area Permit (MCAP)"}

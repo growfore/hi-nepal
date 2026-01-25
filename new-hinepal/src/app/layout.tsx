@@ -17,9 +17,6 @@ export const outfit = Rubik({ subsets: ["latin"] });
 import "./globals.css";
 import BackToTop from "@/components/molecules/back-to-top";
 
-export const metadata = {
-  viewport: "width=device-width, initial-scale=1",
-};
 
 export default async function RootLayout({
   children,
@@ -42,7 +39,7 @@ export default async function RootLayout({
         <Script
           strategy="lazyOnload"
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-E1QTRNT388"
+         src="https://www.googletagmanager.com/gtag/js?id=G-E1QTRNT388"
         />
         <Script id="gtag" strategy="lazyOnload">
           {`

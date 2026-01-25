@@ -7,7 +7,7 @@ const PackageCard = dynamic(() => import("@/components/molecules/package-card"),
 const PopularPackages = async ({ packages }: { packages: TPackages }) => {
   return (
     <section className="py-2">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="mx-auto px-6 md:container">
         <div className="text-left md:text-center mb-12 md:mb-16">
           <div className="mt-12">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight">

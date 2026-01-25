@@ -16,22 +16,23 @@ const PackageCard = (props: TProps) => {
 
   return (
     <div className="">
-      <div className="sm:w-full md:max-w-[380px] md:w-[380px] pb-4  bg-white rounded-md shadow-sm  hover:-translate-y-0.5 overflow-hidden hover:shadow-md transition-all duration-300 relative">
-        <figure className="w-full h-56 relative">
+      <div className="sm:w-full lg:max-w-[380px] lg:w-[380px] pb-4  bg-white rounded-md shadow-sm  hover:-translate-y-0.5 overflow-hidden hover:shadow-md transition-all duration-300 relative">
+        <figure className="w-full h-56 relative overflow-hidden">
           <Link
             aria-label={item.title}
             href={`/${item.slug}`}
-            className="block w-full h-full"
+            className="relative w-full h-full overflow-hidden h-[320px]"
             prefetch={false}
           >
             <Image
               placeholder="blur"
               blurDataURL={placeholderImage}
-              fill
+              width={320}
+              height={420}
               sizes="(max-width: 768px) 100vw,
                      (max-width: 1200px) 50vw,
                      33vw"
-              className="w-full object-cover rounded-t-md"
+              className="w-full object-cover rounded-t-md h-auto"
               src={item?.thumbnail}
               alt={item?.thumbnailImageAlt || item.title || "Package thumbnail"}
             />

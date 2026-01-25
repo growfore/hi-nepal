@@ -22,7 +22,7 @@ export default function NewHero({
           blurDataURL={placeholderImage}
           src="/assets/mount-everest.webp"
           alt="Mount Everest Image"
-          className="w-full h-full md:h-auto object-cover"
+          className="w-full h-full object-cover"
           priority
         />
         <div className="absolute inset-0 bg-black/50" />

@@ -18,6 +18,8 @@ export function ImageGallery({ images }: { images: any[] }) {
               src={images[0]}
               alt={"Gallery Image 1"}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw,
+              33vw"
               className="object-cover"
             />
           }
@@ -31,6 +33,8 @@ export function ImageGallery({ images }: { images: any[] }) {
                   src={image}
                   alt={`Gallery image ${index}`}
                   fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw,
+              33vw"
                   className="object-cover"
                 />
               </div>

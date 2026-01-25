@@ -98,7 +98,7 @@ export async function Footer() {
                     </a>
                   </li>
                   <li>
-                    <a href="/vehicle-rent" className="hover:underline">
+                    <a href="/vehicle-rent" className="hover4underline">
                       Vehicle Rent
                     </a>
                   </li>
@@ -158,6 +158,7 @@ export async function Footer() {
                         height={200}
                         width={200}
                         alt="tripadvisor logo"
+                        className="w-full h-auto"
                       />
                     </div>
                     <div className="flex font-bold items-center italic">

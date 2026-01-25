@@ -8,7 +8,7 @@ const BlogHome = async ({ posts: postsProp }: { posts?: any[] } = {}) => {
   return (
     <section className="py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="md:text-center mb-12">
           <div className="max-w-3xl mx-auto">
             <div className="inline-flex items-center justify-center mb-4">
               <p className='text-orange-500 text-sm font-semibold uppercase relative pl-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500'>

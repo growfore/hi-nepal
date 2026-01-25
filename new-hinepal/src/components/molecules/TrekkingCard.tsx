@@ -29,7 +29,7 @@ const TrekkingCard = (props: TCardProps) => {
         <Link
           aria-label={title}
           href={`/${slug}`}
-          className="block w-full h-full"
+          className="relative w-full h-full"
           prefetch={false}
         >
           <Image

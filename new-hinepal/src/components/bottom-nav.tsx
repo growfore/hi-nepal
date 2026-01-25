@@ -23,10 +23,10 @@ export default function BottomNav({
           <Image
             src="/assets/hinepal-logo.webp"
             priority
-            height={170}
-            width={130}
+            height={160}
+            width={100}
             alt="hinepal logo"
-            className="h-auto w-[100px] md:w-[130px]"
+            className="h-auto w-auto"
           />
         </Link>
 

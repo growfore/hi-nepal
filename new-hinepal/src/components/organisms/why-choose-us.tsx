@@ -44,7 +44,7 @@ export default function WhyChooseUsSection() {
     <section className="w-full bg-background py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-16 text-center">
+        <div className="mb-16 md:text-center">
           <h2 className="text-balance text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
             Why Hi Nepal Travels & Treks?
           </h2>

@@ -35,7 +35,7 @@ const TrekkingCard = (props: TCardProps) => {
           <Image
             width={300}
             height={300}
-            className="w-full h-full object-cover rounded-t-md"
+            className="w-full object-cover rounded-t-md"
             src={image}
             sizes="
       (max-width: 640px) 100vw,

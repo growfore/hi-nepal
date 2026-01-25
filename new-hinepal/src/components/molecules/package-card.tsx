@@ -25,11 +25,14 @@ const PackageCard = (props: TProps) => {
             prefetch={false}
           >
             <Image
-              width={380}
-              height={380}
               placeholder="blur"
               blurDataURL={placeholderImage}
-              className="w-full h-full object-cover rounded-t-md"
+              width={800}
+              height={600}
+              sizes="(max-width: 768px) 100vw,
+                     (max-width: 1200px) 50vw,
+                     33vw"
+              className="w-full object-cover rounded-t-md"
               src={item?.thumbnail}
               alt={item?.thumbnailImageAlt || item.title || "Package thumbnail"}
             />

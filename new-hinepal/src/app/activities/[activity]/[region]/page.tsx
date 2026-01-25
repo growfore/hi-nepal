@@ -533,14 +533,14 @@ export default async function RegionPage({
             /* @ts-ignore */
             data?.map((d) => {
               return (
-                <Link key={d.slug} href={`/${d.slug}`}>
+                // <Link key={d.slug} href={`/${d.slug}`}>
                   <TrekkingCard
                     slug={d.slug}
                     title={d.title.split(":")[0]}
                     image={d.thumbnail}
                     days={d.duration}
                   />
-                </Link>
+                // </Link>
               );
             })}
         </div>

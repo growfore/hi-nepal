@@ -5,6 +5,7 @@ import { LucideClock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { placeholderImage } from "@/utils/placeholder-image";
 
 type TCardProps = {
   slug: string;
@@ -25,7 +26,7 @@ const TrekkingCard = (props: TCardProps) => {
         "w-[340px] md:w-[380px] pb-4 bg-white rounded-md shadow-sm  hover:-translate-y-0.5 overflow-hidden hover:shadow-md transition-all duration-300 relative flex flex-col justify-between"
       )}
     >
-      <figure className="w-full h-56 relative">
+      <figure className="w-full h-56 relative overflow-hidden">
         <Link
           aria-label={title}
           href={`/${slug}`}
@@ -33,6 +34,8 @@ const TrekkingCard = (props: TCardProps) => {
           prefetch={false}
         >
           <Image
+            placeholder="blur"
+            blurDataURL={placeholderImage}
             width={300}
             height={300}
             className="w-full object-cover rounded-t-md"

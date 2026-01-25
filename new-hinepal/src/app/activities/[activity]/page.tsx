@@ -194,14 +194,14 @@ export default async function ActivitySingle({
             /* @ts-ignore */
             data.map((d: any) => {
               return (
-                <Link key={d.slug} href={`${activity}/${d.slug}`}>
+                // <Link key={d.slug} href={`${activity}/${d.slug}`}>
                   <TrekkingCard
                     activity={false}
                     slug={d.slug}
                     title={d.name}
                     image={d.image}
                   />
-                </Link>
+                // </Link>
               );
             })}
         </div>

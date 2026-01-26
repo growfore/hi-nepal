@@ -23,7 +23,7 @@ export const Navbar = async () => {
   const sortedNavbar = sortNavBar(navData);
 
   return (
-    <div className="bg-green-600 z-999 min-w-screen">
+    <div className="bg-green-700 z-999 min-w-screen">
       <Topbar />
       <BottomNav navBar={sortedNavbar} />
     </div>

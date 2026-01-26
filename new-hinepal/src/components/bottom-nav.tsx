@@ -18,7 +18,7 @@ export default function BottomNav({
 
   return (
     <nav className="bg-white w-full shadow-sm sticky top-0 z-50">
-      <div className="flex items-center justify-between container mx-auto gap-4 md:max-w-[75vw] p-2">
+      <div className="flex items-center justify-between mx-auto gap-4 container p-2">
         <Link href="/" title="Go to homepage" className="shrink-0">
           <Image
             src="/assets/hinepal-logo.webp"

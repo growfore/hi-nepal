@@ -14,7 +14,7 @@ export async function Footer() {
     `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/site-informations`,
     {
       cache: "default",
-    }
+    },
   );
   const data = await res.json();
 
@@ -37,6 +37,9 @@ export async function Footer() {
                       alt="logo"
                     />
                   </Link>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="font-bold text-xl my-1">VAT NO. 604389161</span>
                 </div>
                 <div className=" text-base leading-relaxed">
                   {siteInformation?.about?.description}

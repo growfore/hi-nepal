@@ -29,9 +29,8 @@ const BlogHome = dynamic(() => import("@/components/pages/blogs"), {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Tours & Travel Agency Pokhara - Treks in Nepal,Bhutan,Tibet",
-    description:
-      "At Hi Nepal, we provide unforgettable trekking & adventure in Nepal. Explore Everest Heli Tours, treks in Tibet & Bhutan, & more. Book local experts today!",
+    title: "Treks & Travel Agency in Pokhara - Treks in Nepal,Bhutan,Tibet",
+    description:"At Hi Nepal, a trusted travel agency in Pokhara, we offer unforgettable trekking & adventure tours. Explore Heli Tours, Tibet & Bhutan treks with local experts.",
     keywords: "trekking agency in nepal, travel agency in nepal",
     alternates: {
       canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/",
@@ -44,16 +43,14 @@ export async function generateMetadata(): Promise<Metadata> {
       "max-snippet": -1,
     },
     openGraph: {
-      title: "Tours & Travel Agency Pokhara - Treks in Nepal,Bhutan,Tibet",
-      description:
-        "At Hi Nepal, we provide unforgettable trekking & adventure in Nepal. Explore Everest Heli Tours, treks in Tibet & Bhutan, & more. Book local experts today!",
+      title: "Treks & Travel Agency Pokhara - Treks in Nepal,Bhutan,Tibet",
+    description:"At Hi Nepal, a trusted travel agency in Pokhara, we offer unforgettable trekking & adventure tours. Explore Heli Tours, Tibet & Bhutan treks with local experts.",
       images: ['https://hinepaltreks.com/assets/mount-everest.webp'],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Tours & Travel Agency Pokhara - Treks in Nepal,Bhutan,Tibet",
-      description:
-        "At Hi Nepal, we provide unforgettable trekking & adventure in Nepal. Explore Everest Heli Tours, treks in Tibet & Bhutan, & more. Book local experts today!",
+      title: "Treks & Travel Agency Pokhara - Treks in Nepal,Bhutan,Tibet",
+    description:"At Hi Nepal, a trusted travel agency in Pokhara, we offer unforgettable trekking & adventure tours. Explore Heli Tours, Tibet & Bhutan treks with local experts.",
       images: ['https://hinepaltreks.com/assets/mount-everest.webp'],
     }
   };

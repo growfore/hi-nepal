@@ -2,6 +2,7 @@ import PackageCard from "@/components/molecules/package-card";
 import { TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";
+import HLinkComp from "../atoms/link-component";
 
 const TenDaysPlusTreks = ({ packages }: { packages: any[] }) => {
   const filteredPackages = packages || [];
@@ -10,7 +11,7 @@ const TenDaysPlusTreks = ({ packages }: { packages: any[] }) => {
     <section className="bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-left md:text-center mb-12 md:mb-16">
-          <div className="max-w-4xl mx-auto mt-12">
+          <div className="max-w-6xl mx-auto mt-12">
             {/* <p className='text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
               10 Days Plus Treks in Nepal
             </p> */}
@@ -18,31 +19,12 @@ const TenDaysPlusTreks = ({ packages }: { packages: any[] }) => {
               10 Days Plus Treks in Nepal
             </h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
-              Nepal offers everything, from beginner-friendly to some of the
-              most challenging and long trekking trails in the world, such as
-              the{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/annapurna-circuit-trek"}
-              >
-                Annapurna Circuit
-              </Link>
-              ,{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/kanchenjunga-circuit-trek"}
-              >
-                Kanchenjunga Circuit
-              </Link>
-              , and{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/dhaulagiri-circuit-trek"}
-              >
-                Dhaulagiri Circuit
-              </Link>{" "}
-              Treks. No matter how challenging and tough the route is, our team
-              is sworn to make your trekking experience as safe as possible.
+
+              Nepal offers everything from beginner-friendly routes to some of the most challenging and long trekking trails in the world, including the
+              <HLinkComp comma href="/annapurna-circuit-trek" text="Annapurna Circuit Trek" />
+              <HLinkComp comma href="/manaslu-circuit-trek" text="Manaslu Circuit" />
+              <HLinkComp href="/everest-base-camp-trek" text="Everest Base Camp Trek" /> and so on. These iconic journeys lead deep into the Himalayas, revealing dramatic landscapes, remote mountain villages, and rich cultural diversity.<br />
+              As a trusted trek agency in Nepal, we are committed to making every long trekking experience safe, well-organized and rewarding, no matter how demanding the route may be. With experienced local guides, proper acclimatization plans and carefully designed itineraries, we ensure your long treks in Nepal are adventurous, comfortable and truly unforgettable.
             </p>
           </div>
         </div>

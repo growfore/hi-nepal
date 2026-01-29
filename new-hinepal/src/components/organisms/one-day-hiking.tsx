@@ -11,26 +11,18 @@ const OneDayTours = ({ packages }: { packages: any[] }) => {
     <section className="bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-justify md:text-center md:mb-16">
-          <div className="max-w-4xl mx-auto">
-            {/* <h2 className='text-orange-500 text-xl font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
-              One Day Hiking in Nepal
-            </h2> */}
+          <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold  leading-tight">
               1 Day & Short Hiking Tours in Nepal
             </h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
-              Short on time but still want a trekking adventure? Hi Nepal
-              Travels & Treks offers the best day hikes and short trekking tours
-              in Nepal, perfect for travelers with limited time. Experience the
-              breathtaking Himalayas, scenic landscapes, and rich cultural
-              heritage while enjoying the most popular hikes around Pokhara,
-              Kathmandu, and the{" "}
+              Nepal may be famous for long treks, but it also offers some of the most rewarding Day Hikes in Nepal for travelers short on time. Hi Nepal Travels & Treks provides well-planned day hikes and short hiking tours in Nepal, ideal for those seeking quick yet memorable trekking experiences.
+
+              Enjoy breathtaking Himalayan views, scenic trails and rich cultural encounters while exploring popular hiking routes around Pokhara, Kathmandu and the
               <HLinkComp
                 text="Annapurna region"
-                href="https://hinepaltreks.com/activities/trekking/annapurna-region"
-              />
-              . Hiking in Pokhara Nepal provides one of the top trekking
-              experiences in the country.
+                href="/activities/trekking/annapurna-region"
+              />. From gentle nature walks to rewarding viewpoints, hiking in Pokhara, Nepal offers one of the best short trekking experiences in the country.
             </p>
           </div>
         </div>

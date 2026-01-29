@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import { placeholderImage } from "@/utils/placeholder-image";
+import HLinkComp from "../atoms/link-component";
 
 const PopularDestinations = async () => {
   const topDestinations: TDestination[] = [];
@@ -46,80 +47,18 @@ const PopularDestinations = async () => {
             </h2>
           </div>
           <div className="text-gray-600 text-base md:text-lg leading-relaxed text-justify">
-            Hi Nepal Travels & Treks Pvt. Ltd. is the best trekking company in
-            Nepal, specializing in offering unforgettable{" "}
-            <Link
-              className="text-green-700"
-              href={"https://hinepaltreks.com/activities/trekking"}
-            >
-              trekking
-            </Link>
-            ,{" "}
-            <Link
-              className="text-green-700"
-              href={"https://hinepaltreks.com/activities/tours"}
-            >
-              tours
-            </Link>
-            , and{" "}
-            <Link
-              className="text-green-700"
-              href={"https://hinepaltreks.com/adventure"}
-            >
-              adventure sports
-            </Link>{" "}
-            experiences across the country. From breathtaking mountain trails to
-            rich cultural journeys, our trekking and travel agency in Nepal
-            offers expertly guided treks, customized tours, and seamless travel
-            services.{" "}
-            <Link
-              className="text-green-700"
-              href={"https://hinepaltreks.com/activities/trekking"}
-            >
-              Trekking
-            </Link>{" "}
-            to the stunning{" "}
-            <Link
-              className="text-green-700"
-              href={
-                "https://hinepaltreks.com/activities/trekking/everest-region"
-              }
-            >
-              Everest
-            </Link>{" "}
-            and{" "}
-            <Link
-              className="text-green-700"
-              href={
-                "https://hinepaltreks.com/activities/trekking/annapurna-region"
-              }
-            >
-              Annapurna regions
-            </Link>{" "}
-            to{" "}
-            <Link
-              className="text-green-700"
-              href={"https://hinepaltreks.com/activities/tours"}
-            >
-              tour
-            </Link>{" "}
-            around{" "}
-            <Link
-              className="text-green-700"
-              href={"https://hinepaltreks.com/pokhara-valley-tour"}
-            >
-              Pokhara
-            </Link>{" "}
-            and{" "}
-            <Link
-              className="text-green-700"
-              href={"https://hinepaltreks.com/kathmandu-tour-package"}
-            >
-              Kathmandu valleys
-            </Link>
-            , Hi Nepal Travels and Treks, a reliable travel agency in Nepal,
-            Pokhara, offers tons of heavenly traveling and trekking destinations
-            in Nepal.
+            Trekking Regions in Nepal
+
+            Nepal is home to some of the world’s most diverse and iconic <HLinkComp text="trekking" href="/activities/trekking" />
+            regions, and Hi Nepal Travels & Treks Pvt. Ltd. is a trusted trekking company in Nepal, specializing in unforgettable trekking,
+            <HLinkComp href="/activities/tours" text="tours" /> and
+            <HLinkComp href="/adventure" text="adventure" /> experiences across the country.
+            As an experienced trekking and travel agency in Nepal, we offer expertly guided treks, customized itineraries, and seamless travel services tailored to every type of traveler.
+
+            From the legendary <HLinkComp text="Everest" href="/everest-region" />trekking region to the scenic
+            <HLinkComp text="Annapurna" href="/annapurna-region" /> trekking region, and from cultural journeys in the
+            <HLinkComp href="/pokhara-valley-tour" text="Pokhara" /> and
+            <HLinkComp text="Kathmandu" href="/kathmandu-tour-package" /> valleys to remote Himalayan trails, we cover the most popular trekking regions in Nepal. Based in Pokhara, Hi Nepal Travels & Treks is a reliable travel agency in Nepal, offering access to a wide range of heavenly trekking and travel destinations throughout the country.
           </div>
         </div>
         <div className="grid gap-8">

@@ -1,4 +1,5 @@
 import { Mountain, Shield, DollarSign, Users, Leaf, CheckCircle } from "lucide-react"
+import HLinkComp from "../atoms/link-component"
 
 export default function WhyChooseUsSection() {
   const reasons = [
@@ -48,10 +49,12 @@ export default function WhyChooseUsSection() {
           <h2 className="text-balance text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
             Why Hi Nepal Travels & Treks?
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
-            A trusted trekking and tour agency with 20+ years of experience, led by local experts in Nepal, Bhutan, and
-            Tibet. We specialize in authentic trekking adventures and responsible, eco-friendly travel across the
-            Himalayas, delivering safe, memorable, and value-driven journeys.
+          <p className="mt-6 text-lg leading-relaxed  md:text-xl">
+            Hi Nepal Travels & Treks is recognized as the best tour operator in Nepal, backed by 20+ years of experience in trekking and tour management. Led by knowledgeable local experts across Nepal,
+            <HLinkComp href="/activities/destination/bhutan" text="Bhutan" /> and
+            <HLinkComp href="/activities/destination/tibet" text="Tibet" />, we specialize in authentic Himalayan trekking adventures and culturally rich tours.
+            <br />
+            We are committed to responsible, eco-friendly travel, ensuring every journey is safe, meaningful, and memorable. With personalized itineraries, experienced guides and excellent value for money, we deliver unforgettable travel experiences across the Himalayas.
           </p>
         </div>
 

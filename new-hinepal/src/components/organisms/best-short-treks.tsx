@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import dynamic from "next/dynamic";
+import HLinkComp from "../atoms/link-component";
 const PackageCard = dynamic(() => import("@/components/molecules/package-card"), { ssr: false });
 
 const BestShortTreks = ({ packages }: { packages: any[] }) => {
@@ -15,32 +16,9 @@ const BestShortTreks = ({ packages }: { packages: any[] }) => {
               Best Short Treks in Nepal
             </h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
-              Looking for the best yet short trekking options in Nepal. Hi Nepal
-              Travels and Treks, a reliable trekking agency in Pokhara, Nepal, offers you
-              well-planned itineraries of some of the most pleasing treks of
-              Nepal, like{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/mardi-himal-trek"}
-              >
-                Mardi Himal
-              </Link>
-              ,{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/ghorepani-poon-hill-trek"}
-              >
-                Ghorepani Poon Hill
-              </Link>
-              , and{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/kapuche-lake-trek"}
-              >
-                Kapuche Lake Trek
-              </Link>
-              . Explore the beautiful Himalaya range of Nepal with us,
-              maximizing your travel experience.
+              Looking for the best yet short trekking options in Nepal?
+              Hi Nepal Travels and Treks, a reliable trekking agency in Nepal, based in Pokhara, offers well-planned itineraries for some of the most pleasing treks in the country, including <HLinkComp comma href="/mardi-himal-trek" text="Mardi Himal" /> <HLinkComp comma href="/ghorepani-poon-hill-trek" text="Ghorepani Poon Hill" />  and
+              <HLinkComp href="/kapuche-lake-trek" text="Kapuche Lake Trek" />. Explore the beautiful Himalaya range of Nepal with us while maximizing your travel experience.
             </p>
           </div>
         </div>

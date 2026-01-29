@@ -34,8 +34,7 @@ export default function NewHero({
           Find your adventure in the heart of Himalayas
         </h1>
         <p className="mt-3 text-base sm:text-lg md:text-xl opacity-90">
-          Plan your next unforgettable escape, explore the mountains, culture,
-          and spirit of Nepal with Hi Nepal Travel and Treks.
+        Hi Nepal Travel and Treks is a well-established tour operator in Nepal, offering exceptional travel and trekking experiences.
         </p>
       </div>
 

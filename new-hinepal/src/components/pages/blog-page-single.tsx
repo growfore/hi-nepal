@@ -67,7 +67,7 @@ export function BlogPage({ blog }: Readonly<{ blog: TBlog }>) {
   prose-a:text-green-600 prose-a:no-underline hover:prose-a:text-green-700 hover:prose-a:underline
   prose-strong:text-normal prose-strong:font-semibold
   prose-ul:my-2 prose-ol:my-2
-  prose-li:mb-1 prose-li:marker:text-green-700
+  prose-li:mb-1 prose-li:marker:text-green-700 
   prose-blockquote:border-l-4 prose-blockquote:border-green-500 prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-600
   prose-img:rounded-lg prose-img:my-6
   prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm

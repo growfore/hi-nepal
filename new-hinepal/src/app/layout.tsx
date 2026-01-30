@@ -16,6 +16,12 @@ import BackToTop from "@/components/molecules/back-to-top";
 import { rubik } from "@/utils/fonts";
 
 
+export const metadata = {
+  icons: {
+    icon: '/favicon.ico',
+  },
+};
+
 export default async function RootLayout({
   children,
 }: Readonly<{

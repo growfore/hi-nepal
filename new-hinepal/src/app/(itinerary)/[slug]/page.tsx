@@ -299,7 +299,7 @@ const Activities = async ({ params }: { params: Params }) => {
   let allImages: string[] = [];
   if (details?.media.length > 0) {
     const galleryImages = details?.media?.map((m) => m.url);
-    allImages = [...galleryImages, details?.thumbnail];
+    allImages = [details?.thumbnail, ...galleryImages];
   }
 
   const sectionStyle = "scroll-mt-42 mb-12 py-4 border-b border-gray-300";

@@ -12,13 +12,13 @@ export default function ImageGallery({ images }: { images: any[] }) {
   return (
     <div className="relative mb-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2 rounded-lg overflow-hidden">
-        <div className="col-span-2 relative aspect-[4/3]">
+        <div className="col-span-2 relative aspect-4/3">
           {images &&
             <Image
               src={images[0]}
               alt={"Gallery Image 1"}
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw,
+              sizes="(max-width: 1920px) 100vw, (max-width: 1200px) 50vw,
               33vw"
               className="object-cover"
             />

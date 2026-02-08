@@ -37,7 +37,7 @@ export class PackagesService {
         banner: createPackageDto?.banner || '',
         bannerImageAlt: createPackageDto?.bannerImageAlt || '',
         thumbnail: createPackageDto?.thumbnail || '',
-        thumbnailImageAlt: createPackageDto?.thumbnailImageAlt || '', 
+        thumbnailImageAlt: createPackageDto?.thumbnailImageAlt || '',
         link: createPackageDto?.link,
         slug: createPackageDto?.slug,
         duration: createPackageDto?.duration,
@@ -268,94 +268,167 @@ export class PackagesService {
           ),
         );
       }
-      const pack = await this.prisma.package.update({
-        where: {
-          id,
-        },
-        data: {
-          title: updatePackageDto.title,
-          description: updatePackageDto.description,
-          duration: updatePackageDto.duration,
-          thumbnail: updatePackageDto?.thumbnail || undefined,
-          thumbnailImageAlt: updatePackageDto?.thumbnailImageAlt, 
+      const pack = await this.prisma.$transaction(async (tx) => {
+        await tx.media.deleteMany({
+          where: { packageId: id },
+        });
 
-          banner: updatePackageDto?.banner || undefined,
-          bannerImageAlt: updatePackageDto?.bannerImageAlt,
-          link: updatePackageDto.link,
-          slug: updatePackageDto.slug,
-          content: updatePackageDto.content,
-          price: updatePackageDto.price,
-          itenary: updatePackageDto.itenary,
-          includes: updatePackageDto.includes,
-          goodtoknow: updatePackageDto.goodtoknow,
-          groupAge: updatePackageDto.groupAge,
-          groupSize: updatePackageDto.groupSize,
-          accommodation: updatePackageDto.accommodation,
-          attractions: updatePackageDto.attractions,
-          altitude: updatePackageDto.altitude,
-          culture: updatePackageDto.culture,
-          endAt: updatePackageDto.endAt,
-          startFrom: updatePackageDto.startFrom,
-          rating: updatePackageDto.rating,
-          videoLink: updatePackageDto.videoLink,
-          bestSeason: updatePackageDto.bestSeason,
-          transportation: updatePackageDto?.transportation || '',
-          permits: updatePackageDto?.permits || '',
-          tripGrade: updatePackageDto?.tripGrade || '',
-          overview: updatePackageDto?.overview || '',
-          highlights: updatePackageDto?.highlights || '',
-          altitudeInfo: updatePackageDto?.altitudeInfo || '',
-          packing: updatePackageDto?.packing || '',
-          bestSeasonInfo: updatePackageDto?.bestSeasonInfo || '',
-          routeOverview: updatePackageDto?.routeOverview || '',
-          excludes: updatePackageDto?.excludes || '',
-          sicknessAndSaftey: updatePackageDto?.sicknessAndSaftey || '',
-          insuranceAndEmergency: updatePackageDto?.insuranceAndEmergency || '',
-          permitsAndRegulations: updatePackageDto?.permitsAndRegulations || '',
-          shortTrekInfo: updatePackageDto?.shortTrekInfo || '',
-          whyChooseThisPackage: updatePackageDto?.whyChooseThisPackage || '',
-          priceBreakDown: updatePackageDto?.priceBreakDown || '',
-          bookingInfo: updatePackageDto?.bookingInfo || '',
+        if (updatePackageDto?.images?.length) {
+          await tx.media.createMany({
+            data: updatePackageDto.images.map((img) => ({
+              ...img,
+              packageId: id,
+            })),
+          });
+        }
 
-          Author: {
-            connect: {
-              id: Number(updatePackageDto.authorId),
+        return tx.package.update({
+          where: { id },
+          data: {
+            title: updatePackageDto.title,
+            description: updatePackageDto.description,
+            duration: updatePackageDto.duration,
+            thumbnail: updatePackageDto?.thumbnail || undefined,
+            thumbnailImageAlt: updatePackageDto?.thumbnailImageAlt,
+            banner: updatePackageDto?.banner || undefined,
+            bannerImageAlt: updatePackageDto?.bannerImageAlt,
+            link: updatePackageDto.link,
+            slug: updatePackageDto.slug,
+            content: updatePackageDto.content,
+            price: updatePackageDto.price,
+            itenary: updatePackageDto.itenary,
+            includes: updatePackageDto.includes,
+            goodtoknow: updatePackageDto.goodtoknow,
+            groupAge: updatePackageDto.groupAge,
+            groupSize: updatePackageDto.groupSize,
+            accommodation: updatePackageDto.accommodation,
+            attractions: updatePackageDto.attractions,
+            altitude: updatePackageDto.altitude,
+            culture: updatePackageDto.culture,
+            endAt: updatePackageDto.endAt,
+            startFrom: updatePackageDto.startFrom,
+            rating: updatePackageDto.rating,
+            videoLink: updatePackageDto.videoLink,
+            bestSeason: updatePackageDto.bestSeason,
+            discount: updatePackageDto.discount,
+            introduction: updatePackageDto.introduction,
+
+            Author: {
+              connect: { id: Number(updatePackageDto.authorId) },
+            },
+            destination: {
+              connect: { id: Number(updatePackageDto.destinationId) },
+            },
+            seo: {
+              update: {
+                metaTitle: updatePackageDto.seo?.metaTitle,
+                metaDescription: updatePackageDto.seo?.metaDescription,
+                metaKeywords: updatePackageDto.seo?.metaKeywords,
+                metaImage: updatePackageDto.seo?.metaImage || undefined,
+                metaRobots: updatePackageDto.seo?.metaRobots,
+                metaAuthor: updatePackageDto.seo?.metaAuthor,
+                metaCanonical: updatePackageDto.seo?.metaCanonical,
+                metaRating: updatePackageDto.seo?.metaRating,
+                metaCopyright: updatePackageDto.seo?.metaCopyright,
+                metaRevisit: updatePackageDto.seo?.metaRevisit,
+                twitterCard: updatePackageDto.seo?.twitterCard,
+                twitterSite: updatePackageDto.seo?.twitterSite,
+                schema: updatePackageDto.seo?.schema,
+              },
             },
           },
-          media: {
-            createMany: {
-              data: updatePackageDto?.images || [],
-            },
-          },
-          destination: {
-            connect: {
-              id: Number(updatePackageDto.destinationId),
-            },
-          },
-          discount: updatePackageDto.discount,
-          introduction: updatePackageDto.introduction,
-          seo: {
-            update: {
-              metaTitle: updatePackageDto.seo?.metaTitle,
-              metaDescription: updatePackageDto.seo?.metaDescription,
-              metaKeywords: updatePackageDto.seo?.metaKeywords,
-              metaImage: updatePackageDto.seo?.metaImage || undefined,
-              metaRobots: updatePackageDto.seo?.metaRobots,
-              metaAuthor: updatePackageDto.seo?.metaAuthor,
-              metaCanonical: updatePackageDto.seo?.metaCanonical,
-              metaRating: updatePackageDto.seo?.metaRating,
-              metaCopyright: updatePackageDto.seo?.metaCopyright,
-              metaRevisit: updatePackageDto.seo?.metaRevisit,
-              twitterCard: updatePackageDto.seo?.twitterCard,
-              twitterSite: updatePackageDto.seo?.twitterSite,
-              schema: updatePackageDto.seo?.schema,
-            },
-          },
-        },
-        include: {
-          seo: true,
-        },
+          include: { seo: true },
+        });
       });
+
+      // const pack = await this.prisma.package.update({
+      //   where: {
+      //     id,
+      //   },
+      //   data: {
+      //     title: updatePackageDto.title,
+      //     description: updatePackageDto.description,
+      //     duration: updatePackageDto.duration,
+      //     thumbnail: updatePackageDto?.thumbnail || undefined,
+      //     thumbnailImageAlt: updatePackageDto?.thumbnailImageAlt,
+
+      //     banner: updatePackageDto?.banner || undefined,
+      //     bannerImageAlt: updatePackageDto?.bannerImageAlt,
+      //     link: updatePackageDto.link,
+      //     slug: updatePackageDto.slug,
+      //     content: updatePackageDto.content,
+      //     price: updatePackageDto.price,
+      //     itenary: updatePackageDto.itenary,
+      //     includes: updatePackageDto.includes,
+      //     goodtoknow: updatePackageDto.goodtoknow,
+      //     groupAge: updatePackageDto.groupAge,
+      //     groupSize: updatePackageDto.groupSize,
+      //     accommodation: updatePackageDto.accommodation,
+      //     attractions: updatePackageDto.attractions,
+      //     altitude: updatePackageDto.altitude,
+      //     culture: updatePackageDto.culture,
+      //     endAt: updatePackageDto.endAt,
+      //     startFrom: updatePackageDto.startFrom,
+      //     rating: updatePackageDto.rating,
+      //     videoLink: updatePackageDto.videoLink,
+      //     bestSeason: updatePackageDto.bestSeason,
+      //     transportation: updatePackageDto?.transportation || '',
+      //     permits: updatePackageDto?.permits || '',
+      //     tripGrade: updatePackageDto?.tripGrade || '',
+      //     overview: updatePackageDto?.overview || '',
+      //     highlights: updatePackageDto?.highlights || '',
+      //     altitudeInfo: updatePackageDto?.altitudeInfo || '',
+      //     packing: updatePackageDto?.packing || '',
+      //     bestSeasonInfo: updatePackageDto?.bestSeasonInfo || '',
+      //     routeOverview: updatePackageDto?.routeOverview || '',
+      //     excludes: updatePackageDto?.excludes || '',
+      //     sicknessAndSaftey: updatePackageDto?.sicknessAndSaftey || '',
+      //     insuranceAndEmergency: updatePackageDto?.insuranceAndEmergency || '',
+      //     permitsAndRegulations: updatePackageDto?.permitsAndRegulations || '',
+      //     shortTrekInfo: updatePackageDto?.shortTrekInfo || '',
+      //     whyChooseThisPackage: updatePackageDto?.whyChooseThisPackage || '',
+      //     priceBreakDown: updatePackageDto?.priceBreakDown || '',
+      //     bookingInfo: updatePackageDto?.bookingInfo || '',
+
+      //     Author: {
+      //       connect: {
+      //         id: Number(updatePackageDto.authorId),
+      //       },
+      //     },
+      //     media: {
+      //       createMany: {
+      //         data: updatePackageDto?.images || [],
+      //       },
+      //     },
+      //     destination: {
+      //       connect: {
+      //         id: Number(updatePackageDto.destinationId),
+      //       },
+      //     },
+      //     discount: updatePackageDto.discount,
+      //     introduction: updatePackageDto.introduction,
+      //     seo: {
+      //       update: {
+      //         metaTitle: updatePackageDto.seo?.metaTitle,
+      //         metaDescription: updatePackageDto.seo?.metaDescription,
+      //         metaKeywords: updatePackageDto.seo?.metaKeywords,
+      //         metaImage: updatePackageDto.seo?.metaImage || undefined,
+      //         metaRobots: updatePackageDto.seo?.metaRobots,
+      //         metaAuthor: updatePackageDto.seo?.metaAuthor,
+      //         metaCanonical: updatePackageDto.seo?.metaCanonical,
+      //         metaRating: updatePackageDto.seo?.metaRating,
+      //         metaCopyright: updatePackageDto.seo?.metaCopyright,
+      //         metaRevisit: updatePackageDto.seo?.metaRevisit,
+      //         twitterCard: updatePackageDto.seo?.twitterCard,
+      //         twitterSite: updatePackageDto.seo?.twitterSite,
+      //         schema: updatePackageDto.seo?.schema,
+      //       },
+      //     },
+      //   },
+      //   include: {
+      //     seo: true,
+      //   },
+      // });
 
       return createSuccessResponse('Package updated successfully', pack);
     } catch (error) {

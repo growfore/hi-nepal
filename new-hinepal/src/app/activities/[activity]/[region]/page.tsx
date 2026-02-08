@@ -1,3 +1,4 @@
+import PackageCard from "@/components/molecules/package-card";
 import TrekkingCard from "@/components/molecules/TrekkingCard";
 import endpoints from "@/constant/endpoints";
 import { formatSlug } from "@/helper/formatSlug";
@@ -9,7 +10,7 @@ export async function generateMetadata({ params }: any): Promise<any> {
   const { region } = params;
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/destinations/${region}`,
-    { cache: "no-store" }
+    { cache: "no-store" },
   );
   const regionDetails = await response.json();
 
@@ -84,9 +85,9 @@ export async function generateMetadata({ params }: any): Promise<any> {
     keywords = "Tibet";
   }
   if (region.includes("heli-tour")) {
-    (title = "Helicopter Tour"),
+    ((title = "Helicopter Tour"),
       (description =
-        "Take an unforgettable Heli Tour over the Himalayas. See Mount Everest, Annapurna, and stunning peaks from the bird’s eye view from the sky — book your adventure now!");
+        "Take an unforgettable Heli Tour over the Himalayas. See Mount Everest, Annapurna, and stunning peaks from the bird’s eye view from the sky — book your adventure now!"));
     keywords = "Heli Tour, Helicopter Tour";
   }
 
@@ -518,7 +519,7 @@ export default async function RegionPage({
                   ? region
                       .split("-")
                       .map(
-                        (part) => part.charAt(0).toUpperCase() + part.slice(1)
+                        (part) => part.charAt(0).toUpperCase() + part.slice(1),
                       )
                       .join(" ")
                   : ""}
@@ -531,15 +532,21 @@ export default async function RegionPage({
             /* @ts-ignore */
             data?.length > 0 &&
             /* @ts-ignore */
-            data?.map((d) => {
+            data?.map((item:any, index:number) => {
               return (
                 // <Link key={d.slug} href={`/${d.slug}`}>
-                  <TrekkingCard
-                    slug={d.slug}
-                    title={d.title.split(":")[0]}
-                    image={d.thumbnail}
-                    days={d.duration}
-                  />
+                <PackageCard
+                showRegion={false}
+                  key={item.id}
+                  item={item}
+                  destination={{
+                    slug: item.destination.slug.split("/")[2],
+                    activity: {
+                      name: "Trekking",
+                      slug: "trekking",
+                    },
+                  }}
+                />
                 // </Link>
               );
             })}

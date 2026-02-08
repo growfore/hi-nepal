@@ -32,14 +32,14 @@ const PackageCard = (props: TProps) => {
               sizes="(max-width: 768px) 100vw,
                      (max-width: 1200px) 50vw,
                      33vw"
-              className="w-full h-full object-cover rounded-t-md h-auto"
+              className="w-full h-full object-cover rounded-t-md"
               src={item?.thumbnail}
               alt={item?.thumbnailImageAlt || item.title || "Package thumbnail"}
             />
           </Link>
         {/* </figure> */}
         <div className="p-4">
-          <h3 className="text-2xl font-bold text-dark-blue-900 mb-2 h-12 mb-2">
+          <h3 className="text-2xl font-bold text-dark-blue-900 mb-2 h-12">
             <Link title={item.title} href={`/${item.slug}`} prefetch={false}>
               {item.title.split(":")[0]}
             </Link>

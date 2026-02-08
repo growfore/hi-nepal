@@ -29,13 +29,22 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Script from "next/script";
 import dynamicImport from "next/dynamic";
-const ImageGallery = dynamicImport(() => import("@/components/iti-gallery"))
-const TalkToExpertCard = dynamicImport(() => import("@/components/organisms/talk-to-expert-card"))
-const CustomizeTrip = dynamicImport(() => import("@/components/organisms/customize-my-trip"))
-const SectionNav = dynamicImport(() => import("@/components/organisms/SectionNav"))
-const ReviewsGroup = dynamicImport(() => import("@/components/organisms/reviews"))
-const TrustBadge = dynamicImport(() => import("@/components/molecules/trust-badge"))
-
+const ImageGallery = dynamicImport(() => import("@/components/iti-gallery"));
+const TalkToExpertCard = dynamicImport(
+  () => import("@/components/organisms/talk-to-expert-card"),
+);
+const CustomizeTrip = dynamicImport(
+  () => import("@/components/organisms/customize-my-trip"),
+);
+const SectionNav = dynamicImport(
+  () => import("@/components/organisms/SectionNav"),
+);
+const ReviewsGroup = dynamicImport(
+  () => import("@/components/organisms/reviews"),
+);
+const TrustBadge = dynamicImport(
+  () => import("@/components/molecules/trust-badge"),
+);
 
 export async function generateMetadata({
   params,
@@ -255,7 +264,7 @@ const Activities = async ({ params }: { params: Params }) => {
   }
 
   const filteredTreks: TPackageDetails[] = packages.filter((pkg) =>
-    popularTreks.has(pkg.slug)
+    popularTreks.has(pkg.slug),
   );
 
   const navigation = [
@@ -293,7 +302,7 @@ const Activities = async ({ params }: { params: Params }) => {
   }
 
   relatedProducts = destinationPackages.filter(
-    (pkg: any) => pkg.id !== details.id
+    (pkg: any) => pkg.id !== details.id,
   );
 
   let allImages: string[] = [];
@@ -302,7 +311,7 @@ const Activities = async ({ params }: { params: Params }) => {
     allImages = [details?.thumbnail, ...galleryImages];
   }
 
-  const sectionStyle = "scroll-mt-42 mb-12 py-4 border-b border-gray-300";
+  const sectionStyle = "scroll-mt-42 mb-8 py-2 border-b border-gray-300";
 
   return (
     <>
@@ -326,7 +335,6 @@ const Activities = async ({ params }: { params: Params }) => {
         ></Script>
       )}
       <>
-        {/* Section Navigation */}
         <div className="container mx-auto px-4">
           <div className="container py-1 md:py-4 text-left">
             <h1 className="text-2xl md:text-3xl lg:4xl font-extrabold leading-tight">
@@ -428,13 +436,12 @@ const Activities = async ({ params }: { params: Params }) => {
               )}
               {details?.permits && (
                 <div className="col-span-2 sm:col-span-3 lg:col-span-4 flex flex-col  items-start ">
-                  <Ticket  />
+                  <Ticket />
                   <p className="text-base font-bold text-icon-bg-green mb-1">
                     Permits
                   </p>
                   <p className="text-sm  leading-snug">
-                    {details.permits ??
-                      ""}
+                    {details.permits ?? ""}
                   </p>
                 </div>
               )}
@@ -463,7 +470,7 @@ const Activities = async ({ params }: { params: Params }) => {
                   "prose-ul:list-none prose-ul:pl-0 prose-ul:ml-0",
                   "prose-li:relative prose-li:pl-6 prose-li:ml-0",
                   "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-0.1",
-                  "prose-li:before:content-['■'] prose-li:before:text-orange-600"
+                  "prose-li:before:content-['■'] prose-li:before:text-orange-600",
                 )}
               ></div>
             )}
@@ -475,7 +482,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.shortTrekInfo }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
                 )}
               ></div>
             )}
@@ -489,7 +496,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
                 )}
               ></div>
             )}
@@ -505,7 +512,7 @@ const Activities = async ({ params }: { params: Params }) => {
                   "prose-ul:list-none prose-ul:pl-0",
                   "prose-li:pl-6 prose-li:relative",
                   "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-1",
-                  "prose-li:before:content-['✔'] prose-li:before:text-green-600"
+                  "prose-li:before:content-['✔'] prose-li:before:text-green-600",
                 )}
               ></div>
             )}
@@ -520,7 +527,7 @@ const Activities = async ({ params }: { params: Params }) => {
                   "prose-ul:list-none prose-ul:pl-0 prose-ul:ml-0",
                   "prose-li:relative prose-li:pl-6 prose-li:ml-0",
                   "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-0.2",
-                  "prose-li:before:content-['✕'] prose-li:before:text-red-500 prose-li:before:font-semibold"
+                  "prose-li:before:content-['✕'] prose-li:before:text-red-500 prose-li:before:font-semibold",
                 )}
               ></div>
             )}
@@ -532,7 +539,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.itenary }}
                 className={cn(
                   sectionStyle,
-                  "prose marker:text-black marker:text-xl! max-w-none -mt-4"
+                  "prose marker:text-black marker:text-xl! max-w-none -mt-4",
                 )}
               ></div>
             )}
@@ -551,7 +558,7 @@ const Activities = async ({ params }: { params: Params }) => {
                   "prose-ul:list-none prose-ul:pl-0 prose-ul:ml-0",
                   "prose-li:relative prose-li:pl-6 prose-li:ml-0",
                   "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-0.2",
-                  "prose-li:before:content-['›'] prose-li:before:text-gray-700 prose-li:before:font-semibold"
+                  "prose-li:before:content-['›'] prose-li:before:text-gray-700 prose-li:before:font-semibold",
                 )}
               ></div>
             )}
@@ -565,7 +572,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
                 )}
               ></div>
             )}
@@ -579,7 +586,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 id="sicknessAndSafety"
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
                 )}
               ></div>
             )}
@@ -591,7 +598,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.priceBreakDown }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
                 )}
               ></div>
             )}
@@ -606,7 +613,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.bookingInfo }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl!"
+                  "prose max-w-none marker:text-black marker:text-xl!",
                 )}
               ></div>
             )}
@@ -618,7 +625,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.bestSeasonInfo }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
                 )}
               ></div>
             )}
@@ -630,7 +637,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.altitudeInfo }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
                 )}
               ></div>
             )}
@@ -642,7 +649,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.routeOverview }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
                 )}
               ></div>
             )}
@@ -656,7 +663,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16"
+                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
                 )}
               ></div>
             )}

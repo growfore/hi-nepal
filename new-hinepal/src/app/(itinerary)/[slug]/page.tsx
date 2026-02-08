@@ -276,6 +276,8 @@ const Activities = async ({ params }: { params: Params }) => {
     { id: "itinerary", label: "Itinerary", icon: "LucideList" },
     { id: "includes", label: "Includes", icon: "LucideCheck" },
     { id: "excludes", label: "Excludes", icon: "LucideX" },
+    details.routeOverview && 
+    {id: "route-overview", label:"Map", icon:"LucideMapPin"},
     { id: "best-season", label: "Best Seasons", icon: "LucideCloudSunRain" },
     { id: "packing", label: "Packing", icon: "LucideBackpack" },
     // { id: "permitsAndRegulations", label: "Permits", icon: "LucideTicket" },
@@ -451,7 +453,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 </div>
               )}
             </div>
-
             {/* Overview Section */}
             {details.overview && (
               <div
@@ -465,7 +466,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 }}
               ></div>
             )}
-
             {/* Highlights Section */}
             {details.highlights && (
               <div
@@ -484,7 +484,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* Cost Breakdown */}
             {details.priceBreakDown && (
               <div
@@ -498,7 +497,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* Short itinerary */}
             {details.shortTrekInfo && (
               <div
@@ -513,7 +511,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* Itinerary Section */}
             {details.itenary && (
               <div
@@ -528,7 +525,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* Call to Action */}
             <div className="flex flex-col bg-green-700  text-white p-4 rounded-sm gap-4">
               <div>
@@ -542,7 +538,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 <Button>Ask for the Cost Now</Button>
               </Link>
             </div>
-
             {/* Includes */}
             {details.includes && (
               <div
@@ -561,7 +556,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* Excludes */}
             {details.excludes && (
               <div
@@ -579,8 +573,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
-            {/* Route Overview */}
             {details.routeOverview && (
               <div
                 id="route-overview"
@@ -593,7 +585,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* Why trek */}
             {details.whyChooseThisPackage && (
               <div
@@ -609,10 +600,8 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* Customize Trip */}
             <CustomizeTrip packageName={details?.title?.split(":")[0]} />
-
             {/* Seasons */}
             {details.bestSeasonInfo && (
               <div
@@ -626,7 +615,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* Altitude Section */}
             {details.altitudeInfo && (
               <div
@@ -640,7 +628,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* Permits and regulations */}
             {details.permitsAndRegulations && (
               <div
@@ -656,7 +643,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* Packing Details */}
             {details.packing && (
               <div
@@ -674,7 +660,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* Sickness and Safety */}
             {details.sicknessAndSaftey && (
               <div
@@ -690,7 +675,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* Final Thoughts */}
             {details.bookingInfo && (
               <div
@@ -704,7 +688,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* ADDITIONAL INFO: Travel insurance and regulations */}
             {details.insuranceAndEmergency && (
               <div
@@ -720,7 +703,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
-
             {/* Faqs */}
             <div id="faqs">
               {details.goodtoknow && (
@@ -729,7 +711,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 />
               )}
             </div>
-
             {/* REVIEWS */}
             <ReviewsGroup />
           </section>

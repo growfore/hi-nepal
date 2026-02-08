@@ -313,6 +313,7 @@ export class PackagesService {
             bestSeason: updatePackageDto.bestSeason,
             discount: updatePackageDto.discount,
             introduction: updatePackageDto.introduction,
+            routeOverview: updatePackageDto.routeOverview,
 
             Author: {
               connect: { id: Number(updatePackageDto.authorId) },

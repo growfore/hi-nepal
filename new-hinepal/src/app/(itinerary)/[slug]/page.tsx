@@ -29,6 +29,7 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Script from "next/script";
 import dynamicImport from "next/dynamic";
+import { placeholderImage } from "@/utils/placeholder-image";
 const ImageGallery = dynamicImport(() => import("@/components/iti-gallery"));
 const TalkToExpertCard = dynamicImport(
   () => import("@/components/organisms/talk-to-expert-card"),
@@ -348,7 +349,7 @@ const Activities = async ({ params }: { params: Params }) => {
               <Image
                 priority
                 placeholder="blur"
-                blurDataURL="/assets/hinepal-image-placeholder.webp"
+                blurDataURL={placeholderImage}
                 src={details?.banner}
                 alt={details?.bannerImageAlt || details?.title}
                 title={details?.bannerImageAlt}

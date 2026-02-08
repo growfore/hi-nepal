@@ -19,6 +19,7 @@ import PopularCard from "@/components/molecules/popular-card";
 import ReviewsGroup from "@/components/organisms/reviews";
 import TalkToExpertCard from "@/components/organisms/talk-to-expert-card";
 import Image from "next/image";
+import { placeholderImage } from "@/utils/placeholder-image";
 
 export async function ItineraryPage({
   details,
@@ -53,6 +54,8 @@ export async function ItineraryPage({
           </div>
         </div>
         <Image
+          placeholder="blur"
+          blurDataURL={placeholderImage}
           className="md:hidden rounded-sm"
           src={details?.thumbnail}
           height={720}
@@ -61,6 +64,8 @@ export async function ItineraryPage({
         />
         <Image
           className="hidden md:block rounded-sm"
+          placeholder="blur"
+          blurDataURL={placeholderImage}
           src={details?.banner}
           height={720}
           width={1920}

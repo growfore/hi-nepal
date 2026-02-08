@@ -269,11 +269,12 @@ export class PackagesService {
         );
       }
       const pack = await this.prisma.$transaction(async (tx) => {
-        await tx.media.deleteMany({
-          where: { packageId: id },
-        });
+        // Only update media if new images are provided
+        if (updatePackageDto?.images?.length > 0) {
+          await tx.media.deleteMany({
+            where: { packageId: id },
+          });
 
-        if (updatePackageDto?.images?.length) {
           await tx.media.createMany({
             data: updatePackageDto.images.map((img) => ({
               ...img,

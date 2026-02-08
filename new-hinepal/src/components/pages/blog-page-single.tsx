@@ -53,7 +53,7 @@ export function BlogPage({ blog }: Readonly<{ blog: TBlog }>) {
               </div>
 
               {/* Article Content */}
-  {/* // prose-headings:text-gray-900 prose-headings:font-bold */}
+              {/* // prose-headings:text-gray-900 prose-headings:font-bold */}
               <article
                 dangerouslySetInnerHTML={{ __html: blog.content }}
                 className="

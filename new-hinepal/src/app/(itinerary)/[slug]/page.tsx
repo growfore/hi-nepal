@@ -32,6 +32,7 @@ import dynamicImport from "next/dynamic";
 import { placeholderImage } from "@/utils/placeholder-image";
 import { rubik } from "@/utils/fonts";
 import { cleanEditorHtml, unwrapSpans } from "@/utils/cleanEditorHtml";
+import PackageCard from "@/components/molecules/package-card";
 const ImageGallery = dynamicImport(() => import("@/components/iti-gallery"));
 const TalkToExpertCard = dynamicImport(
   () => import("@/components/organisms/talk-to-expert-card"),
@@ -276,8 +277,11 @@ const Activities = async ({ params }: { params: Params }) => {
     { id: "itinerary", label: "Itinerary", icon: "LucideList" },
     { id: "includes", label: "Includes", icon: "LucideCheck" },
     { id: "excludes", label: "Excludes", icon: "LucideX" },
-    details.routeOverview && 
-    {id: "route-overview", label:"Map", icon:"LucideMapPin"},
+    details.routeOverview && {
+      id: "route-overview",
+      label: "Map",
+      icon: "LucideMapPin",
+    },
     { id: "best-season", label: "Best Seasons", icon: "LucideCloudSunRain" },
     { id: "packing", label: "Packing", icon: "LucideBackpack" },
     // { id: "permitsAndRegulations", label: "Permits", icon: "LucideTicket" },
@@ -764,18 +768,19 @@ const Activities = async ({ params }: { params: Params }) => {
             {details?.slug?.includes("tour") ? " Tours" : " Destinations"}
           </h2>
           <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  p-4">
-            {filteredTreks.map((p, k) => {
-              return (
-                <TrekkingCard
-                  activity={true}
-                  key={p.slug}
-                  slug={p.slug}
-                  image={p.thumbnail}
-                  title={p.title}
-                  days={p?.duration}
-                />
-              );
-            })}
+            {filteredTreks.map((item: any, index) => (
+              <PackageCard
+                key={item.id}
+                item={item}
+                destination={{
+                  slug: item.destination.slug.split("/")[2],
+                  activity: {
+                    name: "Trekking",
+                    slug: "trekking",
+                  },
+                }}
+              />
+            ))}
           </div>
         </div>
       </>

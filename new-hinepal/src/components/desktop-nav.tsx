@@ -18,7 +18,7 @@ export function DesktopNav({ navBar }: { navBar: TNavBar }) {
           </Link>
 
           <div className="hidden group-hover:block absolute top-full  pt-4 z-50">
-            <div className="bg-white shadow-lg border border-gray-200 rounded-md p-6 min-w-[800px]">
+            <div className="bg-white shadow-lg border border-gray-200 rounded-md p-6 min-w-[900px]">
               <div className="grid grid-cols-3 gap-6">
                 {activity.destinations.map((destination) => (
                   <div key={destination.slug}>
@@ -34,7 +34,7 @@ export function DesktopNav({ navBar }: { navBar: TNavBar }) {
                         <li key={pkg.slug}>
                           <Link
                             href={`/${pkg.slug}`}
-                            className="hover:text-green-700 hover:underline"
+                            className="hover:text-green-700 hover:underline text-lg"
                           >
                             {pkg.title.split(":")[0].trim()}
                           </Link>

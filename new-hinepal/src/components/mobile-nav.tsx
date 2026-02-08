@@ -23,11 +23,11 @@ export function MobileNav({ navBar }: { navBar: TNavBar }) {
           <LucideMenu className="size-12 md:size-16" />
         </SheetTrigger>
 
-        <SheetContent className="flex flex-col gap-4 p-6 overflow-y-auto w-[300px] sm:w-[400px]">
+        <SheetContent className="flex flex-col p-6 overflow-y-auto w-[300px] sm:w-[400px]">
           {navBar.map((activity) => (
             <Accordion key={activity.slug} type="single" collapsible>
               <AccordionItem value={activity.slug} className="border-b">
-                <AccordionTrigger className="font-bold text-lg uppercase">
+                <AccordionTrigger className="font-bold text-xl uppercase">
                   {activity.name}
                 </AccordionTrigger>
 
@@ -42,18 +42,18 @@ export function MobileNav({ navBar }: { navBar: TNavBar }) {
                         value={destination.slug}
                         className="border-b-0"
                       >
-                        <AccordionTrigger className="font-semibold text-base py-2">
+                        <AccordionTrigger className="font-bold text-xl">
                           {destination.name}
                         </AccordionTrigger>
 
                         <AccordionContent>
-                          <ul className="flex flex-col gap-2 pl-4">
+                          <ul className="flex flex-col gap-4 pl-4">
                             {/* Destination main link */}
                             <li>
                               <SheetClose asChild>
                                 <Link
                                   href={`/activities/${activity.slug}/${destination.slug}`}
-                                  className="text-orange-600 hover:text-orange-700 font-medium"
+                                  className="text-orange-600 hover:text-orange-700  text-lg font-bold"
                                 >
                                   View {destination.name}
                                 </Link>
@@ -66,7 +66,7 @@ export function MobileNav({ navBar }: { navBar: TNavBar }) {
                                 <SheetClose asChild>
                                   <Link
                                     href={`/${pkg.slug}`}
-                                    className="text-sm hover:text-[#EF5922] hover:underline"
+                                    className="hover:text-[#EF5922] hover:underline text-lg"
                                   >
                                     {pkg.title.split(":")[0].trim()}
                                   </Link>

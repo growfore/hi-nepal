@@ -584,7 +584,9 @@ const Activities = async ({ params }: { params: Params }) => {
             {details.routeOverview && (
               <div
                 id="route-overview"
-                dangerouslySetInnerHTML={{ __html: details.routeOverview }}
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(cleanEditorHtml(details.routeOverview)),
+                }}
                 className={cn(
                   sectionStyle,
                   "prose max-w-none marker:text-black marker:text-xl!",
@@ -730,7 +732,6 @@ const Activities = async ({ params }: { params: Params }) => {
 
             {/* REVIEWS */}
             <ReviewsGroup />
-
           </section>
 
           {/* RIGHT SIDEBAR */}

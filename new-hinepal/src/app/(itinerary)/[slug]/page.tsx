@@ -529,6 +529,20 @@ const Activities = async ({ params }: { params: Params }) => {
               ></div>
             )}
 
+            {/* Call to Action */}
+            <div className="flex flex-col bg-green-700  text-white p-4 rounded-sm gap-4">
+              <div>
+                <p className="text-xl font-bold">Interested in this package?</p>
+                <p>
+                  Tell us a bit about your plan, and we&apos;ll send you the
+                  best offer available.
+                </p>
+              </div>
+              <Link href={"/booking"} className="cursor-pointer">
+                <Button>Ask for the Cost Now</Button>
+              </Link>
+            </div>
+
             {/* Includes */}
             {details.includes && (
               <div
@@ -717,19 +731,6 @@ const Activities = async ({ params }: { params: Params }) => {
             {/* REVIEWS */}
             <ReviewsGroup />
 
-            {/* Call to Action */}
-            <div className="flex flex-col bg-green-700  text-white p-4 rounded-sm gap-4">
-              <div>
-                <p className="text-xl font-bold">Interested in this package?</p>
-                <p>
-                  Tell us a bit about your plan, and we&apos;ll send you the
-                  best offer available.
-                </p>
-              </div>
-              <Link href={"/booking"} className="cursor-pointer">
-                <Button>Ask for the Cost Now</Button>
-              </Link>
-            </div>
           </section>
 
           {/* RIGHT SIDEBAR */}

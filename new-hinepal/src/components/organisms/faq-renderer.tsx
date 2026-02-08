@@ -17,7 +17,7 @@ export default function FAQRenderer({ faqs }: Readonly<{ faqs: FAQItem[] }>) {
   return (
     <section
       id="faqs"
-      className="scroll-mt-42"
+      className="scroll-mt-42  border border-dashed p-2 rounded-md bg-green-200/20 border-green-500/90"
     >
       <h2 className="text-2xl font-bold text-green-700">FAQs</h2>
 

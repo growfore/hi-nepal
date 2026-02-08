@@ -17,9 +17,9 @@ export default function FAQRenderer({ faqs }: Readonly<{ faqs: FAQItem[] }>) {
   return (
     <section
       id="faqs"
-      className="scroll-mt-42 mb-12 p-6 border-y border-gray-300"
+      className="scroll-mt-42"
     >
-      <h2 className="text-2xl font-bold text-green-700 mb-4">FAQs</h2>
+      <h2 className="text-2xl font-bold text-green-700">FAQs</h2>
 
       <Accordion
         type="single"
@@ -34,7 +34,7 @@ export default function FAQRenderer({ faqs }: Readonly<{ faqs: FAQItem[] }>) {
             </AccordionTrigger>
             <AccordionContent>
               <div
-                className="prose prose-sm max-w-none"
+                className="max-w-none text-lg"
                 dangerouslySetInnerHTML={{ __html: faq.answer }}
               />
             </AccordionContent>

@@ -30,6 +30,8 @@ import { Button } from "@/components/ui/button";
 import Script from "next/script";
 import dynamicImport from "next/dynamic";
 import { placeholderImage } from "@/utils/placeholder-image";
+import { rubik } from "@/utils/fonts";
+import { cleanEditorHtml, unwrapSpans } from "@/utils/cleanEditorHtml";
 const ImageGallery = dynamicImport(() => import("@/components/iti-gallery"));
 const TalkToExpertCard = dynamicImport(
   () => import("@/components/organisms/talk-to-expert-card"),
@@ -271,12 +273,12 @@ const Activities = async ({ params }: { params: Params }) => {
   const navigation = [
     { id: "overview", label: "Overview", icon: "LucideEye" },
     { id: "highlights", label: "Highlights", icon: "Sparkles" },
+    { id: "itinerary", label: "Itinerary", icon: "LucideList" },
     { id: "includes", label: "Includes", icon: "LucideCheck" },
     { id: "excludes", label: "Excludes", icon: "LucideX" },
-    { id: "itinerary", label: "Itinerary", icon: "LucideList" },
+    { id: "best-season", label: "Best Seasons", icon: "LucideCloudSunRain" },
     { id: "packing", label: "Packing", icon: "LucideBackpack" },
     // { id: "permitsAndRegulations", label: "Permits", icon: "LucideTicket" },
-    { id: "best-season", label: "Best Seasons", icon: "LucideCloudSunRain" },
     { id: "faqs", label: "FAQs", icon: "LucideMessageCircleQuestion" },
   ];
 
@@ -312,7 +314,7 @@ const Activities = async ({ params }: { params: Params }) => {
     allImages = [details?.thumbnail, ...galleryImages];
   }
 
-  const sectionStyle = "scroll-mt-42 mb-8 py-2 border-b border-gray-300";
+  const sectionStyle = "scroll-mt-42 py-4 my-4 border-b border-gray-300";
 
   return (
     <>
@@ -337,7 +339,9 @@ const Activities = async ({ params }: { params: Params }) => {
       )}
       <>
         <div className="container mx-auto px-4">
-          <div className="container py-1 md:py-4 text-left">
+          <div
+            className={`container py-1 md:py-4 text-left ${rubik.className}!`}
+          >
             <h1 className="text-2xl md:text-3xl lg:4xl font-extrabold leading-tight">
               {details.title}
             </h1>
@@ -372,11 +376,11 @@ const Activities = async ({ params }: { params: Params }) => {
         <main
           className="
   prose-headings:text-gray-900 prose-headings:font-bold
-  prose-h1:text-2xl md:prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8 
-  prose-h2:text-xl md:prose-h2:text-3xl prose-h2:mt-6 prose-h2:mb-2 prose-h2:font-bold prose-h2:text-[#008000]!
-  prose-h3:text-lg md:prose-h3:text-xl prose-h3:mt-4 prose-h3:mb-1
+  prose-h1:text-2xl md:prose-h1:text-4xl 
+  prose-h2:text-xl md:prose-h2:text-3xl prose-h2:font-bold prose-h2:text-green-700!
+  prose-h3:text-lg md:prose-h3:text-xl prose-h3:text-green-700!
   prose-p:text-lg!
-  container mx-auto px-4 py-4 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-12"
+  container mx-auto px-4 py-4  grid grid-cols-1 lg:grid-cols-3 gap-12"
         >
           {/* Main Content Area */}
           <section className="lg:col-span-2">
@@ -385,7 +389,7 @@ const Activities = async ({ params }: { params: Params }) => {
               <TalkToExpertCard details={details} />
             </div>
             {/* Data Icons Section */}
-            <div className="bg-green-50 grid sm:grid-cols-2 lg:grid-cols-3  gap-4 mb-12 p-6 bg-light-blue-bg rounded-lg shadow-sm">
+            <div className="bg-green-50 grid sm:grid-cols-2 lg:grid-cols-3  gap-4 p-6 bg-light-blue-bg rounded-lg shadow-sm">
               {details?.title && (
                 <DataIcon
                   icon={MountainSnow}
@@ -438,7 +442,7 @@ const Activities = async ({ params }: { params: Params }) => {
               {details?.permits && (
                 <div className="col-span-2 sm:col-span-3 lg:col-span-4 flex flex-col  items-start ">
                   <Ticket />
-                  <p className="text-base font-bold text-icon-bg-green mb-1">
+                  <p className="text-base font-bold text-icon-bg-green ">
                     Permits
                   </p>
                   <p className="text-sm  leading-snug">
@@ -456,7 +460,9 @@ const Activities = async ({ params }: { params: Params }) => {
                   sectionStyle,
                   "prose max-w-none marker:text-black marker:text-xl!",
                 )}
-                dangerouslySetInnerHTML={{ __html: details.overview }}
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(cleanEditorHtml(details.overview)),
+                }}
               ></div>
             )}
 
@@ -464,130 +470,17 @@ const Activities = async ({ params }: { params: Params }) => {
             {details.highlights && (
               <div
                 id="highlights"
-                dangerouslySetInnerHTML={{ __html: details.highlights }}
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(cleanEditorHtml(details.highlights)),
+                }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none -mt-12",
+                  "prose max-w-none",
                   "prose-ul:list-none prose-ul:pl-0 prose-ul:ml-0",
                   "prose-li:relative prose-li:pl-6 prose-li:ml-0",
                   "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-0.1",
                   "prose-li:before:content-['■'] prose-li:before:text-orange-600",
-                )}
-              ></div>
-            )}
-
-            {/* Short itinerary */}
-            {details.shortTrekInfo && (
-              <div
-                id="shortTrekInfo"
-                dangerouslySetInnerHTML={{ __html: details.shortTrekInfo }}
-                className={cn(
-                  sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
-                )}
-              ></div>
-            )}
-
-            {/* Why trek */}
-            {details.whyChooseThisPackage && (
-              <div
-                id="whyChooseThisPackage"
-                dangerouslySetInnerHTML={{
-                  __html: details.whyChooseThisPackage,
-                }}
-                className={cn(
-                  sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
-                )}
-              ></div>
-            )}
-
-            {/* Includes */}
-            {details.includes && (
-              <div
-                id="includes"
-                dangerouslySetInnerHTML={{ __html: details.includes }}
-                className={cn(
-                  sectionStyle,
-                  "prose max-w-none -mt-12",
-                  "prose-ul:list-none prose-ul:pl-0",
-                  "prose-li:pl-6 prose-li:relative",
-                  "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-1",
-                  "prose-li:before:content-['✔'] prose-li:before:text-green-600",
-                )}
-              ></div>
-            )}
-
-            {/* Excludes */}
-            {details.excludes && (
-              <div
-                id="excludes"
-                dangerouslySetInnerHTML={{ __html: details.excludes }}
-                className={cn(
-                  "prose max-w-none -mt-12",
-                  "prose-ul:list-none prose-ul:pl-0 prose-ul:ml-0",
-                  "prose-li:relative prose-li:pl-6 prose-li:ml-0",
-                  "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-0.2",
-                  "prose-li:before:content-['✕'] prose-li:before:text-red-500 prose-li:before:font-semibold",
-                )}
-              ></div>
-            )}
-
-            {/* Itinerary Section */}
-            {details.itenary && (
-              <div
-                id="itinerary"
-                dangerouslySetInnerHTML={{ __html: details.itenary }}
-                className={cn(
-                  sectionStyle,
-                  "prose marker:text-black marker:text-xl! max-w-none -mt-4",
-                )}
-              ></div>
-            )}
-
-            {/* Customize Trip */}
-            <CustomizeTrip packageName={details?.title?.split(":")[0]} />
-
-            {/* Packing Details */}
-            {details.packing && (
-              <div
-                id="packing"
-                dangerouslySetInnerHTML={{ __html: details.packing }}
-                className={cn(
-                  sectionStyle,
-                  "prose max-w-none ",
-                  "prose-ul:list-none prose-ul:pl-0 prose-ul:ml-0",
-                  "prose-li:relative prose-li:pl-6 prose-li:ml-0",
-                  "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-0.2",
-                  "prose-li:before:content-['›'] prose-li:before:text-gray-700 prose-li:before:font-semibold",
-                )}
-              ></div>
-            )}
-
-            {/* Permits and regulations */}
-            {details.permitsAndRegulations && (
-              <div
-                id="permitsAndRegulations"
-                dangerouslySetInnerHTML={{
-                  __html: details.permitsAndRegulations,
-                }}
-                className={cn(
-                  sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
-                )}
-              ></div>
-            )}
-
-            {/* Sickness and Safety */}
-            {details.sicknessAndSaftey && (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: details.sicknessAndSaftey,
-                }}
-                id="sicknessAndSafety"
-                className={cn(
-                  sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
+                  "border p-4 rounded-md border-dashed bg-orange-50/70",
                 )}
               ></div>
             )}
@@ -596,22 +489,9 @@ const Activities = async ({ params }: { params: Params }) => {
             {details.priceBreakDown && (
               <div
                 id="priceBreakdown"
-                dangerouslySetInnerHTML={{ __html: details.priceBreakDown }}
-                className={cn(
-                  sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
-                )}
-              ></div>
-            )}
-
-            {/* REVIEWS */}
-            <ReviewsGroup />
-
-            {/* Final Thoughts */}
-            {details.bookingInfo && (
-              <div
-                id="bookingInfo"
-                dangerouslySetInnerHTML={{ __html: details.bookingInfo }}
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(cleanEditorHtml(details.priceBreakDown)),
+                }}
                 className={cn(
                   sectionStyle,
                   "prose max-w-none marker:text-black marker:text-xl!",
@@ -619,26 +499,69 @@ const Activities = async ({ params }: { params: Params }) => {
               ></div>
             )}
 
-            {/* Seasons */}
-            {details.bestSeasonInfo && (
+            {/* Short itinerary */}
+            {details.shortTrekInfo && (
               <div
-                id="best-season"
-                dangerouslySetInnerHTML={{ __html: details.bestSeasonInfo }}
+                id="shortTrekInfo"
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(cleanEditorHtml(details.shortTrekInfo)),
+                }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
+                  "prose max-w-none marker:text-black marker:text-xl!",
+                  "prose-h3:text-green-700!",
                 )}
               ></div>
             )}
 
-            {/* Altitude Section */}
-            {details.altitudeInfo && (
+            {/* Itinerary Section */}
+            {details.itenary && (
               <div
-                id="altitude"
-                dangerouslySetInnerHTML={{ __html: details.altitudeInfo }}
+                id="itinerary"
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(cleanEditorHtml(details.itenary)),
+                }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
+                  "prose marker:text-black marker:text-xl! max-w-none",
+                  "prose-h3:text-green-700!",
+                )}
+              ></div>
+            )}
+
+            {/* Includes */}
+            {details.includes && (
+              <div
+                id="includes"
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(cleanEditorHtml(details.includes)),
+                }}
+                className={cn(
+                  sectionStyle,
+                  "prose max-w-none",
+                  "prose-ul:list-none prose-ul:pl-0",
+                  "prose-li:pl-6 prose-li:relative",
+                  "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-1",
+                  "prose-li:before:content-['✔'] prose-li:before:text-green-600",
+                  "bg-green-50/70 border border-green-300 p-4 rounded-md",
+                )}
+              ></div>
+            )}
+
+            {/* Excludes */}
+            {details.excludes && (
+              <div
+                id="excludes"
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(cleanEditorHtml(details.excludes)),
+                }}
+                className={cn(
+                  "prose max-w-none",
+                  "prose-ul:list-none prose-ul:pl-0 prose-ul:ml-0",
+                  "prose-li:relative prose-li:pl-6 prose-li:ml-0",
+                  "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-0.2",
+                  "prose-li:before:content-['✕'] prose-li:before:text-red-500 prose-li:before:font-semibold",
+                  "bg-rose-50 border border-rose-300 p-4 rounded-md",
                 )}
               ></div>
             )}
@@ -650,7 +573,118 @@ const Activities = async ({ params }: { params: Params }) => {
                 dangerouslySetInnerHTML={{ __html: details.routeOverview }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
+                  "prose max-w-none marker:text-black marker:text-xl!",
+                )}
+              ></div>
+            )}
+
+            {/* Why trek */}
+            {details.whyChooseThisPackage && (
+              <div
+                id="whyChooseThisPackage"
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(
+                    cleanEditorHtml(details.whyChooseThisPackage),
+                  ),
+                }}
+                className={cn(
+                  sectionStyle,
+                  "prose max-w-none marker:text-black marker:text-xl!",
+                )}
+              ></div>
+            )}
+
+            {/* Customize Trip */}
+            <CustomizeTrip packageName={details?.title?.split(":")[0]} />
+
+            {/* Seasons */}
+            {details.bestSeasonInfo && (
+              <div
+                id="best-season"
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(cleanEditorHtml(details.bestSeasonInfo)),
+                }}
+                className={cn(
+                  sectionStyle,
+                  "prose max-w-none marker:text-black marker:text-xl!",
+                )}
+              ></div>
+            )}
+
+            {/* Altitude Section */}
+            {details.altitudeInfo && (
+              <div
+                id="altitude"
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(cleanEditorHtml(details.altitudeInfo)),
+                }}
+                className={cn(
+                  sectionStyle,
+                  "prose max-w-none marker:text-black marker:text-xl!",
+                )}
+              ></div>
+            )}
+
+            {/* Permits and regulations */}
+            {details.permitsAndRegulations && (
+              <div
+                id="permitsAndRegulations"
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(
+                    cleanEditorHtml(details.permitsAndRegulations),
+                  ),
+                }}
+                className={cn(
+                  sectionStyle,
+                  "prose max-w-none marker:text-black marker:text-xl!",
+                )}
+              ></div>
+            )}
+
+            {/* Packing Details */}
+            {details.packing && (
+              <div
+                id="packing"
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(cleanEditorHtml(details.packing)),
+                }}
+                className={cn(
+                  sectionStyle,
+                  "prose max-w-none ",
+                  "prose-ul:list-none prose-ul:pl-0 prose-ul:ml-0",
+                  "prose-li:relative prose-li:pl-6 prose-li:ml-0",
+                  "prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-0.2",
+                  "prose-li:before:content-['›'] prose-li:before:text-gray-700 prose-li:before:font-semibold",
+                )}
+              ></div>
+            )}
+
+            {/* Sickness and Safety */}
+            {details.sicknessAndSaftey && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(
+                    cleanEditorHtml(details.sicknessAndSaftey),
+                  ),
+                }}
+                id="sicknessAndSafety"
+                className={cn(
+                  sectionStyle,
+                  "prose max-w-none marker:text-black marker:text-xl!",
+                )}
+              ></div>
+            )}
+
+            {/* Final Thoughts */}
+            {details.bookingInfo && (
+              <div
+                id="bookingInfo"
+                dangerouslySetInnerHTML={{
+                  __html: unwrapSpans(cleanEditorHtml(details.bookingInfo)),
+                }}
+                className={cn(
+                  sectionStyle,
+                  "prose max-w-none marker:text-black marker:text-xl!",
                 )}
               ></div>
             )}
@@ -660,14 +694,28 @@ const Activities = async ({ params }: { params: Params }) => {
               <div
                 id="insuranceAndEmergency"
                 dangerouslySetInnerHTML={{
-                  __html: details.insuranceAndEmergency,
+                  __html: unwrapSpans(
+                    cleanEditorHtml(details.insuranceAndEmergency),
+                  ),
                 }}
                 className={cn(
                   sectionStyle,
-                  "prose max-w-none marker:text-black marker:text-xl! -mt-16",
+                  "prose max-w-none marker:text-black marker:text-xl!",
                 )}
               ></div>
             )}
+
+            {/* Faqs */}
+            <div id="faqs">
+              {details.goodtoknow && (
+                <FAQSection
+                  html={unwrapSpans(cleanEditorHtml(details.goodtoknow))}
+                />
+              )}
+            </div>
+
+            {/* REVIEWS */}
+            <ReviewsGroup />
 
             {/* Call to Action */}
             <div className="flex flex-col bg-green-700  text-white p-4 rounded-sm gap-4">
@@ -682,11 +730,6 @@ const Activities = async ({ params }: { params: Params }) => {
                 <Button>Ask for the Cost Now</Button>
               </Link>
             </div>
-
-            {/* Faqs */}
-            <div id="faqs">
-              {details.goodtoknow && <FAQSection html={details.goodtoknow} />}
-            </div>
           </section>
 
           {/* RIGHT SIDEBAR */}
@@ -697,7 +740,7 @@ const Activities = async ({ params }: { params: Params }) => {
               </div>
               {relatedProducts && relatedProducts.length > 0 && (
                 <>
-                  <h3 className="text-xl font-bold text-dark-blue-900 mb-4 border-t pt-4">
+                  <h3 className="text-xl font-bold text-dark-blue-900  border-t pt-4">
                     Related Itineraries
                   </h3>
                   <div className="overflow-scroll h-[35vh]">
@@ -709,7 +752,7 @@ const Activities = async ({ params }: { params: Params }) => {
                           </li>
                         ))}
                       {relatedProducts?.map((product: any) => (
-                        <li key={product.slug} className="mb-2">
+                        <li key={product.slug}>
                           <Link
                             href={`/${product.slug}`}
                             className="text-green-600 hover:underline text-lg flex items-start gap-2 bg-gray-50 rounded-md p-2 "

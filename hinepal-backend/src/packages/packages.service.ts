@@ -314,6 +314,7 @@ export class PackagesService {
             discount: updatePackageDto.discount,
             introduction: updatePackageDto.introduction,
             routeOverview: updatePackageDto.routeOverview,
+            shortTrekInfo: updatePackageDto.shortTrekInfo,
 
             Author: {
               connect: { id: Number(updatePackageDto.authorId) },

@@ -41,13 +41,13 @@ const About = () => {
         {/* Inner Banner Section */}
         <section className="p-4 relative bg-cover bg-center flex items-center md:justify-center ">
           <div className="flex flex-col md:items-center">
-            <h1 className="font-bold text-4xl lg:text-7xl">About Us</h1>
+            <h1 className="font-bold text-4xl lg:text-7xl py-8">About Us</h1>
             {/* <p className="text-left italic text-xl">Experience the adventure sport of a lifetime amidst the Himalayas, where every thrill comes with breathtaking views.</p> */}
           </div>
         </section>
 
         {/* About Service Section */}
-        <section className="py-16 md:py-24 lg:py-32 bg-white">
+        <section className="">
           <div className="container mx-auto px-4">
             <div className="mb-12 md:mb-16">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">

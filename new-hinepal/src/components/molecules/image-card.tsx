@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import HLinkComp from "../atoms/link-component";
 
 export function ImageCard() {
   return (
@@ -16,22 +17,12 @@ export function ImageCard() {
       </div>
       <div className="md:max-w-[50%]">
         <h2 className="font-bold text-xl">Paragliding</h2>
-        <div className="text-justify">
+        <div className="text-left">
           Paragliding in Pokhara is one of the popular activities that visitors
           as well as locals love to experience. Either you are here for a{" "}
-          <Link
-            className="text-green-700 underline"
-            href={"https://hinepaltreks.com/pokhara-valley-tour"}
-          >
-            Pokahra Valley Tour
-          </Link>
-          or returning from the{" "}
-          <Link
-            className="text-green-700 underline"
-            href={"https://hinepaltreks.com/annapurna-base-camp-trek"}
-          >
-            ABC Trek
-          </Link>{" "}
+          <HLinkComp href="/pokhara-valley-tour" text="Pokhara Valley Tour" />
+          or returning from the
+          <HLinkComp href="/annapurna-base-camp-trek" text="ABC Trek" />
           or any other Annapurna Region Trek, paragliding in Pokhara must be on
           your to-do list. Pokhara Sarangkot paragliding is a perfect adventure
           blended with nature, offering epic views of mountains, hills, Fewa

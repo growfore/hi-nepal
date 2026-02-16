@@ -81,10 +81,10 @@ export default async function ActivitySingle({
           }}
         ></script>
       )}
-      <div className="mt-24 p-2 flex flex-col gap-4">
+      <div className="p-2 flex flex-col gap-4">
         {activity == "tours" && (
           <div>
-            <div className="p-4 relative bg-cover bg-center flex items-start md:items-center  md:justify-center  mt-24 md:mt-32 border-b border-black flex-col">
+            <div className="p-4 relative bg-cover bg-center flex items-start md:items-center  md:justify-center  border-b border-black flex-col">
               <h1 className="font-bold text-4xl lg:text-6xl">
                 {activity.charAt(0).toUpperCase() + activity.slice(1)}
               </h1>
@@ -126,7 +126,7 @@ export default async function ActivitySingle({
           </div>
         )}
         {activity == "trekking" && (
-          <div className="p-4 relative bg-cover bg-center flex md:items-center md:justify-center  mt-24 md:mt-32 border-b border-black flex-col">
+          <div className="p-4 relative bg-cover bg-center flex md:items-center md:justify-center  border-b border-black flex-col">
             <h1 className="font-bold text-4xl lg:text-6xl">
               {activity.charAt(0).toUpperCase() + activity.slice(1)}
             </h1>
@@ -174,7 +174,7 @@ export default async function ActivitySingle({
           </div>
         )}
         {activity == "destination" && (
-          <div className="p-4 relative bg-cover bg-center flex md:items-center md:justify-center  mt-24 md:mt-32 border-b border-black flex-col">
+          <div className="p-4 relative bg-cover bg-center flex md:items-center md:justify-center  border-b border-black flex-col">
             <h1 className="font-bold text-4xl lg:text-6xl">
               {activity.charAt(0).toUpperCase() + activity.slice(1)}
             </h1>

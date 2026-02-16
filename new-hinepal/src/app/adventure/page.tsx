@@ -43,7 +43,7 @@ export default function AdventurePage() {
         >
           <div className="md:max-w-[40vw]">
             <h2 className="font-bold text-xl">Bungee</h2>
-            <p className="text-justify">
+            <p className="text-left">
               Bungee Jumping in Nepal is one of the popular adventure sports
               where a person makes a free fall from a high platform attached
               with a long elastic rope and other safety gear. The highest bungee
@@ -78,7 +78,7 @@ export default function AdventurePage() {
           </div>
           <div className="md:max-w-[40vw]">
             <h2 className="font-bold text-xl">Rock Climbing</h2>
-            <p className="text-justify">
+            <p className="text-left">
               Rock climbing in Nepal is an exciting adventure sport that offers
               both outdoor and indoor options for thrill-seekers of all skill
               levels. The country's diverse terrain, including Himalayan cliffs
@@ -97,7 +97,7 @@ export default function AdventurePage() {
         >
           <div className="md:max-w-[40vw]">
             <h2 className="font-bold text-xl">Zipline</h2>
-            <div className="text-justify">
+            <div className="text-left">
               Zipline in Nepal offers a unique experience of the country's
               stunning landscapes and adrenaline-pumping adventures. One of the
               famous ziplines around the world, the Pokhara zipline in western
@@ -143,7 +143,7 @@ export default function AdventurePage() {
           </div>
           <div className="md:max-w-[40vw]">
             <h2 className="font-bold text-xl">Cycling</h2>
-            <div className="text-justify">
+            <div className="text-left">
               Cycling in Nepal offers a unique mixture of adventure, fitness,
               and cultural exploration. It offers smooth city rides and
               challenging mountain trails, allowing enthusiasts to experience
@@ -174,7 +174,7 @@ export default function AdventurePage() {
         <div className="flex flex-col-reverse md:flex-row gap-2 md:gap-4 items-start justify-between rounded-md p-2  md:p-8">
           <div className="md:max-w-[40vw]">
             <h2 className="font-bold text-xl">Ultralight Flights</h2>
-            <p className="text-justify">
+            <p className="text-left">
               Pokhara Ultralight Flight is a once-in-a-lifetime experience above
               the picturesque Pokhara Valley, surrounded by beautiful green
               hills, to witness the mesmerizing snow-crowned mountains to the
@@ -228,7 +228,7 @@ export default function AdventurePage() {
           </div>
           <div className="md:max-w-[40vw]">
             <h2 className="font-bold text-xl">Rafting</h2>
-            <p className="text-justify">
+            <p className="text-left">
               Rafting in Nepal is one of the thrilling and fun adventure sports.
               Peddling past the fast wave of the river by maintaining your
               balance and the raft while the cold water coming from the
@@ -266,7 +266,7 @@ export default function AdventurePage() {
         <div className="flex  md:flex-row gap-2 md:gap-4 items-start justify-between rounded-md p-2  md:p-8  flex-col-reverse">
           <div className="md:max-w-[40vw]">
             <h2 className="font-bold text-xl">Hot Air Balloon Rides</h2>
-            <p className="text-justify">
+            <p className="text-left">
               Hot air balloon Pokhara is one of the unique adventure sports
               experiences in Nepal. This extraordinary and thrilling adventure
               provides a safe and memorable flight above the Pokhara valley with
@@ -302,7 +302,7 @@ export default function AdventurePage() {
           </div>
           <div className="md:max-w-[40vw]">
             <h2 className="font-bold text-xl">ATV Ride</h2>
-            <p className="text-justify">
+            <p className="text-left">
               An ATV ride in Nepal is an exhilarating way to explore the
               breathtaking landscape of this country. Imagine riding through the
               adventurous, rough roads of Nepal along the lush forests, skimming

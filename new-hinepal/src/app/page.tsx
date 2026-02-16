@@ -292,7 +292,7 @@ export default async function Home() {
       <TenDaysPlusTreks packages={filteredTenDaysPlus} />
       <ReviewSection />
       <PopularTours packages={filteredPopularTours} />
-      <OneDayTours packages={filteredOneDay} />
+      {/* <OneDayTours packages={filteredOneDay} /> */}
       <PopularDestinations />
       <AdventureSection />
       <Numbers />

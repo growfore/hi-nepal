@@ -56,7 +56,7 @@ const About = () => {
                     ABOUT US
                   </h5>
                   <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight mt-2">
-                    Your Trusted Partner for Unforgotable Nepal Adventures
+                    Your Trusted Partner for Unforgettable Nepal Adventures
                   </h2>
                 </div>
                 <div className="text-gray-600 text-base md:text-lg leading-relaxed space-y-4">

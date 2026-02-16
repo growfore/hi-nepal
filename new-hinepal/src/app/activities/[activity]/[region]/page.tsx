@@ -1,5 +1,4 @@
 import PackageCard from "@/components/molecules/package-card";
-import TrekkingCard from "@/components/molecules/TrekkingCard";
 import endpoints from "@/constant/endpoints";
 import { formatSlug } from "@/helper/formatSlug";
 import { get } from "@/utils/request-handler";
@@ -144,15 +143,15 @@ export default async function RegionPage({
           }}
         ></script>
       )}
-      <div className="mt-24 flex flex-col gap-4 p-4">
-        <div className="md:min-h-[40vh] mt-12  flex flex-col p-1  md:p-8 md:items-center border-b-2 border-black">
+      <div className="flex flex-col gap-4 p-4">
+        <div className="md:min-h-[40vh]  flex flex-col p-1  md:p-8 md:items-center border-b-2 border-black">
           <h1 className="font-bold text-4xl lg:text-6xl">
             {region.includes("wildlife")
               ? "Nature and Wildlife Tours"
               : formatSlug(region)}
           </h1>
           {region.includes("bhutan") && (
-            <p className="text-left md:text-center md:mt-4 italic text-xl">
+            <p className="text-left md:text-center md:mt-4 text-xl">
               Discover the hidden monasteries, colorful festivals and beautiful
               hiking trails of the mystical Buddhist Kingdom of Bhutan. From
               Tiger’s Nest Monastery to the serene valleys of Paro and Thimphu,
@@ -161,7 +160,7 @@ export default async function RegionPage({
             </p>
           )}
           {region.includes("tibet") && (
-            <p className="text-left md:text-center md:mt-4 italic text-xl">
+            <p className="text-left md:text-center md:mt-4 text-xl">
               Embark on a journey to the mystical land ‘Tibet’, where the snow
               capped peaks reflect the height of spirituality. Embark on
               journeys to{" "}
@@ -176,7 +175,7 @@ export default async function RegionPage({
             </p>
           )}
           {region.includes("heli-tour") && (
-            <p className="text-left md:text-center md:mt-4 italic text-xl">
+            <p className="text-left md:text-center md:mt-4 text-xl">
               Experience the thrill of helicopter tours in Nepal. Fly over{" "}
               <Link
                 className="text-green-700 underline"
@@ -206,7 +205,7 @@ export default async function RegionPage({
             </p>
           )}
           {region.includes("everest") && (
-            <p className="text-left md:text-center md:mt-4 italic text-xl">
+            <p className="text-left md:text-center md:mt-4 text-xl">
               Experience an opportunity to witness the world’s highest mountain,
               Mount Everest (Sagarmatha Himal), along with other tall
               snow-capped mountains while trekking through the Everest Region,
@@ -249,7 +248,7 @@ export default async function RegionPage({
             </p>
           )}
           {region.includes("annapurna") && (
-            <p className="text-left md:text-center md:mt-4 italic text-xl">
+            <p className="text-left md:text-center md:mt-4 text-xl">
               Explore some of the popular snow-capped Mountains such as
               Annapurna I, II, III, IV, Machhapuchhre (Fishtail), Dhaulagiri,
               and Nilgiri of the Annapurna Region. Along with the opportunity to
@@ -283,7 +282,7 @@ export default async function RegionPage({
             </p>
           )}
           {region.includes("langtang") && (
-            <p className="text-left md:text-center md:mt-4 italic text-xl">
+            <p className="text-left md:text-center md:mt-4 text-xl">
               The Langtang Trek is one of Nepal's most satisfying short treks
               with magnificent mountain views, green forests, and rich cultural
               experiences within a short drive from Kathmandu. Referred to as
@@ -293,7 +292,7 @@ export default async function RegionPage({
             </p>
           )}
           {region.includes("manaslu") && (
-            <p className="text-left md:text-center md:mt-4 italic text-xl">
+            <p className="text-left md:text-center md:mt-4 text-xl">
               Explore the Manaslu region, one of the remote and off-the-beaten
               trekking regions of Nepal, which is home to the world’s
               eighth-highest mountain, Mount Manaslu. The unspoiled landscapes,
@@ -329,7 +328,7 @@ export default async function RegionPage({
             </p>
           )}
           {region.includes("dolpo") && (
-            <p className="text-left md:text-center md:mt-4 italic text-xl">
+            <p className="text-left md:text-center md:mt-4 text-xl">
               Dolpo, Nepal's hidden paradise, offers a lifetime adventure
               trekking experience with its unspoiled wilderness, high elevation,
               and timeless Tibetan culture. The region is dotted with striking
@@ -362,7 +361,7 @@ export default async function RegionPage({
             </p>
           )}
           {region.includes("multi-days-tour") && (
-            <p className="text-left md:text-center md:mt-4 italic text-xl">
+            <p className="text-left md:text-center md:mt-4 text-xl">
               Embark on multiday Nepal tour packages for a deeper exploration of
               the country’s breathtaking landscapes, vibrant culture, and
               adventurous spirit. Unlike short trips, these tours allow
@@ -386,7 +385,7 @@ export default async function RegionPage({
             </p>
           )}
           {region.includes("day-tours") && (
-            <p className="text-left md:text-center md:mt-4 italic text-xl">
+            <p className="text-left md:text-center md:mt-4 text-xl">
               Day tours in Nepal are the perfect way to experience the country’s
               cultural richness and natural beauty in a short amount of time.
               Ideal for travelers with limited schedules, with a reputed tour
@@ -417,7 +416,7 @@ export default async function RegionPage({
             </p>
           )}
           {region.includes("nature-wildlife") && (
-            <p className="text-left md:text-center md:mt-4 italic text-xl">
+            <p className="text-left md:text-center md:mt-4 text-xl">
               Nepal is a paradise for nature and wildlife enthusiasts, offering
               diverse ecosystems that range from subtropical forests to alpine
               meadows and high Himalayan peaks. The country is home to some of
@@ -458,7 +457,7 @@ export default async function RegionPage({
             </p>
           )}
           {region.includes("kanchenjunga") && (
-            <p className="text-left md:text-center md:mt-4 italic text-xl">
+            <p className="text-left md:text-center md:mt-4 text-xl">
               The{" "}
               <Link
                 className="text-green-700"

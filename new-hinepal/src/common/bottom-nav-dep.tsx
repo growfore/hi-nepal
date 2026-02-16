@@ -158,6 +158,7 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
               onMouseLeave={() => setOpenActivity(null)}
             >
               <button
+              aria-label="toggle navigation menu"
                 onClick={handleClick}
                 className={cn(!disableHover && "group", "hidden lg:flex")}
               >
@@ -208,6 +209,7 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
           ))}
           <div className="hidden lg:flex">
             <button
+            aria-label="toggle menu visibility"
               onMouseEnter={() => setOpenActivity("transport")}
               onMouseLeave={() => setOpenActivity(null)}
               className="group font-bold uppercase flex gap-1 items-center"

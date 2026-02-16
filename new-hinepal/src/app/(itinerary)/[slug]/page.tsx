@@ -539,7 +539,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 </p>
               </div>
               <Link href={"/booking"} className="cursor-pointer">
-                <Button>Ask for the Cost Now</Button>
+                <Button aria-label="Ask for the cost Now button">Ask for the Cost Now</Button>
               </Link>
             </div>
             {/* Includes */}

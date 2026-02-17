@@ -169,10 +169,22 @@ export default async function ActivitySingle({
             </h1>
             <p className="text-left md:text-center  mt-4 text-xl">
               Experience the spiritual and cultural wonders of the Himalayas
-              with journeys to Kailash Mansarovar, Tibet, and Bhutan. The sacred
-              pilgrimages, serene Buddhist monasteries, breathtaking Himalayan
-              landscapes, and vibrant local traditions are waiting for an
-              unforgettable adventure.
+              with journeys to
+              <HLinkComp
+                text="Kailash Mansarovar"
+                href="https://hinepaltreks.com/kailash-mansarovar-yatra"
+                linkColor="white"
+                comma
+              />
+              Tibet, and{" "}
+              <HLinkComp
+                text="Bhutan"
+                href="https://hinepaltreks.com/bhutan-tour"
+                linkColor="white"
+              />
+              . The sacred pilgrimages, serene Buddhist monasteries,
+              breathtaking Himalayan landscapes, and vibrant local traditions
+              are waiting for an unforgettable adventure.
             </p>
           </div>
         )}

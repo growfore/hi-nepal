@@ -23,7 +23,7 @@ const TrekkingCard = (props: TCardProps) => {
     <div
       className={cn(
         activity ? "h-[440px]" : "h-full",
-        "w-[340px] md:w-[380px] pb-4 bg-white rounded-md shadow-sm  hover:-translate-y-0.5 overflow-hidden hover:shadow-md transition-all duration-300 relative flex flex-col justify-between"
+        "w-full md:w-[380px] pb-4 bg-white rounded-md shadow-sm  hover:-translate-y-0.5 overflow-hidden hover:shadow-md transition-all duration-300 relative flex flex-col justify-between"
       )}
     >
       <figure className="w-full h-56 relative overflow-hidden">

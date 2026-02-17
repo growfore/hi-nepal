@@ -8,7 +8,7 @@ export default function PageHeroSection({
   subtitle?: string;
 }) {
   return (
-    <section className="bg-[#008236] text-primary-foreground py-16 px-4 mb-8 flex flex-col justify-center items-center">
+    <section className="min-h-[40vh] bg-[#008236] text-primary-foreground py-16 px-4 mb-8 flex flex-col justify-center items-center">
       <div className="max-w-5xl mx-auto text-center">
         <div className="flex justify-center mb-4">{Icon && <Icon />}</div>
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-balance">

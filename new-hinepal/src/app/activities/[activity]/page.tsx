@@ -85,7 +85,7 @@ export default async function ActivitySingle({
       <div className="flex flex-col gap-2">
         {activity == "tours" && (
           <div>
-            <div className=" p-4 relative bg-cover bg-center flex items-start md:items-center  md:justify-center   flex-col  bg-[#008236] text-white">
+            <div className="min-h-[40vh] p-4 relative bg-cover bg-center flex items-start md:items-center  md:justify-center   flex-col  bg-[#008236] text-white">
               <h1 className="font-bold text-4xl lg:text-6xl">
                 {activity.charAt(0).toUpperCase() + activity.slice(1)}
               </h1>
@@ -121,7 +121,7 @@ export default async function ActivitySingle({
           </div>
         )}
         {activity == "trekking" && (
-          <div className="p-4 relative bg-cover bg-center flex md:items-center md:justify-center  flex-col bg-green-700 text-white">
+          <div className="min-h-[40vh] p-4 relative bg-cover bg-center flex md:items-center md:justify-center  flex-col bg-green-700 text-white">
             <h1 className="font-bold text-4xl lg:text-6xl">
               {activity.charAt(0).toUpperCase() + activity.slice(1)}
             </h1>
@@ -163,7 +163,7 @@ export default async function ActivitySingle({
           </div>
         )}
         {activity == "destination" && (
-          <div className="p-4 relative bg-cover bg-center flex md:items-center md:justify-center  flex-col bg-green-700 text-white min-h-[300px]">
+          <div className="p-4 relative bg-cover bg-center flex md:items-center md:justify-center  flex-col bg-green-700 text-white min-h-[40vh]">
             <h1 className="font-bold text-4xl lg:text-6xl">
               {activity.charAt(0).toUpperCase() + activity.slice(1)}
             </h1>
@@ -177,7 +177,7 @@ export default async function ActivitySingle({
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 lg:p-12 p-2 container mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-2 p-4  justify-center items-center container mx-auto">
           {data &&
             /*@ts-ignore*/
             data?.length > 0 &&
@@ -186,6 +186,7 @@ export default async function ActivitySingle({
               return (
                 // <Link key={d.slug} href={`${activity}/${d.slug}`}>
                 <TrekkingCard
+                  key={d.slug}
                   activity={false}
                   slug={d.slug}
                   title={d.name}
@@ -196,7 +197,7 @@ export default async function ActivitySingle({
             })}
         </div>
 
-        <div className="container mx-auto p-2">
+        <div className="p-2">
           {activity == "tours" && (
             <div className=" text-justify text-xl">
               Nepal is a stunning place located in South Asia. Situated between

@@ -146,7 +146,7 @@ export default async function RegionPage({
         ></script>
       )}
       <div className="flex flex-col gap-4">
-        <div className="md:min-h-[40vh]  p-4 flex flex-col  md:p-8 md:items-center justify-center  bg-green-700 text-white">
+        <div className="md:min-h-[40vh]  p-4 flex flex-col  md:p-8 md:items-center justify-center bg-green-700 text-white">
           <h1 className="font-bold text-4xl lg:text-6xl">
             {region.includes("wildlife")
               ? "Nature and Wildlife Tours"
@@ -493,7 +493,7 @@ export default async function RegionPage({
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:px-32 p-4">
+        <div className="md:grid grid-cols-1 md:grid-cols-3 gap-4 p-4 flex flex-col justify-center items-center container mx-auto">
           {data &&
             /* @ts-ignore */
             data?.length > 0 &&

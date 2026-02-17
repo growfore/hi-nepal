@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { TNavBar } from "@/types/types";
@@ -9,7 +8,6 @@ export function DesktopNav({ navBar }: { navBar: TNavBar }) {
       {navBar.map((activity) => (
         <div key={activity.slug} className="group relative">
           <Link
-          target="_blank"
             href={`/activities/${activity.slug}`}
             prefetch={false}
             className="font-bold uppercase flex gap-1 items-center hover:text-green-700"
@@ -24,7 +22,6 @@ export function DesktopNav({ navBar }: { navBar: TNavBar }) {
                 {activity.destinations.map((destination) => (
                   <div key={destination.slug}>
                     <Link
-                    target="_blank"
                       href={`/activities/${activity.slug}/${destination.slug}`}
                       className="font-semibold text-lg flex gap-1 items-center mb-3 text-[#F05A24] hover:text-green-700"
                     >
@@ -35,7 +32,6 @@ export function DesktopNav({ navBar }: { navBar: TNavBar }) {
                       {destination.packages.map((pkg) => (
                         <li key={pkg.slug}>
                           <Link
-                          target="_blank"
                             href={`/${pkg.slug}`}
                             className="hover:text-green-700 hover:underline text-lg"
                           >
@@ -63,7 +59,6 @@ export function DesktopNav({ navBar }: { navBar: TNavBar }) {
             <ul className="flex flex-col gap-3">
               <li>
                 <Link
-                target="_blank"
                   href="/air-ticket-booking-nepal"
                   className="text-[#F05A24] hover:text-green-700 font-semibold"
                 >
@@ -72,7 +67,6 @@ export function DesktopNav({ navBar }: { navBar: TNavBar }) {
               </li>
               <li>
                 <Link
-                target="_blank"
                   href="/vehicle-rent"
                   className="text-[#F05A24] hover:text-green-700 font-semibold"
                 >
@@ -81,7 +75,6 @@ export function DesktopNav({ navBar }: { navBar: TNavBar }) {
               </li>
               <li>
                 <Link
-                target="_blank"
                   href="/helicopter-rescue-flights-nepal"
                   className="text-[#F05A24] hover:text-green-700 font-semibold"
                 >
@@ -93,7 +86,7 @@ export function DesktopNav({ navBar }: { navBar: TNavBar }) {
         </div>
       </div>
 
-      <Link target="_blank" href="/adventure" className="font-bold uppercase hover:text-green-700">
+      <Link  href="/adventure" className="font-bold uppercase hover:text-green-700">
         Adventure
       </Link>
       <Link href="/about-us" className="font-bold uppercase hover:text-green-700">

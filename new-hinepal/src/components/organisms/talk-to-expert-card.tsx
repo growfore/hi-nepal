@@ -14,7 +14,7 @@ export default function TalkToExpertCard({
   details,
 }: Readonly<{ details: any }>) {
   return (
-    <div className="px-4 py-1 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-30 border border-gray-300 flex flex-col mb-8">
+    <div className="px-4 py-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-30 border border-gray-300 flex flex-col mb-8">
       <strong className="font-bold text-2xl mb-2">
         Get free Advice from Experts
       </strong>
@@ -33,7 +33,7 @@ export default function TalkToExpertCard({
           </span>
         </p>
       </div>
-      <ul className="flex flex-col justify-start mb-2 gap-2">
+      <ul className="flex flex-col justify-start mb-2 gap-1 ">
         {expertServices.map((service) => {
           return (
             <li className="flex gap-1 items-center" key={service}>
@@ -45,10 +45,18 @@ export default function TalkToExpertCard({
       </ul>
       <Link
         href={"/booking"}
-        className="w-full mb-2 hover:pointer-cursor flex gap-2 items-center justify-start py-1  rounded-xl transition-shadow duration-300 font-bold"
+        className="w-full hover:pointer-cursor flex gap-2 items-center justify-start py-1  rounded-xl transition-shadow duration-300 font-bold"
       >
         <Button className="w-full" size={"lg"}>
           Send a message
+        </Button>
+      </Link>
+      <Link
+        href={`/booking?destination=${details.slug}`}
+        className="w-full mb-2 hover:pointer-cursor flex gap-2 items-center justify-start py-1  rounded-xl transition-shadow duration-300 font-bold "
+      >
+        <Button className="w-full bg-green-700 hover:bg-orange-600 cursor-pointer" size={"lg"}>
+          Book Now
         </Button>
       </Link>
       <TripAdvisorBadge />

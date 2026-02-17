@@ -677,6 +677,12 @@ const nextConfig = {
         permanent: true,
         statusCode: 301,
       },
+      {
+        source: "/heli-tour",
+        destination: "/activities/tours/heli-tour",
+        permanent: true,
+        statusCode: 301,
+      },
     ];
   },
   async rewrites() {

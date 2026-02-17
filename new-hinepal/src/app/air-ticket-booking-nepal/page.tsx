@@ -13,13 +13,13 @@ export default function AirTicketBookingPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-[#008236] text-primary-foreground py-16 px-4">
+      <section className="bg-[#008236] text-white py-16 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex justify-center mb-4">
             <Plane className="h-12 w-12" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Domestic & International Flight Booking</h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-2xl mx-auto text-balance">
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto text-balance">
             Your Trusted Partner for Affordable & Reliable Air Tickets
           </p>
         </div>
@@ -28,7 +28,7 @@ export default function AirTicketBookingPage() {
       {/* Introduction */}
       <section className="py-12 px-4">
         <div className="max-w-5xl mx-auto">
-          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto text-pretty">
+          <p className="text-lg text-black text-center max-w-3xl mx-auto text-pretty">
             At Hi Nepal Travels & Tours, we provide complete domestic and international air ticketing services tailored
             to travelers from Nepal and abroad. Whether you are traveling for tourism, study, work, family visits, or
             urgent travel, our experienced team ensures best fares, flexible options, and hassle-free booking with
@@ -69,7 +69,7 @@ export default function AirTicketBookingPage() {
               <CardDescription>Fast & Reliable Domestic Flights Across Nepal</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-              <p className="text-muted-foreground">
+              <p className="text-black">
                 We offer domestic air tickets to all major and remote destinations within Nepal. Our service is ideal
                 for tourists, trekkers, business travelers, and locals who want to save time and travel comfortably.
               </p>
@@ -97,7 +97,7 @@ export default function AirTicketBookingPage() {
 
               <div>
                 <h3 className="font-semibold mb-3">Domestic Airlines We Book</h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-black">
                   Buddha Air • Yeti Airlines • Shree Airlines • Tara Air • Summit Air
                 </p>
               </div>
@@ -115,7 +115,7 @@ export default function AirTicketBookingPage() {
               <CardDescription>Fly Worldwide with Confidence</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-              <p className="text-muted-foreground">
+              <p className="text-black">
                 HI Nepal Travels & Tours provides international flight booking from Nepal to Asia, Europe, Australia,
                 Middle East, and America. We compare multiple airlines and routes to offer you the best price and most
                 convenient connections.
@@ -142,7 +142,7 @@ export default function AirTicketBookingPage() {
 
               <div>
                 <h3 className="font-semibold mb-3">International Airlines We Work With</h3>
-                <p className="text-sm text-muted-foreground text-pretty">
+                <p className="text-sm text-black text-pretty">
                   Qatar Airways • Emirates • Turkish Airlines • Singapore Airlines • Korean Air • Thai Airways •
                   Malaysia Airlines • Nepal Airlines • Air India • Cathay Pacific • Air France • Air Canada • WestJet •
                   IndiGo • Air Arabia • Austrian • Hongkong Airlines • DELTA • American Airlines • Air transat • Kuwait
@@ -167,7 +167,7 @@ export default function AirTicketBookingPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-black">
                   We specialize in student air ticket booking for students traveling abroad for higher education with
                   affordable pricing, flexible dates, and extra baggage support.
                 </p>
@@ -196,7 +196,7 @@ export default function AirTicketBookingPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-black">
                   Traveling together has never been easier! We offer specialized ticketing services for family
                   vacations, corporate trips, and group tours.
                 </p>
@@ -265,11 +265,11 @@ export default function AirTicketBookingPage() {
               { step: "4", title: "Get Ticket", desc: "Get your e-ticket instantly via email or WhatsApp" },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-3">
+                <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mx-auto mb-3">
                   {item.step}
                 </div>
                 <h3 className="font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground text-balance">{item.desc}</p>
+                <p className="text-sm  text-balance">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -277,10 +277,10 @@ export default function AirTicketBookingPage() {
       </section>
 
       {/* Contact */}
-      <section className="py-12 px-4 bg-[#008236] text-primary-foreground">
+      <section className="py-12 px-4 bg-[#008236] text-white">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8">Contact Hi Nepal Travels & Tours</h2>
-          <p className="text-center mb-8 text-primary-foreground/90 max-w-2xl mx-auto text-balance">
+          <p className="text-center mb-8 text-white max-w-2xl mx-auto text-balance">
             Have questions? Need help planning your trip? Our team of travel experts is here to make your journey
             seamless, safe, and unforgettable.
           </p>

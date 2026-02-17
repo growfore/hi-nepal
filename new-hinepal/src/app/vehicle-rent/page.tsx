@@ -12,13 +12,13 @@ export default function VehicleRentalPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-[#008236] text-primary-foreground py-16 px-4">
+      <section className="bg-[#008236]  py-16 px-4 text-white">
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex justify-center mb-4">
             <Car className="h-12 w-12" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Vehicle Rental Services</h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-2xl mx-auto text-balance">
+          <p className="text-lg md:text-xl /90 max-w-2xl mx-auto text-balance">
             Your Trusted Partner for Safe & Comfortable Transportation in Nepal
           </p>
         </div>
@@ -27,7 +27,7 @@ export default function VehicleRentalPage() {
       {/* Introduction */}
       <section className="py-12 px-4">
         <div className="max-w-5xl mx-auto">
-          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto text-pretty">
+          <p className="text-lg  text-center max-w-3xl mx-auto text-pretty">
             Welcome to Hi Nepal Tours and Travels, your trusted partner for vehicle rental services in Nepal. Whether
             you're exploring the bustling cities, scenic highways, or remote mountain destinations, we've got the
             perfect vehicle to match your travel needs. From airport pickups to long‑distance journeys, our fleet and
@@ -44,12 +44,12 @@ export default function VehicleRentalPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <Car className="h-5 w-5 text-primary" />
+                  <Car className="h-5 w-5 text-black" />
                   Wide Range of Vehicles
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm ">
                   We offer a diverse fleet including cars, vans, jeeps, Hiace (minivan), and buses suitable for all
                   group sizes and purposes, from solo travelers to large tour groups.
                 </p>
@@ -59,12 +59,12 @@ export default function VehicleRentalPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <Users className="h-5 w-5 text-primary" />
+                  <Users className="h-5 w-5 text-black" />
                   Professional Local Drivers
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm ">
                   All our vehicles come with experienced, licensed drivers familiar with Nepal's terrain, from smooth
                   city roads to rugged mountain routes, so you can enjoy a stress‑free journey.
                 </p>
@@ -74,12 +74,12 @@ export default function VehicleRentalPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <Clock className="h-5 w-5 text-primary" />
+                  <Clock className="h-5 w-5 text-black" />
                   Flexible Rental Plans
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm ">
                   Need a vehicle for a few hours, a full day, or multiple days? We tailor rental packages to fit your
                   itinerary with flexible pricing and duration options.
                 </p>
@@ -89,12 +89,12 @@ export default function VehicleRentalPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <CheckCircle2 className="h-5 w-5 text-primary" />
+                  <CheckCircle2 className="h-5 w-5 text-black" />
                   Competitive & Transparent Pricing
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm ">
                   We offer affordable rates with no hidden charges. Our pricing is simple, clear, and designed to give
                   you the best value for your travel budget.
                 </p>
@@ -104,12 +104,12 @@ export default function VehicleRentalPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <MapPin className="h-5 w-5 text-primary" />
+                  <MapPin className="h-5 w-5 text-black" />
                   Convenient Pickup & Drop‑Off
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm ">
                   Enjoy door‑to‑door pickup and drop‑off service, whether it's airport transfers, hotel pickup, or
                   journey start/finish points of your choice.
                 </p>
@@ -128,12 +128,12 @@ export default function VehicleRentalPage() {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-xl">Car Rental</CardTitle>
-                  <Car className="h-8 w-8 text-primary" />
+                  <Car className="h-8 w-8 text-black" />
                 </div>
                 <CardDescription>Perfect for Couples & Small Families</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm  mb-4">
                   Ideal for couples, solo travelers, or small families who want to explore Nepal at their own pace. Our
                   cars are well‑maintained, comfortable, and perfect for city tours or intercity transfers.
                 </p>
@@ -149,12 +149,12 @@ export default function VehicleRentalPage() {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-xl">Van/Hiace Rental</CardTitle>
-                  <Users className="h-8 w-8 text-primary" />
+                  <Users className="h-8 w-8 text-black" />
                 </div>
                 <CardDescription>Spacious & Reliable for Groups</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm  mb-4">
                   Spacious and reliable, vans (like Hiace) are perfect for family trips, group sightseeing, or airport
                   transfers. These vehicles balance comfort and affordability for medium‑sized groups.
                 </p>
@@ -170,12 +170,12 @@ export default function VehicleRentalPage() {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-xl">Jeep & 4×4 Rental</CardTitle>
-                  <Truck className="h-8 w-8 text-primary" />
+                  <Truck className="h-8 w-8 text-black" />
                 </div>
                 <CardDescription>Built for Adventure & Rough Terrain</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm  mb-4">
                   For adventure lovers and rough terrain routes, our robust 4×4 jeeps can tackle mountainous roads,
                   trekking drop‑offs, and rural destinations with ease.
                 </p>
@@ -191,12 +191,12 @@ export default function VehicleRentalPage() {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-xl">Bus & Minibus Rental</CardTitle>
-                  <Bus className="h-8 w-8 text-primary" />
+                  <Bus className="h-8 w-8 text-black" />
                 </div>
                 <CardDescription>Perfect for Large Groups</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm  mb-4">
                   Traveling with a large group? Our buses and minibuses provide comfortable seating, good luggage space,
                   and reliable service for tours, events, and corporate travel.
                 </p>
@@ -212,10 +212,10 @@ export default function VehicleRentalPage() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-12 px-4 bg-[#008236] text-primary-foreground">
+      <section className="py-12 px-4 bg-[#008236] text-white">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8">Ready to Book Your Vehicle?</h2>
-          <p className="text-center mb-8 text-primary-foreground/90 max-w-2xl mx-auto text-balance">
+          <p className="text-center mb-8 /90 max-w-2xl mx-auto text-balance">
             Contact us today to discuss your travel plans and get the perfect vehicle for your Nepal adventure.
           </p>
           <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">

@@ -25,7 +25,7 @@ export default function HelicopterRescuePage() {
               "Trekking Rescue Helicopter Nepal",
               "High Altitude Rescue Nepal",
             ].map((keyword) => (
-              <Badge key={keyword} variant="secondary" className="bg-slate-200 text-slate-700">
+              <Badge key={keyword} variant="secondary" className="bg-slate-200 ">
                 {keyword}
               </Badge>
             ))}
@@ -35,7 +35,7 @@ export default function HelicopterRescuePage() {
         {/* Overview */}
         <section className="mb-12 space-y-6">
           <h2 className="text-2xl font-bold border-b pb-2">Overview - Helicopter Rescue Flights in Nepal</h2>
-          <div className="space-y-4 text-slate-700 leading-relaxed">
+          <div className="space-y-4  leading-relaxed">
             <p>
               Helicopter Rescue Flights in Nepal provide fast, life-saving evacuation from remote and high-altitude
               regions where road access is impossible. Due to Nepal’s rugged Himalayan terrain, helicopter evacuation is
@@ -82,10 +82,10 @@ export default function HelicopterRescuePage() {
         {/* When Required */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold mb-6 border-b pb-2">When Is a Helicopter Rescue Required?</h2>
-          <p className="mb-4 text-slate-700">
+          <p className="mb-4 ">
             Helicopter rescue flights are commonly needed in the following situations:
           </p>
-          <ul className="list-disc pl-6 space-y-2 text-slate-700">
+          <ul className="list-disc pl-6 space-y-2 ">
             <li>Severe Acute Mountain Sickness (AMS)</li>
             <li>HAPE (High Altitude Pulmonary Edema)</li>
             <li>HACE (High Altitude Cerebral Edema)</li>
@@ -99,17 +99,17 @@ export default function HelicopterRescuePage() {
         {/* Service Coverage */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold mb-6 border-b pb-2">Service Coverage - Helicopter Rescue in Nepal</h2>
-          <p className="mb-4 text-slate-700">
+          <p className="mb-4 ">
             We provide helicopter rescue coordination across Nepal’s major trekking and remote regions, including:
           </p>
-          <ul className="list-disc pl-6 space-y-2 text-slate-700 mb-4">
+          <ul className="list-disc pl-6 space-y-2  mb-4">
             <li>Annapurna Region</li>
             <li>Everest Region</li>
             <li>Langtang Region</li>
             <li>Mustang & Upper Mustang</li>
             <li>Remote villages & trail networks</li>
           </ul>
-          <p className="text-sm text-slate-500 italic">
+          <p className="text-sm  italic">
             Rescue operations depend on weather, visibility, and aviation clearance.
           </p>
         </section>
@@ -146,7 +146,7 @@ export default function HelicopterRescuePage() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg mb-1">{step.title}</h3>
-                  <p className="text-slate-700">{step.content}</p>
+                  <p className="">{step.content}</p>
                 </div>
               </div>
             ))}
@@ -156,7 +156,7 @@ export default function HelicopterRescuePage() {
         {/* What's Included */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold mb-6 border-b pb-2">What Our Helicopter Rescue Service Includes</h2>
-          <ul className="list-disc pl-6 space-y-2 text-slate-700">
+          <ul className="list-disc pl-6 space-y-2 ">
             <li>Emergency helicopter evacuation</li>
             <li>Experienced high-altitude rescue pilots</li>
             <li>Flight clearance & coordination</li>
@@ -168,7 +168,7 @@ export default function HelicopterRescuePage() {
         {/* Important Notes */}
         <section className="mb-12 bg-slate-100 p-6 rounded-xl border border-dashed border-slate-300">
           <h2 className="text-xl font-bold mb-4">Important Safety & Operational Notes</h2>
-          <ul className="list-disc pl-6 space-y-2 text-slate-700 text-sm">
+          <ul className="list-disc pl-6 space-y-2  text-sm">
             <li>Helicopter rescue is weather-dependent</li>
             <li>Weight limits apply for safe operations</li>
             <li>Pilot’s decision is final for flight safety</li>
@@ -179,7 +179,7 @@ export default function HelicopterRescuePage() {
         {/* Why Choose Us */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold mb-6 border-b pb-2">Why Choose Our Helicopter Rescue Flights in Nepal?</h2>
-          <ul className="list-disc pl-6 space-y-2 text-slate-700">
+          <ul className="list-disc pl-6 space-y-2 ">
             <li>Fast emergency response coordination</li>
             <li>Proven experience in Himalayan rescue operations</li>
             <li>Strong network with hospitals & insurers</li>
@@ -192,11 +192,11 @@ export default function HelicopterRescuePage() {
         {/* Contact Information */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold mb-6 border-b pb-2">Emergency Helicopter Rescue - Contact Information</h2>
-          <p className="text-slate-700 mb-4">
+          <p className=" mb-4">
             In emergency situations, every minute counts. Our Helicopter Rescue Flights in Nepal are designed to provide
             rapid, reliable, and safe evacuation from remote Himalayan locations.
           </p>
-          <p className="font-bold text-slate-900">
+          <p className="font-bold ">
             Contact us immediately for rescue coordination or emergency assistance.
           </p>
         </section>

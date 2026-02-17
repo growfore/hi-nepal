@@ -1,10 +1,11 @@
 import { TDestinationSingle, TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";
-import { LucideCircle, LucideClock, LucideStar } from "lucide-react";
+import {  LucideClock, LucideStar } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { placeholderImage } from "@/utils/placeholder-image";
+
 
 type TProps = {
   item: TPackages[0];
@@ -12,6 +13,13 @@ type TProps = {
   showRegion?: boolean;
 };
 
+function getRatingFromTitle(title: string) {
+  const ratings = [4.6, 4.7, 4.8, 4.9, 5.0];
+  const index = title.length % ratings.length;
+  return ratings[index];
+}
+
+// usage
 const STARS = [0, 1, 2, 3, 4];
 const PackageCard = (props: TProps) => {
   const { item, showRegion = true } = props;
@@ -62,7 +70,7 @@ const PackageCard = (props: TProps) => {
                     />
                   );
                 })}
-                Rated 4.9/5
+                Rated {getRatingFromTitle(item.title)}/5
               </p>
             </div>
 

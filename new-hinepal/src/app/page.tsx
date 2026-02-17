@@ -9,7 +9,6 @@ import Link from "next/link";
 import BestShortTreks from "@/components/organisms/best-short-treks";
 import TenDaysPlusTreks from "@/components/organisms/10-days-plus-treks";
 import PopularTours from "@/components/organisms/popular-tours";
-import OneDayTours from "@/components/organisms/one-day-hiking";
 import { HomeFAQs } from "@/components/organisms/home-faqs";
 import NewHero from "@/components/organisms/new-hero";
 import { TPackage } from "@/types/types";
@@ -110,7 +109,7 @@ export default async function Home() {
   const bestShortSlugs = [
     "mardi-himal-trek",
     "ghorepani-poon-hill-trek",
-    "kori-trek",
+    "kapuche-lake-trek",
   ];
   const tenDaysPlusSlugs = [
     "kanchenjunga-circuit-trek",

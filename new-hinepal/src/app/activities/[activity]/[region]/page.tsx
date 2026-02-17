@@ -191,12 +191,18 @@ export default async function RegionPage({
               />
               ,
               <HLinkComp
-                href="/everest-base-camp-helicopter-tour"
-                text="Everest Base Camp Helicopter Tour"
+                href="/everest-base-camp"
+                text="Everest Base Camp"
                 linkColor="white"
               />
-              , Mardi Himal and other iconic Himalayan wonders. Enjoy the views
-              of mountain vistas, serene valleys, and pristine landscapes for an
+              ,
+              <HLinkComp
+                href="/mardi-himal-trek"
+                text="Mardi Himal"
+                linkColor="white"
+              />
+              and other iconic Himalayan wonders. Enjoy the views of mountain
+              vistas, serene valleys, and pristine landscapes for an
               unforgettable high-altitude adventure.
             </p>
           )}

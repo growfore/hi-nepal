@@ -2,7 +2,10 @@ import Link from "next/link";
 import React from "react";
 import dynamic from "next/dynamic";
 import HLinkComp from "../atoms/link-component";
-const PackageCard = dynamic(() => import("@/components/molecules/package-card"), { ssr: false });
+const PackageCard = dynamic(
+  () => import("@/components/molecules/package-card"),
+  { ssr: false },
+);
 
 const BestShortTreks = ({ packages }: { packages: any[] }) => {
   const filteredPackages = packages || [];
@@ -16,9 +19,20 @@ const BestShortTreks = ({ packages }: { packages: any[] }) => {
               Best Short Treks in Nepal
             </h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
-              Looking for the best yet short trekking options in Nepal?
-              Hi Nepal Travels and Treks, a reliable trekking agency in Nepal, based in Pokhara, offers well-planned itineraries for some of the most pleasing treks in the country, including <HLinkComp comma href="/mardi-himal-trek" text="Mardi Himal" /> <HLinkComp comma href="/ghorepani-poon-hill-trek" text="Ghorepani Poon Hill" />  and
-              <HLinkComp href="/kapuche-lake-trek" text="Kapuche Lake Trek" />. Explore the beautiful Himalaya range of Nepal with us while maximizing your travel experience.
+              Looking for the best yet short trekking options in Nepal? Hi Nepal
+              Travels and Treks, a reliable trekking agency in Nepal, based in
+              Pokhara, offers well-planned itineraries for some of the most
+              pleasing treks in the country, including{" "}
+              <HLinkComp comma href="/mardi-himal-trek" text="Mardi Himal" />{" "}
+              <HLinkComp
+                comma
+                href="/ghorepani-poon-hill-trek"
+                text="Ghorepani Poon Hill"
+              />{" "}
+              and
+              <HLinkComp href="/kapuche-lake-trek" text="Kapuche Lake Trek" />.
+              Explore the beautiful Himalaya range of Nepal with us while
+              maximizing your travel experience.
             </p>
           </div>
         </div>
@@ -39,7 +53,6 @@ const BestShortTreks = ({ packages }: { packages: any[] }) => {
             ))}
           </div>
           <div className="flex flex-col justify-center items-center my-12">
-            <small className="mb-4">Explore More</small>
             <div className="text-center flex flex-col md:flex-row items-center gap-4 justify-center">
               <Link
                 href="/activities/trekking"

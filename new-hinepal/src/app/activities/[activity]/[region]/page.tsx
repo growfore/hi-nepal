@@ -1,9 +1,11 @@
+import HLinkComp from "@/components/atoms/link-component";
 import PackageCard from "@/components/molecules/package-card";
 import endpoints from "@/constant/endpoints";
 import { formatSlug } from "@/helper/formatSlug";
 import { get } from "@/utils/request-handler";
 import { LucideChevronRight } from "lucide-react";
 import Link from "next/link";
+import { text } from "stream/consumers";
 
 export async function generateMetadata({ params }: any): Promise<any> {
   const { region } = params;
@@ -143,8 +145,8 @@ export default async function RegionPage({
           }}
         ></script>
       )}
-      <div className="flex flex-col gap-4 p-4">
-        <div className="md:min-h-[40vh]  flex flex-col p-1  md:p-8 md:items-center border-b-2 border-black">
+      <div className="flex flex-col gap-4">
+        <div className="md:min-h-[40vh]  flex flex-col p-1  md:p-8 md:items-center border-b-2 border-black bg-green-700 text-white">
           <h1 className="font-bold text-4xl lg:text-6xl">
             {region.includes("wildlife")
               ? "Nature and Wildlife Tours"
@@ -163,13 +165,12 @@ export default async function RegionPage({
             <p className="text-left md:text-center md:mt-4 text-xl">
               Embark on a journey to the mystical land ‘Tibet’, where the snow
               capped peaks reflect the height of spirituality. Embark on
-              journeys to{" "}
-              <Link
-                className="text-green-700 underline"
-                href={"https://hinepaltreks.com/kailash-mansarovar-yatra"}
-              >
-                Mount Kailash
-              </Link>
+              journeys to
+              <HLinkComp
+                href="/kailash-mansarovar-yatra"
+                text="Mount Kailash"
+                linkColor="white"
+              />
               , Lake Mansarovar, and Lhasa, embracing Tibetan culture, ancient
               traditions, and breathtaking mountain landscapes.
             </p>
@@ -177,28 +178,23 @@ export default async function RegionPage({
           {region.includes("heli-tour") && (
             <p className="text-left md:text-center md:mt-4 text-xl">
               Experience the thrill of helicopter tours in Nepal. Fly over{" "}
-              <Link
-                className="text-green-700 underline"
-                href={"https://hinepaltreks.com/jomsom-muktinath-trek"}
-              >
-                Muktinath
-              </Link>
-              ,{" "}
-              <Link
-                className="text-green-700 underline"
-                href={"https://hinepaltreks.com/annapurna-base-camp-trek"}
-              >
-                Annapurna Base Camp
-              </Link>
-              ,{" "}
-              <Link
-                href={
-                  "https://hinepaltreks.com/everest-base-camp-helicopter-tour"
-                }
-                className="text-green-700 underline"
-              >
-                Everest Base Camp
-              </Link>
+              <HLinkComp
+                href="https://hinepaltreks.com/jomsom-muktinath-trek"
+                text="Muktinath"
+                linkColor="white"
+              />
+              ,
+              <HLinkComp
+                href="/annapurna-base-camp-trek"
+                text="Annapurna Base Camp"
+                linkColor="white"
+              />
+              ,
+              <HLinkComp
+                href="/everest-base-camp-helicopter-tour"
+                text="Everest Base Camp Helicopter Tour"
+                linkColor="white"
+              />
               , Mardi Himal and other iconic Himalayan wonders. Enjoy the views
               of mountain vistas, serene valleys, and pristine landscapes for an
               unforgettable high-altitude adventure.
@@ -213,38 +209,29 @@ export default async function RegionPage({
               along the stunning landscape of the Everest Region trek. The
               Everest region trek is one of the heavenly paradises on Earth,
               offering some of the major trekking routes in Nepal, such as the{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/everest-base-camp-trek"}
-              >
-                {" "}
-                Everest Base Camp Trek
-              </Link>
+              <HLinkComp
+                href="https://hinepaltreks.com/everest-base-camp-trek"
+                text="Everest Base Camp Trek"
+                linkColor="white"
+              />
               , the
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/chola-pass-gokyo-trek"}
-              >
-                {" "}
-                Everest Cho La Pass Trek
-              </Link>
+              <HLinkComp
+                href="https://hinepaltreks.com/chola-pass-gokyo-trek"
+                text="Everest Cho La Pass Trek"
+                linkColor="white"
+              />
               , the
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/gokyo-valley-trek"}
-              >
-                {" "}
-                Gokyo Ri Trek
-              </Link>
+              <HLinkComp
+                href="https://hinepaltreks.com/gokyo-valley-trek"
+                text="Gokyo Ri Trek"
+                linkColor="white"
+              />
               , and the
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/pikey-peak-trek"}
-              >
-                {" "}
-                Pikey Peak Trek
-              </Link>
-              .
+              <HLinkComp
+                href="https://hinepaltreks.com/pikey-peak-trek"
+                text="Pikey Peak Trek"
+                linkColor="white"
+              />
             </p>
           )}
           {region.includes("annapurna") && (
@@ -255,29 +242,23 @@ export default async function RegionPage({
               learn about the cultural significance of authentic villages
               situated between the mesmerizing landscape vista of Nepal. From
               one of the popular trekking routes in Nepal
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/annapurna-base-camp-trek"}
-              >
-                {" "}
-                Annapurna Base Camp trek
-              </Link>
+              <HLinkComp
+                href="https://hinepaltreks.com/annapurna-panorama-trek"
+                text="Annapurna Panorama Trek"
+                linkColor="white"
+              />
               , to recently getting popular trails like the
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/north-annapurna-base-camp-trek"}
-              >
-                {" "}
-                North Annapurna Base Camp
-              </Link>
+              <HLinkComp
+                href="https://hinepaltreks.com/north-annapurna-base-camp-trek"
+                text="North Annapurna Base Camp"
+                linkColor="white"
+              />
               and
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/khumai-danda-trek"}
-              >
-                {" "}
-                Khumai Danda{" "}
-              </Link>
+              <HLinkComp
+                href="https://hinepaltreks.com/khumai-danda-trek"
+                text="Khumai Danda Trek"
+                linkColor="white"
+              />
               ,the Annapurna region is filled with options.
             </p>
           )}
@@ -299,31 +280,30 @@ export default async function RegionPage({
               traditional towns, and stunning mountain views in this region make
               it a one-of-a-kind place to go trekking, with itineraries
               including the
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/manaslu-circuit-trek"}
-              >
-                {" "}
-                Manaslu Circuit Trek
-              </Link>
-              ,
-              <Link
-                className="text-green-700"
-                href={
-                  "https://hinepaltreks.com/manaslu-tsum-valley-circuit-trek"
-                }
-              >
-                {" "}
-                Manaslu and Tsum Valley Circuit Trek
-              </Link>
-              , and the
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/tsum-valley-trek"}
-              >
-                {" "}
-                Tsum Valley Trek
-              </Link>
+              <HLinkComp
+                text="Manaslu Circuit Trek"
+                href="/manaslu-circuit-trek"
+                linkColor="white"
+                comma
+              />
+              <HLinkComp
+                href="https://hinepaltreks.com/manaslu-tsum-valley-circuit-trek"
+                text="Manaslu Tsum Valley Circuit Trek"
+                linkColor="white"
+                comma
+              />
+              <HLinkComp
+                text="Manaslu and Tsum Valley Circuit Trek"
+                href="/manaslu-tsum-valley-circuit-trek"
+                comma
+                linkColor="white"
+              />
+              and the
+              <HLinkComp
+                text="Tsum Valley Trek"
+                href="/tsum-valley-trek"
+                linkColor="white"
+              />
               .
             </p>
           )}
@@ -333,30 +313,24 @@ export default async function RegionPage({
               trekking experience with its unspoiled wilderness, high elevation,
               and timeless Tibetan culture. The region is dotted with striking
               landscapes, barren valleys, boulder-covered ridges, and sparkling
-              Phoksundo Lake. Treks like the{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/upper-dolpo-trek"}
-              >
-                {" "}
-                Upper Dolpo Trek
-              </Link>
-              ,
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/lower-dolpo-trek"}
-              >
-                {" "}
-                Lower Dolpo Trek
-              </Link>
-              , and{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/shey-phoksundo-lake-trek"}
-              >
-                {" "}
-                Shey Phoksundo Lake Trek
-              </Link>{" "}
+              Phoksundo Lake. Treks like the
+              <HLinkComp
+                text="Upper Dolpo Trek"
+                href="/upper-dolpo-trek"
+                linkColor="white"
+                comma
+              />
+              <HLinkComp
+                href="/lower-dolpo-trek"
+                text="Lower Dolpo Trek"
+                linkColor="white"
+              />
+              and
+              <HLinkComp
+                text="Shey Phoksundo Lake Trek"
+                href="/shey-phoksundo-lake-trek"
+                linkColor="white"
+              />
               provide an atmosphere of utter isolation and cultural diversity.
             </p>
           )}
@@ -369,19 +343,26 @@ export default async function RegionPage({
               themselves in both natural beauty and authentic local life. Get an
               exposure to Nepal's diverse beauty with planned multi-day Nepal
               tours like
-              <Link className="text-green-700" href={"/upper-mustang-tour"}>
-                {" "}
-                Upper Mustang Tour
-              </Link>
-              ,
-              <Link className="text-green-700" href={"/rara-lake-tour-nepal"}>
-                Rara Lake Tour
-              </Link>
-              , and
-              <Link className="text-green-700" href={"/ghandruk-village-tour"}>
-                Ghandruk Village Tour
-              </Link>
-              , with a reputed tour agency in Nepal.
+              <HLinkComp
+                text="Upper Mustang Tour"
+                href="/upper-mustang-tour"
+                comma
+                linkColor="white"
+              />
+              <HLinkComp
+                text="Rara Lake Tour"
+                href="/rara-lake-tour-nepal"
+                linkColor="white"
+                comma
+              />
+              and
+              <HLinkComp
+                href="/ghandruk-village-tour"
+                text="Ghandruk Village Tour"
+                comma
+                linkColor="white"
+              />
+              with a reputed tour agency in Nepal.
             </p>
           )}
           {region.includes("day-tours") && (
@@ -390,27 +371,24 @@ export default async function RegionPage({
               cultural richness and natural beauty in a short amount of time.
               Ideal for travelers with limited schedules, with a reputed tour
               agency in Nepal, the tours like{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/pokhara-valley-tour"}
-              >
-                Pokhara Valley Tour
-              </Link>
-              ,
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/world-peace-pagoda"}
-              >
-                {" "}
-                World Peace Pagoda Tour
-              </Link>
-              , and{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/sarangkot-pokhara-tour"}
-              >
-                Sarangkot Tour
-              </Link>
+              <HLinkComp
+                text="Pokhara Valley Tour"
+                href="/pokhara-valley-tour"
+                comma
+                linkColor="white"
+              />
+              <HLinkComp
+                href="/world-peace-pagoda"
+                text="World Peace Pagoda Tour"
+                linkColor="white"
+                comma
+              />
+              and
+              <HLinkComp
+                text="Sarangkot Tour"
+                href="/sarangkot-pokhara-tour"
+                linkColor="white"
+              />
               allow you to explore iconic landmarks, bustling cities, and
               stunning viewpoints without the need for overnight stays.
             </p>
@@ -422,90 +400,79 @@ export default async function RegionPage({
               meadows and high Himalayan peaks. The country is home to some of
               the world’s rarest flora and fauna, thriving within its rich
               landscapes and protected National Parks such as{" "}
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/chitwan-national-park-tour"}
-              >
-                {" "}
-                Chitwan National Park
-              </Link>{" "}
+              <HLinkComp
+                href="/chitwan-national-park-tour"
+                text="Chitwan National Park"
+                linkColor="white"
+              />
               and
-              <Link
-                className="text-green-700"
+              <HLinkComp
                 href={"https://hinepaltreks.com/bardiya-national-park-tour"}
-              >
-                {" "}
-                Bardiya National Park
-              </Link>
+                text="Bardiya National Park"
+                linkColor="white"
+              />
               . Explore the diverse natural beauty with
-              <Link
-                className="text-green-700"
+              <HLinkComp
                 href={"https://hinepaltreks.com/"}
-              >
-                {" "}
-                Hi Nepal Travels and Treks
-              </Link>
-              , one of the{" "}
-              <Link
-                className="text-green-700"
+                text="Hi Nepal Travels and Treks"
+                linkColor="white"
+                comma
+              />
+              one of the
+              <HLinkComp
                 href={"https://hinepaltreks.com/about-us"}
-              >
-                {" "}
-                best tour operators in Nepal
-              </Link>
+                text="best tour operators in Nepal"
+                linkColor="white"
+              />
               .
             </p>
           )}
           {region.includes("kanchenjunga") && (
             <p className="text-left md:text-center md:mt-4 text-xl">
               The{" "}
-              <Link
-                className="text-green-700"
+              <HLinkComp
                 href={
                   "https://hinepaltreks.com/activities/trekking/kanchenjunga-region"
                 }
-              >
-                Kanchenjunga Region
-              </Link>{" "}
-              in Nepal offers remote{" "}
-              <Link
-                className="text-green-700"
+                text={"Kanchenjunga Region"}
+                linkColor="white"
+              />
+              in Nepal offers remote
+              <HLinkComp
+                text="trekking"
+                linkColor="white"
                 href={"https://hinepaltreks.com/activities/trekking"}
-              >
-                trekking
-              </Link>{" "}
+              />
               with stunning Himalayan scenery and rich cultural exposure.
               Trekkers can visit{" "}
-              <Link
-                className="text-green-700"
+              <HLinkComp
+                text="Kanchenjunga North"
                 href={
                   "https://hinepaltreks.com/kanchenjunga-north-base-camp-trek"
                 }
-              >
-                Kanchenjunga North
-              </Link>{" "}
-              or{" "}
-              <Link
-                className="text-green-700"
+                linkColor="white"
+              />
+              or
+              <HLinkComp
+                text="Kanchenjunga South"
                 href={
                   "https://hinepaltreks.com/kanchenjunga-south-base-camp-trek"
                 }
-              >
-                South Base Camps
-              </Link>
-              , and the{" "}
-              <Link
-                className="text-green-700"
+                linkColor="white"
+                comma
+              />
+              and the
+              <HLinkComp
+                text="Kanchenjunga Circuit Trek"
                 href={"https://hinepaltreks.com/kanchenjunga-circuit-trek"}
-              >
-                Kanchenjunga Circuit Trek
-              </Link>{" "}
+                linkColor="white"
+              />
               combines both routes.
             </p>
           )}
 
           {/* BREADCRUMB */}
-          <div className="lg:px-32 flex flex-col gap-2 mt-4 text-green-700">
+          <div className="lg:px-32 flex flex-col gap-2 mt-4 text-white underline">
             <div className="flex gap-1">
               <Link href={"/"}>Home</Link>
               <LucideChevronRight />
@@ -531,11 +498,11 @@ export default async function RegionPage({
             /* @ts-ignore */
             data?.length > 0 &&
             /* @ts-ignore */
-            data?.map((item:any, index:number) => {
+            data?.map((item: any, index: number) => {
               return (
                 // <Link key={d.slug} href={`/${d.slug}`}>
                 <PackageCard
-                showRegion={false}
+                  showRegion={false}
                   key={item.id}
                   item={item}
                   destination={{
@@ -910,32 +877,23 @@ export default async function RegionPage({
                 popularity. For daring trekkers seeking a more
                 off-the-beaten-path experience, the Manaslu Region treks, such
                 as the
-                <Link
-                  className="text-green-700"
-                  href={"https://hinepaltreks.com/manaslu-circuit-trek"}
-                >
-                  {" "}
-                  Manaslu Circuit Trek
-                </Link>
-                ,
-                <Link
-                  className="text-green-700"
-                  href={
-                    "https://hinepaltreks.com/manaslu-tsum-valley-circuit-trek"
-                  }
-                >
-                  {" "}
-                  Manaslu and Tsum Valley Circuit Trek
-                </Link>
-                , and the
-                <Link
-                  className="text-green-700"
-                  href={"https://hinepaltreks.com/tsum-valley-trek"}
-                >
-                  {" "}
-                  Tsum Valley Trek{" "}
-                </Link>
-                , are the hidden gems because of their breathtaking landscapes,
+                <HLinkComp
+                  text="Manaslu Circuit Trek"
+                  href="/manaslu-circuit-trek"
+                  comma
+                />
+                <HLinkComp
+                  href="/manaslu-tsum-valley-circuit-trek"
+                  text="Manaslu and Tsum Valley Circuit Trek"
+                  comma
+                />
+                and the
+                <HLinkComp
+                  href="/tsum-valley-trek"
+                  text="Tsum Valley Trek"
+                  comma
+                />
+                are the hidden gems because of their breathtaking landscapes,
                 cultural diversity, and lack of tourists.
               </p>
               <p>

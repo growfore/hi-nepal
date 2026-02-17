@@ -7,6 +7,7 @@ import {
   Headset,
 } from "lucide-react";
 import LazyYouTube from "../lazy-youtube";
+import { Badge } from "../ui/badge";
 
 const Numbers = () => {
   return (
@@ -16,7 +17,7 @@ const Numbers = () => {
           {/* Left Column - Video */}
           <div className="relative z-10 lg:h-[600px] flex items-center justify-center p-4 lg:p-0">
             <div className="w-full h-full flex items-center justify-center">
-               <LazyYouTube
+              <LazyYouTube
                 videoId="1Wfki2o-adM"
                 className="w-[720px] h-80 md:h-[520px]"
               />
@@ -26,9 +27,9 @@ const Numbers = () => {
           {/* Right Column - Content */}
           <div className="bg-green-600 text-white p-8 md:p-12 lg:p-16 relative z-0 lg:-ml-20 lg:pl-28">
             <div className="mb-8">
-              <p className='text-orange-500 text-sm font-semibold uppercase relative pl-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500'>
-                CALLBACK FOR MORE
-              </p>
+              <Badge variant={'secondary'} className="rounded-full px-4 py-2 text-orange-500 font-bold">
+                  CALLBACK FOR MORE
+              </Badge>
               <p className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mt-2">
                 GO TRAVEL. DISCOVER. REMEMBER US!!
               </p>

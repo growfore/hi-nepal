@@ -3,12 +3,13 @@ import { get } from "@/utils/request-handler";
 import TrekkingCard from "@/components/molecules/TrekkingCard";
 import Link from "next/link";
 import { ChevronRight, LucideChevronRight } from "lucide-react";
+import HLinkComp from "@/components/atoms/link-component";
 
 export async function generateMetadata({ params }: any): Promise<any> {
   let activity = params.activity;
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/activities/${activity}`,
-    { cache: "no-store" }
+    { cache: "no-store" },
   );
   const responseData = await response.json();
 
@@ -26,9 +27,9 @@ export async function generateMetadata({ params }: any): Promise<any> {
       "Explore the best trekking packages in Nepal, including Everest Base Camp, Annapurna Circuit, and Manaslu. Find short treks, challenging routes, and beginner guides.";
   }
   if (activity == "destination") {
-    (title = "Nepal Tours, Tibet Travel & Kailash Mansarovar Yatra Packages");
-      (description =
-        "Plan your next journey with Hi Nepal Treks. Discover profound cultural experiences in Nepal, thrilling travel to Tibet, and the spiritual Kailash Mansarovar Yatra.");
+    title = "Nepal Tours, Tibet Travel & Kailash Mansarovar Yatra Packages";
+    description =
+      "Plan your next journey with Hi Nepal Treks. Discover profound cultural experiences in Nepal, thrilling travel to Tibet, and the spiritual Kailash Mansarovar Yatra.";
   }
   return {
     title: responseData?.data?.seo?.metaTitle || title,
@@ -81,39 +82,33 @@ export default async function ActivitySingle({
           }}
         ></script>
       )}
-      <div className="p-2 flex flex-col gap-4">
+      <div className="flex flex-col gap-2">
         {activity == "tours" && (
           <div>
-            <div className="p-4 relative bg-cover bg-center flex items-start md:items-center  md:justify-center  border-b border-black flex-col">
+            <div className=" p-4 relative bg-cover bg-center flex items-start md:items-center  md:justify-center  border-b border-black flex-col  bg-[#008236] text-white">
               <h1 className="font-bold text-4xl lg:text-6xl">
                 {activity.charAt(0).toUpperCase() + activity.slice(1)}
               </h1>
-              <p className="text-left md:text-center  mt-4 italic text-xl py-4">
+              <p className="text-left md:text-center  mt-4 text-xl py-4">
                 Enhance your journey with one of the best Nepal tour packages.
                 Learn about Nepal's unique culture, traditional rituals,
                 friendly people, and stunning natural and manmade attractions
                 with a planned{" "}
-                <Link
-                  className="text-green-700"
-                  href={
-                    "https://hinepaltreks.com/activities/tours/nature-wildlife"
-                  }
-                >
-                  nature
-                </Link>{" "}
-                and{" "}
-                <Link
-                  className="text-green-700"
-                  href={
-                    "https://hinepaltreks.com/activities/tours/multi-days-tour"
-                  }
-                >
-                  multi-day Nepal tour packages
-                </Link>{" "}
+                <HLinkComp
+                  text="nature"
+                  href="/nature-wildlife"
+                  linkColor="white"
+                />
+                and
+                <HLinkComp
+                  text="multi-day Nepal tour package"
+                  href="/multi-days-tour"
+                  linkColor="white"
+                />
                 to make your trip memorable.
               </p>
               <div className="lg:px-32 flex flex-col gap-2 px-4 pt-4">
-                <div className="flex items-center gap-1 text-green-700">
+                <div className="flex items-center gap-1 text-white underline">
                   <Link href={"/"}>Home</Link>
                   <LucideChevronRight />{" "}
                   <Link href={`/activities/${activity}`}>
@@ -126,43 +121,37 @@ export default async function ActivitySingle({
           </div>
         )}
         {activity == "trekking" && (
-          <div className="p-4 relative bg-cover bg-center flex md:items-center md:justify-center  border-b border-black flex-col">
+          <div className="p-4 relative bg-cover bg-center flex md:items-center md:justify-center  border-b border-black flex-col bg-green-700 text-white">
             <h1 className="font-bold text-4xl lg:text-6xl">
               {activity.charAt(0).toUpperCase() + activity.slice(1)}
             </h1>
-            <p className="text-left md:text-center  mt-4 italic text-xl">
+            <p className="text-left md:text-center  mt-4 text-xl">
               Embark some of the best trekking in Nepal, exploring the Himalayan
               regions, strolling around some of the highest peaks such as Mount
               Everest, Annapurna, Manaslu, and many more. Nepal is home to 8 out
               of 14 8000+ m high peaks of the world. With the planned base camp
               trekking in Nepal, including
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/everest-base-camp-trek"}
-              >
-                {" "}
-                Everest Base Camp
-              </Link>
+              <HLinkComp
+                text="Everest Base Camp"
+                href="/everest-base-camp-trek"
+                linkColor="white"
+              />
               ,
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/annapurna-base-camp-trek"}
-              >
-                {" "}
-                Annapurna Base Camp{" "}
-              </Link>
+              <HLinkComp
+                text="Annapurna Base Camp"
+                href="/annapurna-base-camp-trek"
+                linkColor="white"
+              />
               ,
-              <Link
-                className="text-green-700"
-                href={"https://hinepaltreks.com/north-annapurna-base-camp-trek"}
-              >
-                {" "}
-                North Annapurna Base Camp
-              </Link>
+              <HLinkComp
+                text="North Annapurna Base Camp"
+                href="/north-annapurna-base-camp-trek"
+                linkColor="white"
+              />
               , and others, you can witness these snow-crowned mountains.
             </p>
             <div className="lg:px-32 flex flex-col gap-2 px-4 pt-4">
-              <div className="flex items-center gap-1 text-green-700">
+              <div className="flex items-center gap-1 text-white underline">
                 <Link href={"/"}>Home</Link>
                 <LucideChevronRight />{" "}
                 <Link href={`/activities/${activity}`}>
@@ -174,11 +163,11 @@ export default async function ActivitySingle({
           </div>
         )}
         {activity == "destination" && (
-          <div className="p-4 relative bg-cover bg-center flex md:items-center md:justify-center  border-b border-black flex-col">
+          <div className="p-4 relative bg-cover bg-center flex md:items-center md:justify-center  border-b border-black flex-col bg-green-700 text-white min-h-[300px]">
             <h1 className="font-bold text-4xl lg:text-6xl">
               {activity.charAt(0).toUpperCase() + activity.slice(1)}
             </h1>
-            <p className="text-left md:text-center  mt-4 italic text-xl">
+            <p className="text-left md:text-center  mt-4 text-xl">
               Experience the spiritual and cultural wonders of the Himalayas
               with journeys to Kailash Mansarovar, Tibet, and Bhutan. The sacred
               pilgrimages, serene Buddhist monasteries, breathtaking Himalayan
@@ -187,7 +176,8 @@ export default async function ActivitySingle({
             </p>
           </div>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 lg:px-24 p-2">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 lg:p-12 p-2 container mx-auto">
           {data &&
             /*@ts-ignore*/
             data?.length > 0 &&
@@ -195,40 +185,34 @@ export default async function ActivitySingle({
             data.map((d: any) => {
               return (
                 // <Link key={d.slug} href={`${activity}/${d.slug}`}>
-                  <TrekkingCard
-                    activity={false}
-                    slug={d.slug}
-                    title={d.name}
-                    image={d.image}
-                  />
+                <TrekkingCard
+                  activity={false}
+                  slug={d.slug}
+                  title={d.name}
+                  image={d.image}
+                />
                 // </Link>
               );
             })}
         </div>
-        <div>
+
+        <div className="container mx-auto p-2">
           {activity == "tours" && (
-            <div className="container mx-auto  text-justify p-2 md:p-8 text-xl">
+            <div className=" text-justify text-xl">
               Nepal is a stunning place located in South Asia. Situated between
               two giant countries, China and India, this heavenly country offers
               various tour packages from{" "}
-              <Link
-                className="text-green-700"
-                href={
-                  "https://hinepaltreks.com/activities/tours/multi-days-tour"
-                }
-              >
-                {" "}
-                one-day tours
-              </Link>
-              to{" "}
-              <Link
-                className="text-green-700"
-                href={
-                  "https://hinepaltreks.com/activities/tours/multi-days-tour"
-                }
-              >
-                multi-day Nepal tours
-              </Link>
+              <HLinkComp
+                text="one-day tours"
+                href="/multi-days-tour"
+                linkColor="green-700"
+              />
+              to
+              <HLinkComp
+                text="multi-day Nepal tours"
+                href="/multi-days-tour"
+                linkColor="green-700"
+              />
               . <br />
               From a short hike in Pokhara, such as the{" "}
               <Link
@@ -355,7 +339,7 @@ export default async function ActivitySingle({
             </div>
           )}
           {activity == "destination" && (
-            <p className="container mx-auto text-justify p-2 md:p-8 text-xl">
+            <p className="text-justify py-8 text-xl">
               Explore the mystical beauty of the Himalayas beyond the borders of
               Nepal with a{" "}
               <Link

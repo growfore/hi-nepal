@@ -12,7 +12,7 @@ export default function Partners() {
   ];
   return (
     <div className="flex flex-col items-center">
-      <p className='text-orange-500 text-sm font-semibold uppercase relative pl-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500'>
+      <p className='text-orange-500 text-sm font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
         we are associated with
       </p>
       <div className="container grid grid-cols-2 md:grid-cols-5 px-8 justify-center items-center mx-auto">

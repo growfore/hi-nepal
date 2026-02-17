@@ -125,6 +125,7 @@ export type TPackages = {
   duration: string;
   thumbnail: string;
   thumbnailImageAlt?: string;
+  tripGrade?:string;
 
   groupSize: number;
   destination: {

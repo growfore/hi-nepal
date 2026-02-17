@@ -1,4 +1,3 @@
-import React from "react";
 import {
   DollarSign,
   MapPin,
@@ -10,11 +9,13 @@ import {
   Hotel,
   Plane,
   Ticket,
+  Info,
 } from "lucide-react";
 import { ServiceCard } from "@/components/molecules/service-card";
 import { Metadata } from "next";
 import Team from "@/components/organisms/team";
 import { ReviewCarousel } from "@/components/hero-carousel";
+import PageHeroSection from "@/components/page-hero-section";
 
 export const metadata: Metadata = {
   title: "About - Hi Nepal Travels & Treks",
@@ -37,29 +38,17 @@ export const metadata: Metadata = {
 const About = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHeroSection title="About Us" icon={Info} />
       <main className="grow">
-        {/* Inner Banner Section */}
-        <section className="p-4 relative bg-cover bg-center flex items-center md:justify-center ">
-          <div className="flex flex-col md:items-center">
-            <h1 className="font-bold text-4xl lg:text-7xl py-8">About Us</h1>
-            {/* <p className="text-left italic text-xl">Experience the adventure sport of a lifetime amidst the Himalayas, where every thrill comes with breathtaking views.</p> */}
-          </div>
-        </section>
-
         {/* About Service Section */}
         <section className="">
           <div className="container mx-auto px-4">
-            <div className="mb-12 md:mb-16">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
-                <div className="">
-                  <h5 className='text-orange-500 text-sm font-semibold uppercase relative pl-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500'>
-                    ABOUT US
-                  </h5>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight mt-2">
-                    Your Trusted Partner for Unforgettable Nepal Adventures
-                  </h2>
-                </div>
-                <div className="text-gray-600 text-base md:text-lg leading-relaxed space-y-4">
+            <div className="">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 items-end">
+                <h2 className="text-2xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight mt-2">
+                  Your Trusted Partner for Unforgettable Nepal Adventures
+                </h2>
+                <div className="text-base md:text-lg leading-relaxed space-y-4">
                   <p>
                     Hi Nepal Travels and Treks Pvt. Ltd. is a certified trekking
                     and travel agency, known for its years of high-quality

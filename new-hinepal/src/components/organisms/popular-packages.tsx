@@ -2,7 +2,11 @@ import { TPackages } from "@/types/types";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
-const PackageCard = dynamic(() => import("@/components/molecules/package-card"), { ssr: false });
+import HLinkComp from "../atoms/link-component";
+const PackageCard = dynamic(
+  () => import("@/components/molecules/package-card"),
+  { ssr: false },
+);
 
 const PopularPackages = async ({ packages }: { packages: TPackages }) => {
   return (
@@ -35,20 +39,13 @@ const PopularPackages = async ({ packages }: { packages: TPackages }) => {
               >
                 Annapurna Base Camp
               </Link>
-              ,{" "}
-              <Link
-                href={"https://hinepaltreks.com/annapurna-circuit-trek"}
-                className="text-green-700 underline"
-              >
-                Annapurna Circuit
-              </Link>
+              ,
+              <HLinkComp
+                href="/annapurna-circuit-trek"
+                text="Annapurna Circuit"
+              />
               , and
-              <Link
-                href={"https://hinepaltreks.com/manaslu-circuit-trek"}
-                className="text-green-700 underline"
-              >
-                Manaslu Circuit
-              </Link>{" "}
+              <HLinkComp href="/manaslu-circuit-trek" text="Manaslu Circuit" />
               treks. Enhance your trekking experience with the best trekking,
               tours & travel agency in Nepal while strolling between
               high-standing snow-capped mountains and stunning natural and
@@ -73,7 +70,6 @@ const PopularPackages = async ({ packages }: { packages: TPackages }) => {
             ))}
           </div>
           <div className="flex flex-col justify-center items-center my-12">
-            <small className="mb-4">Explore More</small>
             <div className="text-center flex flex-col md:flex-row items-center gap-4 justify-center">
               <Link
                 href="/activities/trekking"

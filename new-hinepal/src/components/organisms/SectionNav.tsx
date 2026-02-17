@@ -86,7 +86,7 @@ export default function SectionNav({ navigation }: Props) {
               }}
               className={`shrink-0 px-4 py-3 rounded-none flex items-center gap-2 ${
                 activeId === nav.id
-                  ? "bg-green-600 text-white"
+                  ? "bg-green-700 text-white"
                   : "text-white"
               }`}
             >

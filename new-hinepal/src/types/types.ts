@@ -120,6 +120,7 @@ export type TActivity = {
 
 export type TPackages = {
   id: number;
+  banner?: string;
   title: string;
   description: string;
   duration: string;

@@ -34,7 +34,7 @@ export default function ReviewSection() {
                 src={"/assets/tripadvisor-logo.webp"}
                 alt="Tripadvisor reviews"
               />
-              <p className="text-sm md:text-lg">Reviews: 5/5 (122+ Reviews)</p>
+              <p className="text-sm md:text-lg">Reviews: 5/5 (123+ Reviews)</p>
             </Link>
           </div>
           <div className="space-y-4">

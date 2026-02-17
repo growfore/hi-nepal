@@ -22,7 +22,7 @@ export default function TrustBadge() {
           ))}
         </div>
       </div>
-      <div>122+ Reviews (Recommended by 100% of Travelers)</div>
+      <div>123+ Reviews (Recommended by 100% of Travelers)</div>
     </Link>
   );
 }

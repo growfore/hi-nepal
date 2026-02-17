@@ -36,7 +36,7 @@ export default function BottomNav({
           <Link href={`/booking?destination=${destination}`}>
             <Button
               size="lg"
-              className="text-base md:text-lg px-4 py-2 md:px-6 md:py-3 bg-black hover:bg-orange-500 rounded-lg"
+              className="text-base md:text-lg px-4 py-2 md:px-6 md:py-3 hover:bg-green-700 bg-orange-500 rounded-3xl cursor-pointer" 
             >
               Book Now
             </Button>

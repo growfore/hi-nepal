@@ -171,7 +171,7 @@ export async function Footer() {
                           className="size-4 bg-green-500 rounded-full ml-1"
                         />
                       ))}
-                      <span className="ml-4"> Reviews: </span> 5/5 (122+
+                      <span className="ml-4"> Reviews: </span> 5/5 (123+
                       Reviews)
                     </div>
                   </div>

@@ -305,7 +305,7 @@ const Activities = async ({ params }: { params: Params }) => {
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "5",
-        reviewCount: "122",
+        reviewCount: "123",
       },
     };
   }
@@ -320,7 +320,7 @@ const Activities = async ({ params }: { params: Params }) => {
     allImages = [details?.thumbnail, ...galleryImages];
   }
 
-  const sectionStyle = "scroll-mt-42 py-4 my-4 border-b border-gray-300";
+  const sectionStyle = "scroll-mt-42 py-4 my-4 border-gray-300";
 
   return (
     <>

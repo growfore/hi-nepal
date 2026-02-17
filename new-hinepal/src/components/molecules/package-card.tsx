@@ -1,7 +1,7 @@
 import { TDestinationSingle, TPackages } from "@/types/types";
 import Link from "next/link";
 import React from "react";
-import { LucideClock } from "lucide-react";
+import { LucideCircle, LucideClock, LucideStar } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { placeholderImage } from "@/utils/placeholder-image";
@@ -12,6 +12,7 @@ type TProps = {
   showRegion?: boolean;
 };
 
+const STARS = [0, 1, 2, 3, 4];
 const PackageCard = (props: TProps) => {
   const { item, showRegion = true } = props;
 
@@ -34,7 +35,7 @@ const PackageCard = (props: TProps) => {
                      (max-width: 1200px) 50vw,
                      33vw"
             className="w-full h-full object-cover rounded-t-md"
-            src={item?.thumbnail}
+            src={item?.thumbnail ?? item?.banner}
             alt={item?.thumbnailImageAlt || item.title || "Package thumbnail"}
           />
         </Link>
@@ -42,27 +43,50 @@ const PackageCard = (props: TProps) => {
         <div className="p-4">
           <h3 className="text-2xl font-bold text-dark-blue-900 mb-2 h-12">
             <Link title={item.title} href={`/${item.slug}`} prefetch={false}>
-              {item.title.split(":")[0].length > 40 ? item.title.split(":")[0].substring(0,40) + "..." : item.title.split(":")[0]}
+              {item.title.split(":")[0].length > 40
+                ? item.title.split(":")[0].substring(0, 40) + "..."
+                : item.title.split(":")[0]}
             </Link>
           </h3>
           <div className="flex gap-1 justify-between items-center">
             <div className="flex gap-1 flex-col">
               {showRegion && <p>{item?.destination?.name}</p>}
-              <p className="flex gap-1 items-center">
-                <LucideClock strokeWidth={1} />
-                <span>{item?.duration ?? "-"} Day(s)</span>
+              <p className="flex gap-1 items-center justify-center">
+                {STARS.map((_, idx) => {
+                  return (
+                    <LucideStar
+                      key={idx}
+                      fill="orange"
+                      stroke="orange"
+                      size={16}
+                    />
+                  );
+                })}
+                Rated 4.9/5
               </p>
             </div>
 
-            <Link href={`/booking?destination=${item?.slug}`} prefetch={false}>
+            <Link
+              target="_blank"
+              href={`/booking?destination=${item?.slug}`}
+              prefetch={false}
+            >
               <Button
                 size={"lg"}
-                className="rounded-full hover:bg-orange-600 cursor-pointer mt-4"
+                className="rounded-full bg-orange-500 hover:bg-green-700 cursor-pointer mt-4"
               >
                 Book Now
               </Button>
             </Link>
           </div>
+          <p className="flex gap-1 items-center">
+            <LucideClock strokeWidth={1} />
+            <span>
+              {Number.isFinite(+item?.duration)
+                ? item?.duration + " Day(s)"
+                : item?.duration}
+            </span>
+          </p>
         </div>
       </div>
     </div>

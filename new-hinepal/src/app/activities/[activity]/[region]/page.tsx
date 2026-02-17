@@ -145,8 +145,8 @@ export default async function RegionPage({
           }}
         ></script>
       )}
-      <div className="flex flex-col gap-4 p-4">
-        <div className="md:min-h-[40vh]  flex flex-col  md:p-8 md:items-center border-b-2 border-black bg-green-700 text-white">
+      <div className="flex flex-col gap-4">
+        <div className="md:min-h-[40vh]  p-4 flex flex-col  md:p-8 md:items-center border-b-2 border-black bg-green-700 text-white">
           <h1 className="font-bold text-4xl lg:text-6xl">
             {region.includes("wildlife")
               ? "Nature and Wildlife Tours"
@@ -493,7 +493,7 @@ export default async function RegionPage({
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:px-32">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:px-32 p-4">
           {data &&
             /* @ts-ignore */
             data?.length > 0 &&
@@ -524,7 +524,7 @@ export default async function RegionPage({
      ***
      ***
     *****/}
-        <div className="p-1 md:px-12 lg:px-24">
+        <div className="p-4 md:px-12 lg:px-24">
           {region.includes("bhutan") && (
             <p className="text-justify text-xl">
               Step into Bhutan, the last Himalayan Kingdom, where ancient

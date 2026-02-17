@@ -42,7 +42,7 @@ const PackageCard = (props: TProps) => {
         <div className="p-4">
           <h3 className="text-2xl font-bold text-dark-blue-900 mb-2 h-12">
             <Link title={item.title} href={`/${item.slug}`} prefetch={false}>
-              {item.title.split(":")[0]}
+              {item.title.split(":")[0].length > 40 ? item.title.split(":")[0].substring(0,40) + "..." : item.title.split(":")[0]}
             </Link>
           </h3>
           <div className="flex gap-1 justify-between items-center">

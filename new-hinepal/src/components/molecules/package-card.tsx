@@ -24,7 +24,7 @@ const PackageCard = (props: TProps) => {
 
   return (
     <div className="">
-      <div className="w-full sm:min-w-[340px] max-w-[340px] lg:max-w-[380px] pb-4  bg-white rounded-md shadow-sm  hover:-translate-y-0.5 overflow-hidden hover:shadow-md transition-all duration-300 relative">
+      <div className="w-full sm:min-w-[340px] md:min-w-[380px] max-w-[380px] lg:max-w-[380px] pb-4  bg-white rounded-md shadow-sm  hover:-translate-y-0.5 overflow-hidden hover:shadow-md transition-all duration-300 relative">
         {/* <figure className="w-full h-56 relative overflow-hidden object-cover"> */}
         <Link
           aria-label={item.title}

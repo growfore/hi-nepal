@@ -22,7 +22,6 @@ const PopularDestinations = async () => {
   });
   const data = topDestinations;
 
-  console.log("regins:", data);
   const order = [
     "Everest Region",
     "Annapurna Region",

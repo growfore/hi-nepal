@@ -1278,7 +1278,7 @@ export default async function RegionPage({
               . Enjoy your short day-tours in Nepal with the One of the{" "}
               <Link
                 className="text-green-700"
-                href={"https://hinepaltreks.com/assets/hinepal-logo.webp"}
+                href={"https://hinepaltreks.com"}
               >
                 {" "}
                 best trekking agencies in Nepal

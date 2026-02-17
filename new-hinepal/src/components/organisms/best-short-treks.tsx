@@ -18,7 +18,7 @@ const BestShortTreks = ({ packages }: { packages: any[] }) => {
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold  leading-tight">
               Best Short Treks in Nepal
             </h2>
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
+            <p className="text-base md:text-lg leading-relaxed mt-4">
               Looking for the best yet short trekking options in Nepal? Hi Nepal
               Travels and Treks, a reliable trekking agency in Nepal, based in
               Pokhara, offers well-planned itineraries for some of the most

@@ -141,7 +141,7 @@ const About = () => {
                 <h2 className="text-xl md:text-2xl lg:text-4xl font-extrabold text-dark-blue-900 leading-tight mt-2">
                   Crafting Stories of Adventure, Joy, and Growth
                 </h2>
-                <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
+                <p className="text-base md:text-lg leading-relaxed mt-4">
                   We aim to provide you with high-quality, safe, and sustainable
                   travel experiences that will enhance your journey with us. We
                   believe travel is more than just visiting places; it's about

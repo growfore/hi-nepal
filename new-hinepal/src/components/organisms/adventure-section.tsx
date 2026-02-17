@@ -14,7 +14,7 @@ export default function AdventureSection() {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight mt-2">
               Thrilling Adventure Sports in Nepal
             </h2>
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
+            <p className="text-base md:text-lg leading-relaxed mt-4">
               Experience heart-pounding{" "}
               <HLinkComp
                 text="adventure activities in Nepal"

@@ -18,7 +18,7 @@ const TenDaysPlusTreks = ({ packages }: { packages: any[] }) => {
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold  leading-tight">
               10 Days Plus Treks in Nepal
             </h2>
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
+            <p className="text-base md:text-lg leading-relaxed mt-4">
 
               Nepal offers everything from beginner-friendly routes to some of the most challenging and long trekking trails in the world, including the
               <HLinkComp comma href="/annapurna-circuit-trek" text="Annapurna Circuit Trek" />

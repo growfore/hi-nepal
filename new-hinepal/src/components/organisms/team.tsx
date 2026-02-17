@@ -10,7 +10,7 @@ const Team = () => {
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold  leading-tight">
             Our Team
           </h2>
-          <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
+          <p className=" text-base md:text-lg leading-relaxed mt-4">
             Meet the dedicated professionals of the best local trekking company
             in Nepal, who make your travel dreams a reality.
           </p>

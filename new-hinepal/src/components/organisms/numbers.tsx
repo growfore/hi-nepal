@@ -34,7 +34,7 @@ const Numbers = () => {
                 GO TRAVEL. DISCOVER. REMEMBER US!!
               </p>
               <p className="text-white text-base md:text-lg leading-relaxed mt-4">
-                Discover Nepal with Ni Nepal Travels and Treks Pvt. Ltd.—where
+                Discover Nepal with Hi Nepal Travels and Treks Pvt. Ltd.—where
                 every journey blends adventure, culture, and comfort. Explore
                 more, worry less, travel smart.
               </p>

@@ -20,7 +20,7 @@ const Gallery = ({
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight mt-2">
                 {siteInformation?.about?.title ?? "Explore Our Gallery"}
               </h2>
-              <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
+              <p className=" text-base md:text-lg leading-relaxed mt-4">
                 Hi Nepal Travels & Treks Pvt. Ltd., the leading tours and travel
                 agency in Pokhara, Nepal with over 20 years of experience,
                 offers unforgettable trekking, adventure, and tour experiences

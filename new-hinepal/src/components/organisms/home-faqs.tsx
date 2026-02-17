@@ -157,7 +157,7 @@ export function HomeFAQs() {
             <AccordionContent className="flex flex-col gap-4 text-balance">
               <p className="text-lg">
                 Nepal’s flag is the most unique flag in the world. It’s a red
-                two-rectangle flag with a blue border, with a white sun and a
+                two-triangle flag with a blue border, with a white sun and a
                 mix of half sun and moon in the middle of each triangle.
               </p>
             </AccordionContent>

@@ -22,12 +22,14 @@ const PopularDestinations = async () => {
   });
   const data = topDestinations;
 
+  console.log("regins:", data);
   const order = [
     "Everest Region",
     "Annapurna Region",
     "Manaslu Region",
     "Langtang Region",
     "Dolpo Region",
+    "Kanchenjunga Region",
   ];
 
   const sorted = data
@@ -40,31 +42,39 @@ const PopularDestinations = async () => {
         <div className="grid gap-8 md:gap-4  mb-12 md:mb-16 flex-col justify-center text-center">
           <div className="">
             <p className='text-orange-500 text-sm font-semibold uppercase relative inline-block px-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-0.5 before:bg-orange-500 after:content-[""] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-6 after:h-0.5 after:bg-orange-500'>
-            POPULAR DESTINATIONS
+              POPULAR DESTINATIONS
             </p>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight">
               Trekking Regions in Nepal
             </h2>
           </div>
-          <div className="text-gray-600 text-base md:text-lg leading-relaxed text-justify">
-            Trekking Regions in Nepal
-
-            Nepal is home to some of the world’s most diverse and iconic <HLinkComp text="trekking" href="/activities/trekking" />
-            regions, and Hi Nepal Travels & Treks Pvt. Ltd. is a trusted trekking company in Nepal, specializing in unforgettable trekking,
+          <div className=" text-base md:text-lg leading-relaxed text-justify">
+            Nepal is home to some of the world’s most diverse and iconic{" "}
+            <HLinkComp text="trekking" href="/activities/trekking" />
+            regions, and Hi Nepal Travels & Treks Pvt. Ltd. is a trusted
+            trekking company in Nepal, specializing in unforgettable trekking,
             <HLinkComp href="/activities/tours" text="tours" /> and
-            <HLinkComp href="/adventure" text="adventure" /> experiences across the country.
-            As an experienced trekking and travel agency in Nepal, we offer expertly guided treks, customized itineraries, and seamless travel services tailored to every type of traveler.
-
-            From the legendary <HLinkComp text="Everest" href="/everest-region" />trekking region to the scenic
-            <HLinkComp text="Annapurna" href="/annapurna-region" /> trekking region, and from cultural journeys in the
+            <HLinkComp href="/adventure" text="adventure" /> experiences across
+            the country. As an experienced trekking and travel agency in Nepal,
+            we offer expertly guided treks, customized itineraries, and seamless
+            travel services tailored to every type of traveler. From the
+            legendary <HLinkComp text="Everest" href="/everest-region" />
+            trekking region to the scenic
+            <HLinkComp text="Annapurna" href="/annapurna-region" /> trekking
+            region, and from cultural journeys in the
             <HLinkComp href="/pokhara-valley-tour" text="Pokhara" /> and
-            <HLinkComp text="Kathmandu" href="/kathmandu-tour-package" /> valleys to remote Himalayan trails, we cover the most popular trekking regions in Nepal. Based in Pokhara, Hi Nepal Travels & Treks is a reliable travel agency in Nepal, offering access to a wide range of heavenly trekking and travel destinations throughout the country.
+            <HLinkComp text="Kathmandu" href="/kathmandu-tour-package" />{" "}
+            valleys to remote Himalayan trails, we cover the most popular
+            trekking regions in Nepal. Based in Pokhara, Hi Nepal Travels &
+            Treks is a reliable travel agency in Nepal, offering access to a
+            wide range of heavenly trekking and travel destinations throughout
+            the country.
           </div>
         </div>
         <div className="grid gap-8">
           <div className="">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {sorted.slice(0, 5).map((d, index) => {
+              {sorted.slice(0, 6).map((d, index) => {
                 return (
                   <Link
                     key={d.slug}

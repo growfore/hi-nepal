@@ -14,7 +14,7 @@ const PopularTours = ({ packages }: { packages: any[] }) => {
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold  leading-tight">
               Popular Tours in Nepal
             </h2>
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
+            <p className=" text-base md:text-lg leading-relaxed mt-4">
               Nepal is not just about the Himalayan trekking, with the best
               planned{" "}
               <Link

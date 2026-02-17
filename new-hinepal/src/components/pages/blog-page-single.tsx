@@ -38,7 +38,7 @@ export function BlogPage({ blog }: Readonly<{ blog: TBlog }>) {
                   className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight"
                   dangerouslySetInnerHTML={{ __html: blog.title }}
                 ></h1>
-                <div className="flex items-center gap-4 text-sm text-gray-600">
+                <div className="flex items-center gap-4 text-sm">
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center p-2">
                       <LucideUser className="text-white" />

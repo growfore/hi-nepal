@@ -17,7 +17,7 @@ const PopularPackages = async ({ packages }: { packages: TPackages }) => {
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight">
               Top 6 Treks in Nepal 2026
             </h2>
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
+            <p className="text-base md:text-lg leading-relaxed mt-4">
               Are you looking for premium trekking or tour packages with a
               reliable trekking & travel agency in Pokhara, Nepal? Get the best
               Nepal tour package with the best tour and travel company in Nepal.

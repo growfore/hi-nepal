@@ -24,7 +24,7 @@ const PackageCard = (props: TProps) => {
 
   return (
     <div className="">
-      <div className="w-full sm:min-w-[380px] max-w-[340px] lg:max-w-[380px] pb-4  bg-white rounded-md shadow-sm  hover:-translate-y-0.5 overflow-hidden hover:shadow-md transition-all duration-300 relative">
+      <div className="w-full sm:min-w-[340px] max-w-[340px] lg:max-w-[380px] pb-4  bg-white rounded-md shadow-sm  hover:-translate-y-0.5 overflow-hidden hover:shadow-md transition-all duration-300 relative">
         {/* <figure className="w-full h-56 relative overflow-hidden object-cover"> */}
         <Link
           aria-label={item.title}
@@ -57,7 +57,7 @@ const PackageCard = (props: TProps) => {
           <div className="flex gap-1 justify-between items-center">
             <div className="flex gap-1 flex-col">
               {showRegion && <p>{item?.destination?.name}</p>}
-              <p className="flex  gap-1 items-start justify-center pb-1">
+              <div className="flex  gap-1 items-start justify-center pb-1">
                 <div className="flex flex-row">
                   {STARS.map((_, idx) => {
                     return (
@@ -71,7 +71,7 @@ const PackageCard = (props: TProps) => {
                   })}
                 </div>
                 <span className="text-sm">Rated {getRatingFromTitle(item.title)}/5</span>
-              </p>
+              </div>
             </div>
 
             <Link

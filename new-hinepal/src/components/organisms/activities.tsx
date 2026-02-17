@@ -39,7 +39,7 @@ const Activities = async () => {
             <h2 className='text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark-blue-900 leading-tight mt-2'>
               ADVENTURE &amp; ACTIVITY
             </h2>
-            <p className='text-gray-600 text-base md:text-lg leading-relaxed mt-4'>
+            <p className='text-base md:text-lg leading-relaxed mt-4'>
               Hi Nepal Travels & Treks is a premier travel agency specializing
               in unforgettable trekking and adventure experiences across
               Nepal.
@@ -58,7 +58,7 @@ const Activities = async () => {
                 <p className='text-lg font-semibold text-dark-blue-900 mb-1'>
                   <Link href={`/activities/${activity.slug}`}>{activity.name}</Link>
                 </p>
-                <p className='text-gray-600 text-sm'>{activity._count.destinations} Destination</p>
+                <p className=' text-sm'>{activity._count.destinations} Destination</p>
               </div>
             </div>
           ))}

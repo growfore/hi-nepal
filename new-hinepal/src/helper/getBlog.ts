@@ -49,14 +49,18 @@ export async function getBlogs(page = 1, perPage = 10, includeMedia = true) {
     totalPages: Number(totalPages),
   };
 }
-
 export async function getBlogSingle(slug: string) {
   const res = await fetch(
     `https://blogs.hinepaltreks.com/cms/wp-json/wp/v2/posts?slug=${slug}&_fields=id,title,content,slug,date,modified,featured_media,rank_math_meta`,
     { next: { revalidate: 3600 * 7 } }
   );
+
   const data = await res.json();
+  console.log("DATA: ", data)
+
   const post = data[0];
+  console.log("POST:", post)
+
   if (!post) return null;
 
   let image = "";
@@ -77,9 +81,9 @@ export async function getBlogSingle(slug: string) {
 
   return {
     id: post.id,
-    title: post.title?.rendered || post.rank_math_meta?.title || "",
-    metaTitle: post.rank_math_meta?.title || "",
-    content: post.content?.rendered || "",
+    title: post.title?.rendered || post.rank_math_meta?.title,
+    metaTitle: post.rank_math_meta?.title || post?.title.rendered,
+    content: post.content?.rendered,
     description: post.rank_math_meta?.description || "",
     date: post.date,
     updatedAt: post.modified,

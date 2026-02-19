@@ -170,6 +170,8 @@ const Activities = async ({ params }: { params: Params }) => {
   let blog = await getBlogSingle(params.slug);
   let schema;
 
+  console.log("Blog: ", blog)
+
   if (blog) {
     schema = {
       "@context": "http://schema.org",

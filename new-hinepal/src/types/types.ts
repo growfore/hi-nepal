@@ -227,10 +227,10 @@ export type TBlog = {
   id: string,
   title: string,
   content: string,
-  description: string,
   date: string,
   updatedAt: string,
   slug: string,
   image?: any,
   imageAlt?:string
+  rankMathHead: string;
 }

@@ -1,5 +1,6 @@
 export async function getBlogs(page = 1, perPage = 10, includeMedia = true) {
   const res = await fetch(
+
     `https://blogs.hinepaltreks.com/cms/wp-json/wp/v2/posts?per_page=${perPage}&page=${page}&_fields=id,title,slug,excerpt,date,featured_media`,
     { next: { revalidate: 3600 * 7 } }
   );
@@ -14,6 +15,7 @@ export async function getBlogs(page = 1, perPage = 10, includeMedia = true) {
       let image: string | null = null;
       let imageAlt: string | null = null;
 
+      // only fetch media details when explicitly requested
       if (includeMedia && post.featured_media) {
         try {
           const imgRes = await fetch(
@@ -23,7 +25,8 @@ export async function getBlogs(page = 1, perPage = 10, includeMedia = true) {
           const imgData = await imgRes.json();
           image = imgData.source_url || null;
           imageAlt = imgData.alt_text || null;
-        } catch {
+        } catch (e: any) {
+          // don't fail entire operation for a single media fetch
           image = null;
           imageAlt = null;
         }
@@ -35,7 +38,7 @@ export async function getBlogs(page = 1, perPage = 10, includeMedia = true) {
         slug: post.slug,
         excerpt: post.excerpt.rendered,
         date: post.date,
-        image,
+        image: image,
         imageAlt,
       };
     })
@@ -47,28 +50,20 @@ export async function getBlogs(page = 1, perPage = 10, includeMedia = true) {
     totalPages: Number(totalPages),
   };
 }
-
 export async function getBlogSingle(slug: string) {
   const res = await fetch(
-    `https://blogs.hinepaltreks.com/cms/wp-json/wp/v2/posts?slug=${slug}&_fields=id,title,content,slug,date,modified,featured_media`,
+    `https://blogs.hinepaltreks.com/cms/wp-json/wp/v2/posts?slug=${slug}&_fields=id,title,content,slug,date,modified,featured_media,rank_math_meta`,
     { next: { revalidate: 3600 * 7 } }
   );
+
   const data = await res.json();
+  console.log("DATA: ", data)
+
   const post = data[0];
+  console.log("POST:", post)
+
   if (!post) return null;
 
-  let rankMathHead = "";
-  try {
-    const rankRes = await fetch(
-      `https://blogs.hinepaltreks.com/cms/wp-json/rankmath/v1/getHead?url=https://blogs.hinepaltreks.com/cms/${post.slug}/`
-    );
-    const rankData = await rankRes.json();
-    rankMathHead = rankData.head;
-  } catch {
-    rankMathHead = "";
-  }
-
-  // Fetch featured media
   let image = "";
   let imageAlt = "";
   if (post.featured_media) {
@@ -80,21 +75,22 @@ export async function getBlogSingle(slug: string) {
       const imgData = await imgRes.json();
       image = imgData.source_url || "";
       imageAlt = imgData.alt_text || "";
-    } catch {
-      image = "";
-      imageAlt = "";
+    } catch (e: any) {
+      throw new Error(`Failed to fetch featured media for post ${post.id}`, e);
     }
   }
 
   return {
     id: post.id,
-    title: post.title?.rendered || "",
-    content: post.content?.rendered || "",
+    title: post.title?.rendered || post.rank_math_meta?.title,
+    metaTitle: post.rank_math_meta?.title || post?.title.rendered,
+    content: post.content?.rendered,
+    description: post.rank_math_meta?.description || "",
     date: post.date,
     updatedAt: post.modified,
     slug: post.slug,
+    keywords: post.rank_math_meta?.keywords,
     image,
     imageAlt,
-    rankMathHead, 
   };
 }

@@ -33,6 +33,7 @@ import { placeholderImage } from "@/utils/placeholder-image";
 import { rubik } from "@/utils/fonts";
 import { cleanEditorHtml, unwrapSpans } from "@/utils/cleanEditorHtml";
 import PackageCard from "@/components/molecules/package-card";
+import { parseRankMathHead } from "@/helper/parse-rankmath";
 const ImageGallery = dynamicImport(() => import("@/components/iti-gallery"));
 const TalkToExpertCard = dynamicImport(
   () => import("@/components/organisms/talk-to-expert-card"),
@@ -59,13 +60,14 @@ export async function generateMetadata({
 
   const blog = await getBlogSingle(slug);
   if (blog) {
+    const seo = parseRankMathHead(blog.rankMathHead);
     return {
-      title: blog.metaTitle,
-      description: blog.description,
+      title: seo.title || seo.ogTitle || blog.title || "",
+      description: seo.description || seo.ogDescription || "",
       alternates: {
         canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/" + blog.slug,
       },
-      keywords: blog.keywords || undefined,
+      keywords: seo.keywords || undefined,
       robots: {
         index: true,
         follow: true,
@@ -74,8 +76,8 @@ export async function generateMetadata({
         "max-video-preview": -1,
       },
       openGraph: {
-        title: blog.title,
-        description: blog.description,
+        title: seo.ogTitle || blog.title,
+        description: seo.ogDescription,
         images: [
           {
             url: blog.image,
@@ -170,28 +172,8 @@ const Activities = async ({ params }: { params: Params }) => {
   let blog = await getBlogSingle(params.slug);
   let schema;
 
-  console.log("Blog: ", blog)
-
   if (blog) {
-    schema = {
-      "@context": "http://schema.org",
-      "@type": "BlogPosting",
-      mainEntityOfPage: {
-        "@type": "WebPage",
-        "@id": `https://hinepaltreks.com/blogs/${blog.slug}`,
-      },
-      //   @ts-ignore
-      headline: blog?.rank_math_meta?.title | blog.title,
-      //   @ts-ignore
-      description: blog?.rank_math_meta?.description | blog.description,
-      image: blog.image,
-      author: {
-        "@type": "Person",
-        name: "Hi Nepal Treks and Expeditions",
-      },
-      datePublished: blog.date,
-      dateModified: blog.updatedAt,
-    };
+    schema = blog.rankMathHead;
   }
 
   if (blog) {
@@ -202,7 +184,7 @@ const Activities = async ({ params }: { params: Params }) => {
             strategy="lazyOnload"
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify(schema),
+              __html: schema!,
             }}
           ></Script>
         </header>
@@ -541,7 +523,9 @@ const Activities = async ({ params }: { params: Params }) => {
                 </p>
               </div>
               <Link href={"/booking"} className="cursor-pointer">
-                <Button aria-label="Ask for the cost Now button">Ask for the Cost Now</Button>
+                <Button aria-label="Ask for the cost Now button">
+                  Ask for the Cost Now
+                </Button>
               </Link>
             </div>
             {/* Includes */}

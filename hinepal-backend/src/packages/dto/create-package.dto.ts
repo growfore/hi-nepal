@@ -2,6 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsOptional, IsString } from 'class-validator';
 
 export class CreatePackageDto {
+
   @ApiProperty({
     type: String,
     example: 'title',
@@ -178,6 +179,7 @@ export class CreatePackageDto {
   @IsOptional()
   sicknessAndSaftey?: string;
   @ApiProperty()
+
   @IsOptional()
   insuranceAndEmergency?: string;
   @ApiProperty()
@@ -196,6 +198,10 @@ export class CreatePackageDto {
   @IsOptional()
   bookingInfo?: string;
 
+  @ApiProperty()
+  @IsOptional()
+  faqs?:any
+
   @IsOptional()
   @ApiProperty()
   bestSeason?: string;
@@ -211,6 +217,7 @@ export class CreatePackageDto {
   @IsOptional()
   @ApiProperty()
   authorId?: number;
+
   @ApiProperty({
     type: Object,
     example: {

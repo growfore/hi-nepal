@@ -14,7 +14,7 @@ import {
 } from 'src/utils/response.util';
 @Injectable()
 export class PackagesService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
   async create(createPackageDto: CreatePackageDto) {
     const pack = await this.prisma.package.findUnique({
       where: {
@@ -89,7 +89,6 @@ export class PackagesService {
         },
         discount: createPackageDto?.discount,
         introduction: createPackageDto?.introduction,
-
         seo: {
           create: {
             metaTitle: createPackageDto.seo?.metaTitle,
@@ -315,6 +314,15 @@ export class PackagesService {
             introduction: updatePackageDto.introduction,
             routeOverview: updatePackageDto.routeOverview,
             shortTrekInfo: updatePackageDto.shortTrekInfo,
+            insuranceAndEmergency: updatePackageDto.insuranceAndEmergency,
+            permits: updatePackageDto.permits,
+            permitsAndRegulations: updatePackageDto.permitsAndRegulations,
+            whyChooseThisPackage: updatePackageDto.whyChooseThisPackage,
+            priceBreakDown: updatePackageDto.priceBreakDown,
+            bookingInfo: updatePackageDto.bookingInfo,
+            faqs: updatePackageDto.faqs,
+            sicknessAndSaftey: updatePackageDto.sicknessAndSaftey,
+            bestSeasonInfo: updatePackageDto.bestSeasonInfo,
 
             Author: {
               connect: { id: Number(updatePackageDto.authorId) },

@@ -1,0 +1,133 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["TouristTrip", "Product"],
+      "@id": "https://hinepaltreks.com/manaslu-circuit-trek#tour",
+      "name": "Manaslu Circuit Trek",
+      "description": "The Manaslu Circuit Trek in Nepal is a remote Himalayan trekking adventure around Mt. Manaslu, crossing Larkya La Pass with rich Tibetan culture and stunning mountain views.",
+      "url": "https://hinepaltreks.com/manaslu-circuit-trek",
+      "image": "https://hinepaltreks.com/_next/image?url=https%3A%2F%2Fapi.hinepaltreks.com%2Fuploads%2Fpackages%2Fmanaslu-circuit-trek.webp&w=1920&q=75",
+      "brand": {
+        "@type": "Brand",
+        "name": "Hi Nepal Travels & Treks"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://hinepaltreks.com/manaslu-circuit-trek#booking",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "USD",
+          "price": "0",
+          "valueAddedTaxIncluded": false,
+          "eligibleQuantity": {
+            "@type": "QuantitativeValue",
+            "minValue": 1
+          },
+          "name": "Custom pricing depending on group size and season"
+        },
+        "availability": "https://schema.org/InStock"
+      },
+      "provider": {
+        "@type": "TravelAgency",
+        "name": "Hi Nepal Travels & Treks Pvt. Ltd.",
+        "url": "https://hinepaltreks.com",
+        "telephone": "+9779856035091",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Street No. 13, Lakeside",
+          "addressLocality": "Pokhara",
+          "addressCountry": "NP"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "123"
+      },
+      "duration": "P13D"
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://hinepaltreks.com/manaslu-circuit-trek#itinerary",
+      "name": "Manaslu Circuit Trek 13 Days Itinerary",
+      "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Day 1: Arrival in Kathmandu (1,400m), airport pickup and trek briefing." },
+{ "@type": "ListItem", "position": 2, "name": "Day 2: Drive from Kathmandu to Machha Khola (870m), 7–8 hours." },
+{ "@type": "ListItem", "position": 3, "name": "Day 3: Trek from Machha Khola to Jagat (1,340m), 6–7 hours." },
+{ "@type": "ListItem", "position": 4, "name": "Day 4: Trek from Jagat to Deng (2,095m), 6–7 hours." },
+{ "@type": "ListItem", "position": 5, "name": "Day 5: Trek from Deng to Namrung (2,660m), 6–7 hours." },
+{ "@type": "ListItem", "position": 6, "name": "Day 6: Trek from Namrung to Sama Gaun (3,530m), 6–7 hours." },
+{ "@type": "ListItem", "position": 7, "name": "Day 7: Acclimatization day in Sama Gaun, optional hike to Manaslu Base Camp (4,800m)." },
+{ "@type": "ListItem", "position": 8, "name": "Day 8: Trek from Sama Gaun to Samdo (3,875m), 3–4 hours." },
+{ "@type": "ListItem", "position": 9, "name": "Day 9: Trek from Samdo to Dharamsala (4,460m), 4–5 hours." },
+{ "@type": "ListItem", "position": 10, "name": "Day 10: Cross Larke Pass (5,106m) to Bimthang (3,720m), 8–9 hours." },
+{ "@type": "ListItem", "position": 11, "name": "Day 11: Trek from Bimthang to Dharapani (1,860m), 7–8 hours." },
+{ "@type": "ListItem", "position": 12, "name": "Day 12: Drive from Dharapani to Kathmandu (1,400m), 9–10 hours." },
+{ "@type": "ListItem", "position": 13, "name": "Day 13: Departure from Kathmandu." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hinepaltreks.com/manaslu-circuit-trek#faq",
+      "mainEntity": [
+        {
+  "@type": "Question",
+  "name": "How difficult is the Manaslu Circuit Trek?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The Manaslu Circuit Trek is a challenging trek suitable for trekkers with good fitness and some high-altitude trekking experience."
+  }
+},
+{
+  "@type": "Question",
+  "name": "What is the best time to do the Manaslu Circuit Trek?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The best time for the Manaslu Circuit Trek is during spring (March–May) and autumn (September–November) for stable weather and clear mountain views."
+  }
+},
+{
+  "@type": "Question",
+  "name": "Do I need special permits for the Manaslu Circuit Trek?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, the Manaslu Circuit Trek requires a Restricted Area Permit, Manaslu Conservation Area Permit, and Annapurna Conservation Area Permit."
+  }
+},
+{
+  "@type": "Question",
+  "name": "What is the highest point of the Manaslu Circuit Trek?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The highest point of the Manaslu Circuit Trek is Larke Pass at 5,106 meters above sea level."
+  }
+},
+{
+  "@type": "Question",
+  "name": "Is a guide mandatory for the Manaslu Circuit Trek?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, hiring a licensed guide is mandatory for the Manaslu Circuit Trek as it is a restricted trekking region."
+  }
+},
+{
+  "@type": "Question",
+  "name": "How many days does the Manaslu Circuit Trek take?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The Manaslu Circuit Trek usually takes 12 to 14 days depending on the itinerary and acclimatization schedule."
+  }
+}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://hinepaltreks.com/manaslu-circuit-trek#breadcrumb",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://hinepaltreks.com/"},
+        {"@type":"ListItem","position":2,"name":"Manaslu Circuit Trek","item":"https://hinepaltreks.com/manaslu-circuit-trek"}
+      ]
+    }
+  ]
+}

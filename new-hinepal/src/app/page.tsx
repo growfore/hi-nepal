@@ -28,9 +28,9 @@ const BlogHome = dynamic(() => import("@/components/pages/blogs"), {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Treks & Travel Agency in Pokhara - Treks in Nepal,Bhutan,Tibet",
-    description: "At Hi Nepal, a trusted travel agency in Pokhara, we offer unforgettable trekking & adventure tours. Explore Heli Tours, Tibet & Bhutan treks with local experts.",
-    keywords: "trekking agency in nepal, travel agency in nepal",
+    title: "#1 Best Travel and Trekking Agency in Pokhara, Nepal",
+    description:
+      "Hi Nepal is a premier trekking agency in Pokhara offering expert-led tours to Everest & Annapurna. Experience Nepal, Tibet & Bhutan with a trusted local agency.",
     alternates: {
       canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/",
     },
@@ -42,23 +42,28 @@ export async function generateMetadata(): Promise<Metadata> {
       "max-snippet": -1,
     },
     openGraph: {
-      title: "Treks & Travel Agency Pokhara - Treks in Nepal,Bhutan,Tibet",
-      description: "At Hi Nepal, a trusted travel agency in Pokhara, we offer unforgettable trekking & adventure tours. Explore Heli Tours, Tibet & Bhutan treks with local experts.",
-      images: ['https://hinepaltreks.com/assets/mount-everest.webp'],
+      title: "#1 Best Travel and Trekking Agency in Pokhara, Nepal",
+      description:
+        "Hi Nepal is a premier trekking agency in Pokhara offering expert-led tours to Everest & Annapurna. Experience Nepal, Tibet & Bhutan with a trusted local agency.",
+      images: ["https://hinepaltreks.com/assets/mount-everest.webp"],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Treks & Travel Agency Pokhara - Treks in Nepal,Bhutan,Tibet",
-      description: "At Hi Nepal, a trusted travel agency in Pokhara, we offer unforgettable trekking & adventure tours. Explore Heli Tours, Tibet & Bhutan treks with local experts.",
-      images: ['https://hinepaltreks.com/assets/mount-everest.webp'],
-    }
+      title: "#1 Best Travel and Trekking Agency in Pokhara, Nepal",
+      description:
+        "Hi Nepal is a premier trekking agency in Pokhara offering expert-led tours to Everest & Annapurna. Experience Nepal, Tibet & Bhutan with a trusted local agency.",
+      images: ["https://hinepaltreks.com/assets/mount-everest.webp"],
+    },
   };
 }
 
 export default async function Home() {
   const sitePromise = cached("siteInformation", 3600, async () => {
     try {
-      const r = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/site-informations`, { next: { revalidate: 3600 } });
+      const r = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/site-informations`,
+        { next: { revalidate: 3600 } },
+      );
       const j = await r.json();
       return j.data || null;
     } catch (e) {
@@ -91,7 +96,6 @@ export default async function Home() {
     destination: p.destination,
     slug: p.slug,
   }));
-
 
   const minimalPackages: TPackage[] = packages.map((p: any) => ({
     slug: p.slug,
@@ -131,35 +135,35 @@ export default async function Home() {
     .filter((pkg: any) => popularTreks.includes(pkg.slug))
     .sort(
       (a: any, b: any) =>
-        popularTreks.indexOf(a.slug) - popularTreks.indexOf(b.slug)
+        popularTreks.indexOf(a.slug) - popularTreks.indexOf(b.slug),
     );
 
   const filteredBestShort = packages
     .filter((pkg: any) => bestShortSlugs.includes(pkg.slug))
     .sort(
       (a: any, b: any) =>
-        bestShortSlugs.indexOf(a.slug) - bestShortSlugs.indexOf(b.slug)
+        bestShortSlugs.indexOf(a.slug) - bestShortSlugs.indexOf(b.slug),
     );
 
   const filteredTenDaysPlus = packages
     .filter((pkg: any) => tenDaysPlusSlugs.includes(pkg.slug))
     .sort(
       (a: any, b: any) =>
-        tenDaysPlusSlugs.indexOf(a.slug) - tenDaysPlusSlugs.indexOf(b.slug)
+        tenDaysPlusSlugs.indexOf(a.slug) - tenDaysPlusSlugs.indexOf(b.slug),
     );
 
   const filteredPopularTours = packages
     .filter((pkg: any) => popularToursSlugs.includes(pkg.slug))
     .sort(
       (a: any, b: any) =>
-        popularToursSlugs.indexOf(a.slug) - popularToursSlugs.indexOf(b.slug)
+        popularToursSlugs.indexOf(a.slug) - popularToursSlugs.indexOf(b.slug),
     );
 
   const filteredOneDay = packages
     .filter((pkg: any) => oneDaySlugs.includes(pkg.slug))
     .sort(
       (a: any, b: any) =>
-        oneDaySlugs.indexOf(a.slug) - oneDaySlugs.indexOf(b.slug)
+        oneDaySlugs.indexOf(a.slug) - oneDaySlugs.indexOf(b.slug),
     );
 
   const jsonLd = {
@@ -168,119 +172,150 @@ export default async function Home() {
       {
         "@type": "Organization",
         "@id": "https://hinepaltreks.com/#organization",
-        "name": "Hi Nepal Travels & Treks Pvt. Ltd.",
-        "url": "https://hinepaltreks.com/",
-        "logo": "https://hinepaltreks.com/_next/image?url=%2Fassets%2Fhinepal-logo.webp&w=256&q=75",
-        "description": "Hi Nepal Travels & Treks is a trusted travel agency in Pokhara, Nepal, offering unforgettable trekking & adventure tours such as Everest Base Camp Trek, Annapurna Circuit Trek, Jungle Safari, Heli Tours, Tibet & Bhutan treks with local experts.",
-        "telephone": "+9779856035091",
-        "email": "info@hinepaltreks.com",
-        "address": {
+        name: "Hi Nepal Travels & Treks Pvt. Ltd.",
+        url: "https://hinepaltreks.com/",
+        logo: "https://hinepaltreks.com/_next/image?url=%2Fassets%2Fhinepal-logo.webp&w=256&q=75",
+        description:
+          "Hi Nepal Travels & Treks is a trusted travel agency in Pokhara, Nepal, offering unforgettable trekking & adventure tours such as Everest Base Camp Trek, Annapurna Circuit Trek, Jungle Safari, Heli Tours, Tibet & Bhutan treks with local experts.",
+        telephone: "+9779856035091",
+        email: "info@hinepaltreks.com",
+        address: {
           "@type": "PostalAddress",
-          "streetAddress": "Street No. 13, Lakeside",
-          "addressLocality": "Pokhara",
-          "postalCode": "33700",
-          "addressCountry": "NP"
+          streetAddress: "Street No. 13, Lakeside",
+          addressLocality: "Pokhara",
+          postalCode: "33700",
+          addressCountry: "NP",
         },
-        "sameAs": [
+        sameAs: [
           "https://www.facebook.com/HiNepalTrek",
           "https://www.instagram.com/hinepaltravelsandtreks/",
           "https://x.com/hinepaltreks",
-          "https://www.youtube.com/@hinepaltravelstreks800"
-        ]
+          "https://www.youtube.com/@hinepaltravelstreks800",
+        ],
       },
       {
         "@type": "WebSite",
         "@id": "https://hinepaltreks.com/#website",
-        "url": "https://hinepaltreks.com/",
-        "name": "Hi Nepal Travels & Treks",
-        "publisher": {
-          "@id": "https://hinepaltreks.com/#organization"
+        url: "https://hinepaltreks.com/",
+        name: "Hi Nepal Travels & Treks",
+        publisher: {
+          "@id": "https://hinepaltreks.com/#organization",
         },
-        "potentialAction": {
+        potentialAction: {
           "@type": "SearchAction",
-          "target": "https://hinepaltreks.com/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+          target: "https://hinepaltreks.com/?s={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
       },
       {
         "@type": "TravelAgency",
         "@id": "https://hinepaltreks.com/#travelagency",
-        "name": "Hi Nepal Travels & Treks Pvt. Ltd.",
-        "description": "Hi Nepal, a leading travel agency in Pokhara, provides memorable trekking and adventure experiences. Discover Heli Tours, Tibet, Bhutan, and more with expert local guides.",
-        "url": "https://hinepaltreks.com/",
-        "telephone": "+9779856035091",
-        "address": {
+        name: "Hi Nepal Travels & Treks Pvt. Ltd.",
+        description:
+          "Hi Nepal, a leading travel agency in Pokhara, provides memorable trekking and adventure experiences. Discover Heli Tours, Tibet, Bhutan, and more with expert local guides.",
+        url: "https://hinepaltreks.com/",
+        telephone: "+9779856035091",
+        address: {
           "@type": "PostalAddress",
-          "streetAddress": "Street No. 13, Lakeside",
-          "addressLocality": "Pokhara",
-          "postalCode": "33700",
-          "addressCountry": "NP"
+          streetAddress: "Street No. 13, Lakeside",
+          addressLocality: "Pokhara",
+          postalCode: "33700",
+          addressCountry: "NP",
         },
-        "image": "https://hinepaltreks.com/_next/image?url=%2Fassets%2Fmount-everest.webp&w=640&q=75",
-        "areaServed": "NP",
-        "priceRange": "$$"
+        image:
+          "https://hinepaltreks.com/_next/image?url=%2Fassets%2Fmount-everest.webp&w=640&q=75",
+        areaServed: "NP",
+        priceRange: "$$",
       },
       {
         "@type": "ItemList",
         "@id": "https://hinepaltreks.com/#popularpackages",
-        "name": "Popular Trekking & Tour Packages",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "url": "https://hinepaltreks.com/everest-base-camp-trek" },
-          { "@type": "ListItem", "position": 2, "url": "https://hinepaltreks.com/annapurna-base-camp-trek" },
-          { "@type": "ListItem", "position": 3, "url": "https://hinepaltreks.com/manaslu-circuit-trek" },
-          { "@type": "ListItem", "position": 4, "url": "https://hinepaltreks.com/annpurna-circuit-trek" },
-          { "@type": "ListItem", "position": 5, "url": "https://hinepaltreks.com/kathmandu-tour-package" },
-          { "@type": "ListItem", "position": 6, "url": "https://hinepaltreks.com/upper-mustang-tour" },
-          { "@type": "ListItem", "position": 7, "url": "https://hinepaltreks.com/tilicho-lake-tour" }
-        ]
+        name: "Popular Trekking & Tour Packages",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            url: "https://hinepaltreks.com/everest-base-camp-trek",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            url: "https://hinepaltreks.com/annapurna-base-camp-trek",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            url: "https://hinepaltreks.com/manaslu-circuit-trek",
+          },
+          {
+            "@type": "ListItem",
+            position: 4,
+            url: "https://hinepaltreks.com/annpurna-circuit-trek",
+          },
+          {
+            "@type": "ListItem",
+            position: 5,
+            url: "https://hinepaltreks.com/kathmandu-tour-package",
+          },
+          {
+            "@type": "ListItem",
+            position: 6,
+            url: "https://hinepaltreks.com/upper-mustang-tour",
+          },
+          {
+            "@type": "ListItem",
+            position: 7,
+            url: "https://hinepaltreks.com/tilicho-lake-tour",
+          },
+        ],
       },
       {
         "@type": "FAQPage",
         "@id": "https://hinepaltreks.com/#faq",
-        "mainEntity": [
+        mainEntity: [
           {
             "@type": "Question",
-            "name": "Which is the best travel agency in Nepal?",
-            "acceptedAnswer": {
+            name: "Which is the best travel agency in Nepal?",
+            acceptedAnswer: {
               "@type": "Answer",
-              "text": "Hi Nepal Travels and Treks Pvt. Ltd. is one of the best trekking & travel agencies in Nepal, offering highest-quality services in tourism for over 20 years."
-            }
+              text: "Hi Nepal Travels and Treks Pvt. Ltd. is one of the best trekking & travel agencies in Nepal, offering highest-quality services in tourism for over 20 years.",
+            },
           },
           {
             "@type": "Question",
-            "name": "When is the best time to travel to Nepal?",
-            "acceptedAnswer": {
+            name: "When is the best time to travel to Nepal?",
+            acceptedAnswer: {
               "@type": "Answer",
-              "text": "Visiting Nepal is worth it any time of the year. Specifically, Spring (March-May) and Autumn (September-November) are considered the most ideal seasons."
-            }
+              text: "Visiting Nepal is worth it any time of the year. Specifically, Spring (March-May) and Autumn (September-November) are considered the most ideal seasons.",
+            },
           },
           {
             "@type": "Question",
-            "name": "Are there local trekking agencies in Pokhara for the ABC trek?",
-            "acceptedAnswer": {
+            name: "Are there local trekking agencies in Pokhara for the ABC trek?",
+            acceptedAnswer: {
               "@type": "Answer",
-              "text": "Yes, Pokhara is a hub for tourism and adventure. Hi Nepal Travels and Treks Pvt. Ltd. is a trusted option for trekking like the Annapurna Base Camp (ABC) trek."
-            }
+              text: "Yes, Pokhara is a hub for tourism and adventure. Hi Nepal Travels and Treks Pvt. Ltd. is a trusted option for trekking like the Annapurna Base Camp (ABC) trek.",
+            },
           },
           {
             "@type": "Question",
-            "name": "Where is Mount Everest located?",
-            "acceptedAnswer": {
+            name: "Where is Mount Everest located?",
+            acceptedAnswer: {
               "@type": "Answer",
-              "text": "Mount Everest is located on the border of Nepal and China in the Himalaya region."
-            }
-          }
-        ]
-      }
-    ]
-  }
+              text: "Mount Everest is located on the border of Nepal and China in the Himalaya region.",
+            },
+          },
+        ],
+      },
+    ],
+  };
   return (
     <main id="content" className="site-main">
       <section>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
           }}
         />
       </section>

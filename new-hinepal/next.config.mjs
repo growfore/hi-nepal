@@ -27,8 +27,8 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "hinepaltreks.com/cms/wp-content/uploads"
-      }
+        hostname: "hinepaltreks.com/cms/wp-content/uploads",
+      },
     ],
   },
   async redirects() {
@@ -683,24 +683,30 @@ const nextConfig = {
         permanent: true,
         statusCode: 301,
       },
+      {
+        source: "/trekking/mustang-region/upper-mustang-trek",
+        destination: "/upper-mustang-tour",
+        permanent: true,
+        statusCode: 301,
+      },
     ];
   },
   async rewrites() {
     return [
       {
-        source: '/wp-content/:path*',
-        destination: 'https://blogs.hinepaltreks.com/cms/wp-content/:path*',
+        source: "/wp-content/:path*",
+        destination: "https://blogs.hinepaltreks.com/cms/wp-content/:path*",
       },
     ];
   },
   async headers() {
     return [
       {
-        source: '/_next/image(.*)',
+        source: "/_next/image(.*)",
         headers: [
           {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
           },
         ],
       },

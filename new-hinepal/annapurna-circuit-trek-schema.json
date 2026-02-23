@@ -1,0 +1,197 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TouristTrip",
+      "@id": "https://hinepaltreks.com/annapurna-circuit-trek#tour",
+      "name": "Annapurna Circuit Trek",
+      "description": "The Annapurna Circuit Trek is a legendary 19-day Himalayan journey encircling the Annapurna Massif, crossing the iconic Thorong La Pass (5,416 m), and transitioning from lush subtropical valleys to high-altitude alpine deserts.",
+      "url": "https://hinepaltreks.com/annapurna-circuit-trek",
+      "image": "https://hinepaltreks.com/_next/image?url=https%3A%2F%2Fapi.hinepaltreks.com%2Fuploads%2Fpackages%2Fthumbnails%2Fannapurna-circet-trek.webp&w=3840&q=75",
+      "duration": "19 Days",
+      "touristType": "Trekkers, Adventure Seekers, Nature Lovers",
+      "brand": {
+        "@type": "Brand",
+        "name": "Hi Nepal Travels & Treks"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "123"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://hinepaltreks.com/annapurna-circuit-trek",
+        "priceCurrency": "USD",
+        "price": "1250",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "name": "Standard Package - varies by group size",
+          "price": "1500",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true
+        }
+      },
+      "provider": {
+        "@type": "TravelAgency",
+        "name": "Hi Nepal Travels & Treks Pvt. Ltd.",
+        "url": "https://hinepaltreks.com",
+        "telephone": "+9779856035091",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Street No. 13, Lakeside",
+          "addressLocality": "Pokhara",
+          "addressCountry": "NP"
+        }
+      },
+      "itinerary": [
+        {
+          "@type": "TouristAttraction",
+          "name": "Arrival in Kathmandu (1,300m)",
+          "description": "Airport pickup, transfer to hotel in Thamel, and pre-trek briefing.",
+          "location": { "@type": "Place", "name": "Kathmandu" }
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Drive to Jagat (1,340m)",
+          "description": "8–10 hours scenic drive passing through rural villages and rivers.",
+          "location": { "@type": "Place", "name": "Jagat" }
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Trek to Dharapani (1,860m)",
+          "description": "Walk through terraced fields and waterfalls following the Marsyangdi River.",
+          "location": { "@type": "Place", "name": "Dharapani" }
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Trek to Chame (2,650m)",
+          "description": "Trek through pine forests with views of Annapurna II and Lamjung Himal.",
+          "location": { "@type": "Place", "name": "Chame" }
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Trek to Pisang (3,250m)",
+          "description": "Entering alpine terrain with dramatic rock formations and Tibetan Buddhist culture.",
+          "location": { "@type": "Place", "name": "Pisang" }
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Trek to Ngawal (3,660m) via High Trail",
+          "description": "Panoramic trail via Ghyaru offering some of the best mountain views of the circuit.",
+          "location": { "@type": "Place", "name": "Ngawal" }
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Acclimatization in Manang (3,518m)",
+          "description": "Essential rest day with optional hikes to Ice Lake or Milarepa Cave.",
+          "location": { "@type": "Place", "name": "Manang" }
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Trek to Thorong Phedi (4,450m)",
+          "description": "Steady uphill climb preparing for the pass crossing the next day.",
+          "location": { "@type": "Place", "name": "Thorong Phedi" }
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Cross Thorong La Pass (5,416m) to Muktinath",
+          "description": "Challenging 7–9 hour crossing of the world's highest trekking pass.",
+          "location": { "@type": "Place", "name": "Thorong La Pass" }
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Drive to Tatopani (1,190m)",
+          "description": "Drive through Kali Gandaki Valley and relax in natural hot springs.",
+          "location": { "@type": "Place", "name": "Tatopani" }
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Sunrise at Poon Hill (3,210m)",
+          "description": "Early morning hike for a spectacular Himalayan sunrise over the Dhaulagiri and Annapurna ranges.",
+          "location": { "@type": "Place", "name": "Poon Hill" }
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Return to Kathmandu",
+          "description": "Drive or fly back to the capital for a farewell cultural dinner.",
+          "location": { "@type": "Place", "name": "Kathmandu" }
+        }
+      ],
+      "subjectOf": {
+        "@id": "https://hinepaltreks.com/annapurna-circuit-trek#faq"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Trip Grade",
+          "value": "Hard/Challenging"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Highest Point",
+          "value": "5,416m (Thorong La Pass)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Best Seasons",
+          "value": "Spring (March-May), Autumn (September-November)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Permits",
+          "value": "ACAP Permit, TIMS Card"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hinepaltreks.com/annapurna-circuit-trek#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does the Annapurna Circuit Trek take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Annapurna Circuit Trek typically takes 15 to 19 days, depending on the route, acclimatization days, and side trips like Tilicho Lake or Poon Hill."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the highest point of the Annapurna Circuit Trek?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The highest point of the trek is Thorong La Pass, which stands at an elevation of 5,416 meters above sea level."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a guide mandatory for the Annapurna Circuit Trek?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, hiring a licensed guide is mandatory to ensure safety and to comply with local regulations for trekking in the Annapurna region."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://hinepaltreks.com/annapurna-circuit-trek#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hinepaltreks.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Annapurna Circuit Trek",
+          "item": "https://hinepaltreks.com/annapurna-circuit-trek"
+        }
+      ]
+    }
+  ]
+}

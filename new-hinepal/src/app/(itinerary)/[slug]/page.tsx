@@ -180,13 +180,13 @@ const Activities = async ({ params }: { params: Params }) => {
     return (
       <div id="content" className="site-main">
         <header>
-          <Script
+          {/*<Script
             strategy="lazyOnload"
             type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: schema!,
             }}
-          ></Script>
+          ></Script>*/}
         </header>
         <BlogPage blog={blog} />
       </div>
@@ -366,7 +366,7 @@ const Activities = async ({ params }: { params: Params }) => {
         <main
           className="
   prose-headings:text-gray-900 prose-headings:font-bold
-  prose-h1:text-2xl md:prose-h1:text-4xl 
+  prose-h1:text-2xl md:prose-h1:text-4xl
   prose-h2:text-xl md:prose-h2:text-3xl prose-h2:font-bold prose-h2:text-green-700!
   prose-h3:text-lg md:prose-h3:text-xl prose-h3:text-green-700!
   prose-p:text-lg!

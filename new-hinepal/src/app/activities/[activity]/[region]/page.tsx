@@ -526,7 +526,7 @@ export default async function RegionPage({
         {/* ***
      ***
      ***
-    BOTTOM DESCRIPTIONS  
+    BOTTOM DESCRIPTIONS
      ***
      ***
     *****/}

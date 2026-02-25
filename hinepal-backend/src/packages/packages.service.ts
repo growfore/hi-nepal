@@ -14,7 +14,7 @@ import {
 } from 'src/utils/response.util';
 @Injectable()
 export class PackagesService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
   async create(createPackageDto: CreatePackageDto) {
     const pack = await this.prisma.package.findUnique({
       where: {
@@ -288,9 +288,9 @@ export class PackagesService {
             title: updatePackageDto.title,
             description: updatePackageDto.description,
             duration: updatePackageDto.duration,
-            thumbnail: updatePackageDto?.thumbnail || undefined,
+            thumbnail: updatePackageDto?.thumbnail,
             thumbnailImageAlt: updatePackageDto?.thumbnailImageAlt,
-            banner: updatePackageDto?.banner || undefined,
+            banner: updatePackageDto?.banner,
             bannerImageAlt: updatePackageDto?.bannerImageAlt,
             link: updatePackageDto.link,
             slug: updatePackageDto.slug,
@@ -323,7 +323,13 @@ export class PackagesService {
             faqs: updatePackageDto.faqs,
             sicknessAndSaftey: updatePackageDto.sicknessAndSaftey,
             bestSeasonInfo: updatePackageDto.bestSeasonInfo,
-
+            overview: updatePackageDto.overview,
+            transportation: updatePackageDto.transportation,
+            tripGrade: updatePackageDto.tripGrade,
+            highlights: updatePackageDto.highlights,
+            altitudeInfo: updatePackageDto.altitudeInfo,
+            packing: updatePackageDto.packing,
+            excludes: updatePackageDto.excludes,
             Author: {
               connect: { id: Number(updatePackageDto.authorId) },
             },
@@ -335,7 +341,7 @@ export class PackagesService {
                 metaTitle: updatePackageDto.seo?.metaTitle,
                 metaDescription: updatePackageDto.seo?.metaDescription,
                 metaKeywords: updatePackageDto.seo?.metaKeywords,
-                metaImage: updatePackageDto.seo?.metaImage || undefined,
+                metaImage: updatePackageDto.seo?.metaImage,
                 metaRobots: updatePackageDto.seo?.metaRobots,
                 metaAuthor: updatePackageDto.seo?.metaAuthor,
                 metaCanonical: updatePackageDto.seo?.metaCanonical,

@@ -24,19 +24,19 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
   const destination = path.split("/")[1] || "";
 
   const destinationOrder = useMemo(
-    () => ["Everest Region", "Annapurna Region", "Manaslu Region"],
-    []
+    () => ["Manaslu Region", "Annapurna Region", "Everest Region"],
+    [],
   );
 
   const packageOrders = useMemo(
     () => ({
       "annapurna-region": [
+        "annapurna-circuit-trek",
         "annapurna-base-camp-trek",
+        "north-annapurna-base-camp-trek",
         "mardi-himal-trek",
         "ghorepani-poon-hill-trek",
         "jomsom-muktinath-trek",
-        "annapurna-circuit-trek",
-        "north-annapurna-base-camp-trek",
         "dhaulagiri-circuit-trek",
         "kori-trek",
         "khumai-danda-trek",
@@ -79,44 +79,54 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
         "kalikasthan-thulakot-hill",
       ],
     }),
-    []
+    [],
   );
 
-    // Precompute sorted nav data to avoid repeated sorts during render
-    const sortedNavBar = useMemo(() => {
-      const destIndexMap = new Map(destinationOrder.map((name, i) => [name, i]));
-      return navBar.map((activity) => {
-        const sortedDestinations = [...activity.destinations]
-          .map((d) => ({ ...d }))
-          .sort((a, b) => {
-            const aIdx = destIndexMap.has(a.name) ? (destIndexMap.get(a.name) as number) : Infinity;
-            const bIdx = destIndexMap.has(b.name) ? (destIndexMap.get(b.name) as number) : Infinity;
-            if (aIdx !== Infinity || bIdx !== Infinity) {
-              if (aIdx !== bIdx) return aIdx - bIdx;
-              return 0;
-            }
-            return a.name.localeCompare(b.name);
-          })
-          .map((dest) => {
-            // @ts-expect-error dynamic key
-            const order = packageOrders[dest.slug];
-            let sortedPackages = [...dest.packages];
-            if (order && Array.isArray(order)) {
-              const idxMap = new Map(order.map((s: string, i: number) => [s, i]));
-              sortedPackages = sortedPackages.sort((x: any, y: any) => {
-                const xi = idxMap.has(x.slug) ? (idxMap.get(x.slug) as number) : Infinity;
-                const yi = idxMap.has(y.slug) ? (idxMap.get(y.slug) as number) : Infinity;
-                if (xi === yi) return x.title.localeCompare(y.title);
-                return xi - yi;
-              });
-            } else {
-              sortedPackages = sortedPackages.sort((x: any, y: any) => x.title.localeCompare(y.title));
-            }
-            return { ...dest, packages: sortedPackages };
-          });
-        return { ...activity, destinations: sortedDestinations };
-      });
-    }, [navBar, destinationOrder, packageOrders]);
+  // Precompute sorted nav data to avoid repeated sorts during render
+  const sortedNavBar = useMemo(() => {
+    const destIndexMap = new Map(destinationOrder.map((name, i) => [name, i]));
+    return navBar.map((activity) => {
+      const sortedDestinations = [...activity.destinations]
+        .map((d) => ({ ...d }))
+        .sort((a, b) => {
+          const aIdx = destIndexMap.has(a.name)
+            ? (destIndexMap.get(a.name) as number)
+            : Infinity;
+          const bIdx = destIndexMap.has(b.name)
+            ? (destIndexMap.get(b.name) as number)
+            : Infinity;
+          if (aIdx !== Infinity || bIdx !== Infinity) {
+            if (aIdx !== bIdx) return aIdx - bIdx;
+            return 0;
+          }
+          return a.name.localeCompare(b.name);
+        })
+        .map((dest) => {
+          // @ts-expect-error dynamic key
+          const order = packageOrders[dest.slug];
+          let sortedPackages = [...dest.packages];
+          if (order && Array.isArray(order)) {
+            const idxMap = new Map(order.map((s: string, i: number) => [s, i]));
+            sortedPackages = sortedPackages.sort((x: any, y: any) => {
+              const xi = idxMap.has(x.slug)
+                ? (idxMap.get(x.slug) as number)
+                : Infinity;
+              const yi = idxMap.has(y.slug)
+                ? (idxMap.get(y.slug) as number)
+                : Infinity;
+              if (xi === yi) return x.title.localeCompare(y.title);
+              return xi - yi;
+            });
+          } else {
+            sortedPackages = sortedPackages.sort((x: any, y: any) =>
+              x.title.localeCompare(y.title),
+            );
+          }
+          return { ...dest, packages: sortedPackages };
+        });
+      return { ...activity, destinations: sortedDestinations };
+    });
+  }, [navBar, destinationOrder, packageOrders]);
 
   const timerRef = useRef<number | null>(null);
 
@@ -158,7 +168,7 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
               onMouseLeave={() => setOpenActivity(null)}
             >
               <button
-              aria-label="toggle navigation menu"
+                aria-label="toggle navigation menu"
                 onClick={handleClick}
                 className={cn(!disableHover && "group", "hidden lg:flex")}
               >
@@ -209,7 +219,7 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
           ))}
           <div className="hidden lg:flex">
             <button
-            aria-label="toggle menu visibility"
+              aria-label="toggle menu visibility"
               onMouseEnter={() => setOpenActivity("transport")}
               onMouseLeave={() => setOpenActivity(null)}
               className="group font-bold uppercase flex gap-1 items-center"
@@ -288,40 +298,42 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
                   <Accordion key={activity.slug} type="single" collapsible>
                     <AccordionItem value={`item-${activity.slug}`}>
                       <AccordionTrigger className="font-bold text-xl uppercase flex p-0">
-                        <Link href={`/activities/${activity.slug}`}>{activity.name}</Link>
+                        <Link href={`/activities/${activity.slug}`}>
+                          {activity.name}
+                        </Link>
                       </AccordionTrigger>
                       <AccordionContent>
                         {activity.destinations.map((destination) => (
-                            <Accordion
-                              key={destination.slug}
-                              type="single"
-                              collapsible
-                            >
-                              <AccordionItem value={`item-${destination.slug}`}>
-                                <AccordionTrigger className="font-semibold text-xl p-0 py-2">
-                                  <Link
-                                    href={`/activities/${activity.slug}/${destination.slug}`}
-                                    className="flex gap-1 items-center text-orange-600"
-                                  >
-                                    {destination.name}
-                                  </Link>
-                                </AccordionTrigger>
-                                <AccordionContent>
-                                  <ul className="flex flex-col gap-2">
-                                    {destination.packages.map((pkg) => (
-                                      <li key={pkg.slug}>
-                                        <Link
-                                          href={`/${pkg.slug}`}
-                                          className="hover:border-b-2 border-dashed border-[#EF5922] hover:text-[#EF5922] font-bold text-lg"
-                                        >
-                                          {pkg.title.split(":")[0].trim()}
-                                        </Link>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </AccordionContent>
-                              </AccordionItem>
-                            </Accordion>
+                          <Accordion
+                            key={destination.slug}
+                            type="single"
+                            collapsible
+                          >
+                            <AccordionItem value={`item-${destination.slug}`}>
+                              <AccordionTrigger className="font-semibold text-xl p-0 py-2">
+                                <Link
+                                  href={`/activities/${activity.slug}/${destination.slug}`}
+                                  className="flex gap-1 items-center text-orange-600"
+                                >
+                                  {destination.name}
+                                </Link>
+                              </AccordionTrigger>
+                              <AccordionContent>
+                                <ul className="flex flex-col gap-2">
+                                  {destination.packages.map((pkg) => (
+                                    <li key={pkg.slug}>
+                                      <Link
+                                        href={`/${pkg.slug}`}
+                                        className="hover:border-b-2 border-dashed border-[#EF5922] hover:text-[#EF5922] font-bold text-lg"
+                                      >
+                                        {pkg.title.split(":")[0].trim()}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </AccordionContent>
+                            </AccordionItem>
+                          </Accordion>
                         ))}
                       </AccordionContent>
                     </AccordionItem>
@@ -333,13 +345,22 @@ export default function BottomNav({ navBar }: Readonly<{ navBar: TNavBar }>) {
                 <Link href="/about-us" className="uppercase font-bold text-xl">
                   About Us
                 </Link>
-                <Link href="/air-ticket-booking-nepal" className="uppercase font-bold text-xl">
+                <Link
+                  href="/air-ticket-booking-nepal"
+                  className="uppercase font-bold text-xl"
+                >
                   Flight Ticket
                 </Link>
-                <Link href="/helicopter-rescue-flights-nepal" className="uppercase font-bold text-xl">
+                <Link
+                  href="/helicopter-rescue-flights-nepal"
+                  className="uppercase font-bold text-xl"
+                >
                   Rescue Flights
                 </Link>
-                <Link href="/vehicle-rent" className="uppercase font-bold text-xl">
+                <Link
+                  href="/vehicle-rent"
+                  className="uppercase font-bold text-xl"
+                >
                   Vehicle Rent
                 </Link>
                 <Link href="/blogs" className="uppercase font-bold text-xl">

@@ -1,15 +1,24 @@
 import { TNavBar } from "@/types/types";
 
-const DESTINATION_ORDER = ["Everest Region", "Annapurna Region", "Manaslu Region"];
+const DESTINATION_ORDER = [
+  "Manaslu Region",
+  "Annapurna Region",
+  "Everest Region",
+];
 
 const PACKAGE_ORDERS: Record<string, string[]> = {
+  "manaslu-region": [
+    "manaslu-circuit-trek",
+    "manaslu-tsum-valley-circuit-trek",
+    "tsum-valley-trek",
+  ],
   "annapurna-region": [
+    "annapurna-circuit-trek",
     "annapurna-base-camp-trek",
+    "north-annapurna-base-camp-trek",
     "mardi-himal-trek",
     "ghorepani-poon-hill-trek",
     "jomsom-muktinath-trek",
-    "annapurna-circuit-trek",
-    "north-annapurna-base-camp-trek",
     "dhaulagiri-circuit-trek",
     "kori-trek",
     "khumai-danda-trek",
@@ -20,11 +29,6 @@ const PACKAGE_ORDERS: Record<string, string[]> = {
     "shey-phoksundo-lake-trek",
     "upper-dolpo-trek",
     "lower-dolpo-trek",
-  ],
-  "manaslu-region": [
-    "manaslu-circuit-trek",
-    "manaslu-tsum-valley-circuit-trek",
-    "tsum-valley-trek",
   ],
   "everest-region": [
     "everest-base-camp-trek",
@@ -55,7 +59,7 @@ const PACKAGE_ORDERS: Record<string, string[]> = {
 
 export function sortNavBar(navBar: TNavBar): TNavBar {
   const destIndexMap = new Map(DESTINATION_ORDER.map((name, i) => [name, i]));
-  
+
   return navBar.map((activity) => {
     const sortedDestinations = [...activity.destinations]
       .sort((a, b) => {
@@ -67,7 +71,7 @@ export function sortNavBar(navBar: TNavBar): TNavBar {
       .map((dest) => {
         const order = PACKAGE_ORDERS[dest.slug];
         let sortedPackages = [...dest.packages];
-        
+
         if (order) {
           const idxMap = new Map(order.map((s, i) => [s, i]));
           sortedPackages.sort((x, y) => {
@@ -79,7 +83,7 @@ export function sortNavBar(navBar: TNavBar): TNavBar {
         } else {
           sortedPackages.sort((x, y) => x.title.localeCompare(y.title));
         }
-        
+
         return { ...dest, packages: sortedPackages };
       });
     return { ...activity, destinations: sortedDestinations };

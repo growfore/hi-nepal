@@ -170,24 +170,10 @@ export async function generateStaticParams() {
 
 const Activities = async ({ params }: { params: Params }) => {
   let blog = await getBlogSingle(params.slug);
-  let schema;
-
-  if (blog) {
-    schema = blog.rankMathHead;
-  }
 
   if (blog) {
     return (
       <div id="content" className="site-main">
-        <header>
-          {/*<Script
-            strategy="lazyOnload"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: schema!,
-            }}
-          ></Script>*/}
-        </header>
         <BlogPage blog={blog} />
       </div>
     );

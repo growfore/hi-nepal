@@ -24,7 +24,6 @@ import {
 import { DataIcon } from "@/components/molecules/data-icon";
 import FAQSection from "@/components/organisms/itinerary-faq";
 import Image from "next/image";
-import TrekkingCard from "@/components/molecules/TrekkingCard";
 import { cn } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -44,18 +43,23 @@ const ImageGallery = dynamicImport(() => import("@/components/iti-gallery"), {
 
 const TalkToExpertCard = dynamicImport(
   () => import("@/components/organisms/talk-to-expert-card"),
+  { ssr: false },
 );
 const CustomizeTrip = dynamicImport(
   () => import("@/components/organisms/customize-my-trip"),
+  { ssr: false },
 );
 const SectionNav = dynamicImport(
   () => import("@/components/organisms/SectionNav"),
+  { ssr: false },
 );
 const ReviewsGroup = dynamicImport(
   () => import("@/components/organisms/reviews"),
+  { ssr: false },
 );
 const TrustBadge = dynamicImport(
   () => import("@/components/molecules/trust-badge"),
+  { ssr: false },
 );
 
 export async function generateMetadata({

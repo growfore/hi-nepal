@@ -1,13 +1,35 @@
 "use client";
-
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import * as Icons from "lucide-react";
+import {
+  Eye,
+  Sparkles,
+  List,
+  Check,
+  X,
+  MapPin,
+  CloudSunRain,
+  Backpack,
+  MessageCircleQuestion,
+  type LucideIcon,
+} from "lucide-react";
+
+const iconMap: Record<string, LucideIcon> = {
+  LucideEye: Eye,
+  Sparkles: Sparkles,
+  LucideList: List,
+  LucideCheck: Check,
+  LucideX: X,
+  LucideMapPin: MapPin,
+  LucideCloudSunRain: CloudSunRain,
+  LucideBackpack: Backpack,
+  LucideMessageCircleQuestion: MessageCircleQuestion,
+};
 
 type NavItem = {
   id: string;
   label: string;
-  icon: keyof typeof Icons;
+  icon: string;
 };
 
 type Props = {
@@ -17,7 +39,6 @@ type Props = {
 export default function SectionNav({ navigation }: Props) {
   const [activeId, setActiveId] = useState(navigation[0]?.id ?? "");
   const [visible, setVisible] = useState(false);
-
   const sectionEls = useRef<Record<string, HTMLElement | null>>({});
 
   useEffect(() => {
@@ -28,38 +49,25 @@ export default function SectionNav({ navigation }: Props) {
     sectionEls.current = map;
   }, [navigation]);
 
-  // Scroll spy
   useEffect(() => {
-    const NAV_OFFSET = 80; 
-
+    const NAV_OFFSET = 80;
     const onScroll = () => {
-      const viewportTop = NAV_OFFSET;
       const viewportBottom = window.innerHeight;
-
       let nextActive = activeId;
-
       for (const nav of navigation) {
         const el = sectionEls.current[nav.id];
         if (!el) continue;
-
         const rect = el.getBoundingClientRect();
-
-        const isVisible =
-          rect.top < viewportBottom && rect.bottom > viewportTop;
-
-        if (isVisible) {
+        if (rect.top < viewportBottom && rect.bottom > NAV_OFFSET) {
           nextActive = nav.id;
-          break; 
+          break;
         }
       }
-
       setActiveId(nextActive);
-      setVisible(window.scrollY > 300); // show nav after 300px scroll
+      setVisible(window.scrollY > 300);
     };
-
     window.addEventListener("scroll", onScroll);
     onScroll();
-
     return () => window.removeEventListener("scroll", onScroll);
   }, [navigation, activeId]);
 
@@ -69,8 +77,7 @@ export default function SectionNav({ navigation }: Props) {
     <div className="fixed top-0 z-50 w-full bg-black">
       <div className="flex overflow-x-auto whitespace-nowrap">
         {navigation.map((nav) => {
-          const Icon = Icons[nav.icon];
-
+          const Icon = iconMap[nav.icon];
           return (
             <Button
               key={nav.id}
@@ -78,19 +85,12 @@ export default function SectionNav({ navigation }: Props) {
               onClick={() => {
                 const el = sectionEls.current[nav.id];
                 if (!el) return;
-
-                window.scrollTo({
-                  top: el.offsetTop - 70, // adjust for sticky header
-                  behavior: "smooth",
-                });
+                window.scrollTo({ top: el.offsetTop - 70, behavior: "smooth" });
               }}
               className={`shrink-0 px-4 py-3 rounded-none flex items-center gap-2 ${
-                activeId === nav.id
-                  ? "bg-green-700 text-white"
-                  : "text-white"
+                activeId === nav.id ? "bg-green-700 text-white" : "text-white"
               }`}
             >
-              {/* @ts-expect-error type error */}
               {Icon && <Icon className="w-4 h-4" />}
               {nav.label}
             </Button>

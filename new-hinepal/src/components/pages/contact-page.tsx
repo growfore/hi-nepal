@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import z from "zod";
+
 import {
   LucideMail,
   LucideMapPin,
@@ -223,10 +224,7 @@ export function Form_Component({ packages }: { packages: TPackageDetails[] }) {
                         <FormItem className="w-full">
                           <FormLabel>Start Date *</FormLabel>
                           <FormControl>
-                            <Input
-                              type="date"
-                              {...field}
-                            />
+                            <Input type="date" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -362,9 +360,7 @@ export function Form_Component({ packages }: { packages: TPackageDetails[] }) {
                 </div> */}
 
                 <div className="bg-white rounded-xl shadow-lg p-6">
-                  <h5 className="font-bold text-xl mb-4">
-                    Reach Us
-                  </h5>
+                  <h5 className="font-bold text-xl mb-4">Reach Us</h5>
 
                   {/* Phone Section */}
                   <div className="flex items-center mb-4">
@@ -372,7 +368,9 @@ export function Form_Component({ packages }: { packages: TPackageDetails[] }) {
                       <LucidePhone color="green" className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-700 mb-1">Call us</p>
+                      <p className="font-semibold text-gray-700 mb-1">
+                        Call us
+                      </p>
                       <p className="text-gray-600 text-sm mb-0">
                         +977 9856035091
                       </p>

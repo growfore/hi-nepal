@@ -11,7 +11,7 @@ export const Navbar = async () => {
   await get({
     endPoint: endpoints.NAVBAR,
     token: "",
-    enableCaching: false,
+    enableCaching: true,
     success: (message: string, res: { data: TNavBar }) => {
       navData = res.data;
     },

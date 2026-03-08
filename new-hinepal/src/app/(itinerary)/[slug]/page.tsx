@@ -35,7 +35,13 @@ import { rubik } from "@/utils/fonts";
 import { cleanEditorHtml, unwrapSpans } from "@/utils/cleanEditorHtml";
 import PackageCard from "@/components/molecules/package-card";
 import { parseRankMathHead } from "@/helper/parse-rankmath";
-const ImageGallery = dynamicImport(() => import("@/components/iti-gallery"));
+import GallerySkeleton from "@/components/gallery-skeleton";
+
+const ImageGallery = dynamicImport(() => import("@/components/iti-gallery"), {
+  ssr: false,
+  loading: () => <GallerySkeleton />,
+});
+
 const TalkToExpertCard = dynamicImport(
   () => import("@/components/organisms/talk-to-expert-card"),
 );

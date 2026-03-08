@@ -1,11 +1,20 @@
 async function get(request: TRequest): Promise<void> {
-  const { endPoint, token, params, success, failure, enableCaching, nextOptions } = request;
+  const {
+    endPoint,
+    token,
+    params,
+    success,
+    failure,
+    enableCaching,
+    nextOptions,
+  } = request;
 
   let url = endPoint;
   if (params && Object.keys(params).length > 0) {
     const queryString = Object.keys(params)
       .map(
-        (key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
+        (key) =>
+          `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`,
       )
       .join("&");
     url = `${endPoint}?${queryString}`;

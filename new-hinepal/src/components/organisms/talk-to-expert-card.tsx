@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import TripAdvisorBadge from "@/components/molecules/trip-advisor-badge";
 import { Button } from "@/components/ui/button";
+import { siteData } from "@/constant/sitedata";
 
 const expertServices = [
   "Hassle Free Booking",
@@ -29,7 +30,7 @@ export default function TalkToExpertCard({
         <p className="text-xl font-bold">
           Mohan Prasad Subedi <br />
           <span className="text-sm font-semibold">
-            (20+ Years of Trusted Travel Experience)
+            ({siteData.experience} of Trusted Travel Experience)
           </span>
         </p>
       </div>
@@ -55,7 +56,10 @@ export default function TalkToExpertCard({
         href={`/booking?destination=${details.slug}`}
         className="w-full mb-2 hover:pointer-cursor flex gap-2 items-center justify-start py-1  rounded-xl transition-shadow duration-300 font-bold "
       >
-        <Button className="w-full bg-green-700 hover:bg-orange-600 cursor-pointer" size={"lg"}>
+        <Button
+          className="w-full bg-green-700 hover:bg-orange-600 cursor-pointer"
+          size={"lg"}
+        >
           Book Now
         </Button>
       </Link>

@@ -6,6 +6,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { siteData } from "@/constant/sitedata";
+import { GoogleReviewBadge } from "@/components/molecules/google-reveiw-badge";
 
 const STARS = [0, 1, 2, 3, 4];
 
@@ -39,7 +41,9 @@ export async function Footer() {
                   </Link>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="font-bold text-xl my-1">VAT NO. 604389161</span>
+                  <span className="font-bold text-xl my-1">
+                    VAT NO. 604389161
+                  </span>
                 </div>
                 <div className=" text-base leading-relaxed">
                   {siteInformation?.about?.description}
@@ -153,7 +157,7 @@ export async function Footer() {
                   <div className="flex flex-col items-left gap-1">
                     <p className="font-bold flex items-center gap-1">
                       <LucideVerified className="text-white" /> Recommended by
-                      100% of Travelers
+                      {siteData.reviews.tripAdvisor.recommendation} of Travelers
                     </p>
                     <div className="bg-white p-2 w-fit rounded-md">
                       <Image
@@ -171,12 +175,14 @@ export async function Footer() {
                           className="size-4 bg-green-500 rounded-full ml-1"
                         />
                       ))}
-                      <span className="ml-4"> Reviews: </span> 5/5 (123+
-                      Reviews)
+                      <span className="ml-4"> Reviews: </span>{" "}
+                      {siteData.reviews.tripAdvisor.rating}/5 (
+                      {siteData.reviews.tripAdvisor.reviewsCount}+ Reviews)
                     </div>
                   </div>
                 </div>
               </Link>
+              <GoogleReviewBadge />
             </div>
           </div>
         </div>

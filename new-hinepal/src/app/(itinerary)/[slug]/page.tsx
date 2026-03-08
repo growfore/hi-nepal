@@ -19,6 +19,7 @@ import {
   CloudSunRain,
   HomeIcon as House,
   MountainSnow,
+  LucideMapPin,
 } from "lucide-react";
 import { DataIcon } from "@/components/molecules/data-icon";
 import FAQSection from "@/components/organisms/itinerary-faq";
@@ -487,17 +488,26 @@ const Activities = async ({ params }: { params: Params }) => {
             )}
             {/* Itinerary Section */}
             {details.itenary && (
-              <div
-                id="itinerary"
-                dangerouslySetInnerHTML={{
-                  __html: unwrapSpans(cleanEditorHtml(details.itenary)),
-                }}
-                className={cn(
-                  sectionStyle,
-                  "prose marker:text-black marker:text-xl! max-w-none",
-                  "prose-h3:text-green-700!",
-                )}
-              ></div>
+              <>
+                <div className="size-8 flex flex-col items-center justify-center text-white p-2 bg-green-700 rounded-sm">
+                  <LucideMapPin />
+                </div>
+                <div
+                  id="itinerary"
+                  dangerouslySetInnerHTML={{
+                    __html: unwrapSpans(cleanEditorHtml(details.itenary)),
+                  }}
+                  className={cn(
+                    sectionStyle,
+                    "prose marker:text-black marker:text-xl! max-w-none",
+                    "prose-h3:text-green-700!",
+                    "border-l-3 pl-4 border-l-green-700 border-dotted",
+                  )}
+                />
+                <div className="size-8 flex flex-col items-center justify-center text-white p-2 bg-green-700 rounded-sm mb-12">
+                  <LucideMapPin />
+                </div>
+              </>
             )}
             {/* Call to Action */}
             <div className="flex flex-col bg-green-700  text-white p-4 rounded-sm gap-4">

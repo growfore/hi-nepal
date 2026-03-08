@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import endpoints from "@/constant/endpoints";
 import { get } from "@/utils/request-handler";
 import TrekkingCard from "@/components/molecules/TrekkingCard";

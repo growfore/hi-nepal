@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import BlogCard from "@/components/molecules/blog-card";
 import PageHeroSection from "@/components/page-hero-section";
 import { getBlogs } from "@/helper/getBlog";
@@ -31,7 +32,7 @@ export default async function BlogsPage({
   return (
     <main className="">
       <PageHeroSection
-      icon={LucideNewspaper}
+        icon={LucideNewspaper}
         title="Blogs"
         subtitle="
             Welcome to the Hi Nepal Travels and Treks Blog, where you can

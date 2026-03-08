@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import HLinkComp from "@/components/atoms/link-component";
 import PackageCard from "@/components/molecules/package-card";
 import endpoints from "@/constant/endpoints";

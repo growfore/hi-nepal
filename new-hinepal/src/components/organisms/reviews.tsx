@@ -5,9 +5,9 @@ import { reviews } from "@/constant/reviews";
 
 export default function ReviewsGroup() {
   return (
-    <div className="min-h-screen mb-12">
+    <div className="min-h-screen my-8">
       <h2 className="text-xl font-bold text-green-700 mb-8">
-        Customer Reviews
+        Customer Reviews (TripAdvisor)
       </h2>
       <div className="space-y-6">
         {reviews.map((review) => (

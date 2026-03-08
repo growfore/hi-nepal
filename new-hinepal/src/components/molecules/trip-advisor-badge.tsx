@@ -1,15 +1,14 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { siteData } from "@/constant/sitedata";
 
 const STARS = [0, 1, 2, 3, 4];
 
 export default function TripAdvisorBadge() {
   return (
     <Link
-      href={
-        "https://www.tripadvisor.com/Attraction_Review-g293891-d12268304-Reviews-Hi_Nepal_Travels_Treks-Pokhara_Gandaki_Zone_Western_Region.html"
-      }
+      href={siteData.reviews.tripAdvisor.link}
       target="_blank"
       className="w-full hover:pointer-cursor flex gap-2 items-center justify-center md:justify-start lg:justify-center  px-8 py-2 border border-gray-300 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
     >
@@ -21,12 +20,16 @@ export default function TripAdvisorBadge() {
       />
       <div className="border-l pl-2 border-gray-300 h-8 flex justify-center  flex-col">
         <div className="flex justify-center items-center gap-1">
-          <span className="ml-2 font-semibold text-sm flex">5.0</span>
+          <span className="ml-2 font-semibold text-sm flex">
+            {siteData.reviews.tripAdvisor.rating}/5
+          </span>
           {STARS.map((i) => (
-            <div key={i} className="bg-green-700 rounded-full w-4 h-4" />
+            <div key={i} className="bg-green-700 rounded-full size-2" />
           ))}
         </div>
-        <p className="ml-2 text-xs">115+ Reviews</p>
+        <span className="ml-2 text-xs">
+          {siteData.reviews.tripAdvisor.reviewsCount}+ Reviews
+        </span>
       </div>
       <Button
         size={"sm"}

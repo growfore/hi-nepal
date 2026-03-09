@@ -70,6 +70,7 @@ export async function generateMetadata({
   const slug = params.slug;
 
   const blog = await getBlogSingle(slug);
+
   if (blog) {
     const seo = parseRankMathHead(blog.rankMathHead);
     return {
@@ -388,7 +389,10 @@ const Activities = async ({ params }: { params: Params }) => {
                 <DataIcon
                   icon={Clock}
                   k="Duration"
-                  v={details.duration + " Days"}
+                  v={
+                    details.duration +
+                    (parseInt(details.duration) === 1 ? " Day" : " Days")
+                  }
                 />
               )}
               {details?.tripGrade && (

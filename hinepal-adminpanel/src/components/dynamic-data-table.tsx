@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo } from "react";
 import {
   Table,
   TableBody,
@@ -8,8 +8,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import { Input } from '@/components/ui/input';
+} from "@/components/ui/table";
+import { Input } from "@/components/ui/input";
 import {
   Pagination,
   PaginationContent,
@@ -17,15 +17,15 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from '@/components/ui/pagination';
-import { Button } from '@/components/ui/button';
-import { Search, ChevronUp, ChevronDown } from 'lucide-react';
-import { getCookie } from '@/utils/cookie-handler';
-import { useRouter } from 'next/navigation';
-import { DeleteModal } from './deletemodal';
-import { del } from '@/utils/request-helper';
-import toast from 'react-hot-toast';
-import Link from 'next/link';
+} from "@/components/ui/pagination";
+import { Button } from "@/components/ui/button";
+import { Search, ChevronUp, ChevronDown } from "lucide-react";
+import { getCookie } from "@/utils/cookie-handler";
+import { useRouter } from "next/navigation";
+import { DeleteModal } from "./deletemodal";
+import { del } from "@/utils/request-helper";
+import toast from "react-hot-toast";
+import Link from "next/link";
 
 interface DataTableProps {
   data: Record<string, any>[];
@@ -38,19 +38,19 @@ interface DataTableProps {
 
 export default function DynamicDataTable({
   data = [],
+  title,
   excludeColumns = [],
   pageSize = 10,
-  title,
   ENDPOINT,
   EDIT_NAME,
 }: DataTableProps) {
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const router = useRouter();
   const [sortConfig, setSortConfig] = useState<{
     key: string | null;
-    direction: 'ascending' | 'descending' | null;
+    direction: "ascending" | "descending" | null;
   }>({
     key: null,
     direction: null,
@@ -70,10 +70,10 @@ export default function DynamicDataTable({
         if (b[sortConfig.key!] === null) return -1;
 
         if (a[sortConfig.key!] < b[sortConfig.key!]) {
-          return sortConfig.direction === 'ascending' ? -1 : 1;
+          return sortConfig.direction === "ascending" ? -1 : 1;
         }
         if (a[sortConfig.key!] > b[sortConfig.key!]) {
-          return sortConfig.direction === 'ascending' ? 1 : -1;
+          return sortConfig.direction === "ascending" ? 1 : -1;
         }
         return 0;
       });
@@ -87,8 +87,8 @@ export default function DynamicDataTable({
 
     return sortedData.filter((item) =>
       Object.values(item).some((value) =>
-        String(value).toLowerCase().includes(searchTerm.toLowerCase())
-      )
+        String(value).toLowerCase().includes(searchTerm.toLowerCase()),
+      ),
     );
   }, [sortedData, searchTerm]);
 
@@ -102,12 +102,12 @@ export default function DynamicDataTable({
 
   // Request sort
   const requestSort = (key: string) => {
-    let direction: 'ascending' | 'descending' | null = 'ascending';
+    let direction: "ascending" | "descending" | null = "ascending";
 
     if (sortConfig.key === key) {
-      if (sortConfig.direction === 'ascending') {
-        direction = 'descending';
-      } else if (sortConfig.direction === 'descending') {
+      if (sortConfig.direction === "ascending") {
+        direction = "descending";
+      } else if (sortConfig.direction === "descending") {
         direction = null;
       }
     }
@@ -121,17 +121,17 @@ export default function DynamicDataTable({
       return null;
     }
 
-    return sortConfig.direction === 'ascending' ? (
-      <ChevronUp className='ml-1 h-4 w-4' />
-    ) : sortConfig.direction === 'descending' ? (
-      <ChevronDown className='ml-1 h-4 w-4' />
+    return sortConfig.direction === "ascending" ? (
+      <ChevronUp className="ml-1 h-4 w-4" />
+    ) : sortConfig.direction === "descending" ? (
+      <ChevronDown className="ml-1 h-4 w-4" />
     ) : null;
   };
 
   // Format cell value for display
   const formatCellValue = (value: any) => {
-    if (value === null || value === undefined) return '-';
-    if (typeof value === 'object') {
+    if (value === null || value === undefined) return "-";
+    if (typeof value === "object") {
       if (value instanceof Date) return value.toLocaleString();
       return JSON.stringify(value);
     }
@@ -142,7 +142,7 @@ export default function DynamicDataTable({
     setIsDeleting(true);
     await del({
       endPoint: `${ENDPOINT}/${id}`,
-      token: await getCookie('token'),
+      token: await getCookie("token"),
       success: (message, data) => {
         toast.success(message);
         setIsDeleting(false);
@@ -155,16 +155,15 @@ export default function DynamicDataTable({
     });
   };
   return (
-    <div className='border rounded-md m-4 bg-white p-4'>
-      <h1>{title} Table</h1>
-      <div className='w-full space-y-4'>
-        <div className='flex items-center justify-between'>
-          <div className='relative max-w-md w-full'>
-            <Search className='absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground' />
+    <div className="border rounded-md m-4 bg-white p-4">
+      <div className="w-full space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="relative max-w-md w-full">
+            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input
-              type='search'
-              placeholder='Search...'
-              className='pl-8'
+              type="search"
+              placeholder="Search..."
+              className="pl-8"
               value={searchTerm}
               onChange={(e) => {
                 setSearchTerm(e.target.value);
@@ -172,30 +171,32 @@ export default function DynamicDataTable({
               }}
             />
           </div>
-          <div className='text-sm text-muted-foreground'>
+          <div className="text-sm text-muted-foreground">
             {filteredData.length} items total
           </div>
         </div>
 
-        <div className='rounded-md border'>
+        <div className="rounded-md border">
           <Table>
             <TableHeader>
               <TableRow>
                 {columns.map((column) => (
                   <TableHead key={column}>
                     <Button
-                      variant='ghost'
-                      className='flex items-center p-0 font-medium'
-                      onClick={() => requestSort(column)}>
+                      variant="ghost"
+                      className="flex items-center p-0 font-medium"
+                      onClick={() => requestSort(column)}
+                    >
                       {column.charAt(0).toUpperCase() + column.slice(1)}
                       {getSortDirectionIcon(column)}
                     </Button>
                   </TableHead>
                 ))}
-                <TableHead key='actions'>
+                <TableHead key="actions">
                   <Button
-                    variant='ghost'
-                    className='flex items-center p-0 font-medium'>
+                    variant="ghost"
+                    className="flex items-center p-0 font-medium"
+                  >
                     Actions
                   </Button>
                 </TableHead>
@@ -212,20 +213,22 @@ export default function DynamicDataTable({
                     ))}
                     <TableCell
                       key={`${rowIndex}-actions`}
-                      className='flex justify-center w-fit'>
+                      className="flex justify-center w-fit"
+                    >
                       <Link
-                        href={`/${EDIT_NAME}/${row.slug || row.id}/edit` || '/'}
-                        className='bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md mr-2'>
+                        href={`/${EDIT_NAME}/${row.slug || row.id}/edit` || "/"}
+                        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md mr-2"
+                      >
                         Edit
                       </Link>
                       <DeleteModal
                         onDelete={() => {
                           handleDelete(row.id);
                         }}
-                        title='Delete Confirmation'
-                        description='Are you sure you want to delete this item? This action cannot be undone.'
+                        title="Delete Confirmation"
+                        description="Are you sure you want to delete this item? This action cannot be undone."
                         loading={isDeleting}
-                        triggerText='Delete'
+                        triggerText="Delete"
                       />
                     </TableCell>
                   </TableRow>
@@ -234,7 +237,8 @@ export default function DynamicDataTable({
                 <TableRow>
                   <TableCell
                     colSpan={columns.length}
-                    className='h-24 text-center'>
+                    className="h-24 text-center"
+                  >
                     No results found.
                   </TableCell>
                 </TableRow>
@@ -253,8 +257,8 @@ export default function DynamicDataTable({
                   }
                   className={
                     currentPage === 1
-                      ? 'pointer-events-none opacity-50'
-                      : 'cursor-pointer'
+                      ? "pointer-events-none opacity-50"
+                      : "cursor-pointer"
                   }
                 />
               </PaginationItem>
@@ -275,7 +279,8 @@ export default function DynamicDataTable({
                     <PaginationItem key={pageNum}>
                       <PaginationLink
                         onClick={() => setCurrentPage(pageNum)}
-                        isActive={currentPage === pageNum}>
+                        isActive={currentPage === pageNum}
+                      >
                         {pageNum}
                       </PaginationLink>
                     </PaginationItem>
@@ -291,8 +296,8 @@ export default function DynamicDataTable({
                   }
                   className={
                     currentPage === totalPages
-                      ? 'pointer-events-none opacity-50'
-                      : 'cursor-pointer'
+                      ? "pointer-events-none opacity-50"
+                      : "cursor-pointer"
                   }
                 />
               </PaginationItem>

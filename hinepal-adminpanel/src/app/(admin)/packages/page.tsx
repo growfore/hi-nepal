@@ -6,16 +6,17 @@ import {
   TableHeader,
   TableRow,
   Table,
-} from '@/components/ui/table';
-import { Button } from '@/components/ui/button';
-import type { TPackage } from '@/utils/type';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Delete } from '@/components/delete';
-import endpoints from '@/utils/endpoints';
-import { get } from '@/utils/request-helper';
-import SearchInput from './_components/SearchInput';
-import DynamicDataTable from '@/components/dynamic-data-table';
+} from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
+import type { TPackage } from "@/utils/type";
+import Image from "next/image";
+import Link from "next/link";
+import { Delete } from "@/components/delete";
+import endpoints from "@/utils/endpoints";
+import { get } from "@/utils/request-helper";
+import SearchInput from "./_components/SearchInput";
+import DynamicDataTable from "@/components/dynamic-data-table";
+import { LucidePlus } from "lucide-react";
 
 type TResponseData = {
   total: number;
@@ -35,8 +36,8 @@ export default async function PackagesPage({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const query = (searchParams.query as string) || '';
-  const page = Number.parseInt((searchParams.page as string) || '1', 10);
+  const query = (searchParams.query as string) || "";
+  const page = Number.parseInt((searchParams.page as string) || "1", 10);
   const offset = (page - 1) * ITEMS_PER_PAGE;
 
   let responseData: TResponseData | null = {} as TResponseData;
@@ -127,26 +128,31 @@ export default async function PackagesPage({
     //   </div>
     // );
     <>
-      <div className='p-4 pb-0'>
+      <div className="p-4 pb-0">
         <Link
-          href={'/packages/add'}
-          className='bg-blue-500 hover:bg-blue-600 text-white   px-4 py-2 rounded-md'>
+          href={"/packages/add"}
+          className="bg-blue-500 hover:bg-blue-600 text-white   px-4 py-2 rounded-md flex items-center gap-2 w-fit justify-self-end"
+        >
+          <LucidePlus />
           Add Package
         </Link>
       </div>
       <DynamicDataTable
-        data={responseData.packages?.map((post: any) => {
+        data={responseData.packages?.map((post: any, index) => {
           return {
-            id: post.id,
-            title: post.title,
-            description: post.description,
+            SN: index + 1,
+            title:
+              post.title.length > 50
+                ? post.title.substring(0, 50) + "..."
+                : post.title,
+            // description: post.description,
             slug: post.slug,
-           
+            ID: post.id,
           };
         })}
-        title='Packages'
+        title="Packages"
         ENDPOINT={endpoints.PACKAGES}
-        EDIT_NAME={'packages'}
+        EDIT_NAME={"packages"}
       />
     </>
   );

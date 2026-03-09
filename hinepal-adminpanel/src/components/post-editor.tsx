@@ -18,7 +18,7 @@ import { Card, CardFooter } from "@/components/ui/card";
 // import CustomCKEditor from './ck-editor';
 const CustomCKEditor = dynamic(
   () => import("./ck-editor").then((mod) => mod.default),
-  {}
+  {},
 );
 import SeoFields from "./seo-fields";
 import toast from "react-hot-toast";
@@ -34,6 +34,7 @@ import { TDestination } from "@/utils/schema";
 import InputField from "./inputs/inputfield";
 import { fetchData } from "@/helper/fetch-data";
 import form from "@/app/(admin)/destinations/form";
+import { cn } from "@/lib/utils";
 
 type PostData = {
   title: string | null;
@@ -147,7 +148,7 @@ export function PostEditorComponent({
   const [destinations, setDestinations] = useState<TDestination[]>([]);
   const router = useRouter();
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -232,11 +233,11 @@ export function PostEditorComponent({
     payload.append("sicknessAndSaftey", formData.sicknessAndSaftey || "");
     payload.append(
       "insuranceAndEmergency",
-      formData.insuranceAndEmergency || ""
+      formData.insuranceAndEmergency || "",
     );
     payload.append(
       "permitsAndRegulations",
-      formData.permitsAndRegulations || ""
+      formData.permitsAndRegulations || "",
     );
     payload.append("shortTrekInfo", formData.shortTrekInfo || "");
     payload.append("whyChooseThisPackage", formData.whyChooseThisPackage || "");
@@ -297,7 +298,14 @@ export function PostEditorComponent({
 
   return (
     <div className=" m-4 p-4 bg-white">
-      <h1>{initialData ? "Update Package" : "Create Package"}</h1>
+      <h1
+        className={cn(
+          "font-bold text-xl my-4",
+          initialData ? "text-orange-600" : "",
+        )}
+      >
+        {initialData ? `Editing: ${initialData.title}` : "Create Package"}
+      </h1>
       <div>
         <form onSubmit={handleSubmit} className="space-y-6" name="post-form">
           <div className="flex  items-center bg-slate-100 w-fit p-2 rounded-lg space-x-2">
@@ -306,14 +314,14 @@ export function PostEditorComponent({
               type="button"
               onClick={() => setWritingSeo(false)}
             >
-              Write Content
+              Content
             </Button>
             <Button
               disabled={writingSeo}
               type="button"
               onClick={() => setWritingSeo(true)}
             >
-              Write SEO
+              SEO
             </Button>
           </div>
           {!writingSeo && (
@@ -321,13 +329,13 @@ export function PostEditorComponent({
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {" "}
                 <div className="space-y-2">
-                  <Label htmlFor="title">Title</Label>
+                  <Label htmlFor="title">Package Name (H1)</Label>
                   <Input
                     id="title"
                     name="title"
                     value={formData.title || ""}
                     onChange={handleInputChange}
-                    placeholder="Enter post title"
+                    placeholder="Package Name"
                   />
                 </div>
                 <div className="space-y-2">
@@ -337,21 +345,21 @@ export function PostEditorComponent({
                     name="slug"
                     value={formData.slug}
                     onChange={handleInputChange}
-                    placeholder="Enter post slug"
+                    placeholder="package-slug"
                   />
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {" "}
                 <div className="space-y-2">
-                  <Label htmlFor="destinationId">destination ID</Label>
+                  <Label htmlFor="destinationId">Destination</Label>
                   <Select
                     onValueChange={(e) =>
                       setFormData({ ...formData, destinationId: Number(e) })
                     }
                   >
                     <SelectTrigger>
-                      <SelectValue placeholder="Select an activity"></SelectValue>
+                      <SelectValue placeholder="Select Destination"></SelectValue>
                     </SelectTrigger>
                     <SelectContent>
                       {destinations?.map((destinations, index) => (
@@ -373,17 +381,17 @@ export function PostEditorComponent({
                   /> */}
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="videoLink">video Link</Label>
+                  <Label htmlFor="videoLink">Video Link</Label>
                   <Input
                     id="videoLink"
                     name="videoLink"
                     value={formData.videoLink || ""}
                     onChange={handleInputChange}
-                    placeholder="Enter post videoLink"
+                    placeholder="Enter Video Link, eg. https://www.youtube.com/watch?v=8"
                   />
                 </div>
               </div>
-              <div className="space-y-2">
+              {/*<div className="space-y-2">
                 <Label htmlFor="description">Description</Label>
                 <Textarea
                   id="description"
@@ -393,6 +401,7 @@ export function PostEditorComponent({
                   placeholder="Enter post description"
                 />
               </div>
+              */}
               {/* content sections  */}
               {/* TAB BUTTON GROP */}
               <section>

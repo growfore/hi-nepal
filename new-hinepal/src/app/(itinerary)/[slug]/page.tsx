@@ -126,15 +126,16 @@ export async function generateMetadata({
       },
       referrer: "origin-when-cross-origin",
       openGraph: {
-        title: destination?.seo?.metaTitle || destination?.title,
+        title: destination?.package?.seo?.metaTitle || destination?.title,
         description:
-          destination?.seo?.metaDescription || destination?.description,
+          destination?.package?.seo?.metaDescription ||
+          destination?.description,
         images: [
           {
-            url: destination?.seo?.metaImage || destination?.image,
+            url: destination?.package?.seo?.metaImage || destination?.image,
             width: 800,
             height: 600,
-            alt: destination?.title,
+            alt: destination?.package?.title,
           },
         ],
       },

@@ -28,9 +28,9 @@ const BlogHome = dynamic(() => import("@/components/pages/blogs"), {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "#1 Best Travel and Trekking Agency in Pokhara, Nepal",
+    title: "#1 Trekking Agency in Pokhara | 2026 Nepal, Tibet & Bhutan",
     description:
-      "Hi Nepal is a premier trekking agency in Pokhara offering expert-led tours to Everest & Annapurna. Experience Nepal, Tibet & Bhutan with a trusted local agency.",
+      "Hi Nepal: Pokhara’s #1 agency for 2026 adventures. Book expert-led treks & cultural tours in Nepal, Tibet & Bhutan. Local guides, 5-star safety & custom trips.",
     alternates: {
       canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/",
     },

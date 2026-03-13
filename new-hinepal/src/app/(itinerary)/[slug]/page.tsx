@@ -327,15 +327,7 @@ const Activities = async ({ params }: { params: Params }) => {
         ></Script>
       )}
       <>
-        <div className="container mx-auto px-4">
-          <div
-            className={`container py-1 md:py-4 text-left ${rubik.className}!`}
-          >
-            <h1 className="text-2xl md:text-3xl lg:4xl font-extrabold leading-tight">
-              {details.title}
-            </h1>
-            <TrustBadge />
-          </div>
+        <div className="container mx-auto px-4 mt-4">
           {details?.media?.length > 1 && <ImageGallery images={allImages} />}
           <div className="relative w-full max-w-[1920px] mx-auto overflow-hidden rounded-sm">
             {details?.media?.length < 1 && (
@@ -357,6 +349,12 @@ const Activities = async ({ params }: { params: Params }) => {
     "
               />
             )}
+          </div>
+          <div className={`container md:text-left ${rubik.className}!`}>
+            <h1 className="text-2xl md:text-3xl lg:4xl font-extrabold leading-tight">
+              {details.title}
+            </h1>
+            <TrustBadge />
           </div>
         </div>
         {/* @ts-ignore */}

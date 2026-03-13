@@ -34,6 +34,29 @@ export function EmailTemplate({
         New Inquiry from {firstName} for{" "}
         <b> {destination.split("-").join(" ").toUpperCase()}</b>
       </h1>
+      <p
+        style={{
+          color: "#4b5563",
+          fontSize: "16px",
+          lineHeight: "1.6",
+          marginBottom: "20px",
+        }}
+      >
+        A new inquiry has been submitted through the Hi Nepal Treks website
+        contact form.
+      </p>
+      <div
+        style={{
+          background: "#0969DA",
+          color: "#fff",
+          padding: "10px",
+          borderRadius: "4px",
+          marginBottom: "20px",
+        }}
+      >
+        ⚠️ To reply to this inquiry, please click the email address below or
+        copy it into your reply.
+      </div>
 
       <div
         style={{

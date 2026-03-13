@@ -28,7 +28,7 @@ const BlogHome = dynamic(() => import("@/components/pages/blogs"), {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "#1 Trekking Agency in Pokhara | 2026 Nepal, Tibet & Bhutan",
+    title: "Best Trekking Agency in Pokhara - Hi Nepal Travels & Treks",
     description:
       "Hi Nepal: Pokhara’s #1 agency for 2026 adventures. Book expert-led treks & cultural tours in Nepal, Tibet & Bhutan. Local guides, 5-star safety & custom trips.",
     alternates: {

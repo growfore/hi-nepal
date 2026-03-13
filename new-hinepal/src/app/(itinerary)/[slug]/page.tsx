@@ -35,6 +35,8 @@ import { cleanEditorHtml, unwrapSpans } from "@/utils/cleanEditorHtml";
 import PackageCard from "@/components/molecules/package-card";
 import { parseRankMathHead } from "@/helper/parse-rankmath";
 import GallerySkeleton from "@/components/gallery-skeleton";
+import { ExpertCardSkeleton } from "@/components/expert-card-skeleton";
+import TrustBadgeSkeleton from "@/components/trust-badge-skeleton";
 
 const ImageGallery = dynamicImport(() => import("@/components/iti-gallery"), {
   ssr: false,
@@ -43,8 +45,12 @@ const ImageGallery = dynamicImport(() => import("@/components/iti-gallery"), {
 
 const TalkToExpertCard = dynamicImport(
   () => import("@/components/organisms/talk-to-expert-card"),
-  { ssr: false },
+  {
+    ssr: false,
+    loading: () => <ExpertCardSkeleton />,
+  },
 );
+
 const CustomizeTrip = dynamicImport(
   () => import("@/components/organisms/customize-my-trip"),
   { ssr: false },
@@ -59,7 +65,7 @@ const ReviewsGroup = dynamicImport(
 );
 const TrustBadge = dynamicImport(
   () => import("@/components/molecules/trust-badge"),
-  { ssr: false },
+  { ssr: false, loading: () => <TrustBadgeSkeleton /> },
 );
 
 export async function generateMetadata({

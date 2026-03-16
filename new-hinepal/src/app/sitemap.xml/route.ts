@@ -17,9 +17,17 @@ export async function GET() {
 
   // return cached sitemap when valid
   if (cachedSitemap && Date.now() - cachedAt < SITEMAP_TTL_MS) {
-    console.log("sitemap: returning cached sitemap (age_ms)", Date.now() - cachedAt, "links", (cachedSitemap.match(/<url>/g) || []).length);
+    console.log(
+      "sitemap: returning cached sitemap (age_ms)",
+      Date.now() - cachedAt,
+      "links",
+      (cachedSitemap.match(/<url>/g) || []).length,
+    );
     return new NextResponse(cachedSitemap, {
-      headers: { "Content-Type": "application/xml", "Cache-Control": `public, max-age=${SITEMAP_TTL_MS / 1000}` },
+      headers: {
+        "Content-Type": "application/xml",
+        "Cache-Control": `public, max-age=${SITEMAP_TTL_MS / 1000}`,
+      },
     });
   }
 
@@ -84,7 +92,7 @@ export async function GET() {
         { url: "/blogs", changefreq: "daily", priority: 0.7 },
         { url: "/booking", changefreq: "monthly", priority: 0.7 },
         { url: "/privacy-policy", changefreq: "monthly", priority: 0.7 },
-        { url: "/terms-and-conditions", changefreq: "monthly", priority: 0.7 }
+        { url: "/terms-and-conditions", changefreq: "monthly", priority: 0.7 },
       );
 
       // Create a stream to write the sitemap
@@ -92,16 +100,27 @@ export async function GET() {
 
       // Convert the stream into a promise
       const sitemap = await streamToPromise(
-        Readable.from(links).pipe(stream)
+        Readable.from(links).pipe(stream),
       ).then((data) => data.toString());
 
       // cache and return
       cachedSitemap = sitemap;
       cachedAt = Date.now();
       generatingPromise = null;
-      console.log("sitemap: generated", "links", links.length, "ms", Date.now() - cachedAt);
+      console.log(
+        "sitemap: generated",
+        "links",
+        links.length,
+        "ms",
+        Date.now() - cachedAt,
+      );
 
-      return new NextResponse(sitemap, { headers: { "Content-Type": "application/xml", "Cache-Control": `public, max-age=${SITEMAP_TTL_MS / 1000}` } });
+      return new NextResponse(sitemap, {
+        headers: {
+          "Content-Type": "application/xml",
+          "Cache-Control": `public, max-age=${SITEMAP_TTL_MS / 1000}`,
+        },
+      });
     } catch (error: any) {
       generatingPromise = null;
       throw new Error("Failed to generate Sitemap: " + String(error));
@@ -110,4 +129,3 @@ export async function GET() {
 
   return generatingPromise;
 }
-

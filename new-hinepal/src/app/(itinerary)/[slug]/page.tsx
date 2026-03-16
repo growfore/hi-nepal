@@ -605,6 +605,20 @@ const Activities = async ({ params }: { params: Params }) => {
                 )}
               ></div>
             )}
+            {details.videoLink && (
+              <>
+                <h2 className="py-4">
+                  {details.title.split(":")[0]} YouTube Video
+                </h2>
+                <iframe
+                  width="100%"
+                  height="420"
+                  src={details.videoLink}
+                  title={`${details.title.split(":")[0]} YouTube video player`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                />
+              </>
+            )}
             {/* Customize Trip */}
             <CustomizeTrip packageName={details?.title?.split(":")[0]} />
             {/* Seasons */}

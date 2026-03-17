@@ -339,6 +339,7 @@ const Activities = async ({ params }: { params: Params }) => {
             {details?.media?.length < 1 && (
               <Image
                 priority
+                fetchPriority="high"
                 placeholder="blur"
                 blurDataURL={placeholderImage}
                 src={details?.banner}

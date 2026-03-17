@@ -26,6 +26,8 @@ export default function ImageGallery({ images }: { images: any[] }) {
             <Image
               src={images[0]}
               placeholder="blur"
+              priority
+              fetchPriority="high"
               blurDataURL={placeholderImage}
               alt={"Gallery Image 1"}
               fill

@@ -53,7 +53,7 @@ export function DesktopNav({ navBar }: { navBar: TNavBar }) {
           Transport
           <ChevronDown className="size-4" />
         </button>
-        
+
         <div className="hidden group-hover:block absolute top-full left-1/2 -translate-x-1/2 pt-4 z-50">
           <div className="bg-white shadow-lg border border-gray-200 rounded-md p-6 min-w-[250px]">
             <ul className="flex flex-col gap-3">
@@ -86,10 +86,16 @@ export function DesktopNav({ navBar }: { navBar: TNavBar }) {
         </div>
       </div>
 
-      <Link  href="/adventure" className="font-bold uppercase hover:text-green-700">
+      <Link
+        href="/adventure-activities-nepal"
+        className="font-bold uppercase hover:text-green-700"
+      >
         Adventure
       </Link>
-      <Link href="/about-us" className="font-bold uppercase hover:text-green-700">
+      <Link
+        href="/about-us"
+        className="font-bold uppercase hover:text-green-700"
+      >
         About Us
       </Link>
     </div>

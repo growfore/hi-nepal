@@ -63,7 +63,7 @@ export default async function SitemapPage() {
           <Link
             title="go to adventure page"
             className={hoverStyle}
-            href={`${baseUrl}/adventure`}
+            href={`${baseUrl}/adventure-activities-nepal`}
           >
             Adventures
           </Link>
@@ -161,4 +161,3 @@ export default async function SitemapPage() {
     </div>
   );
 }
-

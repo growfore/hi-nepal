@@ -33,11 +33,7 @@ export function MobileNav({ navBar }: { navBar: TNavBar }) {
 
                 <AccordionContent className="pl-2">
                   {activity.destinations.map((destination) => (
-                    <Accordion
-                      key={destination.slug}
-                      type="single"
-                      collapsible
-                    >
+                    <Accordion key={destination.slug} type="single" collapsible>
                       <AccordionItem
                         value={destination.slug}
                         className="border-b-0"
@@ -85,18 +81,18 @@ export function MobileNav({ navBar }: { navBar: TNavBar }) {
 
           {/* Static links */}
           {[
-            { href: "/adventure", label: "Adventures" },
+            { href: "/adventure-activities-nepal", label: "Adventures" },
             { href: "/about-us", label: "About Us" },
             { href: "/air-ticket-booking-nepal", label: "Flight Ticket" },
-            { href: "/helicopter-rescue-flights-nepal", label: "Rescue Flights" },
+            {
+              href: "/helicopter-rescue-flights-nepal",
+              label: "Rescue Flights",
+            },
             { href: "/vehicle-rent", label: "Vehicle Rent" },
             { href: "/blogs", label: "Blogs" },
           ].map(({ href, label }) => (
             <SheetClose asChild key={href}>
-              <Link
-                href={href}
-                className="uppercase font-bold text-lg py-2"
-              >
+              <Link href={href} className="uppercase font-bold text-lg py-2">
                 {label}
               </Link>
             </SheetClose>

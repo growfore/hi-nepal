@@ -712,6 +712,12 @@ const nextConfig = {
         permanent: true,
         statusCode: 301,
       },
+      {
+        source: "/adventure",
+        destination: "/adventure-activities-nepal",
+        permanent: true,
+        statusCode: 301,
+      },
     ];
   },
   async rewrites() {

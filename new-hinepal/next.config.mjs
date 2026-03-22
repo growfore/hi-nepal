@@ -718,6 +718,11 @@ const nextConfig = {
         permanent: true,
         statusCode: 301,
       },
+      {
+        source: "https://hinepaltreks.com/height-of-everest-base-camp",
+        destination: "https://hinepaltreks.com/height-of-everest-base-camp",
+        statusCode: 301,
+      },
     ];
   },
   async rewrites() {

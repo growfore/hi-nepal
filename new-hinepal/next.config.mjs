@@ -719,8 +719,8 @@ const nextConfig = {
         statusCode: 301,
       },
       {
-        source: "https://hinepaltreks.com/height-of-everest-base-camp",
-        destination: "https://hinepaltreks.com/height-of-everest-base-camp",
+        source: "/height-of-everest-base-camp",
+        destination: "/everest-base-camp-elevation",
         statusCode: 301,
       },
     ];

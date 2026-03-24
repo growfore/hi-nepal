@@ -341,6 +341,7 @@ const Activities = async ({ params }: { params: Params }) => {
                 priority
                 fetchPriority="high"
                 placeholder="blur"
+                loading="eager"
                 blurDataURL={placeholderImage}
                 src={details?.banner}
                 alt={details?.bannerImageAlt || details?.title}
@@ -349,11 +350,13 @@ const Activities = async ({ params }: { params: Params }) => {
                 height={1080}
                 className="w-full h-auto rounded-sm object-contain"
                 sizes="
-      (max-width: 1920px) 100vw,
-      (max-width: 1280px) 90vw,
-      (max-width: 1536px) 80vw,
-      70vw
-    "
+                  (max-width: 640px) 100vw,
+                  (max-width: 768px) 100vw,
+                  (max-width: 1024px) 100vw,
+                  (max-width: 1280px) 90vw,
+                  (max-width: 1536px) 85vw,
+                  1920px
+                "
               />
             )}
           </div>

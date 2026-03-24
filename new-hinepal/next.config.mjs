@@ -6,7 +6,6 @@ const bundleAnalyzer = withBundleAnalyzer({
 });
 
 const nextConfig = {
-  compress: false,
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ["lucide-react", "lodash", "zod"],

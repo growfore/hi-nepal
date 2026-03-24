@@ -723,6 +723,11 @@ const nextConfig = {
         destination: "/everest-base-camp-elevation",
         statusCode: 301,
       },
+      {
+        source: "/manaslu-circuit-vs-annapurna-circuit-trek",
+        destination: "/manaslu-vs-annapurna-circuit",
+        statusCode: 301,
+      },
     ];
   },
   async rewrites() {
